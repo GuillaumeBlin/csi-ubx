@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Application\Block\KeyNumbers;
+namespace Application\Block\CSIUbx;
 
 use DOMDocument;
 use Concrete\Core\Block\BlockController;
@@ -14,19 +14,19 @@ use \Concrete\Core\Entity\Attribute\Value\Value\SelectValueOption;
 class Controller extends BlockController
 {
 
-    protected $btTable = "btKeyNumbers";
+    protected $btTable = "btCSIUbx";
     protected $btInterfaceWidth = "350";
     protected $btInterfaceHeight = "240";
     protected $btDefaultSet = 'basic';
     
     public function getBlockTypeName()
     {
-        return 'Key Numbers';
+        return 'CSI UBx';
     }
 
     public function getBlockTypeDescription()
     {
-        return t('A simple block displaying key numbers informations');
+        return t('A simple block displaying CSI report form');
     }
 
     public function validate($args)
