@@ -1,18 +1,18 @@
-# KeyNumbers concrete 5 block
+# csi concrete 5 block
 
-This block type allow to display key numbers into the content of the block
+This block type allow to display CSI (comité de suivi individuel) annual meeting report form into the content of the block
 
 ## Installation
 
-- Clone the repository into `application/blocks/keynumbers` directory 
-- Make it readable by your webserver : `chown -R www-data:www-data application/blocks/keynumbers`
+- Clone the repository into `application/blocks/csi-ubx` directory 
+- Make it readable by your webserver : `chown -R www-data:www-data application/blocks/csi-ubx`
 - Go in your concrete 5 `Dashboard / Stacks & Blocks / Block Types`
-- A new block type installation called `KeyNumbers` should pop up
+- A new block type installation called `csi-ubx` should pop up
 - Proceed to installation by clicking on `install` button
 
-A new Block type called `KeyNumbers` should now be available in `basic` section 
+A new Block type called `csi-ubx` should now be available in `basic` section 
 
 ## Using a block
 
-- Add a KeyNumbers block to your page
+- Add a csi-ubx block to your page
 - Parameter what you want to appear
