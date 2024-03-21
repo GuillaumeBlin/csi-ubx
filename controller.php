@@ -208,9 +208,10 @@ class Controller extends BlockController
     {
         $students = $this->retrieve_json();
         $students = $students["data"][0];
-        echo "<pre>" . var_export($students, true) . "</pre>";
-        foreach ($students as &$value) {
-            $value = $this->array_extract($value, [
+        $student="";
+        foreach ($students as $value) {
+            if($value["Matricule_etudiant"]==$mat){
+                $student = $this->array_extract($value, [
                 "Matricule_etudiant",
                 "civilite",
                 "nom",
@@ -230,33 +231,18 @@ class Controller extends BlockController
                 "these_cotutelle_pays",
                 "these_laboratoire",
                 "these_specialite"
-            ]);
+                ]);
+                break;
+            }
         }
+        
+        echo "<pre>" . var_export($student, true) . "</pre>";
 
-        usort($students, array($this, 'students_sorter'));
-
-        $byGroup = $this->group_by("these_ED_code", $students);
-        foreach ($byGroup as &$valueByED) {
-            $valueByED = $this->group_by("these_specialite", $valueByED);
-        }
-
-        //echo "<pre>" . var_export($byGroup, true) . "</pre>";
-
-        if (!array_key_exists($this->ed, $byGroup)) {
-                echo "Aucun étudiant inscrit et aucune étudiante inscrite dans cette école doctorale.";
+        if (!$student) {
+                echo "Aucun étudiant ou aucune étudiante correpsondant.";
             
         } else {
-                $valueByED = $byGroup[$this->ed];
-                
-                foreach ($valueByED as $keyBySpeciality => $valueBySpeciality) {
-                    echo "<h3>" . $keyBySpeciality . "</h3>";
-                    echo "<ul>";
-                    foreach ($valueBySpeciality as $student) {
-                        $this->display_report_content($student);
-                    }
-                    echo "</ul>";
-                }
-            
+                $this->display_report_content($student);             
         }
     }
 
