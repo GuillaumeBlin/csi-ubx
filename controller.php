@@ -358,7 +358,7 @@ class Controller extends BlockController
         }
         
         echo "<pre>" . var_export($student, true) . "</pre>";
-
+        echo $user;
         if (!$student) {
                 echo "Aucun étudiant ou aucune étudiante correpsondant.";
             
