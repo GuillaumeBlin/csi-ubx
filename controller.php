@@ -21,10 +21,14 @@ class Controller extends BlockController
     
     private function enc($data){
         $cipher = "aes-128-gcm";
-        $ivlen = openssl_cipher_iv_length($cipher);
-        $iv = openssl_random_pseudo_bytes($ivlen);
-        $ciphertext = openssl_encrypt($data, $cipher, $this->sKey, $options=0, $iv, $tag);
-        return base64_encode( $iv.$ciphertext );
+        $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipher));
+
+// Encrypt the data
+$encrypted = openssl_encrypt($data, $cipher, $this->key, 0, $iv);
+
+// Concatenate the IV and the encrypted data
+$encrypted = base64_encode($iv.$encrypted);
+return $encrypted;
 //        $ciphertext = openssl_encrypt($data, 'aes-256-gcm', $this->sKey, OPENSSL_RAW_DATA, $this->fKey, $tag, '', 16);
 //        return base64_encode($ciphertext . $tag);
     }
@@ -32,12 +36,15 @@ class Controller extends BlockController
     
     private function dec( $ciphertext){
 
-        $c = base64_decode($ciphertext);
-        $ivlen = openssl_cipher_iv_length("aes-128-gcm");
-        $iv = substr($c, 0, $ivlen);
-        $ciphertext_raw = substr($c, $ivlen);
-        $original_plaintext = openssl_decrypt($ciphertext_raw, "aes-128-gcm", $this->sKey, $options=0, $iv, $tag);
-return $original_plaintext;
+        $encrypted = base64_decode($ciphertext);
+        $cipher = "aes-128-gcm";
+// Extract the IV and the encrypted data
+$iv = substr($encrypted, 0, openssl_cipher_iv_length($cipher));
+$encrypted = substr($encrypted, openssl_cipher_iv_length($cipher));
+
+// Decrypt the data
+$decrypted = openssl_decrypt($encrypted, $$cipher, $this->key, 0, $iv);
+return $decrypted;
 /*
         $ciphertext = base64_decode($ciphertext);
         $authTag = substr($ciphertext, -16);
