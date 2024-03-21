@@ -25,7 +25,7 @@ class Controller extends BlockController
         $ciphertext_raw = openssl_encrypt($data, $cipher, $this->sKey, $options=OPENSSL_RAW_DATA, $iv);
         $hmac = hash_hmac('sha256', $ciphertext_raw, $this->sKey, $as_binary=true);
         $ciphertext = base64_encode( $iv.$hmac.$ciphertext_raw );
-        return htmlspecialchars(urlencode($ciphertext));
+        return $ciphertext;
 //        $ciphertext = openssl_encrypt($data, 'aes-256-gcm', $this->sKey, OPENSSL_RAW_DATA, $this->fKey, $tag, '', 16);
 //        return base64_encode($ciphertext . $tag);
     }
