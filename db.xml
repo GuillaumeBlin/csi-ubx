@@ -8,6 +8,9 @@
 			<unsigned />
 			<key />
 		</field>
+		<field name="secreteValue" type="text">
+			<default value="" />
+		</field>
 		<field name="nbMaxPerRow" type="integer">
 			<unsigned />
 			<default value="3" />
