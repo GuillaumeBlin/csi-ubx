@@ -49,6 +49,7 @@ class Controller extends BlockController
         $first_encrypted = substr($mix,$iv_length+64);
                     
         $data = openssl_decrypt($first_encrypted,$this->method,$first_key,OPENSSL_RAW_DATA,$iv);
+        echo $data;
         $second_encrypted_new = hash_hmac('sha3-512', $first_encrypted, $second_key, TRUE);
             
         if (hash_equals($second_encrypted,$second_encrypted_new))
