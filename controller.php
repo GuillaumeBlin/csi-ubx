@@ -363,7 +363,7 @@ class Controller extends BlockController
                 echo "Aucun étudiant ou aucune étudiante correpsondant.";
             
         } else {
-                if($user=="PhD"){
+                if($user=="CSI"){//PhD
                     $this->display_phd_report_content($student);             
                 }
                 if($user=="DT"){
