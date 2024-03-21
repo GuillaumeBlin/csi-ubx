@@ -108,6 +108,8 @@ return '';
 
     private function user_view(){
         echo "user<br/>";
+        echo "<pre>".$this->sKey."</pre><br/>";
+
         echo $this->dec($_REQUEST["code"]);
         echo "ici:".$_REQUEST["code"];
     }
