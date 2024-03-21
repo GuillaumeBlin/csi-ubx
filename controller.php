@@ -152,7 +152,7 @@ class Controller extends BlockController
     private function display_list()
     {
         $students = $this->retrieve_json();
-        var_dump($strudents);
+        var_dump($students);
         $students = $students["data"][0];
         foreach ($students as &$value) {
             $value = $this->array_extract($value, [
