@@ -2,7 +2,7 @@
 
 $codes = array(""=>"CED","41" => "ED Droit", "42" => "ED Entreprise Economie Société", "40" => "ED Sciences Chimiques", "154" => "ED Sciences de la Vie et de la Santé", "304" => "ED Sciences et environnements", "209" => "ED Sciences Physiques et de l'Ingénieur", "545" => "ED Sociétés, Politique, Santé Publique", "39" => "ED Mathématiques et Informatique");
 
-if(empty($key)) $key='';
+if(empty($sKey)) $sKey='';
 if(empty($admin)) $admin='False';
 if(empty($ed)) $ed=null;
 
@@ -10,8 +10,8 @@ if(empty($ed)) $ed=null;
 
 
 <div class="form-group">
-	<label class="control-label" for="key">Clé secrète d'encryptage (une fois changée, les URLs générées préalablement ne seront plus bonnes)</label>
-	<input type="text" name="key" class="ccm-input-text" value="<?php echo $key; ?>" />
+	<label class="control-label" for="sKey">Clé secrète d'encryptage (une fois changée, les URLs générées préalablement ne seront plus bonnes)</label>
+	<input type="text" name="sKey" class="ccm-input-text" value="<?php echo $sKey; ?>" />
 	<br/>
 	<label class="control-label" for="filter">ED <sup class="fas fa-asterisk"></sup></label>
 	<select id="ed" name="d" class="ccm-input-select">
