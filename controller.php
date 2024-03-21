@@ -78,6 +78,18 @@ class Controller extends BlockController
     /* DISPLAY functions */
 
     
+    private function display_links($defense)
+    {
+        echo "<li>".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"];
+            echo "<ul><li>".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-PhD")));
+            echo " -&gt; ".$defense["mail_principal"]. " (".$defense["mail_secondaire"].")</li>";
+            echo "<li>".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-DT"))); 
+            echo " -&gt; ".$defense["these_directeur_these_mail"]."</li>";
+            echo "<li>".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-CSI"))); 
+            echo " -&gt; CSI </li></ul>";            
+        echo "</li>";
+    }
+
     private function display_annu($defense)
     {
         $year = (int)$defense["niveau_Etud"][0];
@@ -151,7 +163,6 @@ class Controller extends BlockController
     /*Phd students*/
     private function display_list()
     {
-        echo $this->ed;
         $students = $this->retrieve_json();
         $students = $students["data"][0];
         foreach ($students as &$value) {
@@ -185,7 +196,7 @@ class Controller extends BlockController
             $valueByED = $this->group_by("these_specialite", $valueByED);
         }
 
-        echo "<pre>" . var_export($byGroup, true) . "</pre>";
+        //echo "<pre>" . var_export($byGroup, true) . "</pre>";
 
         if (!array_key_exists($this->ed, $byGroup)) {
                 echo "Aucun étudiant inscrit et aucune étudiante inscrite dans cette école doctorale.";
@@ -197,7 +208,7 @@ class Controller extends BlockController
                     echo "<h3>" . $keyBySpeciality . "</h3>";
                     echo "<ul>";
                     foreach ($valueBySpeciality as $student) {
-                        $this->display_annu($student);
+                        $this->display_links($student);
                     }
                     echo "</ul>";
                 }
@@ -240,12 +251,7 @@ class Controller extends BlockController
 
     private function admin_view(){     
         $this->display_list() ;
-        echo "CSI: ".htmlspecialchars(urlencode($this->enc("admin-161850-CSI")))."<br/>";
-        echo $this->dec($this->enc("admin-161850-CSI"))."<br/>";
-        echo "DT: ".htmlspecialchars(urlencode($this->enc("admin-161850-DT")))."<br/>";
-        echo $this->dec($this->enc("admin-161850-DT"))."<br/>";
-        echo "PhD: ".htmlspecialchars(urlencode($this->enc("admin-161850-PhD")))."<br/>";
-        echo $this->dec($this->enc("admin-161850-PhD"))."<br/>";
+        
     }
 
     private function user_view(){
