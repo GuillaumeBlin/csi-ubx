@@ -22,49 +22,20 @@ class Controller extends BlockController
     private function enc($data){
         $cipher = "AES-256-CBC";
         $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipher));
-
-// Encrypt the data
-$encrypted = openssl_encrypt($data, $cipher, $this->key, 0, $iv,$tag);
-
-// Concatenate the IV and the encrypted data
-$encrypted = base64_encode($iv.$encrypted);
-return $encrypted;
-//        $ciphertext = openssl_encrypt($data, 'aes-256-gcm', $this->sKey, OPENSSL_RAW_DATA, $this->fKey, $tag, '', 16);
-//        return base64_encode($ciphertext . $tag);
+        $encrypted = openssl_encrypt($data, $cipher, $this->key, 0, $iv,$tag);
+        $encrypted = base64_encode($iv.$encrypted);
+        return $encrypted;
     }
 
     
     private function dec( $ciphertext){
-
         $encrypted = base64_decode($ciphertext);
         $cipher = "AES-256-CBC";
-// Extract the IV and the encrypted data
-$iv = substr($encrypted, 0, openssl_cipher_iv_length($cipher));
-$encrypted = substr($encrypted, openssl_cipher_iv_length($cipher));
-
-// Decrypt the data
-$decrypted = openssl_decrypt($encrypted, $cipher, $this->key, 0, $iv,$tag);
-return $decrypted;
-/*
-        $ciphertext = base64_decode($ciphertext);
-        $authTag = substr($ciphertext, -16);
-        $tagLength = strlen($authTag);
-    
-        if ($tagLength > 16 || ($tagLength < 12 && $tagLength !== 8 && $tagLength !== 4)) {
-            return '';
-        }
-    
-        $plaintext = openssl_decrypt(substr($ciphertext, 0, -16), 'aes-256-gcm', $this->sKey, OPENSSL_RAW_DATA, $this->fKey, $authTag, '');
-    
-        if (false === $plaintext) {
-            return '';
-        }
-    
-        return $plaintext;
-        */
+        $iv = substr($encrypted, 0, openssl_cipher_iv_length($cipher));
+        $encrypted = substr($encrypted, openssl_cipher_iv_length($cipher));
+        $decrypted = openssl_decrypt($encrypted, $cipher, $this->key, 0, $iv,$tag);
+        return $decrypted;
     }
-    
-    
 
     public function getBlockTypeName()
     {
