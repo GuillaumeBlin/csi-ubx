@@ -11,9 +11,6 @@
 		<field name="sKey" type="text">
 			<default value="" />
 		</field>
-		<field name="fKey" type="text">
-			<default value="" />
-		</field>
 		<field name="admin" type="text">
 			<default value="False"/>
 		</field>		
