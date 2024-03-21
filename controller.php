@@ -87,8 +87,8 @@ class Controller extends BlockController
 
     private function user_view(){
         echo "user<br/>";
-        echo $this->dec($_GET["code"]);
-        echo "ici:".$_GET["code"];
+        echo $this->dec($_REQUEST["code"]);
+        echo "ici:".$_REQUEST["code"];
     }
 
     public function action_load($bID = false)
