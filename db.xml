@@ -11,15 +11,11 @@
 		<field name="secreteValue" type="text">
 			<default value="" />
 		</field>
-		<field name="nbMaxPerRow" type="integer">
-			<unsigned />
-			<default value="3" />
-		</field>
-		<field name="keyValues" type="text">
+		<field name="admin" type="text">
+			<default value="False"/>
+		</field>		
+		<field name="ed" type="text">
 			<default value="" />
 		</field>		
-		<field name="keyDescriptions" type="text">
-			<default value="" />
-		</field>
 	</table>
 </schema>

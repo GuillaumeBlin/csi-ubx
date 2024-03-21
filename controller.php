@@ -49,4 +49,26 @@ class Controller extends BlockController
         $this->requireAsset("javascript", "jquery");
     }
 
+    private function admin_view(){
+        echo "admin";
+    }
+
+    private function user_view(){
+        echo "user";
+    }
+
+    public function action_load($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }
+        if($this->admin =='True'){
+            admin_view();
+        }else{
+            user_view();
+        }
+        
+        exit;
+    }
+
 }

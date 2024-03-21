@@ -1,8 +1,10 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
+
+$codes = array(""=>"CED","41" => "ED Droit", "42" => "ED Entreprise Economie Société", "40" => "ED Sciences Chimiques", "154" => "ED Sciences de la Vie et de la Santé", "304" => "ED Sciences et environnements", "209" => "ED Sciences Physiques et de l'Ingénieur", "545" => "ED Sociétés, Politique, Santé Publique", "39" => "ED Mathématiques et Informatique");
+
 if(empty($secretValue)) $secretValue='';
-if(empty($keyValues)) $keyValues='';
-if(empty($keyDescriptions)) $keyDescriptions='';
-if(empty($nbMaxPerRow)) $nbMaxPerRow='4';
+if(empty($admin)) $admin='False';
+if(empty($ed)) $ed=null;
 
 ?>
 
@@ -10,13 +12,18 @@ if(empty($nbMaxPerRow)) $nbMaxPerRow='4';
 <div class="form-group">
 	<label class="control-label" for="secretValue">Clé secrète d'encryptage (une fois changée, les URLs générées préalablement ne seront plus bonnes)</label>
 	<input type="text" name="secretValue" class="ccm-input-text" value="<?php echo $secretValue; ?>" />
-<br/>
-	<label class="control-label" for="keyValues">Les valeurs clés à afficher séparées par des ';'</label>
-	<input type="text" name="keyValues" class="ccm-input-text" value="<?php echo $keyValues; ?>" />
-<br/>
-<label class="control-label" for="keyDescriptions">Les descriptions des clés à afficher séparées par des ';'</label>
-	<input type="text" name="keyDescriptions" class="ccm-input-text" value="<?php echo $keyDescriptions; ?>" />
-	<label class="control-label" for="nbMaxPerRow">Nombre de Key Numbers maximum par ligne d'affichage</label>
-	<input type="text" name="nbMaxPerRow" class="ccm-input-text" value="<?php echo $nbMaxPerRow; ?>" />
-	
+	<br/>
+	<label class="control-label" for="filter">ED <sup class="fas fa-asterisk"></sup></label>
+	<select id="ed" name="d" class="ccm-input-select">
+		<option value="-1">Aucun</option> 
+		<?php foreach ($codes as $key => $opt) { ?>
+			<option value="<?php echo $key; ?>" <?php if (strcmp($ed, $key) === 0) { ?>selected<?php } ?>> <?php echo $opt; ?></option>
+		<?php } ?>
+	</select>
+	<br/>
+	<label class="control-label" for="details">Affichage gestionnaire</label>
+	<select id="admin" name="admin" class="ccm-input-select">		
+		<option value="True" <?php if (strcmp($admin, "True") === 0) { ?>selected<?php } ?>> Oui</option>
+		<option value="False" <?php if (strcmp($admin, "False") === 0) { ?>selected<?php } ?>> Non</option>
+	</select>
 </div>
