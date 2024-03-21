@@ -100,7 +100,7 @@ return $original_plaintext;
         echo "admin";
         echo $this->enc("admin-161850-CSI")."<br/>";
         echo $this->enc("admin-161850-DT")."<br/>";
-        echo $this->enc("admin-161850-PhD")."<br/>";
+        echo htmlspecialchars(urlencode($this->enc("admin-161850-PhD")))."<br/>";
         echo $this->dec($this->enc("admin-161850-CSI"));
         echo $this->dec($this->enc("admin-161850-DT"));
         echo $this->dec($this->enc("admin-161850-PhD"));
