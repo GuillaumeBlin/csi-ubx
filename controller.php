@@ -19,44 +19,32 @@ class Controller extends BlockController
     protected $btInterfaceHeight = "240";
     protected $btDefaultSet = 'basic';
     
-    private $method = "AES-256-CBC";
-
-    private function enc($data){       
-        $first_key = base64_decode($this->fKey);
-        $second_key = base64_decode($this->sKey);    
-        
-        $iv_length = openssl_cipher_iv_length($this->method);
-        $iv = openssl_random_pseudo_bytes($iv_length);
-            
-        $first_encrypted = openssl_encrypt($data,$this->method,$first_key, OPENSSL_RAW_DATA ,$iv);    
-        $second_encrypted = hash_hmac('sha3-512', $first_encrypted, $second_key, TRUE);
-                
-        $output = base64_encode($iv.$second_encrypted.$first_encrypted);    
-        return $output;        
+    private function enc($data){
+    
+        $ciphertext = openssl_encrypt($data, 'aes-256-gcm', $this->sKey, OPENSSL_RAW_DATA, $this->fKey, $tag, '', 16);
+        return base64_encode($ciphertext . $tag);
     }
 
-    private function dec($encrypted){
-        echo "<pre>".$this->fKey."</pre>";
-        echo "<pre>".$this->sKey."</pre>";
-        $first_key = base64_decode($this->fKey);
-        $second_key = base64_decode($this->sKey);    
-        $mix = base64_decode($encrypted);
-                
-        $iv_length = openssl_cipher_iv_length($this->method);
-                    
-        $iv = substr($mix,0,$iv_length);
-        $second_encrypted = substr($mix,$iv_length,64);
-        $first_encrypted = substr($mix,$iv_length+64);
-                    
-        $data = openssl_decrypt($first_encrypted,$this->method,$first_key,OPENSSL_RAW_DATA,$iv);
-        echo $data;
-        $second_encrypted_new = hash_hmac('sha3-512', $first_encrypted, $second_key, TRUE);
-            
-        if (hash_equals($second_encrypted,$second_encrypted_new))
-            return $data;
-            
-        return 'false';
+    
+    private function dec( $ciphertext){
+        $ciphertext = base64_decode($ciphertext);
+        $authTag = substr($ciphertext, -16);
+        $tagLength = strlen($authTag);
+    
+        /* Manually checking the length of the tag, because the `openssl_decrypt` was mentioned there, it's the caller's responsibility. */
+        if ($tagLength > 16 || ($tagLength < 12 && $tagLength !== 8 && $tagLength !== 4)) {
+            return '';
+        }
+    
+        $plaintext = openssl_decrypt(substr($ciphertext, 0, -16), 'aes-256-gcm', $this->sKey, OPENSSL_RAW_DATA, $this->fKey, $authTag, '');
+    
+        if (false === $plaintext) {
+            return '';
+        }
+    
+        return $plaintext;
     }
+    
     
 
     public function getBlockTypeName()

@@ -2,8 +2,8 @@
 
 $codes = array(""=>"CED","41" => "ED Droit", "42" => "ED Entreprise Economie Société", "40" => "ED Sciences Chimiques", "154" => "ED Sciences de la Vie et de la Santé", "304" => "ED Sciences et environnements", "209" => "ED Sciences Physiques et de l'Ingénieur", "545" => "ED Sociétés, Politique, Santé Publique", "39" => "ED Mathématiques et Informatique");
 
-if(empty($fKey)) $fKey=base64_encode(openssl_random_pseudo_bytes(32));
-if(empty($sKey)) $sKey=base64_encode(openssl_random_pseudo_bytes(64));
+if(empty($fKey)) $fKey=random_bytes(16);
+if(empty($sKey)) $sKey=random_bytes(32);
 if(empty($admin)) $admin='False';
 if(empty($ed)) $ed=null;
 
