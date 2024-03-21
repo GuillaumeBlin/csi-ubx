@@ -24,7 +24,7 @@ class Controller extends BlockController
         $iv = openssl_random_pseudo_bytes($ivlen);
         $ciphertext_raw = openssl_encrypt($data, $cipher, $this->sKey, $options=OPENSSL_RAW_DATA, $iv);
         $hmac = hash_hmac('sha256', $ciphertext_raw, $this->sKey, $as_binary=true);
-        $ciphertext = base64_encode( $iv.$hmac.$ciphertext_raw );
+        $ciphertext = convert_uuencode( $iv.$hmac.$ciphertext_raw );
         return $ciphertext;
 //        $ciphertext = openssl_encrypt($data, 'aes-256-gcm', $this->sKey, OPENSSL_RAW_DATA, $this->fKey, $tag, '', 16);
 //        return base64_encode($ciphertext . $tag);
@@ -33,7 +33,7 @@ class Controller extends BlockController
     
     private function dec( $ciphertext){
 
-        $c = base64_decode($ciphertext);
+        $c = convert_uudecode($ciphertext);
 $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
 $iv = substr($c, 0, $ivlen);
 $hmac = substr($c, $ivlen, $sha2len=32);
