@@ -67,22 +67,18 @@ class Controller extends BlockController
         $this->requireAsset("javascript", "jquery");
     }
 
-    private function admin_view(){
-        echo "admin";
-        echo $this->enc("admin-161850-CSI")."<br/>";
-        echo $this->enc("admin-161850-DT")."<br/>";
-        echo htmlspecialchars(urlencode($this->enc("admin-161850-PhD")))."<br/>";
-        echo $this->dec($this->enc("admin-161850-CSI"));
-        echo $this->dec($this->enc("admin-161850-DT"));
-        echo $this->dec($this->enc("admin-161850-PhD"));
+    private function admin_view(){        
+        echo "CSI: ".htmlspecialchars(urlencode($this->enc("admin-161850-CSI")))."<br/>";
+        echo $this->dec($this->enc("admin-161850-CSI"))."<br/>";
+        echo "DT: ".htmlspecialchars(urlencode($this->enc("admin-161850-DT")))."<br/>";
+        echo $this->dec($this->enc("admin-161850-DT"))."<br/>";
+        echo "PhD: ".htmlspecialchars(urlencode($this->enc("admin-161850-PhD")))."<br/>";
+        echo $this->dec($this->enc("admin-161850-PhD"))."<br/>";
     }
 
     private function user_view(){
         echo "user<br/>";
-        echo "<pre>".$this->sKey."</pre><br/>";
-
         echo $this->dec($_REQUEST["code"]);
-        echo "ici:".$_REQUEST["code"];
     }
 
     public function action_load($bID = false)

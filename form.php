@@ -10,7 +10,7 @@ if(empty($ed)) $ed=null;
 
 
 <div class="form-group">
-	<input type="text" name="sKey" class="ccm-input-text" value="<?php echo $sKey; ?>" />
+	<input type="hidden" name="sKey" class="ccm-input-text" value="<?php echo $sKey; ?>" />
 	<br/>
 	<label class="control-label" for="filter">ED <sup class="fas fa-asterisk"></sup></label>
 	<select id="ed" name="d" class="ccm-input-select">
