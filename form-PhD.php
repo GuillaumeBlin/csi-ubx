@@ -1,5 +1,11 @@
 <div class="rendered-form">
-    <div class="">
+
+<div class="">
+
+<h1 access="false" id="control-2239808">Rapport annuel de <?php echo $this->totitle($defense["prenom"]);?></h1></div>
+
+<div class="">
+
         <h2 access="false" id="control-2239808">1 -&nbsp; BILAN ANNUEL AVEC LA DIRECTION DE THÈSE</h2></div>
     <div class="formbuilder-checkbox-group form-group field-checkbox-group-1711060510937">
         <label for="checkbox-group-1711060510937" class="formbuilder-checkbox-group-label">Fréquence des contacts avec la direction de thèse (en dehors des courriers électroniques) :<span class="formbuilder-required">*</span></label>
