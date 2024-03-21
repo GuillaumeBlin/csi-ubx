@@ -1,6 +1,6 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
 
-$codes = array(""=>"CED","41" => "ED Droit", "42" => "ED Entreprise Economie Société", "40" => "ED Sciences Chimiques", "154" => "ED Sciences de la Vie et de la Santé", "304" => "ED Sciences et environnements", "209" => "ED Sciences Physiques et de l'Ingénieur", "545" => "ED Sociétés, Politique, Santé Publique", "39" => "ED Mathématiques et Informatique");
+$codes = array("41" => "ED Droit", "42" => "ED Entreprise Economie Société", "40" => "ED Sciences Chimiques", "154" => "ED Sciences de la Vie et de la Santé", "304" => "ED Sciences et environnements", "209" => "ED Sciences Physiques et de l'Ingénieur", "545" => "ED Sociétés, Politique, Santé Publique", "39" => "ED Mathématiques et Informatique");
 
 if(empty($sKey)) $sKey=random_bytes(16);
 if(empty($admin)) $admin='False';
@@ -13,8 +13,7 @@ if(empty($ed)) $ed=null;
 	<input type="hidden" name="sKey" class="ccm-input-text" value="<?php echo $sKey; ?>" />
 	<br/>
 	<label class="control-label" for="filter">ED <sup class="fas fa-asterisk"></sup></label>
-	<select id="ed" name="d" class="ccm-input-select">
-		<option value="-1">Aucun</option> 
+	<select id="ed" name="d" class="ccm-input-select">		
 		<?php foreach ($codes as $key => $opt) { ?>
 			<option value="<?php echo $key; ?>" <?php if (strcmp($ed, $key) === 0) { ?>selected<?php } ?>> <?php echo $opt; ?></option>
 		<?php } ?>
