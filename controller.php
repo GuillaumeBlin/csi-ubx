@@ -40,10 +40,10 @@ $hmac = substr($c, $ivlen, $sha2len=32);
 $ciphertext_raw = substr($c, $ivlen+$sha2len);
 $original_plaintext = openssl_decrypt($ciphertext_raw, $cipher, $this->sKey, $options=OPENSSL_RAW_DATA, $iv);
 $calcmac = hash_hmac('sha256', $ciphertext_raw, $this->sKey, $as_binary=true);
-if (hash_equals($hmac, $calcmac))// timing attack safe comparison
+/*if (hash_equals($hmac, $calcmac))// timing attack safe comparison
 {
     return $original_plaintext;
-}
+}*/
 return $original_plaintext;
 /*
         $ciphertext = base64_decode($ciphertext);
