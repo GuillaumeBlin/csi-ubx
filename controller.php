@@ -63,9 +63,9 @@ class Controller extends BlockController
             return false;
         }
         if($this->admin =='True'){
-            admin_view();
+            $this->admin_view();
         }else{
-            user_view();
+            $this->user_view();
         }
         
         exit;
