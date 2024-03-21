@@ -151,7 +151,7 @@ class Controller extends BlockController
     /*Phd students*/
     private function display_list()
     {
-        $students = $this->retrieve_json("inscrits", $this->year);
+        $students = $this->retrieve_json();
 
         $students = $students["data"][0];
         foreach ($students as &$value) {
