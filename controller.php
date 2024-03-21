@@ -77,12 +77,12 @@ class Controller extends BlockController
 
     private function admin_view(){
         echo "admin";
-        echo enc("admin-161850-CSI");
-        echo enc("admin-161850-DT");
-        echo enc("admin-161850-PhD");
-        echo dec(enc("admin-161850-CSI"));
-        echo dec(enc("admin-161850-DT"));
-        echo dec(enc("admin-161850-PhD"));
+        echo $this->enc("admin-161850-CSI");
+        echo $this->enc("admin-161850-DT");
+        echo $this->enc("admin-161850-PhD");
+        echo $this->dec($this->enc("admin-161850-CSI"));
+        echo $this->dec($this->enc("admin-161850-DT"));
+        echo $this->dec($this->enc("admin-161850-PhD"));
     }
 
     private function user_view(){
