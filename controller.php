@@ -19,6 +19,32 @@ class Controller extends BlockController
     protected $btInterfaceHeight = "240";
     protected $btDefaultSet = 'basic';
     
+    private $method = "AES-256-CBC";
+
+    private function enc($data){
+        // Generate a random initialization vector (IV)
+        $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($this->method));
+        // Encrypt the data
+        $encrypted = openssl_encrypt($data, $this->method, $this->sKey, 0, $iv);
+        // Concatenate the IV and the encrypted data
+        $encrypted = base64_encode($iv.$encrypted);
+        // Display the encrypted data
+        return $encrypted;
+    }
+
+    private function dec($encrypted){
+      // Decode the encrypted data
+      $encrypted = base64_decode($encrypted);    
+      // Extract the IV and the encrypted data
+      $iv = substr($encrypted, 0, openssl_cipher_iv_length($this->method));
+      $encrypted = substr($encrypted, openssl_cipher_iv_length($this->method));    
+      // Decrypt the data
+      $decrypted = openssl_decrypt($encrypted, $this->method, $this->sKey, 0, $iv);    
+      // Display the decrypted data
+      return $decrypted;
+    }
+    
+
     public function getBlockTypeName()
     {
         return 'CSI UBx';
@@ -51,6 +77,12 @@ class Controller extends BlockController
 
     private function admin_view(){
         echo "admin";
+        echo enc("admin-161850-CSI");
+        echo enc("admin-161850-DT");
+        echo enc("admin-161850-PhD");
+        echo dec(enc("admin-161850-CSI"));
+        echo dec(enc("admin-161850-DT"));
+        echo dec(enc("admin-161850-PhD"));
     }
 
     private function user_view(){
