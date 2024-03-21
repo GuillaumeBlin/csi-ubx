@@ -90,7 +90,69 @@ class Controller extends BlockController
         echo "</li>";
     }
 
-    private function display_report_content($defense)
+    private function display_phd_report_content($defense)
+    {
+        include('form-PhD.php');
+        return;
+        $year = (int)$defense["niveau_Etud"][0];
+        switch ($year) {
+            case 1:
+                if (strcmp($this->langage, "FR") == 0) {
+                    $year = $year . "ère";
+                } else {
+                    $year = $year . "st";
+                }
+
+                break;
+            case 2:
+                if (strcmp($this->langage, "FR") == 0) {
+                    $year = $year . "nde";
+                } else {
+                    $year = $year . "nd";
+                }
+                break;
+            case 3:
+                if (strcmp($this->langage, "FR") == 0) {
+                    $year = $year . "ème";
+                } else {
+                    $year = $year . "rd";
+                }
+
+                break;
+            default:
+                if (strcmp($this->langage, "FR") == 0) {
+                    $year = $year . "ème";
+                } else {
+                    $year = $year . "th";
+                }
+
+                break;
+        }
+        echo "<li>";
+        if (strcmp($this->langage, "FR") == 0) {
+            echo '<a target="_blank" href="https://adum.fr/script/cv.pl?site=CDUBX&matri=' . $defense["Matricule_etudiant"] . '">' . $this->totitle($defense["prenom"]) . ' ' . $defense["nom"] . '</a> ';
+            echo  ' (' . $year . ' année) - ';
+            echo $defense["these_titre"] . " - ";
+            //echo " (".$defense["these_laboratoire"].") ";        
+            echo   'sous la direction de ' . $this->totitle($defense["these_directeur_these_prenom"]) . " " . $defense["these_directeur_these_nom"];
+            if ($defense["these_codirecteur_these_nom"] != "") {
+                echo ' et ' . $defense["these_codirecteur_these_prenom"] . " " . $defense["these_codirecteur_these_nom"];
+            }
+        } else {
+            echo '<a target="_blank" href="https://adum.fr/script/cv.pl?site=CDUBX&matri=' . $defense["Matricule_etudiant"] . '">' . $this->totitle($defense["prenom"]) . ' ' . $defense["nom"] . '</a> ';
+            echo  ' (' . $year . ' year) - ';
+            echo $defense["these_titre_anglais"] . " - ";
+            //echo " (".$defense["these_laboratoire"].") ";        
+            echo  'under the supervision of ' . $this->totitle($defense["these_directeur_these_prenom"]) . " " . $defense["these_directeur_these_nom"];
+            if ($defense["these_codirecteur_these_nom"] != "") {
+                echo ' and ' . $this->totitle($defense["these_codirecteur_these_prenom"]) . " " . $defense["these_codirecteur_these_nom"];
+            }
+        }
+
+        echo "</li>";
+    }
+
+    private function display_dt_report_content($defense)
     {
         $year = (int)$defense["niveau_Etud"][0];
         switch ($year) {
@@ -150,6 +212,65 @@ class Controller extends BlockController
         echo "</li>";
     }
 
+    private function display_csi_report_content($defense)
+    {
+        $year = (int)$defense["niveau_Etud"][0];
+        switch ($year) {
+            case 1:
+                if (strcmp($this->langage, "FR") == 0) {
+                    $year = $year . "ère";
+                } else {
+                    $year = $year . "st";
+                }
+
+                break;
+            case 2:
+                if (strcmp($this->langage, "FR") == 0) {
+                    $year = $year . "nde";
+                } else {
+                    $year = $year . "nd";
+                }
+                break;
+            case 3:
+                if (strcmp($this->langage, "FR") == 0) {
+                    $year = $year . "ème";
+                } else {
+                    $year = $year . "rd";
+                }
+
+                break;
+            default:
+                if (strcmp($this->langage, "FR") == 0) {
+                    $year = $year . "ème";
+                } else {
+                    $year = $year . "th";
+                }
+
+                break;
+        }
+        echo "<li>";
+        if (strcmp($this->langage, "FR") == 0) {
+            echo '<a target="_blank" href="https://adum.fr/script/cv.pl?site=CDUBX&matri=' . $defense["Matricule_etudiant"] . '">' . $this->totitle($defense["prenom"]) . ' ' . $defense["nom"] . '</a> ';
+            echo  ' (' . $year . ' année) - ';
+            echo $defense["these_titre"] . " - ";
+            //echo " (".$defense["these_laboratoire"].") ";        
+            echo   'sous la direction de ' . $this->totitle($defense["these_directeur_these_prenom"]) . " " . $defense["these_directeur_these_nom"];
+            if ($defense["these_codirecteur_these_nom"] != "") {
+                echo ' et ' . $defense["these_codirecteur_these_prenom"] . " " . $defense["these_codirecteur_these_nom"];
+            }
+        } else {
+            echo '<a target="_blank" href="https://adum.fr/script/cv.pl?site=CDUBX&matri=' . $defense["Matricule_etudiant"] . '">' . $this->totitle($defense["prenom"]) . ' ' . $defense["nom"] . '</a> ';
+            echo  ' (' . $year . ' year) - ';
+            echo $defense["these_titre_anglais"] . " - ";
+            //echo " (".$defense["these_laboratoire"].") ";        
+            echo  'under the supervision of ' . $this->totitle($defense["these_directeur_these_prenom"]) . " " . $defense["these_directeur_these_nom"];
+            if ($defense["these_codirecteur_these_nom"] != "") {
+                echo ' and ' . $this->totitle($defense["these_codirecteur_these_prenom"]) . " " . $defense["these_codirecteur_these_nom"];
+            }
+        }
+
+        echo "</li>";
+    }
     /* SORTING functions */
 
 
@@ -242,7 +363,15 @@ class Controller extends BlockController
                 echo "Aucun étudiant ou aucune étudiante correpsondant.";
             
         } else {
-                $this->display_report_content($student);             
+                if($user=="PhD"){
+                    $this->display_phd_report_content($student);             
+                }
+                if($user=="DT"){
+                    $this->display_dt_report_content($student);             
+                }
+                if($user=="CSI"){
+                    $this->display_csi_report_content($student);             
+                }
         }
     }
 
