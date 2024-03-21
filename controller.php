@@ -21,27 +21,38 @@ class Controller extends BlockController
     
     private $method = "AES-256-CBC";
 
-    private function enc($data){
-        // Generate a random initialization vector (IV)
-        $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($this->method));
-        // Encrypt the data
-        $encrypted = openssl_encrypt($data, $this->method, $this->sKey, 0, $iv);
-        // Concatenate the IV and the encrypted data
-        $encrypted = base64_encode($iv.$encrypted);
-        // Display the encrypted data
-        return $encrypted;
+    private function enc($data){       
+        $first_key = base64_decode($this->fKey);
+        $second_key = base64_decode($this->sKey);    
+        
+        $iv_length = openssl_cipher_iv_length($this->method);
+        $iv = openssl_random_pseudo_bytes($iv_length);
+            
+        $first_encrypted = openssl_encrypt($data,$this->method,$first_key, OPENSSL_RAW_DATA ,$iv);    
+        $second_encrypted = hash_hmac('sha3-512', $first_encrypted, $second_key, TRUE);
+                
+        $output = base64_encode($iv.$second_encrypted.$first_encrypted);    
+        return $output;        
     }
 
     private function dec($encrypted){
-      // Decode the encrypted data
-      $encrypted = base64_decode($encrypted);    
-      // Extract the IV and the encrypted data
-      $iv = substr($encrypted, 0, openssl_cipher_iv_length($this->method));
-      $encrypted = substr($encrypted, openssl_cipher_iv_length($this->method));    
-      // Decrypt the data
-      $decrypted = openssl_decrypt($encrypted, $this->method, $this->sKey, 0, $iv);    
-      // Display the decrypted data
-      return $decrypted;
+        $first_key = base64_decode($this->fKey);
+        $second_key = base64_decode($this->sKey);    
+        $mix = base64_decode($encrypted);
+                
+        $iv_length = openssl_cipher_iv_length($this->method);
+                    
+        $iv = substr($mix,0,$iv_length);
+        $second_encrypted = substr($mix,$iv_length,64);
+        $first_encrypted = substr($mix,$iv_length+64);
+                    
+        $data = openssl_decrypt($first_encrypted,$this->method,$first_key,OPENSSL_RAW_DATA,$iv);
+        $second_encrypted_new = hash_hmac('sha3-512', $first_encrypted, $second_key, TRUE);
+            
+        if (hash_equals($second_encrypted,$second_encrypted_new))
+            return $data;
+            
+        return false;
     }
     
 
