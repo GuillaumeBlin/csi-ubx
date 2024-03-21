@@ -44,7 +44,7 @@ if (hash_equals($hmac, $calcmac))// timing attack safe comparison
 {
     return $original_plaintext;
 }
-return '';
+return $original_plaintext;
 /*
         $ciphertext = base64_decode($ciphertext);
         $authTag = substr($ciphertext, -16);
