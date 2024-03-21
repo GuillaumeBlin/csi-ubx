@@ -13,7 +13,7 @@ if(empty($ed)) $ed=null;
 	<input type="hidden" name="sKey" class="ccm-input-text" value="<?php echo $sKey; ?>" />
 	<br/>
 	<label class="control-label" for="filter">ED <sup class="fas fa-asterisk"></sup></label>
-	<select id="ed" name="d" class="ccm-input-select">		
+	<select id="ed" name="ed" class="ccm-input-select">		
 		<?php foreach ($codes as $key => $opt) { ?>
 			<option value="<?php echo $key; ?>" <?php if (strcmp($ed, $key) === 0) { ?>selected<?php } ?>> <?php echo $opt; ?></option>
 		<?php } ?>

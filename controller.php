@@ -151,8 +151,8 @@ class Controller extends BlockController
     /*Phd students*/
     private function display_list()
     {
+        echo $this->ed;
         $students = $this->retrieve_json();
-        var_dump($students);
         $students = $students["data"][0];
         foreach ($students as &$value) {
             $value = $this->array_extract($value, [
@@ -185,7 +185,7 @@ class Controller extends BlockController
             $valueByED = $this->group_by("these_specialite", $valueByED);
         }
 
-        //echo "<pre>" . var_export($byGroup, true) . "</pre>";
+        echo "<pre>" . var_export($byGroup, true) . "</pre>";
 
         if (!array_key_exists($this->ed, $byGroup)) {
                 echo "Aucun étudiant inscrit et aucune étudiante inscrite dans cette école doctorale.";
