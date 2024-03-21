@@ -90,7 +90,7 @@ class Controller extends BlockController
         echo "</li>";
     }
 
-    private function display_annu($defense)
+    private function display_report_content($defense)
     {
         $year = (int)$defense["niveau_Etud"][0];
         switch ($year) {
@@ -168,6 +168,50 @@ class Controller extends BlockController
         foreach ($students as &$value) {
             $value = $this->array_extract($value, [
                 "Matricule_etudiant",
+                "nom",
+                "prenom",
+                "mail_principal",
+                "mail_secondaire",
+                "these_ED_code",
+                "these_directeur_these_mail",
+                "these_specialite"
+            ]);
+        }
+
+        usort($students, array($this, 'students_sorter'));
+
+        $byGroup = $this->group_by("these_ED_code", $students);
+        foreach ($byGroup as &$valueByED) {
+            $valueByED = $this->group_by("these_specialite", $valueByED);
+        }
+
+        if (!array_key_exists($this->ed, $byGroup)) {
+                echo "Aucun étudiant inscrit et aucune étudiante inscrite dans cette école doctorale.";
+            
+        } else {
+                $valueByED = $byGroup[$this->ed];
+                
+                foreach ($valueByED as $keyBySpeciality => $valueBySpeciality) {
+                    echo "<h3>" . $keyBySpeciality . "</h3>";
+                    echo "<ul>";
+                    foreach ($valueBySpeciality as $student) {
+                        $this->display_links($student);
+                    }
+                    echo "</ul>";
+                }
+            
+        }
+    }
+
+    /*Phd students*/
+    private function display_report($mat,$user)
+    {
+        $students = $this->retrieve_json();
+        $students = $students["data"][0];
+        echo "<pre>" . var_export($students, true) . "</pre>";
+        foreach ($students as &$value) {
+            $value = $this->array_extract($value, [
+                "Matricule_etudiant",
                 "civilite",
                 "nom",
                 "prenom",
@@ -208,14 +252,13 @@ class Controller extends BlockController
                     echo "<h3>" . $keyBySpeciality . "</h3>";
                     echo "<ul>";
                     foreach ($valueBySpeciality as $student) {
-                        $this->display_links($student);
+                        $this->display_report_content($student);
                     }
                     echo "</ul>";
                 }
             
         }
     }
-
 
 
 
@@ -255,8 +298,15 @@ class Controller extends BlockController
     }
 
     private function user_view(){
-        echo "user<br/>";
-        echo $this->dec($_REQUEST["code"]);
+        $val=$this->dec($_REQUEST["code"]);
+        if($val){
+            $val=explode("-",$val);
+            $mat=$val[1];
+            $user=$val[2];
+            $this->display_report($mat,$user);
+        }else{
+            echo 'invalid request';
+        }
     }
 
     public function action_load($bID = false)
