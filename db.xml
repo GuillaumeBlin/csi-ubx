@@ -8,7 +8,7 @@
 			<unsigned />
 			<key />
 		</field>
-		<field name="secreteValue" type="text">
+		<field name="key" type="text">
 			<default value="" />
 		</field>
 		<field name="admin" type="text">
