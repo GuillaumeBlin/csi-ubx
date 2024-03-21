@@ -20,7 +20,7 @@ class Controller extends BlockController
     protected $btDefaultSet = 'basic';
     
     private function enc($data){
-        $cipher = "aes-128-gcm";
+        $cipher = "AES-256-CBC";
         $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipher));
 
 // Encrypt the data
@@ -37,13 +37,13 @@ return $encrypted;
     private function dec( $ciphertext){
 
         $encrypted = base64_decode($ciphertext);
-        $cipher = "aes-128-gcm";
+        $cipher = "AES-256-CBC";
 // Extract the IV and the encrypted data
 $iv = substr($encrypted, 0, openssl_cipher_iv_length($cipher));
 $encrypted = substr($encrypted, openssl_cipher_iv_length($cipher));
 
 // Decrypt the data
-$decrypted = openssl_decrypt($encrypted, $$cipher, $this->key, 0, $iv,$tag);
+$decrypted = openssl_decrypt($encrypted, $cipher, $this->key, 0, $iv,$tag);
 return $decrypted;
 /*
         $ciphertext = base64_decode($ciphertext);
