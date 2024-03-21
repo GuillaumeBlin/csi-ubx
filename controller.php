@@ -36,6 +36,8 @@ class Controller extends BlockController
     }
 
     private function dec($encrypted){
+        echo "<pre>".$this->fKey."</pre>";
+        echo "<pre>".$this->sKey."</pre>";
         $first_key = base64_decode($this->fKey);
         $second_key = base64_decode($this->sKey);    
         $mix = base64_decode($encrypted);
@@ -52,7 +54,7 @@ class Controller extends BlockController
         if (hash_equals($second_encrypted,$second_encrypted_new))
             return $data;
             
-        return false;
+        return 'false';
     }
     
 
