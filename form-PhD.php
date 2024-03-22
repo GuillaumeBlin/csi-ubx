@@ -40,7 +40,7 @@
     </div>
     <div class="formbuilder-date form-group field-date-1711061138770">
         <label for="PhD_DateDebutThese" class="formbuilder-date-label">Date de début de thèse</label>
-        <input type="date" class="form-control" name="PhD_DateDebutThese" disabled access="false" id="PhD_DateDebutThese" value="<?php echo date('Y-m-d', strtotime($defense["these_date_1inscription"])); ?>">
+        <input type="date" class="form-control" name="PhD_DateDebutThese" disabled  id="PhD_DateDebutThese" value="<?php echo date('Y-m-d', strtotime($defense["these_date_1inscription"])); ?>">
     </div>
     <div class="formbuilder-radio-group form-group field-radio-group-1711093700565">
         <label for="TypeDeFinancement" class="formbuilder-radio-group-label">Type de financement</label>
