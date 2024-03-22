@@ -23,10 +23,10 @@
 			<unsigned />
 			<key />
 		</field>
-		<field name="PhD-Nom" type="text">
+		<field name="PhD_Nom" type="text">
 			<default value="" />
 		</field>
-		<field name="PhD-DateDebutThese" type="text">
+		<field name="PhD_DateDebutThese" type="text">
 			<default value="False"/>
 		</field>		
 		<field name="TypeDeFinancement" type="text">
@@ -38,10 +38,10 @@
 			<unsigned />
 			<key />
 		</field>
-		<field name="PhD-Nom" type="text">
+		<field name="PhD_Nom" type="text">
 			<default value="" />
 		</field>
-		<field name="PhD-DateDebutThese" type="text">
+		<field name="PhD_DateDebutThese" type="text">
 			<default value="False"/>
 		</field>		
 		<field name="TypeDeFinancement" type="text">
@@ -53,10 +53,10 @@
 			<unsigned />
 			<key />
 		</field>
-		<field name="PhD-Nom" type="text">
+		<field name="PhD_Nom" type="text">
 			<default value="" />
 		</field>
-		<field name="PhD-DateDebutThese" type="text">
+		<field name="PhD_DateDebutThese" type="text">
 			<default value="False"/>
 		</field>		
 		<field name="TypeDeFinancement" type="text">

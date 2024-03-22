@@ -9,24 +9,24 @@
     <div class="">
         <p>          
         <div class="form-group">
-                <label for="PhD-Nom" >Nom</label>
-                <input type="text" disabled class="form-control" name="PhD-Nom" access="false" id="PhD-Nom" value="<?php echo $defense["nom"];?>">
+                <label for="PhD_Nom" >Nom</label>
+                <input type="text" disabled class="form-control" name="PhD_Nom" access="false" id="PhD_Nom" value="<?php echo $defense["nom"];?>">
         </div>
         <div class="form-group">
-                <label for="PhD-Prenom" >Prénom</label>
-                <input type="text" disabled class="form-control" name="PhD-Prenom" access="false" id="PhD-Prenom" value="<?php echo $defense["prenom"];?>">
+                <label for="PhD_Prenom" >Prénom</label>
+                <input type="text" disabled class="form-control" name="PhD_Prenom" access="false" id="PhD_Prenom" value="<?php echo $defense["prenom"];?>">
         </div>
         <div class="form-group">
-                <label for="PhD-Mail" >Email dans ADUM</label>
-                <input type="text" disabled class="form-control" name="PhD-Mail" access="false" id="PhD-Mail" value="<?php echo $defense["mail_principal"];?>">
+                <label for="PhD_Mail" >Email dans ADUM</label>
+                <input type="text" disabled class="form-control" name="PhD_Mail" access="false" id="PhD_Mail" value="<?php echo $defense["mail_principal"];?>">
         </div>
         <div class="form-group">
-                <label for="PhD-Specialite" >Spécialité</label>
-                <input type="text" disabled class="form-control" name="PhD-Specialite" access="false" id="PhD-Specialite" value="<?php echo $defense["these_specialite"];?>">
+                <label for="PhD_Specialite" >Spécialité</label>
+                <input type="text" disabled class="form-control" name="PhD_Specialite" access="false" id="PhD_Specialite" value="<?php echo $defense["these_specialite"];?>">
         </div>
         <div class="form-group">
-                <label for="PhD-UMR" >Unité de recherche</label>
-                <input type="text" disabled class="form-control" name="PhD-UMR" access="false" id="PhD-UMR" value="<?php echo $defense["these_laboratoire"];?>">
+                <label for="PhD_UMR" >Unité de recherche</label>
+                <input type="text" disabled class="form-control" name="PhD_UMR" access="false" id="PhD_UMR" value="<?php echo $defense["these_laboratoire"];?>">
         </div>
         </p>
     </div>
@@ -39,8 +39,8 @@
         </p>
     </div>
     <div class="formbuilder-date form-group field-date-1711061138770">
-        <label for="PhD-DateDebutThese" class="formbuilder-date-label">Date de début de thèse</label>
-        <input type="date" class="form-control" name="PhD-DateDebutThese" disabled access="false" id="PhD-DateDebutThese" value="<?php echo date('Y-m-d', strtotime($defense["these_date_1inscription"])); ?>">
+        <label for="PhD_DateDebutThese" class="formbuilder-date-label">Date de début de thèse</label>
+        <input type="date" class="form-control" name="PhD_DateDebutThese" disabled access="false" id="PhD_DateDebutThese" value="<?php echo date('Y-m-d', strtotime($defense["these_date_1inscription"])); ?>">
     </div>
     <div class="formbuilder-radio-group form-group field-radio-group-1711093700565">
         <label for="TypeDeFinancement" class="formbuilder-radio-group-label">Type de financement</label>
