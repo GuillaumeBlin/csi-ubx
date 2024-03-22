@@ -350,6 +350,7 @@ class Controller extends BlockController
                 "these_cotutelle",
                 "these_cotutelle_etab",
                 "these_cotutelle_pays",
+                "these_date_1inscription",
                 "these_laboratoire",
                 "these_specialite"
                 ]);
