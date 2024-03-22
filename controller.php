@@ -430,7 +430,7 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        echo "<pre>".var_dump($_REQUEST)."/pre>";
+        echo "<pre>".var_dump($_REQUEST)."</pre>";
         exit;
     }
 
