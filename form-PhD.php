@@ -40,7 +40,7 @@
     </div>
     <div class="formbuilder-date form-group field-date-1711061138770">
         <label for="date-1711061138770" class="formbuilder-date-label">Date de début de thèse</label>
-        <input type="date" class="form-control" name="date-1711061138770" access="false" id="date-1711061138770" value="<?php echo date('Y/m/d', strtotime($defense["these_date_1inscription"])); ?> ">
+        <input type="date" class="form-control" name="date-1711061138770" access="false" id="date-1711061138770" value="<?php echo date('Y-m-d', strtotime($defense["these_date_1inscription"])); ?>">
     </div>
     <div class="formbuilder-radio-group form-group field-radio-group-1711093700565">
         <label for="radio-group-1711093700565" class="formbuilder-radio-group-label">Type de financement / période (pour plus d’informations CF guide) :</label>
