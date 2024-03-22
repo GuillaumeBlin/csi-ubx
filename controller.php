@@ -425,6 +425,15 @@ class Controller extends BlockController
         }
     }
 
+    public function action_form_save_PhDReport($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }
+        echo "<pre>".var_dump($_REQUEST)."/pre>";
+        exit;
+    }
+
     public function action_load($bID = false)
     {
         if ($this->bID != $bID) {

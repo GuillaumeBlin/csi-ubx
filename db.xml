@@ -18,4 +18,49 @@
 			<default value="" />
 		</field>		
 	</table>
+	<table name="PhDReport">
+		<field name="ID" type="integer">
+			<unsigned />
+			<key />
+		</field>
+		<field name="PhD-Nom" type="text">
+			<default value="" />
+		</field>
+		<field name="PhD-DateDebutThese" type="text">
+			<default value="False"/>
+		</field>		
+		<field name="TypeDeFinancement" type="text">
+			<default value="" />
+		</field>		
+	</table>
+	<table name="DTReport">
+		<field name="ID" type="integer">
+			<unsigned />
+			<key />
+		</field>
+		<field name="PhD-Nom" type="text">
+			<default value="" />
+		</field>
+		<field name="PhD-DateDebutThese" type="text">
+			<default value="False"/>
+		</field>		
+		<field name="TypeDeFinancement" type="text">
+			<default value="" />
+		</field>		
+	</table>
+	<table name="CSIReport">
+		<field name="ID" type="integer">
+			<unsigned />
+			<key />
+		</field>
+		<field name="PhD-Nom" type="text">
+			<default value="" />
+		</field>
+		<field name="PhD-DateDebutThese" type="text">
+			<default value="False"/>
+		</field>		
+		<field name="TypeDeFinancement" type="text">
+			<default value="" />
+		</field>		
+	</table>
 </schema>

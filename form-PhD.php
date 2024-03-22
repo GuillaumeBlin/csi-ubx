@@ -1,4 +1,4 @@
-
+<form action="<?php echo $view->action('form_save_PhDreport');?>" method="POST">
 <div class="rendered-form">
     <div class="">
         <h1>Rapport annuel de la doctorante ou du doctorant </h1></div>
@@ -39,32 +39,32 @@
         </p>
     </div>
     <div class="formbuilder-date form-group field-date-1711061138770">
-        <label for="date-1711061138770" class="formbuilder-date-label">Date de début de thèse</label>
-        <input type="date" class="form-control" name="date-1711061138770" access="false" id="date-1711061138770" value="<?php echo date('Y-m-d', strtotime($defense["these_date_1inscription"])); ?>">
+        <label for="PhD-DateDebutThese" class="formbuilder-date-label">Date de début de thèse</label>
+        <input type="date" class="form-control" name="PhD-DateDebutThese" disabled access="false" id="PhD-DateDebutThese" value="<?php echo date('Y-m-d', strtotime($defense["these_date_1inscription"])); ?>">
     </div>
     <div class="formbuilder-radio-group form-group field-radio-group-1711093700565">
-        <label for="radio-group-1711093700565" class="formbuilder-radio-group-label">Type de financement / période (pour plus d’informations CF guide) :</label>
+        <label for="TypeDeFinancement" class="formbuilder-radio-group-label">Type de financement</label>
         <div class="radio-group">
             <div class="formbuilder-radio-inline">
-                <input name="radio-group-1711093700565" access="false" id="radio-group-1711093700565-0" value="option-1" type="radio">
+                <input name="TypeDeFinancement" access="false" id="radio-group-1711093700565-0" value="Ministère" type="radio">
                 <label for="radio-group-1711093700565-0">Ministères</label>
             </div>
             <div class="formbuilder-radio-inline">
-                <input name="radio-group-1711093700565" access="false" id="radio-group-1711093700565-1" value="option-2" type="radio">
+                <input name="TypeDeFinancement" access="false" id="radio-group-1711093700565-1" value="CIFRE" type="radio">
                 <label for="radio-group-1711093700565-1">CIFRE</label>
             </div>
             <div class="formbuilder-radio-inline">
-                <input name="radio-group-1711093700565" access="false" id="radio-group-1711093700565-2" value="option-3" type="radio">
+                <input name="TypeDeFinancement" access="false" id="radio-group-1711093700565-2" value="COFRA" type="radio">
                 <label for="radio-group-1711093700565-2">COFRA</label>
             </div>
             <div class="formbuilder-radio-inline">
-                <input name="radio-group-1711093700565" access="false" id="radio-group-1711093700565-3" type="radio">
+                <input name="TypeDeFinancement" access="false" id="radio-group-1711093700565-3" type="CD Droit Privé">
                 <label for="radio-group-1711093700565-3">CD Droit Privé</label>
             </div>
             <div class="formbuilder-radio-inline">
-                <input name="radio-group-1711093700565" access="false" id="radio-group-1711093700565-other" class="undefined other-option" value="" type="radio">
+                <input name="TypeDeFinancement" access="false" id="radio-group-1711093700565-other" class="undefined other-option" value="Autre" type="radio">
                 <label for="radio-group-1711093700565-other">Autre
-                    <input type="text" id="radio-group-1711093700565-other-value" class="other-val">
+                    <input type="text" id="TypeDeFinancementAutre" class="other-val">
                 </label>
             </div>
         </div>
@@ -358,4 +358,8 @@
         <label for="date-1711061138769" class="formbuilder-date-label">Date de l'établissement du rapport</label>
         <input type="date" class="form-control" name="date-1711061138769" access="false" id="date-1711061138769">
     </div>
+    <div class="formbuilder-button form-group field-button-1711110414702">
+        <button type="submit" class="btn-default btn" name="button-1711110414702" access="false" style="default" id="button-1711110414702">Valider le rapport</button>
+    </div>
 </div>
+</form>
