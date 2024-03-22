@@ -1,51 +1,69 @@
+
 <div class="rendered-form">
     <div class="">
-        <h1 access="false" id="control-1321138">Rapport annuel de la doctorante Mme XXX / du doctorant M. XXX</h1></div>
+        <h1>Rapport annuel de la doctorante ou du doctorant </h1></div>
     <div class="">
-        <h2 access="false" id="control-9006560">INFORMATION GÉNÉRALES</h2></div>
+        <h2>INFORMATION GÉNÉRALES</h2></div>
     <div class="">
-        <h3 access="false" id="control-4106821">LA DOCTORANTE OU LE DOCTORANT</h3></div>
+        <h3>LA DOCTORANTE OU LE DOCTORANT</h3></div>
     <div class="">
-        <p access="false" id="control-9903123">
-            <div>NOM et prénom : <?php echo $defense["nom"];?> <?php echo $this->totitle($defense["prenom"]);?></div>
-            <div>Email dans ADUM : <?php echo $this->totitle($defense["mail_principal"]);?></div>
-            <div>Spécialité : <?php echo $this->totitle($defense["these_specialite"]);?></div>
-            <div>Unité de recherche :<?php echo $this->totitle($defense["these_laboratoire"]);?></div>
+        <p>          
+        <div class="form-group">
+                <label for="PhD-Nom" >Nom</label>
+                <input type="text" disabled class="form-control" name="PhD-Nom" access="false" id="PhD-Nom" value="<?php echo $defense["nom"];?>">
+        </div>
+        <div class="form-group">
+                <label for="PhD-Prenom" >Prénom</label>
+                <input type="text" disabled class="form-control" name="PhD-Prenom" access="false" id="PhD-Prenom" value="<?php echo $defense["prenom"];?>">
+        </div>
+        <div class="form-group">
+                <label for="PhD-Mail" >Email dans ADUM</label>
+                <input type="text" disabled class="form-control" name="PhD-Mail" access="false" id="PhD-Mail" value="<?php echo $defense["mail_principal"];?>">
+        </div>
+        <div class="form-group">
+                <label for="PhD-Specialite" >Spécialité</label>
+                <input type="text" disabled class="form-control" name="PhD-Specialite" access="false" id="PhD-Specialite" value="<?php echo $defense["these_specialite"];?>">
+        </div>
+        <div class="form-group">
+                <label for="PhD-UMR" >Unité de recherche</label>
+                <input type="text" disabled class="form-control" name="PhD-UMR" access="false" id="PhD-UMR" value="<?php echo $defense["these_laboratoire"];?>">
+        </div>
         </p>
     </div>
     <div class="">
-        <h3 access="false" id="control-2610318">LA THÈSE</h3></div>
+        <h3 access="false" id="control-9542568">LA THÈSE</h3></div>
     <div class="">
-        <p access="false" id="control-8976789">
-            <div>NOM / prénom direction de thèse :
-                <br>
-            </div>
-            <div>NOM / prénom co-direction de thèse :</div>
-            <div>Date de début de thèse :&nbsp;</div>
+        <p access="false" id="control-690656">
+            <div>NOM / prénom direction de thèse : <?php echo $defense["these_directeur_these_nom"];?> <?php echo $this->totitle($defense["these_directeur_these_prenom"]);?></div>                
+            <div>NOM / prénom co-direction de thèse :<?php echo $defense["these_codirecteur_these_nom"];?> <?php echo $this->totitle($defense["these_codirecteur_these_prenom"]);?></div>
         </p>
+    </div>
+    <div class="formbuilder-date form-group field-date-1711061138770">
+        <label for="date-1711061138770" class="formbuilder-date-label">Date de début de thèse</label>
+        <input type="date" class="form-control" name="date-1711061138770" access="false" id="date-1711061138770" value="<?php echo $defense["these_date_1inscription"];?> ">
     </div>
     <div class="formbuilder-radio-group form-group field-radio-group-1711093700565">
         <label for="radio-group-1711093700565" class="formbuilder-radio-group-label">Type de financement / période (pour plus d’informations CF guide) :</label>
         <div class="radio-group">
-            <div class="formbuilder-radio">
+            <div class="formbuilder-radio-inline">
                 <input name="radio-group-1711093700565" access="false" id="radio-group-1711093700565-0" value="option-1" type="radio">
                 <label for="radio-group-1711093700565-0">Ministères</label>
             </div>
-            <div class="formbuilder-radio">
+            <div class="formbuilder-radio-inline">
                 <input name="radio-group-1711093700565" access="false" id="radio-group-1711093700565-1" value="option-2" type="radio">
                 <label for="radio-group-1711093700565-1">CIFRE</label>
             </div>
-            <div class="formbuilder-radio">
+            <div class="formbuilder-radio-inline">
                 <input name="radio-group-1711093700565" access="false" id="radio-group-1711093700565-2" value="option-3" type="radio">
                 <label for="radio-group-1711093700565-2">COFRA</label>
             </div>
-            <div class="formbuilder-radio">
+            <div class="formbuilder-radio-inline">
                 <input name="radio-group-1711093700565" access="false" id="radio-group-1711093700565-3" type="radio">
                 <label for="radio-group-1711093700565-3">CD Droit Privé</label>
             </div>
-            <div class="formbuilder-radio">
+            <div class="formbuilder-radio-inline">
                 <input name="radio-group-1711093700565" access="false" id="radio-group-1711093700565-other" class="undefined other-option" value="" type="radio">
-                <label for="radio-group-1711093700565-other">Other
+                <label for="radio-group-1711093700565-other">Autre
                     <input type="text" id="radio-group-1711093700565-other-value" class="other-val">
                 </label>
             </div>
@@ -54,18 +72,18 @@
     <div class="formbuilder-radio-group form-group field-radio-group-1711093715652">
         <label for="radio-group-1711093715652" class="formbuilder-radio-group-label">Thèse en cotutelle :&nbsp;</label>
         <div class="radio-group">
-            <div class="formbuilder-radio">
+            <div class="formbuilder-radio-inline">
                 <input name="radio-group-1711093715652" access="false" id="radio-group-1711093715652-0" value="option-1" type="radio">
                 <label for="radio-group-1711093715652-0">Oui</label>
             </div>
-            <div class="formbuilder-radio">
+            <div class="formbuilder-radio-inline">
                 <input name="radio-group-1711093715652" access="false" id="radio-group-1711093715652-1" value="option-2" type="radio">
                 <label for="radio-group-1711093715652-1">Non</label>
             </div>
         </div>
     </div>
     <div class="formbuilder-text form-group field-text-1711093865273">
-        <label for="text-1711093865273" class="formbuilder-text-label">Si oui, préciser le pays partenaire : XXXX</label>
+        <label for="text-1711093865273" class="formbuilder-text-label">Si oui, préciser le pays partenaire</label>
         <input type="text" class="form-control" name="text-1711093865273" access="false" id="text-1711093865273">
     </div>
     <div class="formbuilder-radio-group form-group field-radio-group-1711093714411">
@@ -73,11 +91,11 @@
             <div>Thèse avec activités complémentaires (enseignement, médiation, valorisation expertise) :</div>
         </label>
         <div class="radio-group">
-            <div class="formbuilder-radio">
+            <div class="formbuilder-radio-inline">
                 <input name="radio-group-1711093714411" access="false" id="radio-group-1711093714411-0" value="option-1" type="radio">
                 <label for="radio-group-1711093714411-0">Oui</label>
             </div>
-            <div class="formbuilder-radio">
+            <div class="formbuilder-radio-inline">
                 <input name="radio-group-1711093714411" access="false" id="radio-group-1711093714411-1" value="option-2" type="radio">
                 <label for="radio-group-1711093714411-1">Non</label>
             </div>
@@ -88,7 +106,7 @@
         <input type="number" class="form-control" name="number-1711093931378" access="false" min="0" max="64" step="1" id="number-1711093931378">
     </div>
     <div class="">
-        <h3 access="false" id="control-7471338">ANNÉE DU CSI</h3></div>
+        <h3 access="false" id="control-6155510">ANNÉE DU CSI</h3></div>
     <div class="formbuilder-number form-group field-number-1711094007194">
         <label for="number-1711094007194" class="formbuilder-number-label">
             <div>CSI pour réinscription en année</div>
@@ -96,28 +114,68 @@
         <input type="number" class="form-control" name="number-1711094007194" access="false" min="2" max="8" step="1" id="number-1711094007194">
     </div>
     <div class="">
-        <h3 access="false" id="control-6750650"><div>&nbsp;COMPOSITION DU COMITÉ DE SUIVI INDIVIDUEL (hors direction de thèse)</div></h3></div>
+        <h3 access="false" id="control-4438948"><div>&nbsp;COMPOSITION DU COMITÉ DE SUIVI INDIVIDUEL (hors direction de thèse)</div></h3></div>
     <div class="">
-        <h4 access="false" id="control-1638456"><div>La direction de la thèse ne fait pas partie du comité de suivi. Il comprend à minima 2 membres.</div><div><br></div></h4></div>
+        <h4 access="false" id="control-5071902"><div>La direction de la thèse ne fait pas partie du comité de suivi. Il comprend à minima 2 membres.</div><div><br></div></h4></div>
     <div class="">
-        <p access="false" id="control-9298837">
+        <p access="false" id="control-2875245">
             <div>Membre n°1 – Spécialiste du domaine de la thèse
                 <br>
             </div>
-            <div>NOM Prénom<span style="white-space:pre">	</span>Unité de recherche/établissement<span style="white-space:pre">	</span>Adresse mail
-                <br>
+            <div class="formbuilder-text form-group field-text-1711108611188">
+                <label for="text-1711108611188" class="formbuilder-text-label">Nom</label>
+                <input type="text" class="form-control" name="text-1711108611188" access="false" id="text-1711108611188">
+            </div>
+            <div class="formbuilder-text form-group field-text-1711108635344">
+                <label for="text-1711108635344" class="formbuilder-text-label">Prénom</label>
+                <input type="text" class="form-control" name="text-1711108635344" access="false" id="text-1711108635344">
+            </div>
+            <div class="formbuilder-text form-group field-text-1711108635344">
+                <label for="text-1711108635344" class="formbuilder-text-label">Unité de recherche/établissement</label>
+                <input type="text" class="form-control" name="text-1711108635344" access="false" id="text-1711108635344">
+            </div>
+            <div class="formbuilder-text form-group field-text-1711108647183">
+                <label for="text-1711108647183" class="formbuilder-text-label">Adresse mail</label>
+                <input type="email" class="form-control" name="text-1711108647183" access="false" id="text-1711108647183">
             </div>
             <div>Membre n°2 – Nom spécialiste externe au domaine de la thèse</div>
-            <div>NOM Prénom<span style="white-space: pre;">	</span>Unité de recherche/établissement<span style="white-space: pre;">	</span>Adresse mail
-                <br>
+            <div class="formbuilder-text form-group field-text-1711108611188">
+                <label for="text-1711108611188" class="formbuilder-text-label">Nom</label>
+                <input type="text" class="form-control" name="text-1711108611188" access="false" id="text-1711108611188">
             </div>
-            <div>Membre n°3 – Ex. partenaire de la cotutelle, spécialiste du financeur etcNOM Prénom<span style="white-space: pre;">	</span>Unité de recherche/établissement<span style="white-space: pre;">	</span>Adresse mail
-                <br>
+            <div class="formbuilder-text form-group field-text-1711108635344">
+                <label for="text-1711108635344" class="formbuilder-text-label">Prénom</label>
+                <input type="text" class="form-control" name="text-1711108635344" access="false" id="text-1711108635344">
+            </div>
+            <div class="formbuilder-text form-group field-text-1711108635344">
+                <label for="text-1711108635344" class="formbuilder-text-label">Unité de recherche/établissement</label>
+                <input type="text" class="form-control" name="text-1711108635344" access="false" id="text-1711108635344">
+            </div>
+            <div class="formbuilder-text form-group field-text-1711108647183">
+                <label for="text-1711108647183" class="formbuilder-text-label">Adresse mail</label>
+                <input type="email" class="form-control" name="text-1711108647183" access="false" id="text-1711108647183">
+            </div>
+            <div>Membre n°3 – Ex. partenaire de la cotutelle, spécialiste du financeur etc</div>
+            <div class="formbuilder-text form-group field-text-1711108611188">
+                <label for="text-1711108611188" class="formbuilder-text-label">Nom</label>
+                <input type="text" class="form-control" name="text-1711108611188" access="false" id="text-1711108611188">
+            </div>
+            <div class="formbuilder-text form-group field-text-1711108635344">
+                <label for="text-1711108635344" class="formbuilder-text-label">Prénom</label>
+                <input type="text" class="form-control" name="text-1711108635344" access="false" id="text-1711108635344">
+            </div>
+            <div class="formbuilder-text form-group field-text-1711108635344">
+                <label for="text-1711108635344" class="formbuilder-text-label">Unité de recherche/établissement</label>
+                <input type="text" class="form-control" name="text-1711108635344" access="false" id="text-1711108635344">
+            </div>
+            <div class="formbuilder-text form-group field-text-1711108647183">
+                <label for="text-1711108647183" class="formbuilder-text-label">Adresse mail</label>
+                <input type="email" class="form-control" name="text-1711108647183" access="false" id="text-1711108647183">
             </div>
         </p>
     </div>
     <div class="">
-        <h2 access="false" id="control-8853919">1 -&nbsp; BILAN ANNUEL AVEC LA DIRECTION DE THÈSE</h2></div>
+        <h2 access="false" id="control-4649260">1 -&nbsp; BILAN ANNUEL AVEC LA DIRECTION DE THÈSE</h2></div>
     <div class="formbuilder-checkbox-group form-group field-checkbox-group-1711060510937">
         <label for="checkbox-group-1711060510937" class="formbuilder-checkbox-group-label">Fréquence des contacts avec la direction de thèse (en dehors des courriers électroniques) :<span class="formbuilder-required">*</span></label>
         <div class="checkbox-group">
@@ -169,7 +227,7 @@
         </div>
     </div>
     <div class="">
-        <h2 access="false" id="control-8787021">2- BILAN ANNUEL DE LA RELATION AVEC L’UNITÉ DE RECHERCHE</h2></div>
+        <h2 access="false" id="control-241947">2- BILAN ANNUEL DE LA RELATION AVEC L’UNITÉ DE RECHERCHE</h2></div>
     <div class="formbuilder-radio-group form-group field-radio-group-1711060744423">
         <label for="radio-group-1711060744423" class="formbuilder-radio-group-label">Intégration dans l’unité de recherche) :<span class="formbuilder-required">*</span></label>
         <div class="radio-group">
@@ -205,9 +263,9 @@
         <textarea type="textarea" class="form-control" name="textarea-1711060863637" access="false" id="textarea-1711060863637"></textarea>
     </div>
     <div class="">
-        <h2 access="false" id="control-1762831">3 -&nbsp;AVIS GÉNÉRAL SUR L’ANNÉE ÉCOULÉE</h2></div>
+        <h2 access="false" id="control-2432633">3 -&nbsp;AVIS GÉNÉRAL SUR L’ANNÉE ÉCOULÉE</h2></div>
     <div class="">
-        <p access="false" id="control-2317063">Donner votre avis personnel sur les points suivants&nbsp;</p>
+        <p access="false" id="control-2310973">Donner votre avis personnel sur les points suivants&nbsp;</p>
     </div>
     <div class="formbuilder-radio-group form-group field-radio-group-1711060965385">
         <label for="radio-group-1711060965385" class="formbuilder-radio-group-label">Avez-vous assez d'autonomie pour gérer votre travail ?&nbsp;</label>
@@ -286,11 +344,11 @@
     <div class="formbuilder-radio-group form-group field-radio-group-1711061105339">
         <label for="radio-group-1711061105339" class="formbuilder-radio-group-label">Demande de rendez-vous confidentiel avec la direction de l’école doctorale pour un signalement sur « toute forme de conflit, de discrimination ou de harcèlement moral ou sexuel ou d’agissement sexiste »&nbsp;</label>
         <div class="radio-group">
-            <div class="formbuilder-radio">
+            <div class="formbuilder-radio-inline">
                 <input name="radio-group-1711061105339" access="false" id="radio-group-1711061105339-0" value="oui" type="radio">
                 <label for="radio-group-1711061105339-0">Oui</label>
             </div>
-            <div class="formbuilder-radio">
+            <div class="formbuilder-radio-inline">
                 <input name="radio-group-1711061105339" access="false" id="radio-group-1711061105339-1" value="non" type="radio">
                 <label for="radio-group-1711061105339-1">Non</label>
             </div>
