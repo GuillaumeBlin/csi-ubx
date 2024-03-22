@@ -1,4 +1,4 @@
-<form action="<?php echo $this->action('form_save_PhDReport');?>" method="POST">
+<form action="<?php echo str_replace("/load/","/form_save_PhDReport/",$_SERVER['REQUEST_URI']);?>" method="POST">
 <div class="rendered-form">
     <div class="">
         <h1>Rapport annuel de la doctorante ou du doctorant </h1></div>
