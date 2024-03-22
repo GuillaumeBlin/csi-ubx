@@ -180,23 +180,23 @@
         <label for="checkbox-group-1711060510937" class="formbuilder-checkbox-group-label">Fréquence des contacts avec la direction de thèse (en dehors des courriers électroniques) :<span class="formbuilder-required">*</span></label>
         <div class="checkbox-group">
             <div class="formbuilder-checkbox-inline">
-                <input name="checkbox-group-1711060510937[]" access="false" id="checkbox-group-1711060510937-0" required="required" aria-required="true" value="TousLesJours" type="checkbox">
+                <input name="checkbox-group-1711060510937[]" access="false" id="checkbox-group-1711060510937-0" value="TousLesJours" type="checkbox">
                 <label for="checkbox-group-1711060510937-0">Tous les jours</label>
             </div>
             <div class="formbuilder-checkbox-inline">
-                <input name="checkbox-group-1711060510937[]" access="false" id="checkbox-group-1711060510937-1" required="required" aria-required="true" value="PlusieursFoisParSemaine" type="checkbox">
+                <input name="checkbox-group-1711060510937[]" access="false" id="checkbox-group-1711060510937-1"  value="PlusieursFoisParSemaine" type="checkbox">
                 <label for="checkbox-group-1711060510937-1">Plusieurs fois par semaine</label>
             </div>
             <div class="formbuilder-checkbox-inline">
-                <input name="checkbox-group-1711060510937[]" access="false" id="checkbox-group-1711060510937-2" required="required" aria-required="true" value="Hebdomadaire" type="checkbox">
+                <input name="checkbox-group-1711060510937[]" access="false" id="checkbox-group-1711060510937-2"  value="Hebdomadaire" type="checkbox">
                 <label for="checkbox-group-1711060510937-2">Hebdomadaire</label>
             </div>
             <div class="formbuilder-checkbox-inline">
-                <input name="checkbox-group-1711060510937[]" access="false" id="checkbox-group-1711060510937-3" required="required" aria-required="true" value="Mensuelle" type="checkbox">
+                <input name="checkbox-group-1711060510937[]" access="false" id="checkbox-group-1711060510937-3"  value="Mensuelle" type="checkbox">
                 <label for="checkbox-group-1711060510937-3">Mensuelle</label>
             </div>
             <div class="formbuilder-checkbox-inline">
-                <input name="checkbox-group-1711060510937[]" access="false" id="checkbox-group-1711060510937-4" required="required" aria-required="true" value="MoinsDUneFoisParMois" type="checkbox">
+                <input name="checkbox-group-1711060510937[]" access="false" id="checkbox-group-1711060510937-4"  value="MoinsDUneFoisParMois" type="checkbox">
                 <label for="checkbox-group-1711060510937-4">Moins d'une fois par mois</label>
             </div>
         </div>
@@ -232,15 +232,15 @@
         <label for="radio-group-1711060744423" class="formbuilder-radio-group-label">Intégration dans l’unité de recherche) :<span class="formbuilder-required">*</span></label>
         <div class="radio-group">
             <div class="formbuilder-radio-inline">
-                <input name="radio-group-1711060744423" access="false" id="radio-group-1711060744423-0" required="required" aria-required="true" value="PeuSatisfaisante" type="radio">
+                <input name="radio-group-1711060744423" access="false" id="radio-group-1711060744423-0"  value="PeuSatisfaisante" type="radio">
                 <label for="radio-group-1711060744423-0">Peu satisfaisante</label>
             </div>
             <div class="formbuilder-radio-inline">
-                <input name="radio-group-1711060744423" access="false" id="radio-group-1711060744423-1" required="required" aria-required="true" value="Satisfaisante" type="radio">
+                <input name="radio-group-1711060744423" access="false" id="radio-group-1711060744423-1"  value="Satisfaisante" type="radio">
                 <label for="radio-group-1711060744423-1">Satisfaisante</label>
             </div>
             <div class="formbuilder-radio-inline">
-                <input name="radio-group-1711060744423" access="false" id="radio-group-1711060744423-2" required="required" aria-required="true" value="TrèsSatisfaisante" type="radio">
+                <input name="radio-group-1711060744423" access="false" id="radio-group-1711060744423-2"  value="TrèsSatisfaisante" type="radio">
                 <label for="radio-group-1711060744423-2">Très satisfaisante</label>
             </div>
         </div>
