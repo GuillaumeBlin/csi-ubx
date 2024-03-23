@@ -1,32 +1,29 @@
-<form enctype="multipart/form-data" action="<?php echo str_replace("/load/","/form_save_PhDReport/",$_SERVER['REQUEST_URI']);?>" method="POST">
-<div class="rendered-form">
-    <div class="">
-        <h1>Rapport annuel de la doctorante ou du doctorant </h1></div>
-    <div class="">
-        <h2>INFORMATION GÉNÉRALES</h2></div>
-    <div class="">
-        <h3>LA DOCTORANTE OU LE DOCTORANT</h3></div>
+<form action="<?php echo str_replace("/load/","/form_save_PhDReport/",$_SERVER['REQUEST_URI']);?>" method="POST">
+<div>
+    <h1>Rapport annuel de la doctorante ou du doctorant </h1>
+    <h2>INFORMATION GÉNÉRALES</h2>
+    <h3>LA DOCTORANTE OU LE DOCTORANT</h3>
     <div class="">
         <p>          
         <div class="form-group">
                 <label for="PhD_Nom" >Nom</label>
-                <input type="text" disabled class="form-control" name="PhD_Nom" access="false" id="PhD_Nom" value="<?php echo $defense["nom"];?>">
+                <input type="text" readonly class="form-control" name="PhD_Nom" id="PhD_Nom" value="<?php echo $defense["nom"];?>">
         </div>
         <div class="form-group">
                 <label for="PhD_Prenom" >Prénom</label>
-                <input type="text" disabled class="form-control" name="PhD_Prenom" access="false" id="PhD_Prenom" value="<?php echo $defense["prenom"];?>">
+                <input type="text" readonly class="form-control" name="PhD_Prenom" access="false" id="PhD_Prenom" value="<?php echo $defense["prenom"];?>">
         </div>
         <div class="form-group">
                 <label for="PhD_Mail" >Email dans ADUM</label>
-                <input type="text" disabled class="form-control" name="PhD_Mail" access="false" id="PhD_Mail" value="<?php echo $defense["mail_principal"];?>">
+                <input type="text" readonly class="form-control" name="PhD_Mail" access="false" id="PhD_Mail" value="<?php echo $defense["mail_principal"];?>">
         </div>
         <div class="form-group">
                 <label for="PhD_Specialite" >Spécialité</label>
-                <input type="text" disabled class="form-control" name="PhD_Specialite" access="false" id="PhD_Specialite" value="<?php echo $defense["these_specialite"];?>">
+                <input type="text" readonly class="form-control" name="PhD_Specialite" access="false" id="PhD_Specialite" value="<?php echo $defense["these_specialite"];?>">
         </div>
         <div class="form-group">
                 <label for="PhD_UMR" >Unité de recherche</label>
-                <input type="text" disabled class="form-control" name="PhD_UMR" access="false" id="PhD_UMR" value="<?php echo $defense["these_laboratoire"];?>">
+                <input type="text" readonly class="form-control" name="PhD_UMR" access="false" id="PhD_UMR" value="<?php echo $defense["these_laboratoire"];?>">
         </div>
         </p>
     </div>
