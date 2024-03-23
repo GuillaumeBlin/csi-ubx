@@ -437,9 +437,9 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        echo $_REQUEST["PhD_Nom"];
+        echo "ici".$_REQUEST["PhD_Nom"];
         if($this->isPost()){
-            echo $this->post("PhD_Nom");
+            echo "la".$this->post("PhD_Nom");
         }
         exit;
     }
