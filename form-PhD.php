@@ -36,30 +36,30 @@
     </div>
     <div class="formbuilder-date form-group field-date-1711061138770">
         <label for="PhD_DateDebutThese" class="formbuilder-date-label">Date de début de thèse</label>
-        <input type="date" class="form-control" name="PhD_DateDebutThese" disabled  id="PhD_DateDebutThese" value="<?php echo date('Y-m-d', strtotime($defense["these_date_1inscription"])); ?>">
+        <input type="date" class="form-control" name="PhD_DateDebutThese" readonly  id="PhD_DateDebutThese" value="<?php echo date('Y-m-d', strtotime($defense["these_date_1inscription"])); ?>">
     </div>
-    <div class="formbuilder-radio-group form-group field-radio-group-1711093700565">
-        <label for="TypeDeFinancement" class="formbuilder-radio-group-label">Type de financement</label>
+    <div>
+        <label for="TypeDeFinancement" >Type de financement</label>
         <div class="radio-group">
-            <div class="formbuilder-radio-inline">
-                <input name="TypeDeFinancement" access="false" id="radio-group-1711093700565-0" value="Ministère" type="radio">
-                <label for="radio-group-1711093700565-0">Ministères</label>
+            <div >
+                <input name="TypeDeFinancement" value="Ministère" type="radio">
+                <label>Ministères</label>
             </div>
-            <div class="formbuilder-radio-inline">
-                <input name="TypeDeFinancement" access="false" id="radio-group-1711093700565-1" value="CIFRE" type="radio">
-                <label for="radio-group-1711093700565-1">CIFRE</label>
+            <div>
+                <input name="TypeDeFinancement" value="CIFRE" type="radio">
+                <label>CIFRE</label>
             </div>
-            <div class="formbuilder-radio-inline">
-                <input name="TypeDeFinancement" access="false" id="radio-group-1711093700565-2" value="COFRA" type="radio">
-                <label for="radio-group-1711093700565-2">COFRA</label>
+            <div>
+                <input name="TypeDeFinancement" value="COFRA" type="radio">
+                <label>COFRA</label>
             </div>
-            <div class="formbuilder-radio-inline">
-                <input name="TypeDeFinancement" access="false" id="radio-group-1711093700565-3" type="CD Droit Privé">
+            <div>
+                <input name="TypeDeFinancement" value="CD Droit Privé" type="radio">
                 <label for="radio-group-1711093700565-3">CD Droit Privé</label>
             </div>
-            <div class="formbuilder-radio-inline">
-                <input name="TypeDeFinancement" access="false" id="radio-group-1711093700565-other" class="undefined other-option" value="Autre" type="radio">
-                <label for="radio-group-1711093700565-other">Autre
+            <div>
+                <input name="TypeDeFinancement" value="Autre" type="radio">
+                <label>Autre
                     <input type="text" id="TypeDeFinancementAutre" class="other-val">
                 </label>
             </div>
