@@ -445,11 +445,9 @@ class Controller extends BlockController
         echo "<pre>".var_dump($_REQUEST)."</pre>";
         
         $db = \Database::connection();
-        $statement = $db->executeQuery('delete from PhDReport where ID = ?', array($mat));
         $v1 = array($mat, $_REQUEST["PhD_Nom"], $_REQUEST["PhD_DateDebutThese"], $_REQUEST["TypeDeFinancement"]);
-        $q1 = "INSERT INTO PhDReport (ID, PhD_Nom, PhD_DateDebutThese, TypeDeFinancement) VALUES (?, ?, ?, ?)";
-        $db->executeQuery($q1, $v1);
-            
+        $statement = $db->executeQuery('INSERT INTO `PhDReport` (`Matricule`, `PhD_Nom`, `PhD_DateDebutThese`, `TypeDeFinancement`) VALUES (?, ?, ?, ?);', $v1); 
+        echo $statement->rowCount();            
         exit;
 
         /*
