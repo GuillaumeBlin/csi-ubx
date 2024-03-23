@@ -444,13 +444,21 @@ class Controller extends BlockController
         $mat=$val[1];
         
         echo "<pre>".var_dump($_REQUEST)."</pre>";
-        
+        $vals=$_REQUEST;
+
         $db = \Database::connection();
         $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` = ?;', array(intval($mat))); 
         echo $statement->rowCount();            
+        $fields='`Matricule`,';
+        $values='?,';        
+        foreach(array_keys($vals) as $e){
+            $fields=$fields."`".$e."`,";
+            $values=$values.'?,';
+        }
 
-        $v1 = array(intval($mat), $_REQUEST["PhD_Nom"], $_REQUEST["PhD_DateDebutThese"], $_REQUEST["TypeDeFinancement"]);
-        $statement = $db->executeQuery('INSERT INTO `PhDReport` (`Matricule`, `PhD_Nom`, `PhD_DateDebutThese`, `TypeDeFinancement`) VALUES (?, ?, ?, ?);', $v1); 
+        $sql='INSERT INTO `PhDReport` ( '.rtrim($fields).')VALUES ('.rtrim($values).');';
+        $vals["code"]=intval($mat);        
+        $statement = $db->executeQuery($sql, array_values($vals)); 
         echo $statement->rowCount();            
         exit;
 
