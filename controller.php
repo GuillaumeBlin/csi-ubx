@@ -433,10 +433,28 @@ class Controller extends BlockController
         }
         echo "<pre>".var_dump($_REQUEST)."</pre>";
         //echo "ici".$_REQUEST["PhD_Nom"];
-        if($this->isPost()){
+        /*if($this->isPost()){
             echo "la".$this->post("PhD_Nom");
-        }
+        }*/
         exit;
+
+        /*
+        <table name="PhDReport">
+		<field name="ID" type="integer">
+			<unsigned />
+			<key />
+		</field>
+		<field name="PhD_Nom" type="text">
+			<default value="" />
+		</field>
+		<field name="PhD_DateDebutThese" type="text">
+			<default value="False"/>
+		</field>		
+		<field name="TypeDeFinancement" type="text">
+			<default value="" />
+		</field>		
+	</table>
+        */
     }
 
     public function action_load($bID = false)

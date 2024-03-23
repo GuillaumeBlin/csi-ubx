@@ -27,8 +27,7 @@
         </div>
         </p>
     </div>
-    <div class="">
-        <h3 access="false" id="control-9542568">LA THÈSE</h3></div>
+    <h3>LA THÈSE</h3>
     <div class="">
         <p access="false" id="control-690656">
             <div>NOM / prénom direction de thèse : <?php echo $defense["these_directeur_these_nom"];?> <?php echo $this->totitle($defense["these_directeur_these_prenom"]);?></div>                
