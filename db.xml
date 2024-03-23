@@ -23,9 +23,6 @@
 			<unsigned />
 			<key />
 		</field>
-		<field name="Matricule" type="text">
-			<default value="" />
-		</field>
 		<field name="PhD_Nom" type="text">
 			<default value="" />
 		</field>
