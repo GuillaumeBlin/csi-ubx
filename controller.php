@@ -10,7 +10,7 @@ use Concrete\Core\File\Filesystem;
 use Concrete\Core\Block\BlockType\BlockType;
 use Concrete\Core\Page\Page;
 use \Concrete\Core\Entity\Attribute\Value\Value\SelectValueOption;
-use Loader;
+
 
 class Controller extends BlockController
 {
@@ -413,15 +413,12 @@ class Controller extends BlockController
     private function admin_view(){     
         $this->display_list() ;
         
-        $db = Loader::db();
-        $q2 = "SELECT * FROM PhDReport";
-        $r2 = $db->query($q2);
-        if ($r2) {
-            while ($row = $r2->fetchRow()) {
-                print($row);
-            }
+        $db = \Database::connection();
+        $statement = $db->executeQuery('SELECT * FROM `PhDReport` ;'); 
+        $rows = $statement->fetchAll(); //print_r($rows);
+        foreach ($rows as $row) {
+            print_r($row);
         }
-
     }
 
     private function user_view(){
@@ -446,12 +443,12 @@ class Controller extends BlockController
         $mat=$val[1];
         
         echo "<pre>".var_dump($_REQUEST)."</pre>";
-        $db = Loader::db();
-
-        $db->query('delete from PhDReport where ID = ?', array($mat));
+        
+        $db = \Database::connection();
+        $statement = $db->executeQuery('delete from PhDReport where ID = ?', array($mat));
         $v1 = array($mat, $_REQUEST["PhD_Nom"], $_REQUEST["PhD_DateDebutThese"], $_REQUEST["TypeDeFinancement"]);
         $q1 = "INSERT INTO PhDReport (ID, PhD_Nom, PhD_DateDebutThese, TypeDeFinancement) VALUES (?, ?, ?, ?)";
-        $db->query($q1, $v1);
+        $db->executeQuery($q1, $v1);
             
         exit;
 
