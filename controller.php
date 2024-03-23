@@ -92,14 +92,8 @@ class Controller extends BlockController
 
     private function display_phd_report_content($defense)
     {
-?>
-    <form action="<?php echo str_replace("/load/","/form_save_PhDReport/",$_SERVER['REQUEST_URI']);?>" method="POST">
-    <input type="text" class="form-control" name="PhD_Nom" id="PhD_Nom" value="<?php echo $defense["nom"];?>">
-    <input type="submit" class="btn primary" value="Submit">
-    </form>
-<?php
 
-        //include('form-PhD.php');
+        include('form-PhD-c5.php');
         return;
         $year = (int)$defense["niveau_Etud"][0];
         switch ($year) {
