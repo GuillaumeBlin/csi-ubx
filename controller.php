@@ -445,7 +445,7 @@ class Controller extends BlockController
         
         echo "<pre>".var_dump($_REQUEST)."</pre>";
         $vals=$_REQUEST;
-
+        array_shift($vals);
         $db = \Database::connection();
         $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` = ?;', array(intval($mat))); 
         echo $statement->rowCount();            
