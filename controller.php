@@ -431,7 +431,8 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        echo "ici".$_REQUEST["PhD_Nom"];
+        echo "<pre>".var_dump($_REQUEST)."</pre>";
+        //echo "ici".$_REQUEST["PhD_Nom"];
         if($this->isPost()){
             echo "la".$this->post("PhD_Nom");
         }
