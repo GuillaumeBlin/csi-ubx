@@ -10,6 +10,7 @@ use Concrete\Core\File\Filesystem;
 use Concrete\Core\Block\BlockType\BlockType;
 use Concrete\Core\Page\Page;
 use \Concrete\Core\Entity\Attribute\Value\Value\SelectValueOption;
+use Loader;
 
 class Controller extends BlockController
 {
