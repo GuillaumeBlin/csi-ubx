@@ -431,7 +431,8 @@ class Controller extends BlockController
             return false;
         }
         if($this->isPost()){
-            echo "<pre>".var_dump($this->post("TypeDeFinancement"))."</pre>";
+            $f=$this->post("TypeDeFinancement");
+            echo $f;
         }
         exit;
     }
