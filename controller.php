@@ -92,13 +92,13 @@ class Controller extends BlockController
 
     private function display_phd_report_content($defense)
     {
-        $this->load->helper('form');
+?>
+    <form action="<?php echo $this->action('form_save_PhDReport');?>" method="POST">
+    <input type="text" disabled class="form-control" name="PhD_Nom" id="PhD_Nom" value="<?php echo $defense["nom"];?>">
+    <input type="submit" class="btn primary" value="Submit">
+    </form>
+<?php
 
-echo form_open($this->action('form_save_PhDReport'));
-
-print $form->text('firstName', "Andrew", array('style' => 'width: 100%', 'tabindex' => 2));  
-print $form->select('favoriteFruit', array('p' => 'Pears', 'a' => 'Apples', 'o' => 'Oranges'), 'a');
-echo form_submit('mysubmit', 'Submit Post!');
         //include('form-PhD.php');
         return;
         $year = (int)$defense["niveau_Etud"][0];
