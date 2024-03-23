@@ -303,18 +303,18 @@
         </div>
     </div>
     <div>
-        <label for="RéponsesAuxQuestions" >Trouvez-vous dans votre environnement de travail les réponses à vos questions scientifiques ?&nbsp;</label>
+        <label for="ReponsesAuxQuestions" >Trouvez-vous dans votre environnement de travail les réponses à vos questions scientifiques ?&nbsp;</label>
         <div class="radio-group">
         <span>
-                <input name="RéponsesAuxQuestions"  value="Insuffisant" type="radio">
+                <input name="ReponsesAuxQuestions"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
             </span>            
             <span>
-                <input name="RéponsesAuxQuestions"  value="A améliorer" type="radio">
+                <input name="ReponsesAuxQuestions"  value="A améliorer" type="radio">
                 <label>A améliorer</label>
             </span>
             <span>
-                <input name="RéponsesAuxQuestions"  value="Satisfaisant" type="radio">
+                <input name="ReponsesAuxQuestions"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
         </div>

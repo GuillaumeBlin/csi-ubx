@@ -133,7 +133,7 @@
 		<field name="Moyens"  type="text">
 			<default value="" />
 		</field>
-		<field name="RéponsesAuxQuestions" type="text">
+		<field name="ReponsesAuxQuestions" type="text">
 			<default value="" />
 		</field>
 		<field name="InteretScientifique"  type="text">
