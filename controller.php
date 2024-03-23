@@ -450,7 +450,7 @@ class Controller extends BlockController
 
         $db->query('delete from PhDReport where ID = ?', array($mat));
         $v1 = array($mat, $_REQUEST["PhD_Nom"], $_REQUEST["PhD_DateDebutThese"], $_REQUEST["TypeDeFinancement"]);
-        $q1 = "INSERT INTO PhDReport (ID, PhD_Nom, PhD_DateDebutThese, TypeDeFinancement) VALUES (?, ?, ?)";
+        $q1 = "INSERT INTO PhDReport (ID, PhD_Nom, PhD_DateDebutThese, TypeDeFinancement) VALUES (?, ?, ?, ?)";
         $db->query($q1, $v1);
             
         exit;
