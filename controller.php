@@ -93,7 +93,7 @@ class Controller extends BlockController
     private function display_phd_report_content($defense)
     {
 
-        include('form-PhD-c5.php');
+        include('form-PhD.php');
         return;
         $year = (int)$defense["niveau_Etud"][0];
         switch ($year) {
