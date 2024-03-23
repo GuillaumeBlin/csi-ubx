@@ -432,7 +432,8 @@ class Controller extends BlockController
         }
         if($this->isPost()){
             $f=$this->post("TypeDeFinancement");
-            echo $_REQUEST["TypeDeFinancement"];
+            $this->set('f_TypeDeFinancement',$f);
+            echo $f_TypeDeFinancement;
         }
         exit;
     }
