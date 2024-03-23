@@ -1,5 +1,5 @@
 <?php
-$form = Loader::helper('form');
+$this->load->helper('form');
 
 echo form_open($this->action('form_save_PhDReport'));
 
