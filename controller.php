@@ -430,7 +430,9 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        echo "<pre>".var_dump($_REQUEST["TypeDeFinancement"])."</pre>";
+        if($this->isPost()){
+            echo "<pre>".var_dump($this->post("TypeDeFinancement")."</pre>";
+        }
         exit;
     }
 
