@@ -21,6 +21,7 @@
 	<table name="PhDReport">
 		<field name="ID" type="integer">
 			<unsigned />
+			<autoincrement/>
 			<key />
 		</field>
 		<field name="Matricule" type="text">
@@ -39,6 +40,7 @@
 	<table name="DTReport">
 		<field name="ID" type="integer">
 			<unsigned />
+			<autoincrement/>
 			<key />
 		</field>
 		<field name="PhD_Nom" type="text">
@@ -54,6 +56,7 @@
 	<table name="CSIReport">
 		<field name="ID" type="integer">
 			<unsigned />
+			<autoincrement/>
 			<key />
 		</field>
 		<field name="PhD_Nom" type="text">
