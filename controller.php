@@ -415,6 +415,7 @@ class Controller extends BlockController
         
         $db = \Database::connection();
         $statement = $db->executeQuery('SELECT * FROM `PhDReport` ;'); 
+        echo $statement->rowCount();     
         $rows = $statement->fetchAll(); //print_r($rows);
         foreach ($rows as $row) {
             print_r($row);
