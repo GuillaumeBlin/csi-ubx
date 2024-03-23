@@ -412,6 +412,15 @@ class Controller extends BlockController
     private function admin_view(){     
         $this->display_list() ;
         
+        $db = Loader::db();
+        $q2 = "SELECT * FROM PhDReport";
+        $r2 = $db->query($q2);
+        if ($r2) {
+            while ($row = $r2->fetchRow()) {
+                print($row);
+            }
+        }
+
     }
 
     private function user_view(){
@@ -431,11 +440,18 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
+        $val=$this->dec($_REQUEST["code"]);
+        $val=explode("-",$val);
+        $mat=$val[1];
+        
         echo "<pre>".var_dump($_REQUEST)."</pre>";
-        //echo "ici".$_REQUEST["PhD_Nom"];
-        /*if($this->isPost()){
-            echo "la".$this->post("PhD_Nom");
-        }*/
+        $db = Loader::db();
+
+        $db->query('delete from PhDReport where ID = ?', array($mat));
+        $v1 = array($mat, $_REQUEST["PhD_Nom"], $_REQUEST["PhD_DateDebutThese"], $_REQUEST["TypeDeFinancement"]);
+        $q1 = "INSERT INTO PhDReport (ID, PhD_Nom, PhD_DateDebutThese, TypeDeFinancement) VALUES (?, ?, ?)";
+        $db->query($q1, $v1);
+            
         exit;
 
         /*
