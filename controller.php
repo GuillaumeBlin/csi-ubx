@@ -450,7 +450,7 @@ class Controller extends BlockController
         echo $statement->rowCount();            
 
         $v1 = array(intval($mat), $_REQUEST["PhD_Nom"], $_REQUEST["PhD_DateDebutThese"], $_REQUEST["TypeDeFinancement"]);
-        $statement = $db->executeQuery('INSERT INTO `PhDReport` (`ID`, `PhD_Nom`, `PhD_DateDebutThese`, `TypeDeFinancement`) VALUES (?, ?, ?, ?);', $v1); 
+        $statement = $db->executeQuery('INSERT INTO `PhDReport` (`Matricule`, `PhD_Nom`, `PhD_DateDebutThese`, `TypeDeFinancement`) VALUES (?, ?, ?, ?);', $v1); 
         echo $statement->rowCount();            
         exit;
 
