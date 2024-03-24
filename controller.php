@@ -471,6 +471,7 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
+        emptyDB();
         if($this->admin =='True'){
             $this->admin_view();
         }else{
@@ -480,11 +481,11 @@ class Controller extends BlockController
         exit;
     }
 
-    public function delete()
+    private function emptyDB()
     {        
         $db = \Database::connection();
-        $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` IN (SELECT `ID` FROM `PhDReport`);', array()); 
-        parent::delete();
+        $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` IN (SELECT `ID` FROM `PhDReport`);', array());         
+        echo $statement->rowCount();
     }
 
 }
