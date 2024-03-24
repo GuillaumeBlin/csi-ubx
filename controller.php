@@ -424,6 +424,7 @@ class Controller extends BlockController
 
     private function user_view(){
         $val=$this->dec($_REQUEST["code"]);
+        print_r($val):
         if($val){
             $val=explode("-",$val);
             $mat=$val[1];
