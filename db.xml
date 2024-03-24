@@ -24,6 +24,9 @@
 			<autoincrement/>
 			<key />
 		</field>
+		<field name="bID" type="integer">
+			<unsigned />
+		</field>
 		<field name="Matricule" type="text">
 			<default value="" />
 		</field>

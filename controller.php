@@ -450,36 +450,20 @@ class Controller extends BlockController
         $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` = ?;', array(intval($mat))); 
         echo $statement->rowCount();            
         $fields='';
-        $values='?,';        
+        $values='';        
         foreach(array_keys($vals) as $e){
             $fields=$fields."`".$e."`,";
             $values=$values.'?,';
         }
-        $fields=$fields."`Matricule`,";
+        $values=$values.'?,?';
+        $fields=$fields."`Matricule`,`bID`";
 
-        $sql='INSERT INTO `PhDReport` ( '.rtrim($fields,',').')VALUES ('.rtrim($values,',').');';
-        $vals["code"]=intval($mat);        
+        $sql='INSERT INTO `PhDReport` ( '.$fields.')VALUES ('.$values.');';
+        $vals["Matricule"]=intval($mat);
+        $vals["bID"]=$bID;        
         $statement = $db->executeQuery($sql, array_values($vals)); 
         echo $statement->rowCount();            
         exit;
-
-        /*
-        <table name="PhDReport">
-		<field name="ID" type="integer">
-			<unsigned />
-			<key />
-		</field>
-		<field name="PhD_Nom" type="text">
-			<default value="" />
-		</field>
-		<field name="PhD_DateDebutThese" type="text">
-			<default value="False"/>
-		</field>		
-		<field name="TypeDeFinancement" type="text">
-			<default value="" />
-		</field>		
-	</table>
-        */
     }
 
     public function action_load($bID = false)
@@ -494,6 +478,14 @@ class Controller extends BlockController
         }
         
         exit;
+    }
+
+    public function delete()
+    {        
+        $db = \Database::connection();
+        //$statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `bID` = ?;', array($this->bID)); 
+        $statement = $db->executeQuery('DROP TABLE `PhDReport`;', array()); 
+        parent::delete();
     }
 
 }
