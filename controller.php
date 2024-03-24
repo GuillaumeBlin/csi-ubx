@@ -483,7 +483,7 @@ class Controller extends BlockController
     public function delete()
     {        
         $db = \Database::connection();
-        $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `bID` = ?;', array($this->bID)); 
+        $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` IN (SELECT `ID` FROM `PhDReport`);', array()); 
         parent::delete();
     }
 
