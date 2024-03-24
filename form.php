@@ -9,8 +9,7 @@ if(empty($ed)) $ed=null;
 ?>
 
 
-<div class="form-group">
-	<input type="hidden" name="sKey" class="ccm-input-text" value="<?php echo $sKey; ?>" />
+<div class="form-group">	
 	<br/>
 	<label class="control-label" for="filter">ED <sup class="fas fa-asterisk"></sup></label>
 	<select id="ed" name="ed" class="ccm-input-select">		
@@ -24,4 +23,7 @@ if(empty($ed)) $ed=null;
 		<option value="True" <?php if (strcmp($admin, "True") === 0) { ?>selected<?php } ?>> Oui</option>
 		<option value="False" <?php if (strcmp($admin, "False") === 0) { ?>selected<?php } ?>> Non</option>
 	</select>
+	<label class="control-label" for="sKey">Clé de cryptage (laisser comme tel si admin, recopier celui de l'admin si user)<sup class="fas fa-asterisk"></sup></label>
+	<input type="text" name="sKey" class="ccm-input-text" value="<?php echo $sKey; ?>" />
+
 </div>
