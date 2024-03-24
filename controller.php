@@ -471,7 +471,7 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        $this->emptyDB();
+        //$this->emptyDB();
         if($this->admin =='True'){
             $this->admin_view();
         }else{
