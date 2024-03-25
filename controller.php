@@ -294,6 +294,14 @@ class Controller extends BlockController
             echo '$(".table .toggleDisplay").toggleClass("in");';
         echo '}); ';
         echo "</script>";
+        echo '<style type="text/css">';
+        echo '.toggleDisplay {';
+            echo '    display: none;';
+            echo '  }';
+            echo '  .toggleDisplay.in {';
+                echo '    display: table-cell;';
+                echo '  }';
+        echo '</style>';
         
     }
 
