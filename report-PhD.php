@@ -12,7 +12,7 @@
         font-weight: bold;
     }
 
-    .ref::after {
+    #report > label::after {
     font-weight: bold;
   content: " :";
 }
