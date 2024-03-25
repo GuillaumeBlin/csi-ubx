@@ -1,5 +1,11 @@
-<form action="<?php echo str_replace("/load/","/form_save_PhDReport/",$_SERVER['REQUEST_URI']);?>" method="POST">
-<div>
+<style>
+    #report{
+  font-family: "Gill Sans Extrabold", sans-serif;
+    }
+</style>
+</style>
+</style>
+<div id="report">
     <h1>Rapport annuel de la doctorante ou du doctorant </h1>
     <h2>INFORMATION GÉNÉRALES</h2>
     <h3>LA DOCTORANTE OU LE DOCTORANT</h3>
@@ -218,4 +224,3 @@
     </div>
     
 </div>
-</form>
