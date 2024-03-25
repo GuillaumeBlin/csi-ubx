@@ -256,7 +256,6 @@ class Controller extends BlockController
         echo '<table class="table table-bordered">';
         echo '<thead>';
         echo '<tr>';
-
         $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'PhDReport';");
         $rows = $statement->fetchAll(); //print_r($rows);
         $i=0;
@@ -278,7 +277,7 @@ class Controller extends BlockController
         $rows = $statement->fetchAll(); //print_r($rows);
         foreach ($rows as $row) {
             echo "<tr>";
-            $i=0;
+            $i=0;            
             foreach ($row as $info) {
                 if ($i==0){
                     echo "<th scope=\"row\">".$info."</th>";    
@@ -338,15 +337,15 @@ class Controller extends BlockController
         $val=explode("-",$val);
         $mat=$val[1];
         
-        echo "<pre>".var_dump($_REQUEST)."</pre>";
-        $vals=$_REQUEST;
-        array_shift($vals);
+        //echo "<pre>".var_dump($_REQUEST)."</pre>";
+        $report=$_REQUEST;
+        array_shift($report);
         $db = \Database::connection();
         $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` = ?;', array(intval($mat))); 
-        echo $statement->rowCount();            
+        //echo $statement->rowCount();            
         $fields='';
         $values='';        
-        foreach(array_keys($vals) as $e){
+        foreach(array_keys($report) as $e){
             $fields=$fields."`".$e."`,";
             $values=$values.'?,';
         }
@@ -354,10 +353,11 @@ class Controller extends BlockController
         $fields=$fields."`Matricule`,`bID`";
 
         $sql='INSERT INTO `PhDReport` ( '.$fields.')VALUES ('.$values.');';
-        $vals["Matricule"]=intval($mat);
-        $vals["bID"]=$bID;        
-        $statement = $db->executeQuery($sql, array_values($vals)); 
-        echo $statement->rowCount();            
+        $report["Matricule"]=intval($mat);
+        $report["bID"]=$bID;        
+        $statement = $db->executeQuery($sql, array_values($report)); 
+        //echo $statement->rowCount();     
+        include('report-PhD.php');
         exit;
     }
 
