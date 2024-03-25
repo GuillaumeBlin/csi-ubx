@@ -2,6 +2,9 @@
     #report{
   font-family: "Gill Sans Extrabold", sans-serif;
     }
+    #report > h1, h2, h3, h4{
+        background-color:#4a90e2;
+    }
 </style>
 </style>
 </style>
