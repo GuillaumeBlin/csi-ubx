@@ -2,9 +2,20 @@
     #report{
   font-family: "Gill Sans Extrabold", sans-serif;
     }
-    #report > h1, h2, h3, h4{
+    #report > h1, h2{
         background-color:#4a90e2;
     }
+    #report > h3{
+        text-align: center;
+    }
+    #report > label {
+        font-weight: bold;
+    }
+
+    .ref::after {
+    font-weight: bold;
+  content: " :";
+}
 </style>
 </style>
 </style>
