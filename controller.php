@@ -93,189 +93,23 @@ class Controller extends BlockController
 
     private function display_phd_report_content($defense)
     {
-
         include('form-PhD.php');
         return;
-        $year = (int)$defense["niveau_Etud"][0];
-        switch ($year) {
-            case 1:
-                if (strcmp($this->langage, "FR") == 0) {
-                    $year = $year . "ère";
-                } else {
-                    $year = $year . "st";
-                }
-
-                break;
-            case 2:
-                if (strcmp($this->langage, "FR") == 0) {
-                    $year = $year . "nde";
-                } else {
-                    $year = $year . "nd";
-                }
-                break;
-            case 3:
-                if (strcmp($this->langage, "FR") == 0) {
-                    $year = $year . "ème";
-                } else {
-                    $year = $year . "rd";
-                }
-
-                break;
-            default:
-                if (strcmp($this->langage, "FR") == 0) {
-                    $year = $year . "ème";
-                } else {
-                    $year = $year . "th";
-                }
-
-                break;
-        }
-        echo "<li>";
-        if (strcmp($this->langage, "FR") == 0) {
-            echo '<a target="_blank" href="https://adum.fr/script/cv.pl?site=CDUBX&matri=' . $defense["Matricule_etudiant"] . '">' . $this->totitle($defense["prenom"]) . ' ' . $defense["nom"] . '</a> ';
-            echo  ' (' . $year . ' année) - ';
-            echo $defense["these_titre"] . " - ";
-            //echo " (".$defense["these_laboratoire"].") ";        
-            echo   'sous la direction de ' . $this->totitle($defense["these_directeur_these_prenom"]) . " " . $defense["these_directeur_these_nom"];
-            if ($defense["these_codirecteur_these_nom"] != "") {
-                echo ' et ' . $defense["these_codirecteur_these_prenom"] . " " . $defense["these_codirecteur_these_nom"];
-            }
-        } else {
-            echo '<a target="_blank" href="https://adum.fr/script/cv.pl?site=CDUBX&matri=' . $defense["Matricule_etudiant"] . '">' . $this->totitle($defense["prenom"]) . ' ' . $defense["nom"] . '</a> ';
-            echo  ' (' . $year . ' year) - ';
-            echo $defense["these_titre_anglais"] . " - ";
-            //echo " (".$defense["these_laboratoire"].") ";        
-            echo  'under the supervision of ' . $this->totitle($defense["these_directeur_these_prenom"]) . " " . $defense["these_directeur_these_nom"];
-            if ($defense["these_codirecteur_these_nom"] != "") {
-                echo ' and ' . $this->totitle($defense["these_codirecteur_these_prenom"]) . " " . $defense["these_codirecteur_these_nom"];
-            }
-        }
-
-        echo "</li>";
     }
 
     private function display_dt_report_content($defense)
     {
-        $year = (int)$defense["niveau_Etud"][0];
-        switch ($year) {
-            case 1:
-                if (strcmp($this->langage, "FR") == 0) {
-                    $year = $year . "ère";
-                } else {
-                    $year = $year . "st";
-                }
-
-                break;
-            case 2:
-                if (strcmp($this->langage, "FR") == 0) {
-                    $year = $year . "nde";
-                } else {
-                    $year = $year . "nd";
-                }
-                break;
-            case 3:
-                if (strcmp($this->langage, "FR") == 0) {
-                    $year = $year . "ème";
-                } else {
-                    $year = $year . "rd";
-                }
-
-                break;
-            default:
-                if (strcmp($this->langage, "FR") == 0) {
-                    $year = $year . "ème";
-                } else {
-                    $year = $year . "th";
-                }
-
-                break;
-        }
-        echo "<li>";
-        if (strcmp($this->langage, "FR") == 0) {
-            echo '<a target="_blank" href="https://adum.fr/script/cv.pl?site=CDUBX&matri=' . $defense["Matricule_etudiant"] . '">' . $this->totitle($defense["prenom"]) . ' ' . $defense["nom"] . '</a> ';
-            echo  ' (' . $year . ' année) - ';
-            echo $defense["these_titre"] . " - ";
-            //echo " (".$defense["these_laboratoire"].") ";        
-            echo   'sous la direction de ' . $this->totitle($defense["these_directeur_these_prenom"]) . " " . $defense["these_directeur_these_nom"];
-            if ($defense["these_codirecteur_these_nom"] != "") {
-                echo ' et ' . $defense["these_codirecteur_these_prenom"] . " " . $defense["these_codirecteur_these_nom"];
-            }
-        } else {
-            echo '<a target="_blank" href="https://adum.fr/script/cv.pl?site=CDUBX&matri=' . $defense["Matricule_etudiant"] . '">' . $this->totitle($defense["prenom"]) . ' ' . $defense["nom"] . '</a> ';
-            echo  ' (' . $year . ' year) - ';
-            echo $defense["these_titre_anglais"] . " - ";
-            //echo " (".$defense["these_laboratoire"].") ";        
-            echo  'under the supervision of ' . $this->totitle($defense["these_directeur_these_prenom"]) . " " . $defense["these_directeur_these_nom"];
-            if ($defense["these_codirecteur_these_nom"] != "") {
-                echo ' and ' . $this->totitle($defense["these_codirecteur_these_prenom"]) . " " . $defense["these_codirecteur_these_nom"];
-            }
-        }
-
-        echo "</li>";
+        include('form-PhD.php');
+        return;
     }
 
     private function display_csi_report_content($defense)
     {
-        $year = (int)$defense["niveau_Etud"][0];
-        switch ($year) {
-            case 1:
-                if (strcmp($this->langage, "FR") == 0) {
-                    $year = $year . "ère";
-                } else {
-                    $year = $year . "st";
-                }
-
-                break;
-            case 2:
-                if (strcmp($this->langage, "FR") == 0) {
-                    $year = $year . "nde";
-                } else {
-                    $year = $year . "nd";
-                }
-                break;
-            case 3:
-                if (strcmp($this->langage, "FR") == 0) {
-                    $year = $year . "ème";
-                } else {
-                    $year = $year . "rd";
-                }
-
-                break;
-            default:
-                if (strcmp($this->langage, "FR") == 0) {
-                    $year = $year . "ème";
-                } else {
-                    $year = $year . "th";
-                }
-
-                break;
-        }
-        echo "<li>";
-        if (strcmp($this->langage, "FR") == 0) {
-            echo '<a target="_blank" href="https://adum.fr/script/cv.pl?site=CDUBX&matri=' . $defense["Matricule_etudiant"] . '">' . $this->totitle($defense["prenom"]) . ' ' . $defense["nom"] . '</a> ';
-            echo  ' (' . $year . ' année) - ';
-            echo $defense["these_titre"] . " - ";
-            //echo " (".$defense["these_laboratoire"].") ";        
-            echo   'sous la direction de ' . $this->totitle($defense["these_directeur_these_prenom"]) . " " . $defense["these_directeur_these_nom"];
-            if ($defense["these_codirecteur_these_nom"] != "") {
-                echo ' et ' . $defense["these_codirecteur_these_prenom"] . " " . $defense["these_codirecteur_these_nom"];
-            }
-        } else {
-            echo '<a target="_blank" href="https://adum.fr/script/cv.pl?site=CDUBX&matri=' . $defense["Matricule_etudiant"] . '">' . $this->totitle($defense["prenom"]) . ' ' . $defense["nom"] . '</a> ';
-            echo  ' (' . $year . ' year) - ';
-            echo $defense["these_titre_anglais"] . " - ";
-            //echo " (".$defense["these_laboratoire"].") ";        
-            echo  'under the supervision of ' . $this->totitle($defense["these_directeur_these_prenom"]) . " " . $defense["these_directeur_these_nom"];
-            if ($defense["these_codirecteur_these_nom"] != "") {
-                echo ' and ' . $this->totitle($defense["these_codirecteur_these_prenom"]) . " " . $defense["these_codirecteur_these_nom"];
-            }
-        }
-
-        echo "</li>";
+        include('form-PhD.php');
+        return;
     }
+
     /* SORTING functions */
-
-
     private function students_sorter(array $a, array $b)
     {
         return [$a['these_ED_code'], $a['these_specialite'], $a['nom']] <=> [$b['these_ED_code'], $b['these_specialite'], $b['nom']];
@@ -414,9 +248,53 @@ class Controller extends BlockController
         $this->display_list() ;
         
         $db = \Database::connection();
-        $statement = $db->executeQuery('SELECT * FROM `PhDReport` ;'); 
+        /*echo '<div class="container">';
+        echo '<div class="row">';
+        echo '<div class="col-md-12">';
+        echo '<div class="table-responsive">';
+        echo '<table class="table table-bordered">';
+        echo '<thead>';
+        echo '<tr>';
+*/
+        $statement = $db->executeQuery('SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N`PhDReport`;');
         echo $statement->rowCount();     
         $rows = $statement->fetchAll(); //print_r($rows);
+        foreach ($rows as $row) {
+            print_r($row);
+        }
+  /*                      <th>#</th>
+                        <th id="click-me">Click Me</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                        <th class="toggleDisplay">Th 1</th>
+                        <th class="toggleDisplay">Th 2</th>
+                        <th class="toggleDisplay">Th 3</th>
+                        <th class="toggleDisplay">Th 4</th>
+                        echo '</tr>';
+                        echo '</thead>';
+                        echo '<tbody>';
+*/
+                        $statement = $db->executeQuery('SELECT * FROM `PhDReport` ;'); 
+                        echo $statement->rowCount();     
+                        $rows = $statement->fetchAll(); //print_r($rows);
+     /*                   
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td class="toggleDisplay">Td 1</td>
+                        <td class="toggleDisplay">Td 2</td>
+                        <td class="toggleDisplay">Td 3</td>
+                        <td class="toggleDisplay">Td 4</td>
+                    </tr>
+                    
+                    </tbody>
+            </table>*/
+        </div>
+    </div>
+</div>
+</div>
         foreach ($rows as $row) {
             print_r($row);
         }
