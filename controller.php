@@ -290,11 +290,11 @@ class Controller extends BlockController
                     </tr>
                     
                     </tbody>
-            </table>*/
+            </table>
         </div>
     </div>
 </div>
-</div>
+</div>*/
         foreach ($rows as $row) {
             print_r($row);
         }
