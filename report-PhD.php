@@ -63,7 +63,7 @@
             echo " :".$report["TypeDeFinancementAutre"];
         }
         ?>
-        </div>
+        
     </div>
     <div>
         <label for="PhD_Cotutelle" class="formbuilder-radio-group-label">Thèse en cotutelle :&nbsp;</label>
