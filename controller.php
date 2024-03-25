@@ -260,7 +260,7 @@ class Controller extends BlockController
         echo $statement->rowCount();     
         $rows = $statement->fetchAll(); //print_r($rows);
         foreach ($rows as $row) {
-            print_r($row);
+            print_r($row["COLUMN_NAME"]);
         }
   /*                      <th>#</th>
                         <th id="click-me">Click Me</th>
