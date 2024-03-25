@@ -289,6 +289,11 @@ class Controller extends BlockController
         echo "</div>";
         echo "</div>";
         echo "</div>";
+        echo "<script>";
+        echo '$("#click-me").click(function() {';
+            echo '$(".table .toggleDisplay").toggleClass("in");';
+        echo '}); ';
+        echo "</script>";
         
     }
 
