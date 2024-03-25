@@ -258,8 +258,18 @@ class Controller extends BlockController
 
         $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'PhDReport';");
         $rows = $statement->fetchAll(); //print_r($rows);
+        $i=0;
         foreach ($rows as $row) {
-            echo "<th id=\"click-me\">".$row["COLUMN_NAME"]."</th>";
+            if ($i==0){
+                echo "<th id=\"click-me\">".$row["COLUMN_NAME"]."</th>";    
+            }else{
+                if ($i<5){
+                    echo "<th>".$row["COLUMN_NAME"]."</th>";    
+                }else{
+                    echo "<th class=\"toggleDisplay\">".$row["COLUMN_NAME"]."</th>";
+                }
+            }                
+            $i=$i+1;
         }
         echo '</thead>';
         echo '<tbody>';
