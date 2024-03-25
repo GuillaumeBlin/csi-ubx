@@ -242,6 +242,7 @@ class Controller extends BlockController
     public function registerViewAssets($outputContent = "")
     {
         $this->requireAsset("javascript", "jquery");
+        $this->requireAsset("javascript", "datatables");
     }
 
     private function admin_view(){     
