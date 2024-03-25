@@ -257,47 +257,39 @@ class Controller extends BlockController
         echo '<tr>';
 */
         $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'PhDReport';");
-        echo $statement->rowCount();     
         $rows = $statement->fetchAll(); //print_r($rows);
         foreach ($rows as $row) {
-            print_r($row["COLUMN_NAME"]);
+            echo "<th id=\"click-me\">".$row["COLUMN_NAME"]."</th>";
         }
-  /*                      <th>#</th>
-                        <th id="click-me">Click Me</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                        <th class="toggleDisplay">Th 1</th>
-                        <th class="toggleDisplay">Th 2</th>
-                        <th class="toggleDisplay">Th 3</th>
-                        <th class="toggleDisplay">Th 4</th>
-                        echo '</tr>';
-                        echo '</thead>';
-                        echo '<tbody>';
-*/
-                        $statement = $db->executeQuery('SELECT * FROM `PhDReport` ;'); 
-                        echo $statement->rowCount();     
-                        $rows = $statement->fetchAll(); //print_r($rows);
-     /*                   
-                        <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td class="toggleDisplay">Td 1</td>
-                        <td class="toggleDisplay">Td 2</td>
-                        <td class="toggleDisplay">Td 3</td>
-                        <td class="toggleDisplay">Td 4</td>
-                    </tr>
-                    
-                    </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-</div>*/
+        echo '</thead>';
+        echo '<tbody>';
+        $statement = $db->executeQuery('SELECT * FROM `PhDReport` ;'); 
+        $rows = $statement->fetchAll(); //print_r($rows);
         foreach ($rows as $row) {
-            print_r($row);
+            echo "<tr>";
+            $i=0;
+            foreach ($row as $info) {
+                if ($i==0){
+                    echo "<th scope=\"row\">".$info."</th>";    
+                }else{
+                    if ($i<5){
+                        echo "<td>".$info."</td>";    
+                    }else{
+                        echo "<td class=\"toggleDisplay\">".$info."</td>";
+                    }
+                }                
+                $i=$i+1;
+            }
+            
+            echo "</tr>";
         }
+        echo "</tbody>";
+        echo "</table>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+        
     }
 
     private function user_view(){
