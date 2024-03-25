@@ -248,14 +248,14 @@ class Controller extends BlockController
         $this->display_list() ;
         
         $db = \Database::connection();
-        /*echo '<div class="container">';
+        echo '<div class="container">';
         echo '<div class="row">';
         echo '<div class="col-md-12">';
         echo '<div class="table-responsive">';
         echo '<table class="table table-bordered">';
         echo '<thead>';
         echo '<tr>';
-*/
+
         $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'PhDReport';");
         $rows = $statement->fetchAll(); //print_r($rows);
         foreach ($rows as $row) {
