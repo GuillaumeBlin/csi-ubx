@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
   
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
-<table id="#report" class="display">
+<table id="report" class="display">
     <thead>
         <tr>
             <?php        
