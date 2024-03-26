@@ -16,7 +16,7 @@
         foreach ($report_data as $row) {
             echo "<tr>";
             ?>
-            <td class="dt-control"></td>
+            <td class="dt-control"></td>            
             <?php
             foreach ($row as $info) {
                 echo "<td>".$info."</td>";    
@@ -51,6 +51,19 @@ $( document ).ready(function() {
             columnDefs: [
                 { targets: [0, 2,3,4,43], visible: true},
                 { targets: '_all', visible: false }
+            ],
+            buttons: [
+            {
+                extend: 'remove',
+                editor: myEditor,
+                formButtons: [
+                    {
+                        label: 'Cancel',
+                        fn: function () { this.close(); }
+                    },
+                    'Delete data'
+                ]
+            }
             ]
         });
  
