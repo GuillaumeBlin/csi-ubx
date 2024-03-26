@@ -48,7 +48,6 @@ const table = new DataTable('#report', {
         {
             class: 'dt-control',
             orderable: false,
-            data: null,
             defaultContent: ''
         },
         { data: 'PhD_Nom' },
@@ -56,9 +55,7 @@ const table = new DataTable('#report', {
         { data: 'PhD_Mail' },
         { data: 'DateRapport' }
     ],
-    order: [[1, 'asc']],
-    processing: true,
-    serverSide: true
+    order: [[1, 'asc']]
 });
  
 // Array to track the ids of the details displayed rows
