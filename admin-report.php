@@ -46,7 +46,7 @@ function format(d) {
                     echo "'".$row["COLUMN_NAME"]." :'+d[".$i."]+'<br>'+\n";                
                     $i=$i+1;
                 }
-                echo "'<br>';"
+                echo "'<br>'"
             ?>
 
         
