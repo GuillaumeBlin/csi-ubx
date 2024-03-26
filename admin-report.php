@@ -4,7 +4,6 @@
     <thead>
         <tr>
             <th></th>
-            <th></th>
             <?php        
                 foreach ($report_headers as $row) {
                     echo "<th>".$row["COLUMN_NAME"]."</th>";                
@@ -19,7 +18,6 @@
             echo "<tr>";
             ?>
             <td class="dt-control"></td>   
-            <td class="dt-editor-delete"><button><i class="fa fa-trash"/></button></td>         
             <?php
             foreach ($row as $info) {
                 echo "<td>".$info."</td>";    
