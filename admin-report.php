@@ -1,3 +1,4 @@
+<p><button id="button"><i class="fa fa-trash"/> Supprimer la ligne sélectionnée</button></p>
 
 <table id="report" class="display">
     <thead>
@@ -58,13 +59,19 @@ $( document ).ready(function() {
  
         // Array to track the ids of the details displayed rows
         const detailRows = [];
-        table.on('click', 'td.dt-editor-delete button', function (e) {
-            editor.remove(e.target.closest('tr'), {
-                title: 'Delete record',
-                message: 'Are you sure you wish to remove this record?',
-                buttons: 'Delete'
-            });
+        $("#button").on("click",function(){table.row('.selected').remove().draw(false);});
+        table.on('click', 'tbody tr', (e) => {
+            let classList = e.currentTarget.classList;
+        
+            if (classList.contains('selected')) {
+                classList.remove('selected');
+            }
+            else {
+                table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
+                classList.add('selected');
+            }
         });
+
         table.on('click', 'tbody td.dt-control', function () {
             let tr = event.target.closest('tr');
             let row = table.row(tr);
