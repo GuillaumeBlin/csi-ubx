@@ -26,8 +26,11 @@
 
 <script type="text/javascript">
         $( document ).ready(function() {
+            sleep(2000).then(() => { 
+
     new DataTable('#report', {
     scrollX: true
+});
 });
         });
 </script>
