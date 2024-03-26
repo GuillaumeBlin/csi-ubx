@@ -11,14 +11,14 @@ if($admin =='True'){
 
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />  
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
-<h1>Liens de connection</h1>
+<h1><input type="button" value="+" onclick="javascript:$('admin-links-display-<?php echo $bID;?>').toggle();"> Liens de connection</h1>
 <div id="admin-links-display-<?php echo $bID;?>">
   <div class="d-flex align-items-center">
     <strong>Loading...</strong>
     <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
   </div>
 </div>
-<h1 onclick="javascript:$('admin-PhD-display-<?php echo $bID;?>').toggle();">Rapport des doctorantes et doctorantes</h1>
+<h1 >Rapport des doctorantes et doctorantes</h1>
 <div id="admin-PhD-display-<?php echo $bID;?>">
   <div class="d-flex align-items-center">
     <strong>Loading...</strong>
