@@ -335,7 +335,7 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        $this->admin_PhD_view();        
+        //$this->admin_PhD_view();        
         exit;
     }
 
@@ -344,7 +344,7 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        $this->admin_PhD_view();        
+        //$this->admin_PhD_view();        
         exit;
     }
 
