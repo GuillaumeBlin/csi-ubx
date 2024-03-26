@@ -24,9 +24,11 @@
     </tbody>
 </table>
 
-<script>
+<script type="text/javascript">
+        $( document ).ready(function() {
     new DataTable('#report', {
     scrollX: true,
     scrollY: 200
 });
+        });
 </script>
