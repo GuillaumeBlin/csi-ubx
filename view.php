@@ -18,7 +18,7 @@ if($admin =='True'){
     <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
   </div>
 </div>
-<h1>Rapport des doctorantes et doctorantes</h1>
+<h1 onclick="javascript:$('admin-PhD-display-<?php echo $bID;?>').toggle();">Rapport des doctorantes et doctorantes</h1>
 <div id="admin-PhD-display-<?php echo $bID;?>">
   <div class="d-flex align-items-center">
     <strong>Loading...</strong>
