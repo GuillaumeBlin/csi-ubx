@@ -249,69 +249,13 @@ class Controller extends BlockController
         $this->display_list() ;
         
         $db = \Database::connection();
-        echo '<div class="container">';
-        echo '<div class="row">';
-        echo '<div class="col-md-12">';
-        echo '<div class="table-responsive">';
-        echo '<table class="table table-bordered">';
-        echo '<thead>';
-        echo '<tr>';
         $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'PhDReport';");
-        $rows = $statement->fetchAll(); //print_r($rows);
-        $i=0;
-        foreach ($rows as $row) {
-            if ($i==0){
-                echo "<th id=\"click-me\">".$row["COLUMN_NAME"]."</th>";    
-            }else{
-                if ($i<5){
-                    echo "<th>".$row["COLUMN_NAME"]."</th>";    
-                }else{
-                    echo "<th class=\"toggleDisplay\">".$row["COLUMN_NAME"]."</th>";
-                }
-            }                
-            $i=$i+1;
-        }
-        echo '</thead>';
-        echo '<tbody>';
+        $report_headers = $statement->fetchAll(); //print_r($rows);
+        
         $statement = $db->executeQuery('SELECT * FROM `PhDReport` ;'); 
-        $rows = $statement->fetchAll(); //print_r($rows);
-        foreach ($rows as $row) {
-            echo "<tr>";
-            $i=0;            
-            foreach ($row as $info) {
-                if ($i==0){
-                    echo "<th scope=\"row\">".$info."</th>";    
-                }else{
-                    if ($i<5){
-                        echo "<td>".$info."</td>";    
-                    }else{
-                        echo "<td class=\"toggleDisplay\">".$info."</td>";
-                    }
-                }                
-                $i=$i+1;
-            }
-            
-            echo "</tr>";
-        }
-        echo "</tbody>";
-        echo "</table>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-        echo "<script>";
-        echo '$("#click-me").click(function() {';
-            echo '$(".table .toggleDisplay").toggleClass("in");';
-        echo '}); ';
-        echo "</script>";
-        echo '<style type="text/css">';
-        echo '.toggleDisplay {';
-            echo '    display: none;';
-            echo '  }';
-            echo '  .toggleDisplay.in {';
-                echo '    display: table-cell;';
-                echo '  }';
-        echo '</style>';
+        $report_data = $statement->fetchAll(); //print_r($rows);
+        include('admin-report.php');
+        exit;
         
     }
 
