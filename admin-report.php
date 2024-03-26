@@ -40,11 +40,15 @@
 function format(d) {
     console.log(d);
     return (
+        <?php        
+                $i=0;
+                foreach ($report_headers as $row) {
+                    echo "'".$row["COLUMN_NAME"]." :'+d[".$i."]+'<br>';";                
+                    $i=î+1;
+                }
+            ?>
+
         
-        'RDV: ' +
-        d.DdeRDV +
-        '<br>' +
-        d.AvisGeneral        
     );
 }
  
