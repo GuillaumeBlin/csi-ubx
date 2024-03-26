@@ -51,14 +51,14 @@ $( document ).ready(function() {
     sleep(2000).then(() => { 
         const table = new DataTable('#report', {
             columnDefs: [
-                { targets: [0,1,3,4,43], visible: true},
+                { targets: [0,1,2,3,4,43], visible: true},
                 { targets: '_all', visible: false }
             ]
         });
  
         // Array to track the ids of the details displayed rows
         const detailRows = [];
-        table.on('click', 'td.de-editor-delete button', function (e) {
+        table.on('click', 'td.dt-editor-delete button', function (e) {
             editor.remove(e.target.closest('tr'), {
                 title: 'Delete record',
                 message: 'Are you sure you wish to remove this record?',
