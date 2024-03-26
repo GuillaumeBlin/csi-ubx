@@ -245,11 +245,7 @@ class Controller extends BlockController
         $this->requireAsset("datatables");
     }
 
-    private function admin_view(){     
-        echo "<h1>Liens de connection</h1>";
-        $this->display_list() ;
-        
-        echo "<h1>Rapport des doctorantes et doctorantes</h1>";
+    private function admin_PhD_view(){     
         $db = \Database::connection();
         $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'PhDReport';");
         $report_headers = $statement->fetchAll(); //print_r($rows);
@@ -307,18 +303,48 @@ class Controller extends BlockController
         exit;
     }
 
-    public function action_load($bID = false)
+    public function action_load_user($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }        
+            $this->user_view();
+        
+        exit;
+    }
+    public function action_load_admin_links($bID = false)
     {
         if ($this->bID != $bID) {
             return false;
         }
-        //$this->emptyDB();
-        if($this->admin =='True'){
-            $this->admin_view();
-        }else{
-            $this->user_view();
+        $this->display_list() ;     
+        exit;
+    }
+
+    public function action_load_admin_PhD($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
         }
-        
+        $this->admin_PhD_view();        
+        exit;
+    }
+
+    public function action_load_admin_DT($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }
+        $this->admin_PhD_view();        
+        exit;
+    }
+
+    public function action_load_admin_CSI($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }
+        $this->admin_PhD_view();        
         exit;
     }
 
