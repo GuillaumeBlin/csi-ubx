@@ -26,7 +26,7 @@
 
 <script type="text/javascript">
         $( document ).ready(function() {
-            sleep(2000).then(() => { 
+            sleep(10000).then(() => { 
 
     new DataTable('#report', {
     scrollX: true
