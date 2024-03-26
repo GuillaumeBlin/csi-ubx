@@ -19,7 +19,7 @@ if($admin =='True'){
   </div>
 </div>
 <h1>Rapport des doctorantes et doctorantes</h1>
-<div id="admin-PHD-display-<?php echo $bID;?>">
+<div id="admin-PhD-display-<?php echo $bID;?>">
   <div class="d-flex align-items-center">
     <strong>Loading...</strong>
     <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
