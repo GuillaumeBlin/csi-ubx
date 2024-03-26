@@ -26,6 +26,10 @@
 
 <script type="text/javascript">
         $( document ).ready(function() {
+            function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
             sleep(10000).then(() => { 
 
     new DataTable('#report', {
