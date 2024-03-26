@@ -44,7 +44,7 @@ function format(d) {
                 $i=0;
                 foreach ($report_headers as $row) {
                     echo "'".$row["COLUMN_NAME"]." :'+d[".$i."]+'<br>';";                
-                    $i=î+1;
+                    $i=$i+1;
                 }
             ?>
 
