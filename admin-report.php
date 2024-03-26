@@ -44,18 +44,10 @@ function format(d) {
 }
  
 const table = new DataTable('#report', {
-    columns: [
-        {
-            class: 'dt-control',
-            orderable: false,
-            defaultContent: ''
-        },
-        { data: 'PhD_Nom' },
-        { data: 'PhD_Prenom' },
-        { data: 'PhD_Mail' },
-        { data: 'DateRapport' }
-    ],
-    order: [[1, 'asc']]
+    columnDefs: [
+        { targets: [0, 1,2,3,4], visible: true},
+        { targets: '_all', visible: false }
+    ]
 });
  
 // Array to track the ids of the details displayed rows
