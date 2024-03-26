@@ -19,21 +19,21 @@ if($admin =='True'){
     <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
   </div>
 </div>
-<h1 >Rapport des doctorantes et doctorantes</h1>
+<h1 onclick="$('#admin-PhD-display-<?php echo $bID;?>').toggle();">Rapport des doctorantes et doctorantes</h1>
 <div id="admin-PhD-display-<?php echo $bID;?>">
   <div class="d-flex align-items-center">
     <strong>Loading...</strong>
     <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
   </div>
 </div>
-<h1>Rapport des directions de thèse</h1>
+<h1 onclick="$('#admin-DT-display-<?php echo $bID;?>').toggle();">Rapport des directions de thèse</h1>
 <div id="admin-DT-display-<?php echo $bID;?>">
   <div class="d-flex align-items-center">
     <strong>Loading...</strong>
     <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
   </div>
 </div>
-<h1>Rapport des comités de CSI</h1>
+<h1 onclick="$('#admin-CSI-display-<?php echo $bID;?>').toggle();">Rapport des comités de CSI</h1>
 <div id="admin-CSI-display-<?php echo $bID;?>">
   <div class="d-flex align-items-center">
     <strong>Loading...</strong>
