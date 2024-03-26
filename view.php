@@ -11,8 +11,8 @@ if($admin =='True'){
 
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />  
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
-<h1><input type="button" value="+" onclick="javascript:$('admin-links-display-<?php echo $bID;?>').toggle();"> Liens de connection</h1>
-<div id="admin-links-display-<?php echo $bID;?>">
+<h1><input type="button" value="+" onclick="$('admin-links-display-<?php echo $bID;?>').toggle();"> Liens de connection</h1>
+<div id="admin-links-display-<?php echo $bID;?>" style="display:none">
   <div class="d-flex align-items-center">
     <strong>Loading...</strong>
     <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
