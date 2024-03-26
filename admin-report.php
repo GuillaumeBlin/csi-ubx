@@ -3,6 +3,7 @@
     <thead>
         <tr>
             <th></th>
+            <th></th>
             <?php        
                 foreach ($report_headers as $row) {
                     echo "<th>".$row["COLUMN_NAME"]."</th>";                
@@ -16,7 +17,8 @@
         foreach ($report_data as $row) {
             echo "<tr>";
             ?>
-            <td class="dt-control"></td>            
+            <td class="dt-control"></td>   
+            <td class="dt-editor-delete"><button><i class="fa fa-trash"/></button></td>         
             <?php
             foreach ($row as $info) {
                 echo "<td>".$info."</td>";    
@@ -51,25 +53,18 @@ $( document ).ready(function() {
             columnDefs: [
                 { targets: [0, 2,3,4,43], visible: true},
                 { targets: '_all', visible: false }
-            ],
-            buttons: [
-            {
-                extend: 'remove',
-                editor: myEditor,
-                formButtons: [
-                    {
-                        label: 'Cancel',
-                        fn: function () { this.close(); }
-                    },
-                    'Delete data'
-                ]
-            }
             ]
         });
  
         // Array to track the ids of the details displayed rows
         const detailRows = [];
-        
+        table.on('click', 'td.de-editor-delete button', function (e) {
+            editor.remove(e.target.closest('tr'), {
+                title: 'Delete record',
+                message: 'Are you sure you wish to remove this record?',
+                buttons: 'Delete'
+            });
+        });
         table.on('click', 'tbody td.dt-control', function () {
             let tr = event.target.closest('tr');
             let row = table.row(tr);
