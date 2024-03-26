@@ -4,6 +4,7 @@
 <table id="report" class="display">
     <thead>
         <tr>
+            <th></th>
             <?php        
                 foreach ($report_headers as $row) {
                     echo "<th>".$row["COLUMN_NAME"]."</th>";                
@@ -13,8 +14,12 @@
     </thead>
     <tbody>
         <?php     
+
         foreach ($report_data as $row) {
             echo "<tr>";
+            ?>
+            <td class="dt-control"></td>
+            <?php
             foreach ($row as $info) {
                 echo "<td>".$info."</td>";    
             }            
