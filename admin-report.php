@@ -33,12 +33,13 @@
             sleep(3000).then(() => { 
 
 function format(d) {
+    console.log(d);
     return (
-        console.log(d);
+        
         'RDV: ' +
         d.DdeRDV +
         '<br>' +
-        d.AvisGeneral +        
+        d.AvisGeneral        
     );
 }
  
