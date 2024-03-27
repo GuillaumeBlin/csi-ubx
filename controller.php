@@ -82,8 +82,8 @@ class Controller extends BlockController
     private function display_links($defense)
     {
         echo "<li>".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"];
-            echo "<ul><li>".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-PhD")));
-            echo " -&gt; ".$defense["mail_principal"]. " (".$defense["mail_secondaire"].")</li>";
+            echo "<ul><li><i class='bi bi-send' token='".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-PhD")))."'></i>";
+            echo " -&gt; ".$defense["mail_principal"]. " (".$defense["mail_secondaire"].") </li>";
             echo "<li>".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-DT"))); 
             echo " -&gt; ".$defense["these_directeur_these_mail"]."</li>";
             echo "<li>".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-CSI"))); 
@@ -223,6 +223,19 @@ class Controller extends BlockController
         exit;
     }
 
+    public function action_admin_mailing($bID = false){
+        if ($this->bID != $bID) {
+            return false;
+        }
+        $token=$_REQUEST["token"];
+        $mh = Loader::helper('mail');
+
+        $mh->setSubject('Simple Message');
+        $mh->setBody('This is my simple message body: '.$token);
+        $mh->to('guillaume.blin@u-bordeaux.fr', 'Guillaume B');
+        $mh->from('noreply@concrete5.org');
+        $mh->sendMail();
+    }
     public function getBlockTypeName()
     {
         return 'CSI UBx';
