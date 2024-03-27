@@ -3,7 +3,7 @@
 
 
 if($admin =='True'){
-  $actionMailing = str_replace('&amp;', '&', $this->action('load_action_admin_mailing'));
+  $actionMailing = str_replace('&amp;', '&', $this->action('action_admin_mailing'));
   $actionURLLinks = str_replace('&amp;', '&', $this->action('load_admin_links'));
   $actionURLPhD = str_replace('&amp;', '&', $this->action('load_admin_PhD'));
   $actionURLDT = str_replace('&amp;', '&', $this->action('load_admin_DT'));
