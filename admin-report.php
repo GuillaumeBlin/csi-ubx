@@ -22,7 +22,7 @@
         foreach ($report_data as $row) {
             echo "<tr>";
             ?>
-            <td class="dt-control" id="entry<?php echo $row[0];?>"></td>   
+            <td class="dt-control" id="entry<?php echo $row['ID'];?>"></td>   
             <?php
             foreach ($row as $info) {
                 echo "<td>".$info."</td>";    
