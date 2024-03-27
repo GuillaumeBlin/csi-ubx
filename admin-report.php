@@ -1,3 +1,10 @@
+<?php defined('C5_EXECUTE') or die(_("Access Denied."));
+
+
+if($admin =='True'){
+  $actionRemovePhDReport = str_replace('&amp;', '&', $this->action('load_admin_remove_phd_report'))."?code=".$_GET["code"];  
+?>
+
 <p><button id="button"><i class="fa fa-trash"/> Supprimer la ligne sélectionnée</button></p>
 
 <table id="report" class="display">
@@ -58,7 +65,10 @@ $( document ).ready(function() {
         // Array to track the ids of the details displayed rows
         const detailRows = [];
         $("#button").on("click",function(){
-            console.log('id'+table.row('.selected').data()[2]);
+            console.log('id'+table.row('.selected').data()[1]);
+            $.post("<?php echo $actionRemovePhDReport; ?>",{id: table.row('.selected').data()[1]},function(data){
+                console.log(data);
+            });
             table.row('.selected').remove().draw(false);
         });
         

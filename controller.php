@@ -212,7 +212,16 @@ class Controller extends BlockController
         }
     }
 
-
+    public function admin_remove_phd_report($bID = false){
+        if ($this->bID != $bID) {
+            return false;
+        }
+        $id=$_REQUEST["id"];
+        $db = \Database::connection();
+        $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` = ?;', array(intval($id))); 
+        echo $statement->rowCount();                    
+        exit;
+    }
 
     public function getBlockTypeName()
     {
