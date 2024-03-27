@@ -58,7 +58,7 @@ $( document ).ready(function() {
         // Array to track the ids of the details displayed rows
         const detailRows = [];
         $("#button").on("click",function(){
-            console.log(table.row('.selected').data());
+            console.log('id'+table.row('.selected').data()[2]);
             table.row('.selected').remove().draw(false);
         });
         
