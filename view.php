@@ -63,18 +63,6 @@ $.post("<?php echo $actionURLCSI; ?>",{},function(data){
     $( "#admin-CSI-display-<?php echo $bID;?>" ).html(data);
 });
 
-$(function() {
-$(".fa-paper-plane").on("click",function(e){
-  if(e.target.getAttribute('token')) {
-    var aToken=e.target.getAttribute('token');
-    console.log(aToken);
-    $.post("<?php echo $actionMailing; ?>",{token: aToken},function(data){
-      console.log(data);
-    });
-  }
-});
-});
-
 </script>
 <?php
 }else{
