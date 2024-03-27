@@ -64,10 +64,11 @@ $( document ).ready(function() {
         const detailRows = [];
         $("#button").on("click",function(){
             console.log('id'+table.row('.selected').data()[1]);
-            $.post("<?php echo $actionRemovePhDReport; ?>",{id: table.row('.selected').data()[1]},function(data){
+            var anId=table.row('.selected').data()[1];
+            $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
                 console.log(data);
+                table.row('.selected').remove().draw(false);
             });
-            table.row('.selected').remove().draw(false);
         });
         
         table.on('click', 'tbody tr', (e) => {
