@@ -3,6 +3,7 @@
 
 if($admin =='True'){
   $actionRemovePhDReport = str_replace('&amp;', '&', $this->action('load_admin_remove_phd_report'))."?code=".$_GET["code"];  
+}
 ?>
 
 <p><button id="button"><i class="fa fa-trash"/> Supprimer la ligne sélectionnée</button></p>
