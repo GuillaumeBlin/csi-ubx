@@ -212,7 +212,7 @@ class Controller extends BlockController
         }
     }
 
-    public function admin_remove_phd_report($bID = false){
+    public function action_admin_remove_phd_report($bID = false){
         if ($this->bID != $bID) {
             return false;
         }
