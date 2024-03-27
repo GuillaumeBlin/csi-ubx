@@ -3,10 +3,11 @@
 
 
 if($admin =='True'){
-  $actionURLLinks = str_replace('&amp;', '&', $this->action('load_admin_links'))."?code=".$_GET["code"];
-  $actionURLPhD = str_replace('&amp;', '&', $this->action('load_admin_PhD'))."?code=".$_GET["code"];
-  $actionURLDT = str_replace('&amp;', '&', $this->action('load_admin_DT'))."?code=".$_GET["code"];
-  $actionURLCSI = str_replace('&amp;', '&', $this->action('load_admin_CSI'))."?code=".$_GET["code"];
+  $actionMailing = str_replace('&amp;', '&', $this->action('load_action_admin_mailing'));
+  $actionURLLinks = str_replace('&amp;', '&', $this->action('load_admin_links'));
+  $actionURLPhD = str_replace('&amp;', '&', $this->action('load_admin_PhD'));
+  $actionURLDT = str_replace('&amp;', '&', $this->action('load_admin_DT'));
+  $actionURLCSI = str_replace('&amp;', '&', $this->action('load_admin_CSI'));
 ?>
 
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />  
@@ -61,6 +62,19 @@ $.post("<?php echo $actionURLDT; ?>",{},function(data){
 $.post("<?php echo $actionURLCSI; ?>",{},function(data){
     $( "#admin-CSI-display-<?php echo $bID;?>" ).html(data);
 });
+
+$(function() {
+$(".fa-paper-plane").on("click",function(e){
+  if(e.target.getAttribute('token')) {
+    var aToken=e.target.getAttribute('token');
+    console.log(aToken);
+    $.post("<?php echo $actionMailing; ?>",{token: aToken},function(data){
+      console.log(data);
+    });
+  }
+});
+});
+
 </script>
 <?php
 }else{
