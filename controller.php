@@ -156,11 +156,12 @@ class Controller extends BlockController
                     }
                     echo "</ul>";
                 }
+                $actionMailing = str_replace("/load_admin_PhD/","/admin__mailing/",$_SERVER['REQUEST_URI']);
                 echo "<script>$('.fa-paper-plane').on('click',function(e){";
                 echo "    if(e.target.getAttribute('token')) {";
                 echo "      var aToken=e.target.getAttribute('token');";
                 echo "      console.log(aToken);";
-                echo '      $.post("<?php echo $actionMailing; ?>",{token: aToken},function(data){';
+                echo '      $.post("'.$actionMailing.'",{token: aToken},function(data){';
                 echo "        console.log(data);";
                 echo "      });";
                 echo "    }";

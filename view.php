@@ -2,8 +2,7 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
 
 
-if($admin =='True'){
-  $actionMailing = str_replace('&amp;', '&', $this->action('action_admin_mailing'));
+if($admin =='True'){  
   $actionURLLinks = str_replace('&amp;', '&', $this->action('load_admin_links'));
   $actionURLPhD = str_replace('&amp;', '&', $this->action('load_admin_PhD'));
   $actionURLDT = str_replace('&amp;', '&', $this->action('load_admin_DT'));
