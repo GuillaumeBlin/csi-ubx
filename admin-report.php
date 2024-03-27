@@ -55,7 +55,7 @@ $( document ).ready(function() {
     sleep(2000).then(() => { 
         const table = new DataTable('#report', {
             columnDefs: [
-                { targets: [0,3,4,43], visible: true},
+                { targets: [0,3,4,5,6,43], visible: true},
                 { targets: '_all', visible: false }
             ]
         });
