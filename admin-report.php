@@ -1,6 +1,6 @@
 
 <?php
-  $actionRemovePhDReport = str_replace("/load/","/admin_remove_phd_report/",$_SERVER['REQUEST_URI']);
+  $actionRemovePhDReport = str_replace("/load_admin_PhD/","/admin_remove_phd_report/",$_SERVER['REQUEST_URI']);
 ?>
 
 <p><button id="button"><i class="fa fa-trash"/> Supprimer la ligne sélectionnée</button></p>
