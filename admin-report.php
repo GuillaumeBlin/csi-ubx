@@ -3,7 +3,7 @@
   $actionRemovePhDReport = str_replace("/load_admin_PhD/","/admin_remove_phd_report/",$_SERVER['REQUEST_URI']);
 ?>
 
-<p><button id="button"><i class="fa fa-trash"/> Supprimer la ligne sélectionnée</button></p>
+<p><i class="fa fa-trash"/> <button id="button">Supprimer la ligne sélectionnée</button></p>
 
 <table id="report" class="display">
     <thead>
@@ -63,7 +63,6 @@ $( document ).ready(function() {
         // Array to track the ids of the details displayed rows
         const detailRows = [];
         $("#button").on("click",function(){
-            console.log('id'+table.row('.selected').data()[1]);
             var anId=table.row('.selected').data()[1];
             $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
                 console.log(data);

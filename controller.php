@@ -219,7 +219,7 @@ class Controller extends BlockController
         $id=$_REQUEST["id"];
         $db = \Database::connection();
         $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` = ?;', array(intval($id))); 
-        echo $statement->rowCount();                    
+        echo $statement->rowCount()." entrée a bien été supprimée de la table";                    
         exit;
     }
 
