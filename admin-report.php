@@ -1,9 +1,6 @@
-<?php defined('C5_EXECUTE') or die(_("Access Denied."));
 
-
-if($admin =='True'){
-  $actionRemovePhDReport = str_replace('&amp;', '&', $this->action('load_admin_remove_phd_report'))."?code=".$_GET["code"];  
-}
+<?php
+  $actionRemovePhDReport = str_replace("/load/","/admin_remove_phd_report/",$_SERVER['REQUEST_URI']);
 ?>
 
 <p><button id="button"><i class="fa fa-trash"/> Supprimer la ligne sélectionnée</button></p>
