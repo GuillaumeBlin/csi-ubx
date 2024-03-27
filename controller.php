@@ -241,13 +241,13 @@ class Controller extends BlockController
         }
         $token=$_REQUEST["token"];
         $mh = Loader::helper('mail');
-
         $mh->setSubject('Simple Message');
         $mh->setBody('This is my simple message body: '.$token);
-        $mh->to('guillaume.blin@u-bordeaux.fr', 'Guillaume B');
+        $mh->to('guillaume.blin@u-bordeaux.fr','lemail2guillaume@gmail.com');
         $mh->from('noreply@concrete5.org');
         $mh->sendMail();
     }
+    
     public function getBlockTypeName()
     {
         return 'CSI UBx';
