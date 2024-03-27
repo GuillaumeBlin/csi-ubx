@@ -22,7 +22,7 @@
         foreach ($report_data as $row) {
             echo "<tr>";
             ?>
-            <td class="dt-control"></td>   
+            <td class="dt-control" id="entry<?php echo $row[0];?>"></td>   
             <?php
             foreach ($row as $info) {
                 echo "<td>".$info."</td>";    
@@ -84,8 +84,8 @@ $( document ).ready(function() {
 
         table.on('click', 'tbody td.dt-control', function () {
             let tr = event.target.closest('tr');
-            let row = table.row(tr);
-            var anId=table.row('.selected').data()[1];
+            let row = table.row('.selected');
+            var anId=row.data()[1];
             let idx = detailRows.indexOf(anId);
         
             if (row.child.isShown()) {
@@ -109,7 +109,7 @@ $( document ).ready(function() {
         // On each draw, loop over the `detailRows` array and show any child rows
         table.on('draw', () => {
             detailRows.forEach((id, i) => {
-                let el = document.querySelector('#' + id + ' td.dt-control');
+                let el = document.querySelector('#entry' + id + ' td.dt-control');
         
                 if (el) {
                     el.dispatchEvent(new Event('click', { bubbles: true }));
