@@ -84,7 +84,8 @@ $( document ).ready(function() {
 
         table.on('click', 'tbody td.dt-control', function () {
             let tr = event.target.closest('tr');
-            let row = table.row('.selected');
+            
+            let row = table.row(tr);
             var anId=row.data()[1];
             let idx = detailRows.indexOf(anId);
         
