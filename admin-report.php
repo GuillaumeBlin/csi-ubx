@@ -85,7 +85,8 @@ $( document ).ready(function() {
         table.on('click', 'tbody td.dt-control', function () {
             let tr = event.target.closest('tr');
             let row = table.row(tr);
-            let idx = detailRows.indexOf(tr.id);
+            var anId=table.row('.selected').data()[1];
+            let idx = detailRows.indexOf(anId);
         
             if (row.child.isShown()) {
                 tr.classList.remove('details');
@@ -100,7 +101,7 @@ $( document ).ready(function() {
         
                 // Add to the 'open' array
                 if (idx === -1) {
-                    detailRows.push(tr.id);
+                    detailRows.push(anId);
                 }
             }
         });
