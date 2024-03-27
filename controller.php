@@ -82,7 +82,7 @@ class Controller extends BlockController
     private function display_links($defense)
     {
         echo "<li>".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"];
-            echo "<ul><li><i class='fa-envelope fa-regular' token='".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-PhD")))."'></i>";
+            echo "<ul><li><i class='fa-regular fa-envelope'></i><i class='fa-regular fa-envelope' token='".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-PhD")))."'></i>";
             echo " -&gt; ".$defense["mail_principal"]. " (".$defense["mail_secondaire"].") </li>";
             echo "<li>".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-DT"))); 
             echo " -&gt; ".$defense["these_directeur_these_mail"]."</li>";
