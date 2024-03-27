@@ -156,7 +156,7 @@ class Controller extends BlockController
                     }
                     echo "</ul>";
                 }
-                $actionMailing = str_replace("/load_admin_PhD/","/admin__mailing/",$_SERVER['REQUEST_URI']);
+                $actionMailing = str_replace("/load_admin_links/","/admin__mailing/",$_SERVER['REQUEST_URI']);
                 echo "<script>$('.fa-paper-plane').on('click',function(e){";
                 echo "    if(e.target.getAttribute('token')) {";
                 echo "      var aToken=e.target.getAttribute('token');";
