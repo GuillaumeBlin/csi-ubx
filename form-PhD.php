@@ -371,12 +371,12 @@
 </form>
 <script>
     
-    $("#PhD_ExtraActivite").on("change",function(){
+    $("input[type=radio][name=PhD_ExtraActivite]").on("change",function(){
             if (this.value == 'Oui') {
                 $("#PhD_ExtraActivite_NbH_div").show();
             }else{
                 $("#PhD_ExtraActivite_NbH_div").hide();
-                $("#PhD_ExtraActivite_NbH").value("");
+                $("input[type=number][name=PhD_ExtraActivite_NbH]").value("");
             }
             
         });
