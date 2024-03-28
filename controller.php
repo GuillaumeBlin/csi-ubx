@@ -181,52 +181,61 @@ class Controller extends BlockController
     /*Phd students*/
     private function display_report($mat,$user)
     {
-        $students = $this->retrieve_json();
-        $students = $students["data"][0];
-        $student="";
-        foreach ($students as $value) {
-            if($value["Matricule_etudiant"]==$mat){
-                $student = $this->array_extract($value, [
-                "Matricule_etudiant",
-                "civilite",
-                "nom",
-                "prenom",
-                "mail_principal",
-                "mail_secondaire",
-                "niveau_Etud",
-                "these_ED_code",
-                "these_codirecteur_these_nom",
-                "these_codirecteur_these_prenom",
-                "these_codirecteur_these_mail",
-                "these_directeur_these_nom",
-                "these_directeur_these_prenom",
-                "these_directeur_these_mail",
-                "these_cotutelle",
-                "these_cotutelle_etab",
-                "these_cotutelle_pays",
-                "these_date_1inscription",
-                "these_laboratoire",
-                "these_specialite"
-                ]);
-                break;
+
+        //check if a report already exist for $mat and $user
+        $db = \Database::connection();        
+        $statement = $db->executeQuery('SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";'); 
+        if($statement->rowCount()>0){
+            $this->show_PhDReport($mat);
+
+        }else{
+            $students = $this->retrieve_json();
+            $students = $students["data"][0];
+            $student="";
+            foreach ($students as $value) {
+                if($value["Matricule_etudiant"]==$mat){
+                    $student = $this->array_extract($value, [
+                    "Matricule_etudiant",
+                    "civilite",
+                    "nom",
+                    "prenom",
+                    "mail_principal",
+                    "mail_secondaire",
+                    "niveau_Etud",
+                    "these_ED_code",
+                    "these_codirecteur_these_nom",
+                    "these_codirecteur_these_prenom",
+                    "these_codirecteur_these_mail",
+                    "these_directeur_these_nom",
+                    "these_directeur_these_prenom",
+                    "these_directeur_these_mail",
+                    "these_cotutelle",
+                    "these_cotutelle_etab",
+                    "these_cotutelle_pays",
+                    "these_date_1inscription",
+                    "these_laboratoire",
+                    "these_specialite"
+                    ]);
+                    break;
+                }
             }
-        }
-        
-        echo "<pre>" . var_export($student, true) . "</pre>";
-        echo $user;
-        if (!$student) {
-                echo "Aucun étudiant ou aucune étudiante correpsondant.";
             
-        } else {
-                if($user=="PhD"){//PhD
-                    $this->display_phd_report_content($student);             
-                }
-                if($user=="DT"){
-                    $this->display_dt_report_content($student);             
-                }
-                if($user=="CSI"){
-                    $this->display_csi_report_content($student);             
-                }
+        // echo "<pre>" . var_export($student, true) . "</pre>";
+        // echo $user;
+            if (!$student) {
+                    echo "Aucun étudiant ou aucune étudiante correpsondant.";
+                
+            } else {
+                    if($user=="PhD"){//PhD
+                        $this->display_phd_report_content($student);             
+                    }
+                    if($user=="DT"){
+                        $this->display_dt_report_content($student);             
+                    }
+                    if($user=="CSI"){
+                        $this->display_csi_report_content($student);             
+                    }
+            }
         }
     }
 
@@ -251,7 +260,7 @@ class Controller extends BlockController
         $aname=$_REQUEST["name"];
         $student=$_REQUEST["student"];
         $mh = Loader::helper('mail');
-        $mh->setSubject('Simple Message');
+        $mh->setSubject('CSI form access information');
         if($type=="PhD"){
         $body = t("
 Dear %s (%s),
@@ -309,7 +318,7 @@ Best
     public function registerViewAssets($outputContent = "")
     {
         $this->requireAsset("javascript", "jquery");
-        $this->requireAsset("datatables");
+       // $this->requireAsset("datatables");
     }
 
     private function admin_PhD_view(){     
@@ -335,6 +344,23 @@ Best
         }else{
             echo 'invalid request';
         }
+        exit;
+    }
+
+    private function show_PhDReport($mat){
+        $db = \Database::connection();
+        $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'PhDReport';");
+        $report_headers = $statement->fetchAll(); //print_r($rows);
+        
+        $statement = $db->executeQuery('SELECT * FROM `PhDReport` WHERE Matricule="'.$mat.'";'); 
+        $report_data = $statement->fetchAll(); //print_r($rows);
+
+        $report=array();
+        for($i=0;$i<count($report_headers),$i=$i+1){
+            $report[$report_headers[$i]["COLUMN_NAME"]]=$report_data[$i];
+        }        
+        include('report-PhD.php');
+        exit;
     }
 
     public function action_form_save_PhDReport($bID = false)
@@ -350,7 +376,7 @@ Best
         $report=$_REQUEST;
         array_shift($report);
         $db = \Database::connection();
-        $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` = ?;', array(intval($mat))); 
+        //$statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` = ?;', array(intval($mat))); 
         //echo $statement->rowCount();            
         $fields='';
         $values='';        
