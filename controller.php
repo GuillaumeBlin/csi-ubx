@@ -83,7 +83,7 @@ class Controller extends BlockController
     private function display_links($defense)
     {
         echo "<li>".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"];
-            echo "<ul><li><i class='far fa-paper-plane' token='".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-PhD")))."'></i>";
+            echo "<ul><li><i class='far fa-paper-plane' aname='".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"]."' token='".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-PhD")))."'></i>";
             echo " -&gt; ".$defense["mail_principal"]. " (".$defense["mail_secondaire"].") </li>";
             echo "<li>".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-DT"))); 
             echo " -&gt; ".$defense["these_directeur_these_mail"]."</li>";
@@ -161,8 +161,9 @@ class Controller extends BlockController
                 echo "<script>$('.fa-paper-plane').on('click',function(e){";
                 echo "    if(e.target.getAttribute('token')) {";
                 echo "      var aToken=e.target.getAttribute('token');";
+                echo "      var aName=e.target.getAttribute('aname');";
                 echo "      console.log(aToken);";
-                echo '      $.post("'.$actionMailing.'",{token: aToken},function(data){';
+                echo '      $.post("'.$actionMailing.'",{token: aToken, name: aName},function(data){';
                 echo "        console.log(data);";
                 echo "      });";
                 echo "    }";
@@ -243,18 +244,17 @@ class Controller extends BlockController
         $mh = Loader::helper('mail');
         $mh->setSubject('Simple Message');
         $body = t("
+Dear Bob,
 
-	Dear Bob,
+In order to fill your CSI form, please go to the following address:
 
-    In order to fill your CSI form, please go to the following address:
+    https://doctorat.u-bordeaux.fr/%21drafts/4211?code=%s
 
-	%s
-
-	Best
-	", $token);
+Best
+", $token);
         $mh->setBody($body);
         $mh->to('lemail2guillaume@gmail.com');
-        $mh->from('bug.doctorat@diff.u-bordeaux.fr ');
+        $mh->from('bug.doctorat@diff.u-bordeaux.fr');
         $mh->sendMail();
         exit;
     }
