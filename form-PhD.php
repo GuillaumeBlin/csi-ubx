@@ -376,7 +376,7 @@
                 $("#PhD_ExtraActivite_NbH_div").show();
             }else{
                 $("#PhD_ExtraActivite_NbH_div").hide();
-                $("input[type=number][name=PhD_ExtraActivite_NbH]").value("");
+                $("1PhD_ExtraActivite_NbH").value("");
             }
             
         });
