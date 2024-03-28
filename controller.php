@@ -83,9 +83,9 @@ class Controller extends BlockController
     private function display_links($defense)
     {
         echo "<li>".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"];
-            echo "<ul><li><i class='far fa-paper-plane' aname='".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"]."' token='".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-PhD")))."'></i>";
+            echo "<ul><li><i class='far fa-paper-plane' atype='PhD' amail='".$defense["mail_principal"]."' phdName='".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"]."' aname='".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"]."' token='".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-PhD")))."'></i>";
             echo " -&gt; ".$defense["mail_principal"]. " (".$defense["mail_secondaire"].") </li>";
-            echo "<li>".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-DT"))); 
+            echo "<li><i class='far fa-paper-plane' atype='DT' amail='".$defense["these_directeur_these_mail"]."' phdName='".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"]."' aname='".$this->totitle($defense["these_directeur_these_prenom"]) . ' ' . $defense["these_directeur_these_nom"]."' token='".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-DT")))."'></i>"; 
             echo " -&gt; ".$defense["these_directeur_these_mail"]."</li>";
             echo "<li>".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-CSI"))); 
             echo " -&gt; CSI </li></ul>";            
@@ -132,6 +132,8 @@ class Controller extends BlockController
                 "mail_secondaire",
                 "these_ED_code",
                 "these_directeur_these_mail",
+                "these_directeur_these_nom",
+                "these_directeur_these_prenom",
                 "these_specialite"
             ]);
         }
@@ -160,10 +162,13 @@ class Controller extends BlockController
                 $actionMailing = str_replace("/load_admin_links/","/admin_mailing/",$_SERVER['REQUEST_URI']);
                 echo "<script>$('.fa-paper-plane').on('click',function(e){";
                 echo "    if(e.target.getAttribute('token')) {";
+                echo "      var aType=e.target.getAttribute('atype');";
                 echo "      var aToken=e.target.getAttribute('token');";
+                echo "      var phdName=e.target.getAttribute('phdname');";
                 echo "      var aName=e.target.getAttribute('aname');";
+                echo "      var aMail=e.target.getAttribute('amail');";
                 echo "      console.log(aToken);";
-                echo '      $.post("'.$actionMailing.'",{token: aToken, name: aName},function(data){';
+                echo '      $.post("'.$actionMailing.'",{token: aToken, type: aType, student:phdName, name: aName, mail: aMail},function(data){';
                 echo "        console.log(data);";
                 echo "      });";
                 echo "    }";
@@ -241,17 +246,34 @@ class Controller extends BlockController
             return false;
         }
         $token=$_REQUEST["token"];
+        $type=$_REQUEST["type"];
+        $mail=$_REQUEST["mail"];
+        $aname=$_REQUEST["name"];
+        $student=$_REQUEST["student"];
         $mh = Loader::helper('mail');
         $mh->setSubject('Simple Message');
+        if($type=="PhD"){
         $body = t("
-Dear Bob,
+Dear %s (%s),
 
 In order to fill your CSI form, please go to the following address:
 
     https://doctorat.u-bordeaux.fr/21drafts/4211?code=%s
 
 Best
-", $token);
+", $aname,$mail,$token);
+        }
+        if($type=="DT"){
+            $body = t("
+    Dear %s (%s),
+    
+    As the director of %s, in order to fill your CSI part of the form, please go to the following address:
+    
+        https://doctorat.u-bordeaux.fr/21drafts/4211?code=%s
+    
+    Best
+    ", $aname,$mail, $student,$token);
+            }
         $mh->setBody($body);
         $mh->to('lemail2guillaume@gmail.com');
         $mh->from('bug.doctorat@diff.u-bordeaux.fr');
