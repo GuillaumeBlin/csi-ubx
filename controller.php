@@ -258,7 +258,7 @@ Dear %s (%s),
 
 In order to fill your CSI form, please go to the following address:
 
-    https://doctorat.u-bordeaux.fr/21drafts/4211?code=%s
+    https://doctorat.u-bordeaux.fr/!drafts/4211?code=%s
 
 Best
 ", $aname,$mail,$token);
@@ -269,7 +269,7 @@ Best
     
     As the director of %s, in order to fill your CSI part of the form, please go to the following address:
     
-        https://doctorat.u-bordeaux.fr/21drafts/4211?code=%s
+        https://doctorat.u-bordeaux.fr/!drafts/4211?code=%s
     
     Best
     ", $aname,$mail, $student,$token);
