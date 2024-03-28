@@ -242,9 +242,19 @@ class Controller extends BlockController
         $token=$_REQUEST["token"];
         $mh = Loader::helper('mail');
         $mh->setSubject('Simple Message');
-        $mh->setBody('This is my simple message body: '.$token);
+        $body = t("
+
+	Dear Bob,
+
+    In order to fill your CSI form, please go to the following address:
+
+	%s
+
+	Best
+	", $token);
+        $mh->setBody($body);
         $mh->to('lemail2guillaume@gmail.com');
-        $mh->from('guillaume.blin@u-bordeaux.fr');
+        $mh->from('bug.doctorat@diff.u-bordeaux.fr ');
         $mh->sendMail();
         exit;
     }
