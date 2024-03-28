@@ -191,8 +191,8 @@ class Controller extends BlockController
             echo "<b>Votre rapport a déjà été enregistré.</b><br/>";
             echo "Il est visible ici : <i class='far fa-file-alt'></i>";
             echo "<script>$('.fa-file-alt').on('click',function(e){";
-                    echo 'window.open("'.str_replace("/load_user/","/show_PhDReport/",$_SERVER['REQUEST_URI']).'", "_blank");'
-                echo "  });</script>";
+            echo 'window.open("'.str_replace("/load_user/","/show_PhDReport/",$_SERVER['REQUEST_URI']).'", "_blank");';
+            echo "  });</script>";
 
         }else{
             $students = $this->retrieve_json();
