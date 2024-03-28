@@ -220,6 +220,7 @@ class Controller extends BlockController
                     "these_cotutelle_pays",
                     "these_date_1inscription",
                     "these_laboratoire",
+                    "niveau_Etud",
                     "these_specialite"
                     ]);
                     break;

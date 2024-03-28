@@ -123,7 +123,8 @@
         <label for="PhD_CSI_Annee">
             <div>CSI pour réinscription en année</div>
         </label>
-        <input type="number" class="form-control" name="PhD_CSI_Annee" min="2" max="8" step="1" id="PhD_CSI_Annee">
+        
+        <input type="number" class="form-control" name="PhD_CSI_Annee" min="2" max="8" step="1" id="PhD_CSI_Annee" value="<?php echo intval(substr($defense["niveau_Etud"],0,1))+1;?>">
     </div>
         <h3>COMPOSITION DU COMITÉ DE SUIVI INDIVIDUEL (hors direction de thèse)</h3>
         <h4>La direction de la thèse ne fait pas partie du comité de suivi. Il comprend à minima 2 membres.</h4>
