@@ -183,11 +183,11 @@
         <label for="Freq_Contact_DT" class="formbuilder-checkbox-group-label">Fréquence des contacts avec la direction de thèse (en dehors des courriers électroniques) :<span class="formbuilder-required">*</span></label>
         <div>
             <span>
-                <input name="Freq_Contact_DT" value="TousLesJours" type="radio">
+                <input name="Freq_Contact_DT" value="Tous les jours" type="radio">
                 <label>Tous les jours</label>
             </span>
             <span>
-                <input name="Freq_Contact_DT" value="PlusieursFoisParSemaine" type="radio">
+                <input name="Freq_Contact_DT" value="Plusieurs fois par semaine" type="radio">
                 <label>Plusieurs fois par semaine</label>
             </span>
             <span>
@@ -199,7 +199,7 @@
                 <label>Mensuelle</label>
             </span>
             <span>
-                <input name="Freq_Contact_DT" value="MoinsDUneFoisParMois" type="radio">
+                <input name="Freq_Contact_DT" value="Moins d'une fois par mois" type="radio">
                 <label>Moins d'une fois par mois</label>
             </span>
         </div>
@@ -208,11 +208,11 @@
         <label for="Freq_Contact_CODT">Fréquence des contacts avec la codirection de thèse (le cas échéant) :</label>
         <div>
         <span>
-                <input name="Freq_Contact_CODT" value="TousLesJours" type="radio">
+                <input name="Freq_Contact_CODT" value="Tous les jours" type="radio">
                 <label>Tous les jours</label>
             </span>
             <span>
-                <input name="Freq_Contact_CODT" value="PlusieursFoisParSemaine" type="radio">
+                <input name="Freq_Contact_CODT" value="Plusieurs fois par semaine" type="radio">
                 <label>Plusieurs fois par semaine</label>
             </span>
             <span>
@@ -224,7 +224,7 @@
                 <label>Mensuelle</label>
             </span>
             <span>
-                <input name="Freq_Contact_CODT" value="MoinsDUneFoisParMois" type="radio">
+                <input name="Freq_Contact_CODT" value="Moins d'une fois par mois" type="radio">
                 <label>Moins d'une fois par mois</label>
             </span>
         </div>
@@ -234,7 +234,7 @@
         <label for="Integration_UMR">Intégration dans l’unité de recherche) :<span class="formbuilder-required">*</span></label>
         <div>
             <span>
-                <input name="Integration_UMR" value="PeuSatisfaisante" type="radio">
+                <input name="Integration_UMR" value="Peu satisfaisante" type="radio">
                 <label>Peu satisfaisante</label>
             </span>
             <span>
@@ -242,7 +242,7 @@
                 <label>Satisfaisante</label>
             </span>
             <span>
-                <input name="Integration_UMR" value="TrèsSatisfaisante" type="radio">
+                <input name="Integration_UMR" value="Très satisfaisante" type="radio">
                 <label>Très satisfaisante</label>
             </span>
         </div>
