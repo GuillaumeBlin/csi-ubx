@@ -246,8 +246,9 @@ class Controller extends BlockController
         $mh->to('guillaume.blin@u-bordeaux.fr','lemail2guillaume@gmail.com');
         $mh->from('noreply@concrete5.org');
         $mh->sendMail();
+        exit;
     }
-    
+
     public function getBlockTypeName()
     {
         return 'CSI UBx';
