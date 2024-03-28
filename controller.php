@@ -352,15 +352,15 @@ Best
     private function show_PhDReport($mat){
         $db = \Database::connection();
         $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'PhDReport';");
-        $report_headers = $statement->fetchAll(); //print_r($rows);
+        $report_headers = $statement->fetchAll(); 
         
         $statement = $db->executeQuery('SELECT * FROM `PhDReport` WHERE Matricule="'.$mat.'";'); 
-        $report_data = $statement->fetchAll(); //print_r($rows);
+        $report = $statement->fetchAll();
 
-        $report=array();
+        /*$report=array();
         for($i=0;$i<count($report_headers);$i=$i+1){
             $report[$report_headers[$i]["COLUMN_NAME"]]=$report_data[$i];
-        }        
+        }        */
         print_r($report);
         include('report-PhD.php');
         exit;
