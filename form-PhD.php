@@ -130,16 +130,16 @@
         <h4>La direction de la thèse ne fait pas partie du comité de suivi. Il comprend à minima 2 membres.</h4>
     <div>
         <p>
-            <div>Membre n°1 – Spécialiste du domaine de la thèse
+            <div>Membre n°1
             </div>
             <div>
                 <?php print_r($defense["csi"]);?> 
                 <label for="CSI_Membre_1_Nom">Nom</label>
-                <input type="text" class="form-control" name="CSI_Membre_1_Nom" id="CSI_Membre_1_Nom">
+                <input type="text" class="form-control" name="CSI_Membre_1_Nom" id="CSI_Membre_1_Nom" value="<?php echo $defense["csi"][0]["nom"];?>">
             </div>
             <div>
                 <label for="CSI_Membre_1_Prenom" >Prénom</label>
-                <input type="text" class="form-control" name="CSI_Membre_1_Prenom" id="CSI_Membre_1_Prenom">
+                <input type="text" class="form-control" name="CSI_Membre_1_Prenom" id="CSI_Membre_1_Prenom" value="<?php echo $defense["csi"][0]["prenom"];?>">
             </div>
             <div>
                 <label for="CSI_Membre_1_UMR">Unité de recherche/établissement</label>
@@ -148,15 +148,30 @@
             <div>
                 <label for="CSI_Membre_1_mail">Adresse mail</label>
                 <input type="email" class="form-control" name="CSI_Membre_1_mail" id="CSI_Membre_1_mail">
-            </div>
-            <div>Membre n°2 – Nom spécialiste externe au domaine de la thèse</div>
+            </div>                    
+        <div class="radio-group">
+            <span>
+                <input name="CSI_Membre_1_qualite" value="Spécialiste du domaine de la thèse" type="radio">
+                <label>Spécialiste du domaine de la thèse</label>
+            </span>
+            <span>
+                <input name="CSI_Membre_1_qualite" value="Non spécialiste externe au domaine de la thèse" type="radio">
+                <label>Non spécialiste externe au domaine de la thèse</label>
+            </span>
+            <span>
+                <input name="CSI_Membre_1_qualite" value="Membre extérieur à l'établissement" type="radio">
+                <label>Membre extérieur à l'établissement</label>
+            </span>
+        </div>
+            
+            <div>Membre n°2 – </div>
             <div>
                 <label for="CSI_Membre_2_Nom">Nom</label>
-                <input type="text" class="form-control" name="CSI_Membre_2_Nom" id="CSI_Membre_2_Nom">
+                <input type="text" class="form-control" name="CSI_Membre_2_Nom" id="CSI_Membre_2_Nom" value="<?php echo $defense["csi"][1]["nom"];?>">
             </div>
             <div>
                 <label for="CSI_Membre_2_Prenom" >Prénom</label>
-                <input type="text" class="form-control" name="CSI_Membre_2_Prenom" id="CSI_Membre_2_Prenom">
+                <input type="text" class="form-control" name="CSI_Membre_2_Prenom" id="CSI_Membre_2_Prenom" value="<?php echo $defense["csi"][1]["prenom"];?>">
             </div>
             <div>
                 <label for="CSI_Membre_2_UMR">Unité de recherche/établissement</label>
@@ -166,14 +181,28 @@
                 <label for="CSI_Membre_2_mail">Adresse mail</label>
                 <input type="email" class="form-control" name="CSI_Membre_2_mail" id="CSI_Membre_2_mail">
             </div>
-            <div>Membre n°3 – Ex. partenaire de la cotutelle, spécialiste du financeur etc</div>
+            <div class="radio-group">
+            <span>
+                <input name="CSI_Membre_2_qualite" value="Spécialiste du domaine de la thèse" type="radio">
+                <label>Spécialiste du domaine de la thèse</label>
+            </span>
+            <span>
+                <input name="CSI_Membre_2_qualite" value="Non spécialiste externe au domaine de la thèse" type="radio">
+                <label>Non spécialiste externe au domaine de la thèse</label>
+            </span>
+            <span>
+                <input name="CSI_Membre_2_qualite" value="Membre extérieur à l'établissement" type="radio">
+                <label>Membre extérieur à l'établissement</label>
+            </span>
+        </div>
+            <div>Membre n°3 – </div>
             <div>
                 <label for="CSI_Membre_3_Nom">Nom</label>
-                <input type="text" class="form-control" name="CSI_Membre_3_Nom" id="CSI_Membre_3_Nom">
+                <input type="text" class="form-control" name="CSI_Membre_3_Nom" id="CSI_Membre_3_Nom" value="<?php echo $defense["csi"][2]["nom"];?>">
             </div>
             <div>
                 <label for="CSI_Membre_3_Prenom" >Prénom</label>
-                <input type="text" class="form-control" name="CSI_Membre_3_Prenom" id="CSI_Membre_3_Prenom">
+                <input type="text" class="form-control" name="CSI_Membre_3_Prenom" id="CSI_Membre_3_Prenom" value="<?php echo $defense["csi"][2]["nom"];?>">
             </div>
             <div>
                 <label for="CSI_Membre_3_UMR">Unité de recherche/établissement</label>
@@ -183,6 +212,20 @@
                 <label for="CSI_Membre_3_mail">Adresse mail</label>
                 <input type="email" class="form-control" name="CSI_Membre_3_mail" id="CSI_Membre_3_mail">
             </div>
+            <div class="radio-group">
+            <span>
+                <input name="CSI_Membre_3_qualite" value="Spécialiste du domaine de la thèse" type="radio">
+                <label>Spécialiste du domaine de la thèse</label>
+            </span>
+            <span>
+                <input name="CSI_Membre_3_qualite" value="Non spécialiste externe au domaine de la thèse" type="radio">
+                <label>Non spécialiste externe au domaine de la thèse</label>
+            </span>
+            <span>
+                <input name="CSI_Membre_3_qualite" value="Membre extérieur à l'établissement" type="radio">
+                <label>Membre extérieur à l'établissement</label>
+            </span>
+        </div>
         </p>
     </div>
     <h2>1 -&nbsp; BILAN ANNUEL AVEC LA DIRECTION DE THÈSE</h2>
