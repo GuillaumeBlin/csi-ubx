@@ -341,14 +341,14 @@ Best
 
     private function user_view(){
         $val=$this->dec($_REQUEST["code"]);
-        print_r($val);
+        //print_r($val);
         if($val){
             $val=explode("-",$val);
             $mat=$val[1];
             $user=$val[2];
             $this->display_report($mat,$user);
         }else{
-            echo 'invalid request';
+            echo 'Invalid request';
         }
         exit;
     }
