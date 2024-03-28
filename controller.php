@@ -188,7 +188,8 @@ class Controller extends BlockController
         $statement = $db->executeQuery('SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";'); 
         echo $statement->rowCount(); 
         if($statement->rowCount()>0){
-            $this->show_PhDReport($mat);
+            echo "<b>Votre rapport a déjà été enregistré.</b><br/>";
+            echo "Il est visible ici : <i class='far fa-file-alt' href='".str_replace("/load_admin_links/","/show_PhDReport/",$_SERVER['REQUEST_URI'])."'></i>";
 
         }else{
             $students = $this->retrieve_json();
@@ -349,16 +350,18 @@ Best
         exit;
     }
 
-    private function show_PhDReport($mat){
+    private function action_show_PhDReport($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }
+        $val=$this->dec($_REQUEST["code"]);
+        $val=explode("-",$val);
+        $mat=$val[1];
         $db = \Database::connection();
         $statement = $db->executeQuery('SELECT * FROM `PhDReport` WHERE Matricule="'.$mat.'";'); 
         $report_data = $statement->fetchAll();
         $report=$report_data[0];
-        /*$report=array();
-        for($i=0;$i<count($report_headers);$i=$i+1){
-            $report[$report_headers[$i]["COLUMN_NAME"]]=$report_data[$i];
-        }        */
-        print_r($report);
         include('report-PhD.php');
         exit;
     }
@@ -372,12 +375,9 @@ Best
         $val=explode("-",$val);
         $mat=$val[1];
         
-        //echo "<pre>".var_dump($_REQUEST)."</pre>";
         $report=$_REQUEST;
         array_shift($report);
         $db = \Database::connection();
-        //$statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` = ?;', array(intval($mat))); 
-        //echo $statement->rowCount();            
         $fields='';
         $values='';        
         foreach(array_keys($report) as $e){
@@ -391,7 +391,6 @@ Best
         $report["Matricule"]=intval($mat);
         $report["bID"]=$bID;        
         $statement = $db->executeQuery($sql, array_values($report)); 
-        //echo $statement->rowCount();     
         include('report-PhD.php');
         exit;
     }
