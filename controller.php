@@ -184,12 +184,19 @@ class Controller extends BlockController
 
         //check if a report already exist for $mat and $user
         $db = \Database::connection(); 
-        echo 'SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";';       
+        //echo 'SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";';       
         $statement = $db->executeQuery('SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";'); 
-        echo $statement->rowCount(); 
+        //echo $statement->rowCount(); 
         if($statement->rowCount()>0){
             echo "<b>Votre rapport a déjà été enregistré.</b><br/>";
-            echo "Il est visible ici : <i class='far fa-file-alt' href='".str_replace("/load_admin_links/","/show_PhDReport/",$_SERVER['REQUEST_URI'])."'></i>";
+            echo "Il est visible ici : <i class='far fa-file-alt'></i>";
+            echo "<script>$('.fa-file-alt').on('click',function(e){";
+                echo "    if(e.target.getAttribute('token')) {";
+                echo '      $.post("'.str_replace("/load_admin_links/","/show_PhDReport/",$_SERVER['REQUEST_URI']).'",{},function(data){';
+                echo "        console.log(data);";
+                echo "      });";
+                echo "    }";
+                echo "  });</script>";
 
         }else{
             $students = $this->retrieve_json();
