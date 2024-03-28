@@ -114,7 +114,7 @@
             </span>
         </div>
     </div>
-    <div>
+    <div id="PhD_ExtraActivite_NbH_div">
         <label for="PhD_ExtraActivite_NbH" >Si oui, nombre d’heures :</label>
         <input type="number" class="form-control" name="PhD_ExtraActivite_NbH" min="0" max="64" step="1" id="PhD_ExtraActivite_NbH">
     </div>
@@ -369,3 +369,15 @@
     </div>
 </div>
 </form>
+<script>
+    
+    $("#PhD_ExtraActivite").on("change",function(){
+            if (this.value == 'Oui') {
+                $("#PhD_ExtraActivite_NbH_div").show();
+            }else{
+                $("#PhD_ExtraActivite_NbH_div").hide();
+                $("#PhD_ExtraActivite_NbH").value("");
+            }
+            
+        });
+</script>
