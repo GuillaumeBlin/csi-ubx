@@ -356,7 +356,7 @@ Best
         $report_data = $statement->fetchAll(); //print_r($rows);
 
         $report=array();
-        for($i=0;$i<count($report_headers),$i=$i+1){
+        for($i=0;$i<count($report_headers);$i=$i+1){
             $report[$report_headers[$i]["COLUMN_NAME"]]=$report_data[$i];
         }        
         include('report-PhD.php');
