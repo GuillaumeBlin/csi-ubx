@@ -82,11 +82,11 @@
         
         <div class="radio-group">
             <span>
-                <input name="PhD_Cotutelle" value="Oui" type="radio" readonly <?php if($defense["these_cotutelle"]=="OUI") {echo "checked";};?>>
+                <input name="PhD_Cotutelle" value="Oui" type="radio" readonly <?php if($defense["these_cotutelle"]=="OUI") {echo "checked";}else{echo "disabled";};?>>
                 <label>Oui</label>
             </span>
             <span>
-                <input name="PhD_Cotutelle" value="Non" type="radio" readonly <?php if($defense["these_cotutelle"]=="NON") {echo "checked";};?>>
+                <input name="PhD_Cotutelle" value="Non" type="radio" readonly <?php if($defense["these_cotutelle"]=="NON") {echo "checked";}else{echo "disabled";};?>>
                 <label>Non</label>
             </span>
         </div>
