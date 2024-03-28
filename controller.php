@@ -221,6 +221,7 @@ class Controller extends BlockController
                     "these_date_1inscription",
                     "these_laboratoire",
                     "niveau_Etud",
+                    "csi",
                     "these_specialite"
                     ]);
                     break;

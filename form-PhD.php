@@ -133,6 +133,7 @@
             <div>Membre n°1 – Spécialiste du domaine de la thèse
             </div>
             <div>
+                <?php echo $defense["csi"];?> 
                 <label for="CSI_Membre_1_Nom">Nom</label>
                 <input type="text" class="form-control" name="CSI_Membre_1_Nom" id="CSI_Membre_1_Nom">
             </div>
