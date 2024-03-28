@@ -248,7 +248,7 @@ Dear Bob,
 
 In order to fill your CSI form, please go to the following address:
 
-    https://doctorat.u-bordeaux.fr/%21drafts/4211?code=%s
+    https://doctorat.u-bordeaux.fr/\%21drafts/4211?code=%s
 
 Best
 ", $token);
