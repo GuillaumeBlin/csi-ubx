@@ -361,6 +361,7 @@ Best
         for($i=0;$i<count($report_headers);$i=$i+1){
             $report[$report_headers[$i]["COLUMN_NAME"]]=$report_data[$i];
         }        
+        print_r($report);
         include('report-PhD.php');
         exit;
     }
