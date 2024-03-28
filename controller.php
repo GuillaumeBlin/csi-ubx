@@ -357,7 +357,7 @@ Best
         exit;
     }
 
-    private function action_show_PhDReport($bID = false)
+    public function action_show_PhDReport($bID = false)
     {
         if ($this->bID != $bID) {
             return false;
