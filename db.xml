@@ -91,6 +91,9 @@
 		<field name="CSI_Membre_1_mail"  type="text">
 			<default value="" />
 		</field>
+		<field name="CSI_Membre_1_qualite"  type="text">
+			<default value="" />
+		</field>
 		<field name="CSI_Membre_2_Nom"  type="text">
 			<default value="" />
 		</field>
@@ -103,6 +106,9 @@
 		<field name="CSI_Membre_2_mail"  type="text">
 			<default value="" />
 		</field>
+		<field name="CSI_Membre_2_qualite"  type="text">
+			<default value="" />
+		</field>
 		<field name="CSI_Membre_3_Nom"  type="text">
 			<default value="" />
 		</field>
@@ -113,6 +119,9 @@
 			<default value="" />
 		</field>
 		<field name="CSI_Membre_3_mail" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Membre_3_qualite"  type="text">
 			<default value="" />
 		</field>
 		<field name="Freq_Contact_DT" type="text">
