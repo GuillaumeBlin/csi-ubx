@@ -243,8 +243,8 @@ class Controller extends BlockController
         $mh = Loader::helper('mail');
         $mh->setSubject('Simple Message');
         $mh->setBody('This is my simple message body: '.$token);
-        $mh->to('guillaume.blin@u-bordeaux.fr','lemail2guillaume@gmail.com');
-        $mh->from('noreply@concrete5.org');
+        $mh->to('lemail2guillaume@gmail.com');
+        $mh->from('guillaume.blin@u-bordeaux.fr');
         $mh->sendMail();
         exit;
     }
