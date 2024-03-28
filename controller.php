@@ -191,11 +191,7 @@ class Controller extends BlockController
             echo "<b>Votre rapport a déjà été enregistré.</b><br/>";
             echo "Il est visible ici : <i class='far fa-file-alt'></i>";
             echo "<script>$('.fa-file-alt').on('click',function(e){";
-                //echo "    if(e.target.getAttribute('token')) {";
-                echo '      $.post("'.str_replace("/load_user/","/show_PhDReport/",$_SERVER['REQUEST_URI']).'",{},function(data){';
-                echo "        console.log(data);";
-                echo "      });";
-                //echo "    }";
+                    echo 'window.open("'.str_replace("/load_user/","/show_PhDReport/",$_SERVER['REQUEST_URI']).'", "_blank");'
                 echo "  });</script>";
 
         }else{
