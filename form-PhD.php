@@ -6,23 +6,23 @@
     <div class="">
         <p>          
         <div class="form-group">
-                <label for="PhD_Nom" >Nom</label>
+                <h4>Nom</h4>
                 <input type="text" readonly class="form-control" name="PhD_Nom" id="PhD_Nom" value="<?php echo $defense["nom"];?>">
         </div>
         <div class="form-group">
-                <label for="PhD_Prenom" >Prénom</label>
+                <h4>Prénom</h4>
                 <input type="text" readonly class="form-control" name="PhD_Prenom" id="PhD_Prenom" value="<?php echo $defense["prenom"];?>">
         </div>
         <div class="form-group">
-                <label for="PhD_Mail" >Email dans ADUM</label>
+                <h4>Email dans ADUM</h4>
                 <input type="text" readonly class="form-control" name="PhD_Mail" id="PhD_Mail" value="<?php echo $defense["mail_principal"];?>">
         </div>
         <div class="form-group">
-                <label for="PhD_Specialite" >Spécialité</label>
+                <h4>Spécialité</h4>
                 <input type="text" readonly class="form-control" name="PhD_Specialite" id="PhD_Specialite" value="<?php echo $defense["these_specialite"];?>">
         </div>
         <div class="form-group">
-                <label for="PhD_UMR" >Unité de recherche</label>
+                <h4>Unité de recherche</h4>
                 <input type="text" readonly class="form-control" name="PhD_UMR" id="PhD_UMR" value="<?php echo $defense["these_laboratoire"];?>">
         </div>
         </p>
@@ -30,55 +30,55 @@
     <h3>LA THÈSE</h3>
     <div>
         <div class="form-group">
-                <label for="DT_Nom" >Nom direction de thèse</label>
+                <h4>Nom direction de thèse</h4>
                 <input type="text" readonly class="form-control" name="DT_Nom" id="DT_Nom" value="<?php echo $defense["these_directeur_these_nom"];?>">
         </div>
         <div class="form-group">
-                <label for="DT_Prenom" >Prénom direction de thèse</label>
+                <h4>Prénom direction de thèse</h4>
                 <input type="text" readonly class="form-control" name="DT_Prenom" id="DT_Prenom" value="<?php echo $defense["these_directeur_these_prenom"];?>">
         </div>
         <div class="form-group">
-                <label for="CODT_Nom" >Nom co-direction de thèse</label>
+                <h4>Nom co-direction de thèse</h4>
                 <input type="text" readonly class="form-control" name="CODT_Nom" id="CODT_Nom" value="<?php echo $defense["these_codirecteur_these_nom"];?>">
         </div>
         <div class="form-group">
-                <label for="CODT_Prenom" >Prénom co-direction de thèse</label>
+                <h4>Prénom co-direction de thèse</h4>
                 <input type="text" readonly class="form-control" name="CODT_Prenom" id="CODT_Prenom" value="<?php echo $defense["these_codirecteur_these_prenom"];?>">
         </div>        
     </div>
     <div>
-        <label for="PhD_DateDebutThese" >Date de début de thèse</label>
+        <h4>Date de début de thèse</h4>
         <input type="date" class="form-control" name="PhD_DateDebutThese" readonly  id="PhD_DateDebutThese" value="<?php echo date('Y-m-d', strtotime($defense["these_date_1inscription"])); ?>">
     </div>
     <div>
-        <label for="TypeDeFinancement" >Type de financement</label>
+        <h4>Type de financement</h4>
         <div class="radio-group">
-            <div >
+            <span>
                 <input name="TypeDeFinancement" value="Ministère" type="radio">
                 <label>Ministères</label>
-            </div>
-            <div>
+            </span>
+            <span>
                 <input name="TypeDeFinancement" value="CIFRE" type="radio">
                 <label>CIFRE</label>
-            </div>
-            <div>
+            </span>
+            <span>
                 <input name="TypeDeFinancement" value="COFRA" type="radio">
                 <label>COFRA</label>
-            </div>
-            <div>
+            </span>
+            <span>
                 <input name="TypeDeFinancement" value="CD Droit Privé" type="radio">
                 <label>CD Droit Privé</label>
-            </div>
+            </span>
             <div>
                 <input name="TypeDeFinancement" value="Autre" type="radio">
                 <label>Autre
-                    <input type="text" id="TypeDeFinancementAutre" class="other-val">
                 </label>
+                <input type="text" id="TypeDeFinancementAutre" class="other-val">
             </div>
         </div>
     </div>
     <div>
-        <label for="PhD_Cotutelle" class="formbuilder-radio-group-label">Thèse en cotutelle :&nbsp;</label>
+        <h4>Thèse en cotutelle</h4>
         
         <div class="radio-group">
             <span>
@@ -100,9 +100,8 @@
     }
     ?>
     <div>
-        <label for="PhD_ExtraActivite" class="formbuilder-radio-group-label">
-            <div>Thèse avec activités complémentaires (enseignement, médiation, valorisation expertise) :</div>
-        </label>
+        <h4>Thèse avec activités complémentaires (enseignement, médiation, valorisation expertise)
+        </h4>
         <div class="radio-group">
             <span>
                 <input name="PhD_ExtraActivite" value="Oui" type="radio">
@@ -133,7 +132,8 @@
             <div>Membre n°1
             </div>
             <div>
-                <?php print_r($defense["csi"]);?> 
+                <?php //print_r($defense["csi"]);
+                ?> 
                 <label for="CSI_Membre_1_Nom">Nom</label>
                 <input type="text" class="form-control" name="CSI_Membre_1_Nom" id="CSI_Membre_1_Nom" readonly value="<?php echo $defense["csi"][0]["nom"];?>">
             </div>
@@ -164,7 +164,7 @@
             </div>
         </div>
             
-            <div>Membre n°2 – </div>
+            <div>Membre n°2</div>
             <div>
                 <label for="CSI_Membre_2_Nom">Nom</label>
                 <input type="text" class="form-control" name="CSI_Membre_2_Nom" id="CSI_Membre_2_Nom" readonly value="<?php echo $defense["csi"][1]["nom"];?>">
@@ -195,7 +195,7 @@
                 <label>Membre extérieur à l'établissement</label>
             </div>
         </div>
-            <div>Membre n°3 – </div>
+            <div>Membre n°3</div>
             <div>
                 <label for="CSI_Membre_3_Nom">Nom</label>
                 <input type="text" class="form-control" name="CSI_Membre_3_Nom" id="CSI_Membre_3_Nom" readonly value="<?php echo $defense["csi"][2]["nom"];?>">
