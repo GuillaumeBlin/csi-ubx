@@ -79,21 +79,26 @@
     </div>
     <div>
         <label for="PhD_Cotutelle" class="formbuilder-radio-group-label">Thèse en cotutelle :&nbsp;</label>
+        
         <div class="radio-group">
             <span>
-                <input name="PhD_Cotutelle" value="Oui" type="radio" <?php if($defense["these_cotutelle"]=="OUI") {echo "checked";};?>>
+                <input name="PhD_Cotutelle" value="Oui" type="radio" readonly ?php if($defense["these_cotutelle"]=="OUI") {echo "checked";};?>>
                 <label>Oui</label>
             </span>
             <span>
-                <input name="PhD_Cotutelle" value="Non" type="radio" <?php if($defense["these_cotutelle"]=="NON") {echo "checked";};?>>
+                <input name="PhD_Cotutelle" value="Non" type="radio" readonly <?php if($defense["these_cotutelle"]=="NON") {echo "checked";};?>>
                 <label>Non</label>
             </span>
         </div>
     </div>
-    <div>
+    <?php if($defense["these_cotutelle"]=="OUI") {?>
+        <div>
         <label for="PhD_Cotutelle_Pays" >Si oui, préciser le pays partenaire</label>
         <input type="text" class="form-control" name="PhD_Cotutelle_Pays" id="PhD_Cotutelle_Pays" value="<?php echo $defense["these_cotutelle_pays"];?>">
     </div>
+    <?php 
+    }
+    ?>
     <div>
         <label for="PhD_ExtraActivite" class="formbuilder-radio-group-label">
             <div>Thèse avec activités complémentaires (enseignement, médiation, valorisation expertise) :</div>
