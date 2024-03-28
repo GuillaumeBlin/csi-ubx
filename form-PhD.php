@@ -82,7 +82,7 @@
         
         <div class="radio-group">
             <span>
-                <input name="PhD_Cotutelle" value="Oui" type="radio" readonly ?php if($defense["these_cotutelle"]=="OUI") {echo "checked";};?>>
+                <input name="PhD_Cotutelle" value="Oui" type="radio" readonly <?php if($defense["these_cotutelle"]=="OUI") {echo "checked";};?>>
                 <label>Oui</label>
             </span>
             <span>
