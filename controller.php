@@ -192,7 +192,7 @@ class Controller extends BlockController
             echo "Il est visible ici : <i class='far fa-file-alt'></i>";
             echo "<script>$('.fa-file-alt').on('click',function(e){";
                 //echo "    if(e.target.getAttribute('token')) {";
-                echo '      $.post("'.str_replace("/load_admin_links/","/show_PhDReport/",$_SERVER['REQUEST_URI']).'",{},function(data){';
+                echo '      $.post("'.str_replace("/load_user/","/show_PhDReport/",$_SERVER['REQUEST_URI']).'",{},function(data){';
                 echo "        console.log(data);";
                 echo "      });";
                 //echo "    }";
