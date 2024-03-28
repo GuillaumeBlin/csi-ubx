@@ -183,8 +183,10 @@ class Controller extends BlockController
     {
 
         //check if a report already exist for $mat and $user
-        $db = \Database::connection();        
+        $db = \Database::connection(); 
+        echo 'SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";';       
         $statement = $db->executeQuery('SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";'); 
+        echo $statement->rowCount(); 
         if($statement->rowCount()>0){
             $this->show_PhDReport($mat);
 
