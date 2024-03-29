@@ -347,7 +347,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $val = $this->dec($_REQUEST["code"]);
+        $val = $this->dec(str_replace(" ","+",$_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         $val = explode("-", $val);
         $mat = $val[1];
         $db = \Database::connection();
@@ -363,7 +363,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $val = $this->dec($_REQUEST["code"]);
+        $val = $this->dec(str_replace(" ","+",$_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         $val = explode("-", $val);
         $mat = $val[1];
         $db = \Database::connection();
@@ -379,7 +379,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $val = $this->dec($_REQUEST["code"]);
+        $val = $this->dec(str_replace(" ","+",$_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         $val = explode("-", $val);
         $mat = $val[1];
 
@@ -409,7 +409,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $val = $this->dec($_REQUEST["code"]);
+        $val = $this->dec(str_replace(" ","+",$_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         $val = explode("-", $val);
         $mat = $val[1];
 
