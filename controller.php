@@ -156,9 +156,11 @@ class Controller extends BlockController
                 echo "Aucun étudiant inscrit et aucune étudiante inscrite dans cette école doctorale.";
             
         } else {
-                $valueByED = $byGroup[$this->ed];
+                $mailing_data = $byGroup[$this->ed];
                 
-                    echo "<ul>";
+                include('admin_links.php');                
+
+                /*    echo "<ul>";
                     foreach ($valueByED as $student) {
                         $this->display_links($student);
                     }
@@ -176,7 +178,7 @@ class Controller extends BlockController
                 echo "        console.log(data);";
                 echo "      });";
                 echo "    }";
-                echo "  });</script>";
+                echo "  });</script>";*/
                   
             
         }
