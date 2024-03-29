@@ -1,6 +1,7 @@
 
 <?php
   $actionRemovePhDReport = str_replace("/load_admin_PhD/","/admin_remove_phd_report/",$_SERVER['REQUEST_URI']);
+  $actionShowPhDReport =str_replace("/load_admin_PhD/","/show_PhDReport/",$_SERVER['REQUEST_URI']);
 ?>
 
 <p><button id="report_button">Supprimer la ligne sélectionnée</button></p>
@@ -9,6 +10,7 @@
     <thead>
         <tr>
             <th></th>
+            <th>Rapport</th>
             <?php        
                 foreach ($report_headers as $row) {
                     echo "<th>".$row["COLUMN_NAME"]."</th>";                
@@ -22,7 +24,8 @@
         foreach ($report_data as $row) {
             echo "<tr>";
             ?>
-            <td class="dt-control" id="entry<?php echo $row['ID'];?>"></td>   
+            <td class="dt-control" id="entry<?php echo $row['ID'];?>"></td>
+            <td><i class='far fa-file-alt' onclick='window.open("<?php echo $actionShowPhDReport; ?>?code=<?php echo htmlspecialchars(urlencode($this->enc("csi-".$row["Matricule"]."-PhD")));?>", "_blank");'></i></td>   
             <?php
             foreach ($row as $info) {
                 echo "<td>".$info."</td>";    
