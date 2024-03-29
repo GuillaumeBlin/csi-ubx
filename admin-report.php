@@ -63,7 +63,7 @@ $( document ).ready(function() {
                 { targets: '_all', visible: false }
             ],
             select: {
-               style: 'multi'
+               style: 'multi+shift'
             }
         });
  
