@@ -17,7 +17,8 @@
   content: " :";
 }
 </style>
-
+<div id="report-dt">
+<h1>Rapport annuel de la direction de thèse</h1>
     <h3>Informations générales</h3>
     <h4>La doctorante ou le doctorant</h4>
     <h5>Nom</h5>
@@ -144,3 +145,4 @@
         <?php echo $report["DateRapport"];?>
     </div>
 
+</div>
