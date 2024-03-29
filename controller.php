@@ -358,6 +358,22 @@ Best
         exit;
     }
 
+    public function action_show_DTReport($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }
+        $val = $this->dec($_REQUEST["code"]);
+        $val = explode("-", $val);
+        $mat = $val[1];
+        $db = \Database::connection();
+        $statement = $db->executeQuery('SELECT * FROM `DTReport` WHERE Matricule="' . $mat . '";');
+        $report_data = $statement->fetchAll();
+        $report = $report_data[0];
+        include('report-DT.php');
+        exit;
+    }
+
     public function action_form_save_DTReport($bID = false)
     {
         if ($this->bID != $bID) {
