@@ -85,11 +85,20 @@ class Controller extends BlockController
         print_r($defense);
         echo "<li>".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"];
             echo "<ul><li><i class='far fa-paper-plane' atype='PhD' amail='".$defense["mail_principal"]."' phdName='".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"]."' aname='".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"]."' token='".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-PhD")))."'></i>";
-            echo " -&gt; ".$defense["mail_principal"]. " (".$defense["mail_secondaire"].") </li>";
+            echo " PhD -&gt; ".$defense["mail_principal"]. " (".$defense["mail_secondaire"].") </li>";
             echo "<li><i class='far fa-paper-plane' atype='DT' amail='".$defense["these_directeur_these_mail"]."' phdName='".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"]."' aname='".$this->totitle($defense["these_directeur_these_prenom"]) . ' ' . $defense["these_directeur_these_nom"]."' token='".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-DT")))."'></i>"; 
-            echo " -&gt; ".$defense["these_directeur_these_mail"]."</li>";
-            echo "<li>".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-CSI"))); 
-            echo " -&gt; CSI </li></ul>";            
+            echo " DT -&gt; ".$defense["these_directeur_these_mail"]."</li>";
+
+            $csiNames='';
+            $csiMails='';
+            foreach($defense["csi"] as $m){
+                $csiNames=$csiNames." ".$m["prenom"]." ".$m["nom"].",";
+                $csiMails=$csiMails." ".$m["mail"].",";
+            }
+            $csiNames=rtrim($csiNames,',');
+            $csiMails=rtrim($csiMails,',');
+            echo "<li><i class='far fa-paper-plane' atype='PhD' amail='".$csiMails."' phdName='".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"]."' aname='".$csiNames."' token='".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-CSI")))."'></i>";
+            echo " CSI -&gt; ".$csiMails." </li></ul>";            
         echo "</li>";
     }
 
