@@ -320,8 +320,8 @@ Best
     private function user_view()
     {
         
-        echo "<pre>".htmlspecialchars($_REQUEST["code"])."</pre>";
-        $val = $this->dec(urldecode(htmlspecialchars_decode($_REQUEST["code"])));
+        echo "<pre>".str_replace(" ","+",$_REQUEST["code"])."</pre>";
+        $val = $this->dec(str_replace(" ","+",$_REQUEST["code"]));
         //print_r($val);
         if ($val) {
             $val = explode("-", $val);
