@@ -175,10 +175,28 @@ class Controller extends BlockController
         $statement = $db->executeQuery('SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";'); 
         //echo $statement->rowCount(); 
         if($statement->rowCount()>0){
-            echo "<b>Votre rapport a déjà été enregistré.</b><br/>";
-            echo "Il est visible ici : <i class='far fa-file-alt'></i>";
-            echo "<script>$('.fa-file-alt').on('click',function(e){";
-            echo 'window.open("'.str_replace("/load_user/","/show_PhDReport/",$_SERVER['REQUEST_URI']).'", "_blank");';
+            echo "<b>Votre rapport a été enregistré.</b><br/>";
+            echo "Il est visible ici : <i class='far fa-file-alt'></i>";                    
+            echo "<script>";
+            if($user=="PhD"){//PhD            
+                echo "$('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant');";
+            }
+            if($user=="DT"){
+                echo "$('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');";
+            }
+            if($user=="CSI"){
+                echo "$('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
+            }
+            echo"$('.fa-file-alt').on('click',function(e){";
+            if($user=="PhD"){//PhD            
+                echo 'window.open("'.str_replace("/load_user/","/show_PhDReport/",$_SERVER['REQUEST_URI']).'", "_blank");';                
+            }
+            if($user=="DT"){
+                echo 'window.open("'.str_replace("/load_user/","/show_DTReport/",$_SERVER['REQUEST_URI']).'", "_blank");';
+            }
+            if($user=="CSI"){
+                echo 'window.open("'.str_replace("/load_user/","/show_CSIReport/",$_SERVER['REQUEST_URI']).'", "_blank");';
+            }
             echo "  });</script>";
 
         }else{
