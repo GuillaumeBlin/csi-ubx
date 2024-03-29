@@ -279,7 +279,7 @@ Best
         }
         $mh->setBody($body);
         $mh->to('lemail2guillaume@gmail.com');
-        $mh->from('bug.doctorat@diff.u-bordeaux.fr');
+        $mh->from('noreply@u-bordeaux.fr');
         $mh->sendMail();
         print($body);
         exit;
