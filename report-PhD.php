@@ -1,21 +1,5 @@
 <link href="/application/files/cache/css/ub_tiers/main.css" rel="stylesheet" type="text/css" media="all">
-<style>
-    #report-phd{
-  font-family: "Gill Sans Extrabold", sans-serif;
-    }
-    #report-phd > h1, h2{
-        background-color:#4a90e2;
-    }
 
-    #report-phd > label {
-        font-weight: bold;
-    }
-
-    #report-phd > label::after {
-    font-weight: bold;
-  content: " :";
-}
-</style>
 <div id="report-phd">
     <h1>Rapport annuel de la doctorante ou du doctorant </h1>
     <h2>INFORMATION GÉNÉRALES</h2>

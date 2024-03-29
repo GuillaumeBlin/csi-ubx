@@ -1,22 +1,6 @@
 <link href="/application/files/cache/css/ub_tiers/main.css" rel="stylesheet" type="text/css" media="all">
 
-<style>
-    #report-dt{
-  font-family: "Gill Sans Extrabold", sans-serif;
-    }
-    #report-dt > h1, h2{
-        background-color:#4a90e2;
-    }
-    
-    #report-dt > label {
-        font-weight: bold;
-    }
 
-    #report-dt > label::after {
-    font-weight: bold;
-  content: " :";
-}
-</style>
 <div id="report-dt">
 <h1>Rapport annuel de la direction de thèse</h1>
     <h3>Informations générales</h3>
