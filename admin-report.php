@@ -78,6 +78,7 @@ $( document ).ready(function() {
                 console.log(data);
               //  table.row('.selected').remove().draw(false);
             });
+            table.draw();
         });
         });                
 
