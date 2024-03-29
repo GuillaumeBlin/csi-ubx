@@ -405,7 +405,7 @@ Best
         $db = \Database::connection();
         $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'DTReport';");
         $report_headers = $statement->fetchAll(); //print_r($rows);
-
+        print_r($report_headers);
         $statement = $db->executeQuery('SELECT * FROM `DTReport` ;');
         $report_data = $statement->fetchAll(); //print_r($rows);
         include('admin-DT-report.php');
