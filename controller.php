@@ -20,23 +20,25 @@ class Controller extends BlockController
     protected $btInterfaceWidth = "350";
     protected $btInterfaceHeight = "240";
     protected $btDefaultSet = 'basic';
-    protected $jsonFile="/../../files/datas_adum/ubx_inscrits.json";
-    
-    private function enc($data){
+    protected $jsonFile = "/../../files/datas_adum/ubx_inscrits.json";
+
+    private function enc($data)
+    {
         $cipher = "AES-256-CBC";
         $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipher));
-        $encrypted = openssl_encrypt($data, $cipher, $this->sKey, 0, $iv,$tag);
-        $encrypted = base64_encode($iv.$encrypted);
+        $encrypted = openssl_encrypt($data, $cipher, $this->sKey, 0, $iv, $tag);
+        $encrypted = base64_encode($iv . $encrypted);
         return $encrypted;
     }
 
-    
-    private function dec( $ciphertext){
+
+    private function dec($ciphertext)
+    {
         $encrypted = base64_decode($ciphertext);
         $cipher = "AES-256-CBC";
         $iv = substr($encrypted, 0, openssl_cipher_iv_length($cipher));
         $encrypted = substr($encrypted, openssl_cipher_iv_length($cipher));
-        $decrypted = openssl_decrypt($encrypted, $cipher, $this->sKey, 0, $iv,$tag);
+        $decrypted = openssl_decrypt($encrypted, $cipher, $this->sKey, 0, $iv, $tag);
         return $decrypted;
     }
 
@@ -44,11 +46,11 @@ class Controller extends BlockController
     {
         $res = "";
         while (!(is_array($res))) {
-            $res = json_decode(file_get_contents(realpath(dirname(__FILE__)) . $this->jsonFile), true);            
+            $res = json_decode(file_get_contents(realpath(dirname(__FILE__)) . $this->jsonFile), true);
         }
         return $res;
     }
-    
+
     private function array_except($array, $keys)
     {
         return array_diff_key($array, array_flip((array) $keys));
@@ -84,20 +86,26 @@ class Controller extends BlockController
     {
         include('form-PhD.php');
         echo "<script>
-                $('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant ');";            
-        echo "</script>";        
+                $('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant ');";
+        echo "</script>";
         return;
     }
 
     private function display_dt_report_content($defense)
     {
         include('form-PhD.php');
+        echo "<script>
+                $('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');";
+        echo "</script>";
         return;
     }
 
     private function display_csi_report_content($defense)
     {
         include('form-PhD.php');
+        echo "<script>
+                $('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
+        echo "</script>";
         return;
     }
 
@@ -105,7 +113,7 @@ class Controller extends BlockController
     private function students_sorter(array $a, array $b)
     {
         return [$a['these_ED_code'], $a['these_specialite'], $a['nom']] <=> [$b['these_ED_code'], $b['these_specialite'], $b['nom']];
-    }    
+    }
 
     /* LOADING functions */
 
@@ -132,147 +140,123 @@ class Controller extends BlockController
         usort($students, array($this, 'students_sorter'));
 
         $byGroup = $this->group_by("these_ED_code", $students);
-       
-        if (!array_key_exists($this->ed, $byGroup)) {
-                echo "Aucun étudiant inscrit et aucune étudiante inscrite dans cette école doctorale.";
-            
-        } else {
-                $mailing_data = $byGroup[$this->ed];
-                
-                include('admin_links.php');                
 
-                /*    echo "<ul>";
-                    foreach ($valueByED as $student) {
-                        $this->display_links($student);
-                    }
-                    echo "</ul>";                
-                $actionMailing = str_replace("/load_admin_links/","/admin_mailing/",$_SERVER['REQUEST_URI']);
-                echo "<script>$('.fa-paper-plane').on('click',function(e){";
-                echo "    if(e.target.getAttribute('token')) {";
-                echo "      var aType=e.target.getAttribute('atype');";
-                echo "      var aToken=e.target.getAttribute('token');";
-                echo "      var phdName=e.target.getAttribute('phdname');";
-                echo "      var aName=e.target.getAttribute('aname');";
-                echo "      var aMail=e.target.getAttribute('amail');";
-                echo "      console.log(aToken);";
-                echo '      $.post("'.$actionMailing.'",{token: aToken, type: aType, student:phdName, name: aName, mail: aMail},function(data){';
-                echo "        console.log(data);";
-                echo "      });";
-                echo "    }";
-                echo "  });</script>";*/
-                  
-            
+        if (!array_key_exists($this->ed, $byGroup)) {
+            echo "Aucun étudiant inscrit et aucune étudiante inscrite dans cette école doctorale.";
+        } else {
+            $mailing_data = $byGroup[$this->ed];
+            include('admin_links.php');
         }
     }
 
     /*Phd students*/
-    private function display_report($mat,$user)
+    private function display_report($mat, $user)
     {
 
         //check if a report already exist for $mat and $user
-        $db = \Database::connection(); 
+        $db = \Database::connection();
         //echo 'SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";';       
-        $statement = $db->executeQuery('SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";'); 
+        $statement = $db->executeQuery('SELECT Matricule FROM `' . $user . 'Report` WHERE Matricule="' . $mat . '";');
         //echo $statement->rowCount(); 
-        if($statement->rowCount()>0){
+        if ($statement->rowCount() > 0) {
             echo "<b>Votre rapport a été enregistré.</b><br/>";
-            echo "Il est visible ici : <i class='far fa-file-alt'></i>";                    
+            echo "Il est visible ici : <i class='far fa-file-alt'></i>";
             echo "<script>";
-            if($user=="PhD"){//PhD            
+            if ($user == "PhD") { //PhD            
                 echo "$('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant');";
             }
-            if($user=="DT"){
+            if ($user == "DT") {
                 echo "$('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');";
             }
-            if($user=="CSI"){
+            if ($user == "CSI") {
                 echo "$('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
             }
-            echo"$('.fa-file-alt').on('click',function(e){";
-            if($user=="PhD"){//PhD            
-                echo 'window.open("'.str_replace("/load_user/","/show_PhDReport/",$_SERVER['REQUEST_URI']).'", "_blank");';                
+            echo "$('.fa-file-alt').on('click',function(e){";
+            if ($user == "PhD") { //PhD            
+                echo 'window.open("' . str_replace("/load_user/", "/show_PhDReport/", $_SERVER['REQUEST_URI']) . '", "_blank");';
             }
-            if($user=="DT"){
-                echo 'window.open("'.str_replace("/load_user/","/show_DTReport/",$_SERVER['REQUEST_URI']).'", "_blank");';
+            if ($user == "DT") {
+                echo 'window.open("' . str_replace("/load_user/", "/show_DTReport/", $_SERVER['REQUEST_URI']) . '", "_blank");';
             }
-            if($user=="CSI"){
-                echo 'window.open("'.str_replace("/load_user/","/show_CSIReport/",$_SERVER['REQUEST_URI']).'", "_blank");';
+            if ($user == "CSI") {
+                echo 'window.open("' . str_replace("/load_user/", "/show_CSIReport/", $_SERVER['REQUEST_URI']) . '", "_blank");';
             }
             echo "  });</script>";
-
-        }else{
+        } else {
             $students = $this->retrieve_json();
             $students = $students["data"][0];
-            $student="";
+            $student = "";
             foreach ($students as $value) {
-                if($value["Matricule_etudiant"]==$mat){
+                if ($value["Matricule_etudiant"] == $mat) {
                     $student = $this->array_extract($value, [
-                    "Matricule_etudiant",
-                    "civilite",
-                    "nom",
-                    "prenom",
-                    "mail_principal",
-                    "mail_secondaire",
-                    "niveau_Etud",
-                    "these_ED_code",
-                    "these_codirecteur_these_nom",
-                    "these_codirecteur_these_prenom",
-                    "these_codirecteur_these_mail",
-                    "these_directeur_these_nom",
-                    "these_directeur_these_prenom",
-                    "these_directeur_these_mail",
-                    "these_cotutelle",
-                    "these_cotutelle_etab",
-                    "these_cotutelle_pays",
-                    "these_date_1inscription",
-                    "these_laboratoire",
-                    "niveau_Etud",
-                    "csi",
-                    "these_specialite"
+                        "Matricule_etudiant",
+                        "civilite",
+                        "nom",
+                        "prenom",
+                        "mail_principal",
+                        "mail_secondaire",
+                        "niveau_Etud",
+                        "these_ED_code",
+                        "these_codirecteur_these_nom",
+                        "these_codirecteur_these_prenom",
+                        "these_codirecteur_these_mail",
+                        "these_directeur_these_nom",
+                        "these_directeur_these_prenom",
+                        "these_directeur_these_mail",
+                        "these_cotutelle",
+                        "these_cotutelle_etab",
+                        "these_cotutelle_pays",
+                        "these_date_1inscription",
+                        "these_laboratoire",
+                        "niveau_Etud",
+                        "csi",
+                        "these_specialite"
                     ]);
                     break;
                 }
             }
             if (!$student) {
-                    echo "Aucun étudiant ou aucune étudiante correpsondant.";
-                
+                echo "Aucun étudiant ou aucune étudiante correpsondant.";
             } else {
-                    if($user=="PhD"){//PhD
-                        $this->display_phd_report_content($student); 
-                    }
-                    if($user=="DT"){
-                        $this->display_dt_report_content($student);             
-                    }
-                    if($user=="CSI"){
-                        $this->display_csi_report_content($student);             
-                    }
+                if ($user == "PhD") { //PhD
+                    $this->display_phd_report_content($student);
+                }
+                if ($user == "DT") {
+                    $this->display_dt_report_content($student);
+                }
+                if ($user == "CSI") {
+                    $this->display_csi_report_content($student);
+                }
             }
         }
     }
 
-    public function action_admin_remove_phd_report($bID = false){
+    public function action_admin_remove_phd_report($bID = false)
+    {
         if ($this->bID != $bID) {
             return false;
         }
-        $id=$_REQUEST["id"];
+        $id = $_REQUEST["id"];
         $db = \Database::connection();
-        $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` = ?;', array(intval($id))); 
-        echo $statement->rowCount()." entrée a bien été supprimée de la table";                    
+        $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` = ?;', array(intval($id)));
+        echo $statement->rowCount() . " entrée a bien été supprimée de la table";
         exit;
     }
 
-    public function action_admin_mailing($bID = false){
+    public function action_admin_mailing($bID = false)
+    {
         if ($this->bID != $bID) {
             return false;
         }
-        $token=$_REQUEST["token"];
-        $type=$_REQUEST["type"];
-        $mail=$_REQUEST["mail"];
-        $aname=$_REQUEST["name"];
-        $student=$_REQUEST["student"];
+        $token = $_REQUEST["token"];
+        $type = $_REQUEST["type"];
+        $mail = $_REQUEST["mail"];
+        $aname = $_REQUEST["name"];
+        $student = $_REQUEST["student"];
         $mh = Loader::helper('mail');
         $mh->setSubject('CSI form access information');
-        if($type=="PhD"){
-        $body = t("
+        if ($type == "PhD") {
+            $body = t("
 Dear %s (%s),
 
 In order to fill your CSI form, please go to the following address:
@@ -280,9 +264,9 @@ In order to fill your CSI form, please go to the following address:
     https://doctorat.u-bordeaux.fr/!drafts/4211?code=%s
 
 Best
-", $aname,$mail,$token);
+", $aname, $mail, $token);
         }
-        if($type=="DT"){
+        if ($type == "DT") {
             $body = t("
     Dear %s (%s),
     
@@ -291,8 +275,8 @@ Best
         https://doctorat.u-bordeaux.fr/!drafts/4211?code=%s
     
     Best
-    ", $aname,$mail, $student,$token);
-            }
+    ", $aname, $mail, $student, $token);
+        }
         $mh->setBody($body);
         $mh->to('lemail2guillaume@gmail.com');
         $mh->from('bug.doctorat@diff.u-bordeaux.fr');
@@ -329,32 +313,32 @@ Best
     public function registerViewAssets($outputContent = "")
     {
         $this->requireAsset("javascript", "jquery");
-       // $this->requireAsset("datatables");
+        // $this->requireAsset("datatables");
     }
+    
 
-    private function admin_PhD_view(){     
-        $db = \Database::connection();
-        $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'PhDReport';");
-        $report_headers = $statement->fetchAll(); //print_r($rows);
-        
-        $statement = $db->executeQuery('SELECT * FROM `PhDReport` ;'); 
-        $report_data = $statement->fetchAll(); //print_r($rows);
-        include('admin-report.php');
-        exit;
-        
-    }
-
-    private function user_view(){
-        $val=$this->dec($_REQUEST["code"]);
+    private function user_view()
+    {
+        $val = $this->dec($_REQUEST["code"]);
         //print_r($val);
-        if($val){
-            $val=explode("-",$val);
-            $mat=$val[1];
-            $user=$val[2];
-            $this->display_report($mat,$user);
-        }else{
+        if ($val) {
+            $val = explode("-", $val);
+            $mat = $val[1];
+            $user = $val[2];
+            $this->display_report($mat, $user);
+        } else {
             echo 'Invalid request';
         }
+        exit;
+    }
+
+    public function action_load_user($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }
+        $this->user_view();
+
         exit;
     }
 
@@ -363,13 +347,13 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $val=$this->dec($_REQUEST["code"]);
-        $val=explode("-",$val);
-        $mat=$val[1];
+        $val = $this->dec($_REQUEST["code"]);
+        $val = explode("-", $val);
+        $mat = $val[1];
         $db = \Database::connection();
-        $statement = $db->executeQuery('SELECT * FROM `PhDReport` WHERE Matricule="'.$mat.'";'); 
+        $statement = $db->executeQuery('SELECT * FROM `PhDReport` WHERE Matricule="' . $mat . '";');
         $report_data = $statement->fetchAll();
-        $report=$report_data[0];
+        $report = $report_data[0];
         include('report-PhD.php');
         exit;
     }
@@ -379,46 +363,62 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $val=$this->dec($_REQUEST["code"]);
-        $val=explode("-",$val);
-        $mat=$val[1];
-        
-        $report=$_REQUEST;
+        $val = $this->dec($_REQUEST["code"]);
+        $val = explode("-", $val);
+        $mat = $val[1];
+
+        $report = $_REQUEST;
         array_shift($report);
         $db = \Database::connection();
-        $fields='';
-        $values='';        
-        foreach(array_keys($report) as $e){
-            $fields=$fields."`".$e."`,";
-            $values=$values.'?,';
+        $fields = '';
+        $values = '';
+        foreach (array_keys($report) as $e) {
+            $fields = $fields . "`" . $e . "`,";
+            $values = $values . '?,';
         }
-        $values=$values.'?,?';
-        $fields=$fields."`Matricule`,`bID`";
+        $values = $values . '?,?';
+        $fields = $fields . "`Matricule`,`bID`";
 
-        $sql='INSERT INTO `PhDReport` ( '.$fields.')VALUES ('.$values.');';
-        $report["Matricule"]=intval($mat);
-        $report["bID"]=$bID;        
-        $statement = $db->executeQuery($sql, array_values($report)); 
-        $userPage = preg_replace("%/form_save_PhDReport/\d+%","/",$_SERVER['REQUEST_URI']);
+        $sql = 'INSERT INTO `PhDReport` ( ' . $fields . ')VALUES (' . $values . ');';
+        $report["Matricule"] = intval($mat);
+        $report["bID"] = $bID;
+        $statement = $db->executeQuery($sql, array_values($report));
+        $userPage = preg_replace("%/form_save_PhDReport/\d+%", "/", $_SERVER['REQUEST_URI']);
         $this->redirect($userPage);
         exit;
     }
 
-    public function action_load_user($bID = false)
+    private function admin_PhD_view()
     {
-        if ($this->bID != $bID) {
-            return false;
-        }        
-            $this->user_view();
-        
+        $db = \Database::connection();
+        $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'PhDReport';");
+        $report_headers = $statement->fetchAll(); //print_r($rows);
+
+        $statement = $db->executeQuery('SELECT * FROM `PhDReport` ;');
+        $report_data = $statement->fetchAll(); //print_r($rows);
+        include('admin-PhD-report.php');
         exit;
     }
+
+    private function admin_DT_view()
+    {
+        $db = \Database::connection();
+        $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'DTReport';");
+        $report_headers = $statement->fetchAll(); //print_r($rows);
+
+        $statement = $db->executeQuery('SELECT * FROM `DTReport` ;');
+        $report_data = $statement->fetchAll(); //print_r($rows);
+        include('admin-DT-report.php');
+        exit;
+    }
+
+    
     public function action_load_admin_links($bID = false)
     {
         if ($this->bID != $bID) {
             return false;
         }
-        $this->display_list() ;     
+        $this->display_list();
         exit;
     }
 
@@ -427,7 +427,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $this->admin_PhD_view();        
+        $this->admin_PhD_view();
         exit;
     }
 
@@ -436,7 +436,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        //$this->admin_PhD_view();        
+        $this->admin_DT_view();        
         exit;
     }
 
@@ -450,10 +450,9 @@ Best
     }
 
     private function emptyDB()
-    {        
+    {
         $db = \Database::connection();
-        $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` IN (SELECT `ID` FROM `PhDReport`);', array());         
+        $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` IN (SELECT `ID` FROM `PhDReport`);', array());
         echo $statement->rowCount();
     }
-
 }
