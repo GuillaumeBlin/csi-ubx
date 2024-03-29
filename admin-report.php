@@ -61,24 +61,25 @@ $( document ).ready(function() {
             columnDefs: [
                 { targets: [0,1,4,5,6,7,44], visible: true},
                 { targets: '_all', visible: false }
-            ]
+            ],
+            select: true
         });
  
         // Array to track the ids of the details displayed rows
         const detailRows = [];
         $("#report_button").on("click",function(){
-            console.log(table.rows('.selected'));
+            console.log(table.rows({selected: true}));
             table.rows({selected: true}).each(function(row){
                 console.log(row);
                 var anId=row.data()[1];
                 $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
                 console.log(data);
-                table.row('.selected').remove().draw(false);
+              //  table.row('.selected').remove().draw(false);
             });
         });
         });
         
-        table.on('click', 'tbody tr', (e) => {
+        /*table.on('click', 'tbody tr', (e) => {
             let classList = e.currentTarget.classList;
         
             if (classList.contains('selected')) {
@@ -88,7 +89,7 @@ $( document ).ready(function() {
                 //table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
                 classList.add('selected');
             }
-        });
+        });*/
 
         table.on('click', 'tbody td.dt-control', function () {
             let tr = event.target.closest('tr');
