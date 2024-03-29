@@ -76,6 +76,7 @@ $( document ).ready(function() {
                 console.log(anId);
                 $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
                 console.log(data);
+                this.remove();
               //  table.row('.selected').remove().draw(false);
             });
             table.draw();
