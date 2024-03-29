@@ -5,7 +5,7 @@ include "lang.php";
   $actionShowPhDReport =str_replace("/load_admin_DT/","/show_DTReport/",$_SERVER['REQUEST_URI']);
 ?>
 
-<p><button id="report-dt_button">Supprimer la ligne sélectionnée</button></p>
+<p><button id="report-dt_button">Supprimer les lignes sélectionnées</button></p>
 
 <table id="report-dt" class="display">
     <thead>

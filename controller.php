@@ -93,7 +93,7 @@ class Controller extends BlockController
 
     private function display_dt_report_content($defense)
     {
-        include('form-PhD.php');
+        include('form-DT.php');
         echo "<script>
                 $('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');";
         echo "</script>";
@@ -358,6 +358,36 @@ Best
         exit;
     }
 
+    public function action_form_save_DTReport($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }
+        $val = $this->dec($_REQUEST["code"]);
+        $val = explode("-", $val);
+        $mat = $val[1];
+
+        $report = $_REQUEST;
+        array_shift($report);
+        $db = \Database::connection();
+        $fields = '';
+        $values = '';
+        foreach (array_keys($report) as $e) {
+            $fields = $fields . "`" . $e . "`,";
+            $values = $values . '?,';
+        }
+        $values = $values . '?,?';
+        $fields = $fields . "`Matricule`,`bID`";
+
+        $sql = 'INSERT INTO `DTReport` ( ' . $fields . ')VALUES (' . $values . ');';
+        $report["Matricule"] = intval($mat);
+        $report["bID"] = $bID;
+        $statement = $db->executeQuery($sql, array_values($report));
+        $userPage = preg_replace("%/form_save_DTReport/\d+%", "/", $_SERVER['REQUEST_URI']);
+        $this->redirect($userPage);
+        exit;
+    }
+
     public function action_form_save_PhDReport($bID = false)
     {
         if ($this->bID != $bID) {
@@ -404,8 +434,7 @@ Best
     {
         $db = \Database::connection();
         $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'DTReport';");
-        $report_headers = $statement->fetchAll(); //print_r($rows);
-        print_r($report_headers);
+        $report_headers = $statement->fetchAll(); //print_r($rows);        
         $statement = $db->executeQuery('SELECT * FROM `DTReport` ;');
         $report_data = $statement->fetchAll(); //print_r($rows);
         include('admin-DT-report.php');
