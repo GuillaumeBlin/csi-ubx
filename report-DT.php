@@ -69,16 +69,15 @@
     <?php echo $report["Integration"];?>
     
     <h3>Bilan annuel sur l'avancement de la thèse</h3>
+    <h5>Avancement</h5>
     <?php echo $report["Progression"];?>
     
-    <div>
-        <label>Argumentaire</label>
-        <p><?php echo $report["ArgumentaireProgression"];?></p>
-    </div>
+    <h5>Argumentaire</h5>
+        <p><?php echo $report["ArgumentaireProgression"];?></p>    
 
     <!-- 2eme année-->
-
-    <?php if($report["ArgumentaireProgression"]!=""){?>
+    <h5>Echéancier</h5>
+    <?php if($report["SoutenanceDansDelais"]!=""){?>
     <div>
         <label>L'état d'avancement global des travaux vous permet-il d'envisager une soutenance dans les délais</label>
         <span>
@@ -97,6 +96,7 @@
             <label>Date prévue pour la soutenance de thèse</label>
             <?php echo $report["DateSoutenance"];?>
         </div>
+        <h5>Inscription dérogatoire</h5>
         <div><label>Une inscription dérogatoire en 4ème année ou plus est-elle envisagée ?</label>
             <span>
             <?php echo $report["InscriptionDerogatoire"];?>
@@ -116,17 +116,14 @@
      <?php } ?>
 
     <h3>Avis sur la réinscription en thèse</h3>
-    <span>
+    <h5>Avis</h5>
     <?php echo $report["Reinscription"];?>
-    </span>
-    <div>
-        <label>Avis circonstancié</label>
+    <h5>Argumentaire</h5>
+        
         <p><?php echo $report["AvisReinscription"];?></p>
-    </div>
-
-    <div>
-        <label>Date de l'établissement du rapport</label>
+    
+    <h5>Date de l'établissement du rapport</h5>
         <?php echo $report["DateRapport"];?>
-    </div>
+    
 
 </div>
