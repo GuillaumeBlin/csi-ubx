@@ -1,5 +1,6 @@
 
 <?php
+include "lang.php";
   $actionRemovePhDReport = str_replace("/load_admin_PhD/","/admin_remove_phd_report/",$_SERVER['REQUEST_URI']);
   $actionShowPhDReport =str_replace("/load_admin_PhD/","/show_PhDReport/",$_SERVER['REQUEST_URI']);
 ?>
