@@ -67,7 +67,8 @@ $( document ).ready(function() {
         // Array to track the ids of the details displayed rows
         const detailRows = [];
         $("#report_button").on("click",function(){
-            table.rows('.selected').nodes().each((row) => function(){
+            table.rows('.selected').nodes().each((row) => function(row){
+                console.log(row);
                 var anId=row.data()[1];
                 $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
                 console.log(data);
