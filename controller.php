@@ -320,7 +320,7 @@ Best
     private function user_view()
     {
         
-        print(urldecode(htmlspecialchars_decode($_REQUEST["code"])));
+        echo "<pre>".htmlspecialchars($_REQUEST["code"])."</pre>";
         $val = $this->dec(urldecode(htmlspecialchars_decode($_REQUEST["code"])));
         //print_r($val);
         if ($val) {
