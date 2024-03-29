@@ -106,7 +106,7 @@ class Controller extends BlockController
     {
         include('form-PhD.php');
         echo "<script>
-                $('#csi').closest('h1').text('Rapport annuel de la doctorante ou du doctorant ');";            
+                $('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant ');";            
         echo "</script>";        
         return;
     }
