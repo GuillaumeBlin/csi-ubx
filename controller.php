@@ -105,6 +105,9 @@ class Controller extends BlockController
     private function display_phd_report_content($defense)
     {
         include('form-PhD.php');
+        echo "<script>
+                $('#csi').closest('h1').text('Rapport annuel de la doctorante ou du doctorant ');";            
+        echo "</script>";        
         return;
     }
 
@@ -233,15 +236,12 @@ class Controller extends BlockController
                     break;
                 }
             }
-            
-        // echo "<pre>" . var_export($student, true) . "</pre>";
-        // echo $user;
             if (!$student) {
                     echo "Aucun étudiant ou aucune étudiante correpsondant.";
                 
             } else {
                     if($user=="PhD"){//PhD
-                        $this->display_phd_report_content($student);             
+                        $this->display_phd_report_content($student); 
                     }
                     if($user=="DT"){
                         $this->display_dt_report_content($student);             

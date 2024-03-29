@@ -1,6 +1,5 @@
-<form action="<?php echo str_replace("/load_user/","/form_save_PhDReport/",$_SERVER['REQUEST_URI']);?>" method="POST">
+<form id="csi" action="<?php echo str_replace("/load_user/","/form_save_PhDReport/",$_SERVER['REQUEST_URI']);?>" method="POST">
 
-    <h1>Rapport annuel de la doctorante ou du doctorant </h1>
     <h3>Informations générales</h3>
     <h4>La doctorante ou le doctorant</h4>
                 <h5>Nom</h5>
