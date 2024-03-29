@@ -59,7 +59,7 @@ $( document ).ready(function() {
     sleep(2000).then(() => { 
         const table = new DataTable('#report-dt', {
             columnDefs: [
-                { targets: [0,1,4,5,6,7,44], visible: true},
+                { targets: [0,1,4,5,6,10,11,37], visible: true},
                 { targets: '_all', visible: false }
             ],
             select: {
