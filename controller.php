@@ -82,6 +82,7 @@ class Controller extends BlockController
     
     private function display_links($defense)
     {
+        print_r($defense);
         echo "<li>".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"];
             echo "<ul><li><i class='far fa-paper-plane' atype='PhD' amail='".$defense["mail_principal"]."' phdName='".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"]."' aname='".$this->totitle($defense["prenom"]) . ' ' . $defense["nom"]."' token='".htmlspecialchars(urlencode($this->enc("csi-".$defense["Matricule_etudiant"]."-PhD")))."'></i>";
             echo " -&gt; ".$defense["mail_principal"]. " (".$defense["mail_secondaire"].") </li>";
@@ -134,27 +135,22 @@ class Controller extends BlockController
                 "these_directeur_these_mail",
                 "these_directeur_these_nom",
                 "these_directeur_these_prenom",
-                "these_specialite"
+                "csi"
             ]);
         }
 
         usort($students, array($this, 'students_sorter'));
 
         $byGroup = $this->group_by("these_ED_code", $students);
-        foreach ($byGroup as &$valueByED) {
-            $valueByED = $this->group_by("these_specialite", $valueByED);
-        }
-
+       
         if (!array_key_exists($this->ed, $byGroup)) {
                 echo "Aucun étudiant inscrit et aucune étudiante inscrite dans cette école doctorale.";
             
         } else {
                 $valueByED = $byGroup[$this->ed];
                 
-                foreach ($valueByED as $keyBySpeciality => $valueBySpeciality) {
-                    echo "<h3>" . $keyBySpeciality . "</h3>";
                     echo "<ul>";
-                    foreach ($valueBySpeciality as $student) {
+                    foreach ($valueByED as $student) {
                         $this->display_links($student);
                     }
                     echo "</ul>";
