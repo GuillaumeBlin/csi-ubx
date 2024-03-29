@@ -68,7 +68,7 @@ $( document ).ready(function() {
         const detailRows = [];
         $("#report_button").on("click",function(){
             console.log(table.rows('.selected'));
-            table.rows('.selected').nodes().each(function(row){
+            table.rows({selected: true}).each(function(row){
                 console.log(row);
                 var anId=row.data()[1];
                 $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
