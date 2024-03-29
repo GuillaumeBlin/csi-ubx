@@ -257,11 +257,11 @@
                 <input name="Financement" value="Non" type="radio">
                 <label>Non</label>
             </span>
-        
-        <div>
-            <label>Si oui, préciser </label>
-            <textarea type="textarea" rows="5" class="form-control" name="FinancementDetails" id="FinancementDetails"></textarea>
-        </div>
+
+            <div>
+                <label>Si oui, préciser </label>
+                <textarea type="textarea" rows="5" class="form-control" name="FinancementDetails" id="FinancementDetails"></textarea>
+            </div>
         </div>
     </div>
 

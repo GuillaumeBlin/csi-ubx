@@ -315,12 +315,12 @@ Best
         $this->requireAsset("javascript", "jquery");
         // $this->requireAsset("datatables");
     }
-    
+
 
     private function user_view()
     {
-        
-        $val = $this->dec(str_replace(" ","+",$_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
+
+        $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         if ($val) {
             $val = explode("-", $val);
             $mat = $val[1];
@@ -347,7 +347,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $val = $this->dec(str_replace(" ","+",$_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
+        $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         $val = explode("-", $val);
         $mat = $val[1];
         $db = \Database::connection();
@@ -363,7 +363,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $val = $this->dec(str_replace(" ","+",$_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
+        $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         $val = explode("-", $val);
         $mat = $val[1];
         $db = \Database::connection();
@@ -379,7 +379,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $val = $this->dec(str_replace(" ","+",$_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
+        $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         $val = explode("-", $val);
         $mat = $val[1];
 
@@ -409,7 +409,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $val = $this->dec(str_replace(" ","+",$_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
+        $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         $val = explode("-", $val);
         $mat = $val[1];
 
@@ -457,7 +457,7 @@ Best
         exit;
     }
 
-    
+
     public function action_load_admin_links($bID = false)
     {
         if ($this->bID != $bID) {
@@ -481,7 +481,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $this->admin_DT_view();        
+        $this->admin_DT_view();
         exit;
     }
 
