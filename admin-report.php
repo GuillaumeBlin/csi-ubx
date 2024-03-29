@@ -70,15 +70,12 @@ $( document ).ready(function() {
         // Array to track the ids of the details displayed rows
         const detailRows = [];
         $("#report_button").on("click",function(){
-            table.rows({selected: true}).every( function ( rowIdx, tableLoop, rowLoop ) {
-               console.log(this.data());
-                var anId=this.data()[2];
-                console.log(anId);
+            ids=table.rows({selected: true}).data();
+            ids.every( function () {
+                var anId=this[2];
                 $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
-                console.log(data);
-                
-              //table.row('.selected').remove().draw(false);
-            });
+                    console.log(data);                
+                });
             table.rows({selected: true}).remove().draw(false);            
         });
         });                
