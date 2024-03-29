@@ -301,6 +301,7 @@ Best
         $mh->to('lemail2guillaume@gmail.com');
         $mh->from('bug.doctorat@diff.u-bordeaux.fr');
         $mh->sendMail();
+        print($body);
         exit;
     }
 
