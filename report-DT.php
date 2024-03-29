@@ -90,7 +90,7 @@
     <?php if($report["Echeancier"]!=""){?>
         <div>
             <label>Echéancier de fin de thèse</label>
-            <?php echo $report["Echeancier"];?>
+            <p><?php echo $report["Echeancier"];?></p>
         </div>
         <div>
             <label>Date prévue pour la soutenance de thèse</label>
