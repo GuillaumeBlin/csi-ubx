@@ -70,9 +70,9 @@ $( document ).ready(function() {
         // Array to track the ids of the details displayed rows
         const detailRows = [];
         $("#report_button").on("click",function(){
-            table.rows({selected: true}).each(function(){
-                console.log(this.data()[0]);
-                var anId=this.data()[0][2];
+            table.rows({selected: true}).every( function ( rowIdx, tableLoop, rowLoop ) {
+               console.log(this.data());
+                var anId=this.data()[2];
                 console.log(anId);
                 $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
                 console.log(data);
