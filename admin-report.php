@@ -67,11 +67,13 @@ $( document ).ready(function() {
         // Array to track the ids of the details displayed rows
         const detailRows = [];
         $("#report_button").on("click",function(){
-            var anId=table.row('.selected').data()[1];
-            $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
+            table.rows('.selected').nodes().each((row) => function(){
+                var anId=row.data()[1];
+                $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
                 console.log(data);
                 table.row('.selected').remove().draw(false);
             });
+        });
         });
         
         table.on('click', 'tbody tr', (e) => {
@@ -81,7 +83,7 @@ $( document ).ready(function() {
                 classList.remove('selected');
             }
             else {
-                table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
+                //table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
                 classList.add('selected');
             }
         });
