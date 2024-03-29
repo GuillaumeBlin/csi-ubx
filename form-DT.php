@@ -188,22 +188,22 @@
     </span>
 
     <h3>Bilan annuel sur l'avancement de la thèse</h3>
-    <span>
+    <div>
         <input name="Progression" value="La thèse progresse à très bon rythme" type="radio">
         <label>La thèse progresse à très bon rythme</label>
-    </span>
-    <span>
+    </div>
+    <div>
         <input name="Progression" value="La thèse progresse normalement" type="radio">
         <label>La thèse progresse normalement </label>
-    </span>
-    <span>
+    </div>
+    <div>
         <input name="Progression" value="La thèse aurait dû progresser davantage sur l’année écoulée mais le retard pris est admissible" type="radio">
         <label>La thèse aurait dû progresser davantage sur l’année écoulée mais le retard pris est admissible</label>
-    </span>
-    <span>
+    </div>
+    <div>
         <input name="Progression" value="La thèse n'a clairement pas assez progressé" type="radio">
         <label>La thèse n'a clairement pas assez progressé</label>
-    </span>
+    </div>
     <div id="Argumentaire">
         <label>Argumentaire</label>
         <textarea type="textarea" rows="5" class="form-control" name="ArgumentaireProgression" id="ArgumentaireProgression"></textarea>
@@ -257,10 +257,11 @@
                 <input name="Financement" value="Non" type="radio">
                 <label>Non</label>
             </span>
-        </div>
+        
         <div>
             <label>Si oui, préciser </label>
             <textarea type="textarea" rows="5" class="form-control" name="FinancementDetails" id="FinancementDetails"></textarea>
+        </div>
         </div>
     </div>
 
