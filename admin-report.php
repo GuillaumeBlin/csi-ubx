@@ -48,7 +48,7 @@ $( document ).ready(function() {
     <?php        
             $i=2;
             foreach ($report_headers as $row) {
-                echo "'".$translation[$row["COLUMN_NAME"]]." : '+d[".$i."]+'<br>'+\n";                
+                echo "'".addslashes($translation[$row["COLUMN_NAME"]])." : '+d[".$i."]+'<br>'+\n";                
                 $i=$i+1;
             }
             echo "'<br>'"
