@@ -151,7 +151,7 @@
                 <label>Membre extérieur à l'établissement</label>
             </div>
     <h3>Bilan annuel avec la direction de thèse</h3>
-        <h4>Fréquence des contacts avec la direction de thèse (en dehors des courriers électroniques)</h4>
+        <h5>Fréquence des contacts avec la direction de thèse (en dehors des courriers électroniques)</h5>
             <span>
                 <input name="Freq_Contact_DT" value="Tous les jours" type="radio">
                 <label>Tous les jours</label>
@@ -172,7 +172,7 @@
                 <input name="Freq_Contact_DT" value="Moins d'une fois par mois" type="radio">
                 <label>Moins d'une fois par mois</label>
             </span>
-        <h4>Fréquence des contacts avec la codirection de thèse (le cas échéant) </h4>
+        <h5>Fréquence des contacts avec la codirection de thèse (le cas échéant) </h5>
         <span>
                 <input name="Freq_Contact_CODT" value="Tous les jours" type="radio">
                 <label>Tous les jours</label>
@@ -194,7 +194,7 @@
                 <label>Moins d'une fois par mois</label>
             </span>
     <h3>Bilan annuel de la relation avec l'unité de recherche</h3>
-        <h4>Intégration dans l’unité de recherche)</h4>
+        <h5>Intégration dans l’unité de recherche</h5>
             <span>
                 <input name="Integration_UMR" value="Peu satisfaisante" type="radio">
                 <label>Peu satisfaisante</label>
@@ -207,7 +207,7 @@
                 <input name="Integration_UMR" value="Très satisfaisante" type="radio">
                 <label>Très satisfaisante</label>
             </span>
-        <h4>Relations avec d'autres équipes scientifiques ?</h4>
+        <h5>Relations avec d'autres équipes scientifiques ?</h5>
             <span>
                 <input name="Relation_Autre_EP"  value="Oui" type="radio">
                 <label>Oui</label>
@@ -222,7 +222,7 @@
     </div>
     <h3>Avis général sur l'année écoulée</h3>
         <p>Donner votre avis personnel sur les points suivants&nbsp;</p>
-        <h4>Avez-vous assez d'autonomie pour gérer votre travail ?&nbsp;</h4>
+        <h5>Avez-vous assez d'autonomie pour gérer votre travail ?&nbsp;</h5>
             <span>
                 <input name="Autonomie"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
@@ -235,7 +235,7 @@
                 <input name="Autonomie"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>            
-        <h4>Avez-vous les moyens nécessaires pour mener à bien votre travail ?&nbsp;</h4>
+        <h5>Avez-vous les moyens nécessaires pour mener à bien votre travail ?&nbsp;</h5>
         <span>
                 <input name="Moyens"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
@@ -248,7 +248,7 @@
                 <input name="Moyens"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
-        <h4>Trouvez-vous dans votre environnement de travail les réponses à vos questions scientifiques ?&nbsp;</h4>
+        <h5>Trouvez-vous dans votre environnement de travail les réponses à vos questions scientifiques ?&nbsp;</h5>
         <span>
                 <input name="ReponsesAuxQuestions"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
@@ -261,7 +261,7 @@
                 <input name="ReponsesAuxQuestions"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
-        <h4>L'intérêt scientifique du sujet correspond-il à vos attentes ?&nbsp;</h4>
+        <h5>L'intérêt scientifique du sujet correspond-il à vos attentes ?&nbsp;</h5>
         <span>
                 <input name="InteretScientifique"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
@@ -274,9 +274,9 @@
                 <input name="InteretScientifique"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
-        <h4>Avis général sur la thèse en précisant les éventuelles difficultés rencontrées</h4>
+        <h5>Avis général sur la thèse en précisant les éventuelles difficultés rencontrées</h5>
         <textarea type="textarea" class="form-control" name="AvisGeneral" id="AvisGeneral"></textarea>
-        <h4>Demande de rendez-vous confidentiel avec la direction de l’école doctorale pour un signalement sur « toute forme de conflit, de discrimination ou de harcèlement moral ou sexuel ou d’agissement sexiste »&nbsp;</h4>
+        <h5>Demande de rendez-vous confidentiel avec la direction de l’école doctorale pour un signalement sur « toute forme de conflit, de discrimination ou de harcèlement moral ou sexuel ou d’agissement sexiste »&nbsp;</h5>
              <span>
                 <input name="DdeRDV"  value="Oui" type="radio">
                 <label>Oui</label>
@@ -285,7 +285,7 @@
                 <input name="DdeRDV" value="Non" type="radio">
                 <label>Non</label>
             </span>
-        <h4>Date de l'établissement du rapport</h4>
+        <h5>Date de l'établissement du rapport</h5>
         <input type="date" class="form-control" name="DateRapport" id="DateRapport">
     <div>
         <button type="submit" class="btn-default btn" style="default">Soumettre le rapport</button>
