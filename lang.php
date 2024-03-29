@@ -2,6 +2,7 @@
 $translation=array();
 $translation['ID']='ID';
 $translation['bID']='bID';
+$translation['PhD_ToMail']='Mail pour le.la doctorant.e';
 $translation['Matricule']='Matricule';
 $translation['PhD_Nom']='Nom du.de la doctorant.e';
 $translation['PhD_Prenom']='Prénom du.de la doctorant.e';
