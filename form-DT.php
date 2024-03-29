@@ -267,11 +267,11 @@
 
     <h3>Avis sur la réinscription en thèse</h3>
     <span>
-        <input name="Reinscription" value="Oui" type="radio">
+        <input name="Reinscription" value="Favorable" type="radio">
         <label>Favorable</label>
     </span>
     <span>
-        <input name="Reinscription" value="Non" type="radio">
+        <input name="Reinscription" value="Défavorable" type="radio">
         <label>Défavorable</label>
     </span>
     <div>
