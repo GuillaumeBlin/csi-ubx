@@ -13,6 +13,8 @@ use \Concrete\Core\Entity\Attribute\Value\Value\SelectValueOption;
 
 use Loader;
 
+include "lang.php";
+
 class Controller extends BlockController
 {
 

@@ -13,7 +13,7 @@
             <th>Rapport</th>
             <?php        
                 foreach ($report_headers as $row) {
-                    echo "<th>".$row["COLUMN_NAME"]."</th>";                
+                    echo "<th>".$translation[$row["COLUMN_NAME"]]."</th>";                
                 }
             ?>
         </tr>
@@ -47,7 +47,7 @@ $( document ).ready(function() {
     <?php        
             $i=2;
             foreach ($report_headers as $row) {
-                echo "'".$row["COLUMN_NAME"]." :'+d[".$i."]+'<br>'+\n";                
+                echo "'".$translation[$row["COLUMN_NAME"]]." : '+d[".$i."]+'<br>'+\n";                
                 $i=$i+1;
             }
             echo "'<br>'"
