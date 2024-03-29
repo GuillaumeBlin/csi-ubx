@@ -155,7 +155,7 @@
                 <label>Spécialiste du domaine de la thèse</label>
             </div>
             <div>
-                <input name="CSI_Membre_1_qualite" value="Non spécialiste externe au domaine de la thèse" type="radio" <?php if($defense["csi"][0]["membre_non_specialiste"]=="oui"){echo "checked";}?>>">
+                <input name="CSI_Membre_1_qualite" value="Non spécialiste externe au domaine de la thèse" type="radio" <?php if($defense["csi"][0]["membre_non_specialiste"]=="oui"){echo "checked";}?>>
                 <label>Non spécialiste externe au domaine de la thèse</label>
             </div>
             <div>
