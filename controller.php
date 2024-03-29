@@ -153,8 +153,7 @@ class Controller extends BlockController
                     foreach ($valueByED as $student) {
                         $this->display_links($student);
                     }
-                    echo "</ul>";
-                }
+                    echo "</ul>";                
                 $actionMailing = str_replace("/load_admin_links/","/admin_mailing/",$_SERVER['REQUEST_URI']);
                 echo "<script>$('.fa-paper-plane').on('click',function(e){";
                 echo "    if(e.target.getAttribute('token')) {";
