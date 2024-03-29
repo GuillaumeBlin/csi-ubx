@@ -67,6 +67,7 @@ $( document ).ready(function() {
         // Array to track the ids of the details displayed rows
         const detailRows = [];
         $("#report_button").on("click",function(){
+            console.log(table.rows('.selected'));
             table.rows('.selected').nodes().each((row) => function(row){
                 console.log(row);
                 var anId=row.data()[1];
