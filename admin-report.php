@@ -62,7 +62,9 @@ $( document ).ready(function() {
                 { targets: [0,1,4,5,6,7,44], visible: true},
                 { targets: '_all', visible: false }
             ],
-            select: true
+            select: {
+               style: 'multi'
+            }
         });
  
         // Array to track the ids of the details displayed rows
