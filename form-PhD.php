@@ -274,7 +274,7 @@
                 <label>Satisfaisant</label>
             </span>
         <h5>Avis général sur la thèse en précisant les éventuelles difficultés rencontrées</h5>
-        <textarea type="textarea" class="form-control" name="AvisGeneral" id="AvisGeneral"></textarea>
+        <textarea type="textarea"  rows="5" class="form-control" name="AvisGeneral" id="AvisGeneral"></textarea>
         <h5>Demande de rendez-vous confidentiel avec la direction de l’école doctorale pour un signalement sur « toute forme de conflit, de discrimination ou de harcèlement moral ou sexuel ou d’agissement sexiste »&nbsp;</h5>
              <span>
                 <input name="DdeRDV"  value="Oui" type="radio">
