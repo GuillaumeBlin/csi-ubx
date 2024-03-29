@@ -319,6 +319,7 @@ Best
 
     private function user_view()
     {
+        print($_REQUEST["code"]);
         $val = $this->dec($_REQUEST["code"]);
         //print_r($val);
         if ($val) {
