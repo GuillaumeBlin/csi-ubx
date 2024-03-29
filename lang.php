@@ -67,6 +67,7 @@ $translation["Echeancier"]='Echéancier';
 $translation["DateSoutenance"]='Date de soutenance prévue';
 $translation["InscriptionDerogatoire"]='Inscription dérogatoire';
 $translation["Financement"]='Financement';
+$translation["FinancementDetails"]='Détails sur le financement';
 $translation["Reinscription"]='Réinscription';
 $translation["AvisReinscription"]='Avis sur la réinscription';
 			

@@ -1,8 +1,8 @@
 
 <?php
 include "lang.php";
-  $actionRemovePhDReport = str_replace("/load_admin_DT/","/admin_remove_dt_report/",$_SERVER['REQUEST_URI']);
-  $actionShowPhDReport =str_replace("/load_admin_DT/","/show_DTReport/",$_SERVER['REQUEST_URI']);
+  $actionRemoveDTReport = str_replace("/load_admin_DT/","/admin_remove_dt_report/",$_SERVER['REQUEST_URI']);
+  $actionShowDTReport =str_replace("/load_admin_DT/","/show_DTReport/",$_SERVER['REQUEST_URI']);
 ?>
 
 <p><button id="report-dt_button">Supprimer les lignes sélectionnées</button></p>
