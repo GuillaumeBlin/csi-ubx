@@ -48,4 +48,27 @@ $translation['AvisGeneral']='Avis général ';
 $translation['DdeRDV']='Demande de RDV ED';
 $translation['DateRapport']='Date du rapport';
 
+$translation["CompetencesTechniques"]='Compétences techniques';
+$translation["CompetencesScientifiques"]='Compétences scientifiques';
+$translation["Autonomie"]='Autonomie ';
+$translation["Bibliographie"]='Bibliographie';
+$translation["Initiative"]='Initiative';
+$translation["Adaptation"]='Adaptation';
+$translation["Redaction"]='Rédaction';
+$translation["Presentation"]='Présentation';
+$translation["Reflexion"]='Réflexion';
+$translation["Assiduite"]='Assiduité';
+$translation["Interaction"]='Interaction';
+$translation["Integration"]='Intégration';
+$translation["Progression"]='Progression';
+$translation["ArgumentaireProgression"]='Argumentairede la progression';
+$translation["SoutenanceDansDelais"]='Soutenance dans les délais';
+$translation["Echeancier"]='Echéancier';
+$translation["DateSoutenance"]='Date de soutenance prévue';
+$translation["InscriptionDerogatoire"]='Inscription dérogatoire';
+$translation["Financement"]='Financement';
+$translation["Reinscription"]='Réinscription';
+$translation["AvisReinscription"]='Avis sur la réinscription';
+			
+
 ?>

@@ -167,15 +167,113 @@
 			<autoincrement/>
 			<key />
 		</field>
+		<field name="bID" type="integer">
+			<unsigned />
+		</field>
+		<field name="Matricule" type="text">
+			<default value="" />
+		</field>
 		<field name="PhD_Nom" type="text">
 			<default value="" />
 		</field>
+		
+		<field name="PhD_Prenom" type="text">
+			<default value="" />
+		</field>
+		<field name="PhD_Mail"  type="text">
+			<default value="" />
+		</field>
+		<field name="PhD_Specialite" type="text">
+			<default value="" />
+		</field>
+		<field name="PhD_UMR"  type="text">
+			<default value="" />
+		</field>
+		<field name="DT_Nom"  type="text">
+			<default value="" />
+		</field>
+		<field name="DT_Prenom"  type="text">
+			<default value="" />
+		</field>
+		<field name="CODT_Nom"  type="text">
+			<default value="" />
+		</field>
+		<field name="CODT_Prenom"  type="text">
+			<default value="" />
+		</field>
 		<field name="PhD_DateDebutThese" type="text">
-			<default value="False"/>
-		</field>		
-		<field name="TypeDeFinancement" type="text">
+			<default value="" />
+		</field>
+		<field name="PhD_CSI_Annee" type="text">
+			<default value="" />
+		</field>
+
+		<field name="CompetencesTechniques"  type="text">
+			<default value="" />
+		</field>
+		<field name="CompetencesScientifiques"  type="text">
+			<default value="" />
+		</field>
+		<field name="Autonomie"  type="text">
+			<default value="" />
+		</field>
+		<field name="Bibliographie"  type="text">
+			<default value="" />
+		</field>
+		<field name="Initiative"  type="text">
+			<default value="" />
+		</field>
+		<field name="Adaptation"  type="text">
+			<default value="" />
+		</field>
+		<field name="Redaction" type="text">
+			<default value="" />
+		</field>
+		<field name="Presentation"  type="text">
+			<default value="" />
+		</field>
+		<field name="Reflexion"  type="text">
+			<default value="" />
+		</field>
+		<field name="Assiduite"  type="text">
+			<default value="" />
+		</field>
+		<field name="Interaction"  type="text">
+			<default value="" />
+		</field>
+		<field name="Integration"  type="text">
+			<default value="" />
+		</field>
+		<field name="Progression"  type="text">
+			<default value="" />
+		</field>
+		<field name="ArgumentaireProgression" type="text">
+			<default value="" />
+		</field>
+		<field name="SoutenanceDansDelais"  type="text">
+			<default value="" />
+		</field>
+		<field name="Echeancier" type="text">
+			<default value="" />
+		</field>
+		<field name="DateSoutenance"  type="text">
+			<default value="" />
+		</field>
+		<field name="InscriptionDerogatoire"  type="text">
+			<default value="" />
+		</field>
+		<field name="Financement"  type="text">
+			<default value="" />
+		</field>
+		<field name="Reinscription" type="text">
+			<default value="" />
+		</field>
+		<field name="AvisReinscription"  type="text">
 			<default value="" />
 		</field>		
+		<field name="DateRapport" type="text">
+			<default value="" />
+		</field>				
 	</table>
 	<table name="CSIReport">
 		<field name="ID" type="integer">

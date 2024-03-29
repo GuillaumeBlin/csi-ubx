@@ -32,6 +32,32 @@
         <p>Donner votre avis personnel sur les points suivants&nbsp;</p>
         <h5>Compétences techniques (maîtrise les outils)</h5>
             <span>
+                <input name="CompetencesTechniques"  value="Insuffisant" type="radio">
+                <label>Insuffisant</label>
+            </span>            
+            <span>
+                <input name="CompetencesTechniques"  value="A améliorer" type="radio">
+                <label>A améliorer</label>
+            </span>
+            <span>
+                <input name="CompetencesTechniques"  value="Satisfaisant" type="radio">
+                <label>Satisfaisant</label>
+            </span>            
+        <h5>Compétences scientifiques (maîtrise les fondamentaux de sa discipline) </h5>
+            <span>
+                <input name="CompetencesScientifiques"  value="Insuffisant" type="radio">
+                <label>Insuffisant</label>
+            </span>            
+            <span>
+                <input name="CompetencesScientifiques"  value="A améliorer" type="radio">
+                <label>A améliorer</label>
+            </span>
+            <span>
+                <input name="CompetencesScientifiques"  value="Satisfaisant" type="radio">
+                <label>Satisfaisant</label>
+            </span>
+        <h5>Autonomie (sait trouver seul l'information ou des solutions) </h5>
+            <span>
                 <input name="Autonomie"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
             </span>            
@@ -42,171 +68,145 @@
             <span>
                 <input name="Autonomie"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
-            </span>            
-        <h5>Compétences scientifiques (maîtrise les fondamentaux de sa discipline) </h5>
-            <span>
-                <input name="Moyens"  value="Insuffisant" type="radio">
-                <label>Insuffisant</label>
-            </span>            
-            <span>
-                <input name="Moyens"  value="A améliorer" type="radio">
-                <label>A améliorer</label>
-            </span>
-            <span>
-                <input name="Moyens"  value="Satisfaisant" type="radio">
-                <label>Satisfaisant</label>
-            </span>
-        <h5>Autonomie (sait trouver seul l'information ou des solutions) </h5>
-            <span>
-                <input name="Moyens"  value="Insuffisant" type="radio">
-                <label>Insuffisant</label>
-            </span>            
-            <span>
-                <input name="Moyens"  value="A améliorer" type="radio">
-                <label>A améliorer</label>
-            </span>
-            <span>
-                <input name="Moyens"  value="Satisfaisant" type="radio">
-                <label>Satisfaisant</label>
             </span>
         <h5>Sait mobiliser de manière efficace la bibliographie (recherche complète et synthèse)</h5>
             <span>
-                <input name="Moyens"  value="Insuffisant" type="radio">
+                <input name="Bibliographie"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
             </span>            
             <span>
-                <input name="Moyens"  value="A améliorer" type="radio">
+                <input name="Bibliographie"  value="A améliorer" type="radio">
                 <label>A améliorer</label>
             </span>
             <span>
-                <input name="Moyens"  value="Satisfaisant" type="radio">
+                <input name="Bibliographie"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
         <h5>Capacité d'initiative (propose des solutions ou des réorientations)</h5>
             <span>
-                <input name="Moyens"  value="Insuffisant" type="radio">
+                <input name="Initiative"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
             </span>            
             <span>
-                <input name="Moyens"  value="A améliorer" type="radio">
+                <input name="Initiative"  value="A améliorer" type="radio">
                 <label>A améliorer</label>
             </span>
             <span>
-                <input name="Moyens"  value="Satisfaisant" type="radio">
+                <input name="Initiative"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
         <h5>Capacité d'adaptation (prend rapidement en main les nouveaux outils) </h5>
             <span>
-                <input name="Moyens"  value="Insuffisant" type="radio">
+                <input name="Adaptation"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
             </span>            
             <span>
-                <input name="Moyens"  value="A améliorer" type="radio">
+                <input name="Adaptation"  value="A améliorer" type="radio">
                 <label>A améliorer</label>
             </span>
             <span>
-                <input name="Moyens"  value="Satisfaisant" type="radio">
+                <input name="Adaptation"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
         <h5>Aptitude à rédiger des documents de synthèse </h5>
             <span>
-                <input name="Moyens"  value="Insuffisant" type="radio">
+                <input name="Redaction"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
             </span>            
             <span>
-                <input name="Moyens"  value="A améliorer" type="radio">
+                <input name="Redaction"  value="A améliorer" type="radio">
                 <label>A améliorer</label>
             </span>
             <span>
-                <input name="Moyens"  value="Satisfaisant" type="radio">
+                <input name="Redaction"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
         <h5>Aptitude à présenter ses travaux de recherche </h5>
             <span>
-                <input name="Moyens"  value="Insuffisant" type="radio">
+                <input name="Presentation"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
             </span>            
             <span>
-                <input name="Moyens"  value="A améliorer" type="radio">
+                <input name="Presentation"  value="A améliorer" type="radio">
                 <label>A améliorer</label>
             </span>
             <span>
-                <input name="Moyens"  value="Satisfaisant" type="radio">
+                <input name="Presentation"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
         <h5>Aptitude à structurer sa réflexion </h5>
             <span>
-                <input name="Moyens"  value="Insuffisant" type="radio">
+                <input name="Reflexion"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
             </span>            
             <span>
-                <input name="Moyens"  value="A améliorer" type="radio">
+                <input name="Reflexion"  value="A améliorer" type="radio">
                 <label>A améliorer</label>
             </span>
             <span>
-                <input name="Moyens"  value="Satisfaisant" type="radio">
+                <input name="Reflexion"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
         <h5>Assiduité (ponctualité, présence) </h5>
             <span>
-                <input name="Moyens"  value="Insuffisant" type="radio">
+                <input name="Assiduite"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
             </span>            
             <span>
-                <input name="Moyens"  value="A améliorer" type="radio">
+                <input name="Assiduite"  value="A améliorer" type="radio">
                 <label>A améliorer</label>
             </span>
             <span>
-                <input name="Moyens"  value="Satisfaisant" type="radio">
+                <input name="Assiduite"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
         <h5>Interaction avec l'encadrement (sollicite à bon escient) </h5>
             <span>
-                <input name="Moyens"  value="Insuffisant" type="radio">
+                <input name="Interaction"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
             </span>            
             <span>
-                <input name="Moyens"  value="A améliorer" type="radio">
+                <input name="Interaction"  value="A améliorer" type="radio">
                 <label>A améliorer</label>
             </span>
             <span>
-                <input name="Moyens"  value="Satisfaisant" type="radio">
+                <input name="Interaction"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
         <h5>Intégration dans l'équipe/le laboratoire (interagit avec les chercheurs et les doctorants</h5>
             <span>
-                <input name="Moyens"  value="Insuffisant" type="radio">
+                <input name="Integration"  value="Insuffisant" type="radio">
                 <label>Insuffisant</label>
             </span>            
             <span>
-                <input name="Moyens"  value="A améliorer" type="radio">
+                <input name="Integration"  value="A améliorer" type="radio">
                 <label>A améliorer</label>
             </span>
             <span>
-                <input name="Moyens"  value="Satisfaisant" type="radio">
+                <input name="Integration"  value="Satisfaisant" type="radio">
                 <label>Satisfaisant</label>
             </span>
 
     <h3>Bilan annuel sur l'avancement de la thèse</h3>
             <span>
-                <input name="Moyens"  value="La thèse progresse à très bon rythme" type="radio">
+                <input name="Progression"  value="La thèse progresse à très bon rythme" type="radio">
                 <label>La thèse progresse à très bon rythme</label>
             </span>            
             <span>
-                <input name="Moyens"  value="La thèse progresse normalement" type="radio">
+                <input name="Progression"  value="La thèse progresse normalement" type="radio">
                 <label>La thèse progresse normalement </label>
             </span>
             <span>
-                <input name="Moyens"  value="La thèse aurait dû progresser davantage sur l’année écoulée mais le retard pris est admissible" type="radio">
+                <input name="Progression"  value="La thèse aurait dû progresser davantage sur l’année écoulée mais le retard pris est admissible" type="radio">
                 <label>La thèse aurait dû progresser davantage sur l’année écoulée mais le retard pris est admissible</label>
             </span>
             <span>
-                <input name="Moyens"  value="La thèse n'a clairement pas assez progressé" type="radio">
+                <input name="Progression"  value="La thèse n'a clairement pas assez progressé" type="radio">
                 <label>La thèse n'a clairement pas assez progressé</label>
             </span>
-            <div>
+            <div id="Argumentaire">
                 <label>Argumentaire</label>
-                <textarea type="textarea"  rows="5" class="form-control" name="AvisGeneral" id="AvisGeneral"></textarea>
+                <textarea type="textarea"  rows="5" class="form-control" name="ArgumentaireProgression" id="ArgumentaireProgression"></textarea>
             </div>
 
             <!-- 2eme année-->
@@ -216,11 +216,11 @@
 
         <div><label>L'état d'avancement global des travaux vous permet-il d'envisager une soutenance dans les délais</label>
              <span>
-                <input name="DdeRDV"  value="Oui" type="radio">
+                <input name="SoutenanceDansDelais"  value="Oui" type="radio">
                 <label>Oui</label>
             </span>
             <span>
-                <input name="DdeRDV" value="Non" type="radio">
+                <input name="SoutenanceDansDelais" value="Non" type="radio">
                 <label>Non</label>
             </span>
         </div>
@@ -234,35 +234,35 @@
     ?>
             <div>
                 <label>Echéancier de fin de thèse</label>
-                <textarea type="textarea"  rows="5" class="form-control" name="AvisGeneral" id="AvisGeneral"></textarea>
+                <textarea type="textarea"  rows="5" class="form-control" name="Echeancier" ></textarea>
             </div>
             <div>
                 <label>Date prévue pour la soutenance de thèse</label>
-                <input type="date" class="form-control" name="DateRapport" id="DateRapport">
+                <input type="date" class="form-control" name="DateSoutenance" >
             </div>
             <div><label>Une inscription dérogatoire en 4ème année ou plus est-elle envisagée ?</label>
              <span>
-                <input name="DdeRDV"  value="Oui" type="radio">
+                <input name="InscriptionDerogatoire"  value="Oui" type="radio">
                 <label>Oui</label>
             </span>
             <span>
-                <input name="DdeRDV" value="Non" type="radio">
+                <input name="InscriptionDerogatoire" value="Non" type="radio">
                 <label>Non</label>
             </span>
             </div>
-            <div><label>Un financement est-il prévu jusqu'à la soutenance de thèse ?</label>
+            <div id="InscriptionDerogatoire"><label>Un financement est-il prévu jusqu'à la soutenance de thèse ?</label>
              <span>
-                <input name="DdeRDV"  value="Oui" type="radio">
+                <input name="Financement"  value="Oui" type="radio">
                 <label>Oui</label>
             </span>
             <span>
-                <input name="DdeRDV" value="Non" type="radio">
+                <input name="Financement" value="Non" type="radio">
                 <label>Non</label>
             </span>
             </div>
             <div>
                 <label>Si oui, préciser </label>
-                <textarea type="textarea"  rows="5" class="form-control" name="AvisGeneral" id="AvisGeneral"></textarea>
+                <textarea type="textarea"  rows="5" class="form-control" name="FinancementDetails" id="FinancementDetails"></textarea>
             </div>
     <?php 
        }
@@ -270,16 +270,16 @@
 
     <h3>Avis sur la réinscription en thèse</h3>
              <span>
-                <input name="DdeRDV"  value="Oui" type="radio">
+                <input name="Reinscription"  value="Oui" type="radio">
                 <label>Favorable</label>
             </span>
             <span>
-                <input name="DdeRDV" value="Non" type="radio">
+                <input name="Reinscription" value="Non" type="radio">
                 <label>Défavorable</label>
             </span>
             <div>
                 <label>Avis circonstancié</label>
-        <textarea type="textarea"  rows="5" class="form-control" name="AvisGeneral" id="AvisGeneral"></textarea>
+        <textarea type="textarea"  rows="5" class="form-control" name="AvisReinscription"></textarea>
         </div>
         
         <div>
@@ -292,12 +292,22 @@
 </form>
 <script>
     
-    $("input[type=radio][name=PhD_ExtraActivite]").on("change",function(){
-            if (this.value == 'Oui') {
-                $("#PhD_ExtraActivite_NbH_div").show();
+    $("input[type=radio][name=Progression]").on("change",function(){
+            if ((this.value == "La thèse aurait dû progresser davantage sur l’année écoulée mais le retard pris est admissible")||
+            (this.value == "La thèse n'a clairement pas assez progressé") ) {
+                $("#Argumentaire").show();
             }else{
-                $("#PhD_ExtraActivite_NbH_div").hide();
-                $("#PhD_ExtraActivite_NbH").val('');
+                $("#Argumentaire").hide();
+                $("#ArgumentaireProgression").val('');
+            }
+            
+        });
+        $("input[type=radio][name=InscriptionDerogatoire]").on("change",function(){
+            if (this.value == 'Oui') {
+                $("#InscriptionDerogatoire").show();
+            }else{
+                $("#InscriptionDerogatoire").hide();
+                $("#FinancementDetails").val('');
             }
             
         });
