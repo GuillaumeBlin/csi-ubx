@@ -1,5 +1,5 @@
 <?php
-$translation=array();
+static $translation=array();
 $translation['ID']='ID';
 $translation['bID']='bID';
 $translation['Matricule']='Matricule';
