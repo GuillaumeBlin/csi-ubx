@@ -71,8 +71,9 @@ $( document ).ready(function() {
         const detailRows = [];
         $("#report_button").on("click",function(){
             ids=table.rows({selected: true}).data();
-            ids.every( function () {
-                var anId=this[2];
+            console.log(ids);
+            $.each(ids.forEach, function (index,value) {
+                var anId=value[2];
                 $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
                     console.log(data);                
                 });
