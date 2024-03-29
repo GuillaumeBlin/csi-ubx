@@ -71,8 +71,8 @@ $( document ).ready(function() {
         const detailRows = [];
         $("#report_button").on("click",function(){
             table.rows({selected: true}).each(function(){
-                console.log(this.data());
-                var anId=this.data()[1];
+                //console.log(this.data());
+                var anId=this.data()[2];
                 $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
                 console.log(data);
               //  table.row('.selected').remove().draw(false);
