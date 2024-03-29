@@ -72,7 +72,7 @@ $( document ).ready(function() {
         $("#report_button").on("click",function(){
             ids=table.rows({selected: true}).data();
             console.log(ids);
-            $.each(ids.forEach, function (index,value) {
+            $.each(ids, function (index,value) {
                 var anId=value[2];
                 $.post("<?php echo $actionRemovePhDReport; ?>",{id: anId},function(data){
                     console.log(data);                
