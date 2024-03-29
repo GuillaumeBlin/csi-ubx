@@ -5,9 +5,9 @@ include "lang.php";
   $actionShowPhDReport =str_replace("/load_admin_PhD/","/show_PhDReport/",$_SERVER['REQUEST_URI']);
 ?>
 
-<p><button id="report_button">Supprimer la ligne sélectionnée</button></p>
+<p><button id="report-phd_button">Supprimer la ligne sélectionnée</button></p>
 
-<table id="report" class="display">
+<table id="report-phd" class="display">
     <thead>
         <tr>
             <th></th>
@@ -57,7 +57,7 @@ $( document ).ready(function() {
     }
 
     sleep(2000).then(() => { 
-        const table = new DataTable('#report', {
+        const table = new DataTable('#report-phd', {
             columnDefs: [
                 { targets: [0,1,4,5,6,7,44], visible: true},
                 { targets: '_all', visible: false }
@@ -69,7 +69,7 @@ $( document ).ready(function() {
  
         // Array to track the ids of the details displayed rows
         const detailRows = [];
-        $("#report_button").on("click",function(){
+        $("#report-phd_button").on("click",function(){
             ids=table.rows({selected: true}).data();
             console.log(ids);
             $.each(ids, function (index,value) {

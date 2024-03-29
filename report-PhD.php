@@ -1,25 +1,25 @@
 <style>
-    #report{
+    #report-phd{
   font-family: "Gill Sans Extrabold", sans-serif;
     }
-    #report > h1, h2{
+    #report-phd > h1, h2{
         background-color:#4a90e2;
     }
-    #report > h3{
+    #report-phd > h3{
         text-align: center;
     }
-    #report > label {
+    #report-phd > label {
         font-weight: bold;
     }
 
-    #report > label::after {
+    #report-phd > label::after {
     font-weight: bold;
   content: " :";
 }
 </style>
 </style>
 </style>
-<div id="report">
+<div id="report-phd">
     <h1>Rapport annuel de la doctorante ou du doctorant </h1>
     <h2>INFORMATION GÉNÉRALES</h2>
     <h3>LA DOCTORANTE OU LE DOCTORANT</h3>
