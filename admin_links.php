@@ -87,7 +87,7 @@ $( document ).ready(function() {
                 var aName=e.target.getAttribute('aname');
                 var aMail=e.target.getAttribute('amail');
                 console.log(aToken);
-                $.post("'.$actionMailing.'",{token: aToken, type: aType, student:phdName, name: aName, mail: aMail},function(data){
+                $.post("<?php echo $actionMailing;?>",{token: aToken, type: aType, student:phdName, name: aName, mail: aMail},function(data){
                     console.log(data);
                 });
             }
