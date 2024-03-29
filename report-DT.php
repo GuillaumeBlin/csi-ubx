@@ -5,9 +5,7 @@
     #report-dt > h1, h2{
         background-color:#4a90e2;
     }
-    #report-dt > h3{
-        text-align: center;
-    }
+    
     #report-dt > label {
         font-weight: bold;
     }

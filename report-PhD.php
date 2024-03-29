@@ -5,9 +5,7 @@
     #report-phd > h1, h2{
         background-color:#4a90e2;
     }
-    #report-phd > h3{
-        text-align: center;
-    }
+
     #report-phd > label {
         font-weight: bold;
     }
@@ -16,8 +14,6 @@
     font-weight: bold;
   content: " :";
 }
-</style>
-</style>
 </style>
 <div id="report-phd">
     <h1>Rapport annuel de la doctorante ou du doctorant </h1>
