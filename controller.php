@@ -382,7 +382,7 @@ Best
         $report["bID"]=$bID;        
         $statement = $db->executeQuery($sql, array_values($report)); 
         $userPage = preg_replace("%/form_save_PhDReport/\d+%","/",$_SERVER['REQUEST_URI']);
-        echo $userPage; //$this->redirect($userPage);
+        $this->redirect($userPage);
         exit;
     }
 
