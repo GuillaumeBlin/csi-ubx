@@ -434,19 +434,19 @@ Best
         exit;
     }
 
-    private function admin_PhD_view()
+    private function admin_view($type)
     {
         $db = \Database::connection();
-        $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'PhDReport';");
+        $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'".$type."Report';");
         $report_headers = $statement->fetchAll(); //print_r($rows);
 
-        $statement = $db->executeQuery('SELECT * FROM `PhDReport` ;');
+        $statement = $db->executeQuery('SELECT * FROM `'.$type.'Report` ;');
         $report_data = $statement->fetchAll(); //print_r($rows);
-        include('admin-PhD-report.php');
+        include("admin-".$type."-report.php");
         exit;
     }
 
-    private function admin_DT_view()
+    /*private function admin_DT_view()
     {
         $db = \Database::connection();
         $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'DTReport';");
@@ -456,6 +456,17 @@ Best
         include('admin-DT-report.php');
         exit;
     }
+
+    private function admin_CSI_view()
+    {
+        $db = \Database::connection();
+        $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'DTReport';");
+        $report_headers = $statement->fetchAll(); //print_r($rows);        
+        $statement = $db->executeQuery('SELECT * FROM `DTReport` ;');
+        $report_data = $statement->fetchAll(); //print_r($rows);
+        include('admin-DT-report.php');
+        exit;
+    }*/
 
 
     public function action_load_admin_links($bID = false)
@@ -472,7 +483,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $this->admin_PhD_view();
+        $this->admin_view('PhD');
         exit;
     }
 
@@ -481,7 +492,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        $this->admin_DT_view();
+        $this->admin_view('DT');
         exit;
     }
 
@@ -490,7 +501,7 @@ Best
         if ($this->bID != $bID) {
             return false;
         }
-        //$this->admin_PhD_view();        
+        $this->admin_view('CSI');        
         exit;
     }
 
