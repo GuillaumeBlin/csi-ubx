@@ -1,4 +1,4 @@
-<form id="csi" <? if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_CSIReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <? } ?>>
+<form id="csi" <?php if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_CSIReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <?php } ?>>
     <h3>Date de l’entretien</h3>
     <input type="date" class="form-control" name="Date_Entretrien">
     <h4>Modalités de l’entretien </h4>
@@ -252,7 +252,7 @@
         <label>Date de l'établissement du rapport</label>
         <input type="date" class="form-control" name="DateRapport" id="DateRapport">
     </div>
-    <? if ($report_read_only == false) { ?>
+    <?php if ($report_read_only == false) { ?>
         <div>
             <button type="submit" class="btn-default btn" style="default">Soumettre le rapport</button>
         </div>
@@ -260,7 +260,7 @@
 </form>
 
 <script>
-    <? if ($report_read_only == true) {
+    <?php if ($report_read_only == true) {
     ?>
         $("input").prop('readonly', true);
     <?php
