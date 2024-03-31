@@ -256,7 +256,7 @@
         <div>
             <button type="submit" class="btn-default btn" style="default">Soumettre le rapport</button>
         </div>
-    <? } ?>
+    <?php } ?>
 </form>
 
 <script>
@@ -317,11 +317,5 @@
             $("input[name=ComparaisonObjectifsInitiauxPrecisions]").val('');
         }
     });
-
-    
-    
-    
-    
-    
     
 </script>
