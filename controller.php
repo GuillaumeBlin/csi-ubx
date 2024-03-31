@@ -102,7 +102,7 @@ class Controller extends BlockController
 
     private function display_csi_report_content($defense)
     {
-        include('form-PhD.php');
+        include('form-CSI.php');
         echo "<script>
                 $('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
         echo "</script>";
@@ -261,6 +261,17 @@ Best
     Dear %s (%s),
     
     As the director of %s, in order to fill your CSI part of the form, please go to the following address:
+    
+        https://doctorat.u-bordeaux.fr/!drafts/4211?code=%s
+    
+    Best
+    ", $aname, $mail, $student, $token);
+        }
+        if ($type == "CSI") {
+            $body = t("
+    Dear %s (%s),
+    
+    As members of the CSI of %s, in order to fill your CSI part of the form, please go to the following address:
     
         https://doctorat.u-bordeaux.fr/!drafts/4211?code=%s
     
