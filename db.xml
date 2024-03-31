@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <schema xmlns="http://www.concrete5.org/doctrine-xml/0.5"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://www.concrete5.org/doctrine-xml/0.5 https://concrete5.github.io/doctrine-xml/doctrine-xml-0.5.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.concrete5.org/doctrine-xml/0.5 https://concrete5.github.io/doctrine-xml/doctrine-xml-0.5.xsd">
 	<table name="btCSIUbx">
 		<field name="bID" type="integer">
 			<unsigned />
@@ -12,16 +12,16 @@
 			<default value="" />
 		</field>
 		<field name="admin" type="text">
-			<default value="False"/>
-		</field>		
+			<default value="False" />
+		</field>
 		<field name="ed" type="text">
 			<default value="" />
-		</field>		
+		</field>
 	</table>
 	<table name="PhDReport">
 		<field name="ID" type="integer">
 			<unsigned />
-			<autoincrement/>
+			<autoincrement />
 			<key />
 		</field>
 		<field name="bID" type="integer">
@@ -33,29 +33,29 @@
 		<field name="PhD_Nom" type="text">
 			<default value="" />
 		</field>
-		
+
 		<field name="PhD_Prenom" type="text">
 			<default value="" />
 		</field>
-		<field name="PhD_Mail"  type="text">
+		<field name="PhD_Mail" type="text">
 			<default value="" />
 		</field>
 		<field name="PhD_Specialite" type="text">
 			<default value="" />
 		</field>
-		<field name="PhD_UMR"  type="text">
+		<field name="PhD_UMR" type="text">
 			<default value="" />
 		</field>
-		<field name="DT_Nom"  type="text">
+		<field name="DT_Nom" type="text">
 			<default value="" />
 		</field>
-		<field name="DT_Prenom"  type="text">
+		<field name="DT_Prenom" type="text">
 			<default value="" />
 		</field>
-		<field name="CODT_Nom"  type="text">
+		<field name="CODT_Nom" type="text">
 			<default value="" />
 		</field>
-		<field name="CODT_Prenom"  type="text">
+		<field name="CODT_Prenom" type="text">
 			<default value="" />
 		</field>
 		<field name="PhD_DateDebutThese" type="text">
@@ -67,10 +67,10 @@
 		<field name="PhD_Cotutelle" type="text">
 			<default value="" />
 		</field>
-		<field name="PhD_Cotutelle_Pays"  type="text">
+		<field name="PhD_Cotutelle_Pays" type="text">
 			<default value="" />
 		</field>
-		<field name="PhD_ExtraActivite"  type="text">
+		<field name="PhD_ExtraActivite" type="text">
 			<default value="" />
 		</field>
 		<field name="PhD_ExtraActivite_NbH" type="text">
@@ -79,92 +79,92 @@
 		<field name="PhD_CSI_Annee" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_1_Nom"  type="text">
+		<field name="CSI_Membre_1_Nom" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_1_Prenom"  type="text">
+		<field name="CSI_Membre_1_Prenom" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_1_UMR"  type="text">
+		<field name="CSI_Membre_1_UMR" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_1_mail"  type="text">
+		<field name="CSI_Membre_1_mail" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_1_qualite"  type="text">
+		<field name="CSI_Membre_1_qualite" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_2_Nom"  type="text">
+		<field name="CSI_Membre_2_Nom" type="text">
 			<default value="" />
 		</field>
 		<field name="CSI_Membre_2_Prenom" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_2_UMR"  type="text">
+		<field name="CSI_Membre_2_UMR" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_2_mail"  type="text">
+		<field name="CSI_Membre_2_mail" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_2_qualite"  type="text">
+		<field name="CSI_Membre_2_qualite" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_3_Nom"  type="text">
+		<field name="CSI_Membre_3_Nom" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_3_Prenom"  type="text">
+		<field name="CSI_Membre_3_Prenom" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_3_UMR"  type="text">
+		<field name="CSI_Membre_3_UMR" type="text">
 			<default value="" />
 		</field>
 		<field name="CSI_Membre_3_mail" type="text">
 			<default value="" />
 		</field>
-		<field name="CSI_Membre_3_qualite"  type="text">
+		<field name="CSI_Membre_3_qualite" type="text">
 			<default value="" />
 		</field>
 		<field name="Freq_Contact_DT" type="text">
 			<default value="" />
 		</field>
-		<field name="Freq_Contact_CODT"  type="text">
+		<field name="Freq_Contact_CODT" type="text">
 			<default value="" />
 		</field>
-		<field name="Integration_UMR"  type="text">
+		<field name="Integration_UMR" type="text">
 			<default value="" />
 		</field>
-		<field name="Relation_Autre_EP"  type="text">
+		<field name="Relation_Autre_EP" type="text">
 			<default value="" />
 		</field>
 		<field name="Relation_Autre_EP_Details" type="text">
 			<default value="" />
 		</field>
-		<field name="Autonomie"  type="text">
+		<field name="Autonomie" type="text">
 			<default value="" />
 		</field>
-		<field name="Moyens"  type="text">
+		<field name="Moyens" type="text">
 			<default value="" />
 		</field>
 		<field name="ReponsesAuxQuestions" type="text">
 			<default value="" />
 		</field>
-		<field name="InteretScientifique"  type="text">
+		<field name="InteretScientifique" type="text">
 			<default value="" />
 		</field>
-		<field name="AvisGeneral"  type="text">
+		<field name="AvisGeneral" type="text">
 			<default value="" />
 		</field>
-		<field name="DdeRDV"  type="text">
+		<field name="DdeRDV" type="text">
 			<default value="" />
 		</field>
 		<field name="DateRapport" type="text">
 			<default value="" />
-		</field>		
+		</field>
 	</table>
 	<table name="DTReport">
 		<field name="ID" type="integer">
 			<unsigned />
-			<autoincrement/>
+			<autoincrement />
 			<key />
 		</field>
 		<field name="bID" type="integer">
@@ -176,29 +176,29 @@
 		<field name="PhD_Nom" type="text">
 			<default value="" />
 		</field>
-		
+
 		<field name="PhD_Prenom" type="text">
 			<default value="" />
 		</field>
-		<field name="PhD_Mail"  type="text">
+		<field name="PhD_Mail" type="text">
 			<default value="" />
 		</field>
 		<field name="PhD_Specialite" type="text">
 			<default value="" />
 		</field>
-		<field name="PhD_UMR"  type="text">
+		<field name="PhD_UMR" type="text">
 			<default value="" />
 		</field>
-		<field name="DT_Nom"  type="text">
+		<field name="DT_Nom" type="text">
 			<default value="" />
 		</field>
-		<field name="DT_Prenom"  type="text">
+		<field name="DT_Prenom" type="text">
 			<default value="" />
 		</field>
-		<field name="CODT_Nom"  type="text">
+		<field name="CODT_Nom" type="text">
 			<default value="" />
 		</field>
-		<field name="CODT_Prenom"  type="text">
+		<field name="CODT_Prenom" type="text">
 			<default value="" />
 		</field>
 		<field name="PhD_DateDebutThese" type="text">
@@ -208,90 +208,243 @@
 			<default value="" />
 		</field>
 
-		<field name="CompetencesTechniques"  type="text">
+		<field name="CompetencesTechniques" type="text">
 			<default value="" />
 		</field>
-		<field name="CompetencesScientifiques"  type="text">
+		<field name="CompetencesScientifiques" type="text">
 			<default value="" />
 		</field>
-		<field name="Autonomie"  type="text">
+		<field name="Autonomie" type="text">
 			<default value="" />
 		</field>
-		<field name="Bibliographie"  type="text">
+		<field name="Bibliographie" type="text">
 			<default value="" />
 		</field>
-		<field name="Initiative"  type="text">
+		<field name="Initiative" type="text">
 			<default value="" />
 		</field>
-		<field name="Adaptation"  type="text">
+		<field name="Adaptation" type="text">
 			<default value="" />
 		</field>
 		<field name="Redaction" type="text">
 			<default value="" />
 		</field>
-		<field name="Presentation"  type="text">
+		<field name="Presentation" type="text">
 			<default value="" />
 		</field>
-		<field name="Reflexion"  type="text">
+		<field name="Reflexion" type="text">
 			<default value="" />
 		</field>
-		<field name="Assiduite"  type="text">
+		<field name="Assiduite" type="text">
 			<default value="" />
 		</field>
-		<field name="Interaction"  type="text">
+		<field name="Interaction" type="text">
 			<default value="" />
 		</field>
-		<field name="Integration"  type="text">
+		<field name="Integration" type="text">
 			<default value="" />
 		</field>
-		<field name="Progression"  type="text">
+		<field name="Progression" type="text">
 			<default value="" />
 		</field>
 		<field name="ArgumentaireProgression" type="text">
 			<default value="" />
 		</field>
-		<field name="SoutenanceDansDelais"  type="text">
+		<field name="SoutenanceDansDelais" type="text">
 			<default value="" />
 		</field>
 		<field name="Echeancier" type="text">
 			<default value="" />
 		</field>
-		<field name="DateSoutenance"  type="text">
+		<field name="DateSoutenance" type="text">
 			<default value="" />
 		</field>
-		<field name="InscriptionDerogatoire"  type="text">
+		<field name="InscriptionDerogatoire" type="text">
 			<default value="" />
 		</field>
-		<field name="Financement"  type="text">
+		<field name="Financement" type="text">
 			<default value="" />
 		</field>
-		<field name="FinancementDetails"  type="text">
+		<field name="FinancementDetails" type="text">
 			<default value="" />
 		</field>
 		<field name="Reinscription" type="text">
 			<default value="" />
 		</field>
-		<field name="AvisReinscription"  type="text">
+		<field name="AvisReinscription" type="text">
 			<default value="" />
-		</field>		
+		</field>
 		<field name="DateRapport" type="text">
 			<default value="" />
-		</field>				
+		</field>
 	</table>
 	<table name="CSIReport">
 		<field name="ID" type="integer">
 			<unsigned />
-			<autoincrement/>
+			<autoincrement />
 			<key />
 		</field>
+		<field name="bID" type="integer">
+			<unsigned />
+		</field>
+		<field name="Matricule" type="text">
+			<default value="" />
+		</field>
+		<field name="Date_Entretrien" type="text">
+			<default value="" />
+		</field>
+
+
+		<field name="ModalitesEntretien" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ModalitesEntretienDetails" type="text">
+			<default value="" />
+		</field>
+
 		<field name="PhD_Nom" type="text">
 			<default value="" />
 		</field>
-		<field name="PhD_DateDebutThese" type="text">
-			<default value="False"/>
-		</field>		
-		<field name="TypeDeFinancement" type="text">
+
+		<field name="PhD_Prenom" type="text">
 			<default value="" />
-		</field>		
+		</field>
+
+		<field name="PhD_Mail" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PhD_Specialite" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PhD_UMR" type="text">
+			<default value="" />
+		</field>
+
+		<field name="DT_Nom" type="text">
+			<default value="" />
+		</field>
+
+		<field name="DT_Prenom" type="text">
+			<default value="" />
+		</field>
+
+		<field name="CODT_Nom" type="text">
+			<default value="" />
+		</field>
+
+		<field name="CODT_Prenom" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PhD_DateDebutThese" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PhD_CSI_Annee" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ResumeAvancement" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ComparaisonObjectifsInitiaux" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ComparaisonObjectifsInitiauxPrecisions" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ObservationsMethodoExpe" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ObservationsMethodoExpePrecisions" type="text">
+			<default value="" />
+		</field>
+
+		<field name="RespectCalendrierPrevisionnel" type="text">
+			<default value="" />
+		</field>
+
+		<field name="RespectCalendrierPrevisionnelPrecisions" type="text">
+			<default value="" />
+		</field>
+
+		<field name="SoutenanceAuTermeAnneeAVenir" type="text">
+			<default value="" />
+		</field>
+
+		<field name="SoutenanceAuTermeAnneeAVenirPrecisions" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ProductionScientifique" type="text">
+			<default value="" />
+		</field>
+
+		<field name="MobilitesInternationalesMoins3Mois" type="text">
+			<default value="" />
+		</field>
+
+		<field name="MobilitesInternationalesPlus3Mois" type="text">
+			<default value="" />
+		</field>
+
+		<field name="EthiqueRecherche" type="text">
+			<default value="" />
+		</field>
+
+		<field name="IntegriteScientifique" type="text">
+			<default value="" />
+		</field>
+
+		<field name="FormationEnseignement" type="text">
+			<default value="" />
+		</field>
+
+		<field name="FormationsObligatoiresPrecisions" type="text">
+			<default value="" />
+		</field>
+
+		<field name="FormationsDansLAnnee" type="text">
+			<default value="" />
+		</field>
+
+		<field name="AvisRecommandationsFormations" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PerspectivesCarriere" type="text">
+			<default value="" />
+		</field>
+
+		<field name="InscriptionDerogatoire" type="text">
+			<default value="" />
+		</field>
+
+		<field name="DateSoutenance" type="text">
+			<default value="" />
+		</field>
+
+		<field name="Reinscription" type="text">
+			<default value="" />
+		</field>
+
+		<field name="AvisReinscription" type="text">
+			<default value="" />
+		</field>
+
+		<field name="RapportConfidentielAVenir" type="text">
+			<default value="" />
+		</field>
+
+		<field name="DateRapport" type="text">
+			<default value="" />
+		</field>
 	</table>
 </schema>

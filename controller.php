@@ -231,17 +231,7 @@ class Controller extends BlockController
         }
     }
 
-    public function action_admin_remove_phd_report($bID = false)
-    {
-        if ($this->bID != $bID) {
-            return false;
-        }
-        $id = $_REQUEST["id"];
-        $db = \Database::connection();
-        $statement = $db->executeQuery('DELETE FROM `PhDReport` WHERE `ID` = ?;', array(intval($id)));
-        echo $statement->rowCount() . " entrée a bien été supprimée de la table";
-        exit;
-    }
+    
 
     public function action_admin_mailing($bID = false)
     {
@@ -342,7 +332,36 @@ Best
         exit;
     }
 
-    public function action_show_PhDReport($bID = false)
+
+    private function action_admin_remove_from_report($bID = false,$type)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }
+        $id = $_REQUEST["id"];
+        $db = \Database::connection();
+        $statement = $db->executeQuery('DELETE FROM `'.$type.'Report` WHERE `ID` = ?;', array(intval($id)));
+        echo $statement->rowCount() . " entrée a bien été supprimée de la table";
+        exit;
+    }
+
+    public function action_admin_remove_phd_report($bID = false)
+    {
+        $this->action_admin_remove_from_report($bID,'PhD');
+    }
+
+    public function action_admin_remove_dt_report($bID = false)
+    {
+        $this->action_admin_remove_from_report($bID,'DT');
+    }
+
+    public function action_admin_remove_csi_report($bID = false)
+    {
+        $this->action_admin_remove_from_report($bID,'CSI');
+    }
+
+
+    private function action_show_Report($bID = false, $type)
     {
         if ($this->bID != $bID) {
             return false;
@@ -351,87 +370,71 @@ Best
         $val = explode("-", $val);
         $mat = $val[1];
         $db = \Database::connection();
-        $statement = $db->executeQuery('SELECT * FROM `PhDReport` WHERE Matricule="' . $mat . '";');
+        $statement = $db->executeQuery('SELECT * FROM `'.$type.'Report` WHERE Matricule="' . $mat . '";');
         $report_data = $statement->fetchAll();
         $report = $report_data[0];
-        include('report-PhD.php');
+        include('report-'.$type.'.php');
         exit;
+    }
+
+    public function action_show_PhDReport($bID = false)
+    {
+        $this->action_show_Report($bID,'PhD');        
     }
 
     public function action_show_DTReport($bID = false)
     {
+        $this->action_show_Report($bID,'DT');        
+    }
+
+    public function action_show_CSIReport($bID = false)
+    {
+        $this->action_show_Report($bID,'CSI');        
+    }
+
+    private function action_form_save_Report($bID = false,$type)
+    {
         if ($this->bID != $bID) {
             return false;
         }
         $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         $val = explode("-", $val);
         $mat = $val[1];
+
+        $report = $_REQUEST;
+        array_shift($report);
         $db = \Database::connection();
-        $statement = $db->executeQuery('SELECT * FROM `DTReport` WHERE Matricule="' . $mat . '";');
-        $report_data = $statement->fetchAll();
-        $report = $report_data[0];
-        include('report-DT.php');
+        $fields = '';
+        $values = '';
+        foreach (array_keys($report) as $e) {
+            $fields = $fields . "`" . $e . "`,";
+            $values = $values . '?,';
+        }
+        $values = $values . '?,?';
+        $fields = $fields . "`Matricule`,`bID`";
+
+        $sql = 'INSERT INTO `'.$type.'Report` ( ' . $fields . ')VALUES (' . $values . ');';
+        $report["Matricule"] = intval($mat);
+        $report["bID"] = $bID;
+        $statement = $db->executeQuery($sql, array_values($report));
+        $userPage = preg_replace("%/form_save_".$type."Report/\d+%", "/", $_SERVER['REQUEST_URI']);
+        $this->redirect($userPage);
         exit;
     }
 
     public function action_form_save_DTReport($bID = false)
     {
-        if ($this->bID != $bID) {
-            return false;
-        }
-        $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
-        $val = explode("-", $val);
-        $mat = $val[1];
-
-        $report = $_REQUEST;
-        array_shift($report);
-        $db = \Database::connection();
-        $fields = '';
-        $values = '';
-        foreach (array_keys($report) as $e) {
-            $fields = $fields . "`" . $e . "`,";
-            $values = $values . '?,';
-        }
-        $values = $values . '?,?';
-        $fields = $fields . "`Matricule`,`bID`";
-
-        $sql = 'INSERT INTO `DTReport` ( ' . $fields . ')VALUES (' . $values . ');';
-        $report["Matricule"] = intval($mat);
-        $report["bID"] = $bID;
-        $statement = $db->executeQuery($sql, array_values($report));
-        $userPage = preg_replace("%/form_save_DTReport/\d+%", "/", $_SERVER['REQUEST_URI']);
-        $this->redirect($userPage);
-        exit;
+        $this->action_form_save_Report($bID,'DT');
     }
 
     public function action_form_save_PhDReport($bID = false)
     {
-        if ($this->bID != $bID) {
-            return false;
-        }
-        $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
-        $val = explode("-", $val);
-        $mat = $val[1];
+        $this->action_form_save_Report($bID,'PhD');        
+    }
 
-        $report = $_REQUEST;
-        array_shift($report);
-        $db = \Database::connection();
-        $fields = '';
-        $values = '';
-        foreach (array_keys($report) as $e) {
-            $fields = $fields . "`" . $e . "`,";
-            $values = $values . '?,';
-        }
-        $values = $values . '?,?';
-        $fields = $fields . "`Matricule`,`bID`";
-
-        $sql = 'INSERT INTO `PhDReport` ( ' . $fields . ')VALUES (' . $values . ');';
-        $report["Matricule"] = intval($mat);
-        $report["bID"] = $bID;
-        $statement = $db->executeQuery($sql, array_values($report));
-        $userPage = preg_replace("%/form_save_PhDReport/\d+%", "/", $_SERVER['REQUEST_URI']);
-        $this->redirect($userPage);
-        exit;
+    public function action_form_save_CSIReport($bID = false)
+    {
+        $this->action_form_save_Report($bID,'CSI');        
     }
 
     private function admin_view($type)
@@ -445,28 +448,6 @@ Best
         include("admin-".$type."-report.php");
         exit;
     }
-
-    /*private function admin_DT_view()
-    {
-        $db = \Database::connection();
-        $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'DTReport';");
-        $report_headers = $statement->fetchAll(); //print_r($rows);        
-        $statement = $db->executeQuery('SELECT * FROM `DTReport` ;');
-        $report_data = $statement->fetchAll(); //print_r($rows);
-        include('admin-DT-report.php');
-        exit;
-    }
-
-    private function admin_CSI_view()
-    {
-        $db = \Database::connection();
-        $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'DTReport';");
-        $report_headers = $statement->fetchAll(); //print_r($rows);        
-        $statement = $db->executeQuery('SELECT * FROM `DTReport` ;');
-        $report_data = $statement->fetchAll(); //print_r($rows);
-        include('admin-DT-report.php');
-        exit;
-    }*/
 
 
     public function action_load_admin_links($bID = false)
