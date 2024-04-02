@@ -265,8 +265,7 @@
         foreach($report as $k => $v){
             echo "$('input[type=date][name=".$k."]').val('".addslashes($v)."');";
             echo "$('input[type=text][name=".$k."]').val('".addslashes($v)."');";
-            echo "var t =$('input[type=textarea][name=".$k."]');";
-            echo "$('input[type=textarea][name=".$k."]').html('".addslashes($v)."');";
+            echo "$('textarea[name=".$k."]').val('".addslashes($v)."');";
             echo "$('input[type=radio][name=".$k."]').val('".addslashes($v)."').change();";
             //echo "$('input[name=".$k."]').val('".addslashes($v)."').prop('checked', true);";
 ?>
