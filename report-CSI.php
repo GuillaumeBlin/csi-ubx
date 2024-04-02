@@ -7,6 +7,9 @@
                color: red; 
                break-before: always; 
              }
+             *{
+                font-size: 14px;
+             }
         }
     </style>
 
