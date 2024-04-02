@@ -270,7 +270,7 @@
             if(t.length>0){
                 t.height("");
                 var x=t.prop('scrollHeight');
-                x=intval(x)+10;
+                x=x+10;
                 t.height( x+ "px");};
             <?php
             echo "var j=$('input[type=radio][name=".$k."][value=\"".addslashes($v)."\"]');";
