@@ -263,8 +263,9 @@
     <?php if ($report_read_only == true) {
     
         foreach($report as $k => $v){
-            echo "$('input[name=".$k."]').val('".addslashes($v)."');";
-            echo "$('input[name=".$k."]').text('".addslashes($v)."');";
+            echo "$('input[type='text'][name=".$k."]').val('".addslashes($v)."');";
+            echo "$('input[type='textarea'][name=".$k."]').html('".addslashes($v)."');";
+            echo "$('input[type='radio'][name=".$k."]').val('".addslashes($v)."').change();";
             //echo "$('input[name=".$k."]').val('".addslashes($v)."').prop('checked', true);";
 ?>
 
