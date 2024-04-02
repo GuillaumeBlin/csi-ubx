@@ -39,6 +39,9 @@
                 font-size: 1.3em!important;
                 text-transform:none!important;
              }
+             h5{
+                margin-bottom: 1px;
+             }
 
         }
     </style>
