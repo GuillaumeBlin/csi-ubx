@@ -5,6 +5,7 @@
         @media print {
             h1 { 
                color: red; 
+               break-before: always; 
              }
         }
     </style>
