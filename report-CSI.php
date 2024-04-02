@@ -38,8 +38,7 @@
              h4{
                 font-size: 1.3em!important;
                 text-transform:none!important;
-                margin-top: 3px!important;
-                margin-bottom: 3px!important;
+                
              }
              h5{
                 margin-top: 1px!important;
