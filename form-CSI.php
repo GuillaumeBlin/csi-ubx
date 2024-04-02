@@ -265,6 +265,9 @@
         $("#csi :input").attr("disabled", true);
 
     <?php
+        foreach($report as $k => $v){
+            echo "$('input[type=radio][name=".$k."]').val('".$v."');";
+        }
     }
     ?>
     $("input[type=radio][name=InscriptionDerogatoire]").on("change", function() {
