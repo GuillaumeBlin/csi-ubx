@@ -4,11 +4,11 @@
 <style type="text/css">
         @media print {
             h1 { 
-               color: red; 
+               color: red!important; 
                break-before: always; 
              }
              *{
-                font-size: 14px;
+                font-size: 14px!important;
              }
         }
     </style>
