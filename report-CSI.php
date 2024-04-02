@@ -3,13 +3,22 @@
 
 <style type="text/css">
         @media print {
-            h1 { 
-               color: red!important; 
-               break-before: always; 
-             }
              *{
                 font-size: 80%x!important;
              }
+             h3::before, .h3::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 2px;
+                height: 28px;
+                border-radius: 1px;
+                background: rgb(var(--site-color));
+                transform-origin: 0 100%;
+                transform: translateY(2px) rotate(30deg);
+            }
+
         }
     </style>
 
