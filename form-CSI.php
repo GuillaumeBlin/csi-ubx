@@ -266,7 +266,10 @@
 
     <?php
         foreach($report as $k => $v){
-            echo "$('input[type=radio][name=".$k."]').val('".$v."');";
+            echo "$('input[name=".$k."]').val('".$v."');";
+?>
+
+<?php
         }
     }
     ?>
