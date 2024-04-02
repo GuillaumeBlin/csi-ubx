@@ -16,7 +16,7 @@
     </div>
     <div id="ModalitesEntretienDetails">
         <label>Détails des modalités</label>
-        <textarea type="textarea" rows="5" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' class="form-control" name="ModalitesEntretienDetails"></textarea>
+        <textarea type="textarea" rows="5" class="form-control" name="ModalitesEntretienDetails"></textarea>
     </div>
 
     <h3>Informations générales</h3>
@@ -265,7 +265,10 @@
         foreach($report as $k => $v){
             echo "$('input[type=date][name=".$k."]').val('".addslashes($v)."');";
             echo "$('input[type=text][name=".$k."]').val('".addslashes($v)."');";
-            echo "$('textarea[name=".$k."]').val('".addslashes($v)."');";
+            echo "var t= $('textarea[name=".$k."]'); t.val('".addslashes($v)."');";
+            ?>
+            if(t){t.style.height = "";t.style.height = t.scrollHeight + "px"};
+            <?php
             echo "$('input[type=radio][name=".$k."]').val('".addslashes($v)."').change();";
             //echo "$('input[name=".$k."]').val('".addslashes($v)."').prop('checked', true);";
 ?>
