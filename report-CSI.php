@@ -41,7 +41,6 @@
                 
              }
              h5{
-                margin-top: 1px!important;
                 margin-bottom: 1px!important;
              }
              input[type="text"],input[type="date"],input[type="number"]{
