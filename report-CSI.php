@@ -4,19 +4,19 @@
 <style type="text/css">
         @media print {
              *{
-                font-size: 80%x!important;
+                font-size: 80%!important;
              }
              h3::before, .h3::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 2px;
-                height: 28px;
-                border-radius: 1px;
-                background: rgb(var(--site-color));
-                transform-origin: 0 100%;
-                transform: translateY(2px) rotate(30deg);
+                content: ''!important;
+                position: absolute!important;
+                top: 0!important;
+                left: 0!important;
+                width: 2px!important;
+                height: 28px!important;
+                border-radius: 1px!important;
+                background: rgb(var(--site-color))!important;
+                transform-origin: 0 100%!important;
+                transform: translateY(2px) rotate(30deg)!important;
             }
 
         }
