@@ -20,7 +20,7 @@
                 width: 2px!important;
                 height: 28px!important;
                 border-radius: 1px!important;
-                background: rgb(red)!important;
+                background: red!important;
                 transform-origin: 0 100%!important;
                 transform: translateY(2px) rotate(30deg)!important;
             }
