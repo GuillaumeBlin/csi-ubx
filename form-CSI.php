@@ -16,7 +16,7 @@
     </div>
     <div id="ModalitesEntretienDetails">
         <label>Détails des modalités</label>
-        <textarea type="textarea" rows="5" class="form-control" name="ModalitesEntretienDetails"></textarea>
+        <textarea type="textarea" rows="5" class="form-control" style="overflow: visible;" name="ModalitesEntretienDetails"></textarea>
     </div>
 
     <h3>Informations générales</h3>
