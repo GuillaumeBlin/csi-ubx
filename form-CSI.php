@@ -267,7 +267,7 @@
             echo "$('input[type=text][name=".$k."]').val('".addslashes($v)."');";
             echo "var t= $('textarea[name=".$k."]'); t.val('".addslashes($v)."');";
             ?>
-            if(t.length>0){t.style.height = "";t.style.height = t.scrollHeight + "px"};
+            if(t.length>0){t.height("");t.height(t.prop('scrollHeight') + "px");};
             <?php
             echo "$('input[type=radio][name=".$k."]').val('".addslashes($v)."').change();";
             //echo "$('input[name=".$k."]').val('".addslashes($v)."').prop('checked', true);";
