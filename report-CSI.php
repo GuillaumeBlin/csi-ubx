@@ -45,7 +45,7 @@
                 margin-top: 1px!important;
                 margin-bottom: 1px!important;
              }
-             input[type="text"]{
+             input[type="text"],input[type="date"]{
                 height: 0px!important;
              }
 
