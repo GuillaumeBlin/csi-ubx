@@ -263,6 +263,7 @@
     <?php if ($report_read_only == true) {
     
         foreach($report as $k => $v){
+            echo "$('input[type=date][name=".$k."]').val('".addslashes($v)."');";
             echo "$('input[type=text][name=".$k."]').val('".addslashes($v)."');";
             echo "$('input[type=textarea][name=".$k."]').val('".addslashes($v)."');";
             echo "$('input[type=radio][name=".$k."]').val('".addslashes($v)."').change();";
