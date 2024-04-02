@@ -16,7 +16,8 @@
     </div>
     <div id="ModalitesEntretienDetails">
         <label>Détails des modalités</label>
-        <textarea type="textarea" rows="5" class="form-control" style="overflow: visible;" name="ModalitesEntretienDetails"></textarea>
+        <textarea type="textarea" rows="5" class="form-control" wrap="wrap" name="ModalitesEntretienDetails"></textarea>
+        <div class="print_helper"></div>
     </div>
 
     <h3>Informations générales</h3>
@@ -52,7 +53,8 @@
     <p>Description projet thèse par la doctorante ou le doctorant<br />
         Présentation bilan d’activités + planning et calendrier prévisionnel
     </p>
-    <textarea type="textarea" rows="5" class="form-control" name="ResumeAvancement"></textarea>
+    <textarea type="textarea" rows="5" class="form-control" wrap="wrap" name="ResumeAvancement"></textarea>
+    <div class="print_helper"></div>
 
     <h5>Par rapport aux objectifs initiaux définis au début de la thèse, le contenu est-il ?</h5>
     <span>

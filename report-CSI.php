@@ -2,10 +2,24 @@
 <link href="/application/files/cache/css/ub_tiers/main.css" rel="stylesheet" type="text/css" media="all">
 
 <style type="text/css">
+    #print_helper {
+  display: none;
+}
         @media print {
              *{
                 font-size: 1em!important;
              }
+             /* Styles for print (include this after the above) */
+#print_helper { 
+    display: block;
+    overflow: visible;
+    font-family: Menlo, "Deja Vu Sans Mono", "Bitstream Vera Sans Mono", Monaco, monospace;
+    white-space: pre;
+    white-space: pre-wrap;
+}
+textarea{
+    display: none;
+}
              h1{
                 font-size: 2em!important;
              }
