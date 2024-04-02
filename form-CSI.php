@@ -266,7 +266,7 @@
 
     <?php
         foreach($report as $k => $v){
-            echo "$('input[name=".$k."]').val('".addslashes($v)."');";
+            echo "$('input[name=".$k."]').val('".addslashes($v)."').change();";
 ?>
 
 <?php
