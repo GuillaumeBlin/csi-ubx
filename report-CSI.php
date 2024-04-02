@@ -14,6 +14,7 @@
              }
              h4{
                 font-size: 1.3em!important;
+                text-transform:none!important;
              }
 
         }
