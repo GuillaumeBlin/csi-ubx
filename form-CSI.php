@@ -264,8 +264,9 @@
     
         foreach($report as $k => $v){
             echo "$('input[name=".$k."]').val('".addslashes($v)."');";
+            echo "$('input[name=".$k."]').val('".addslashes($v)."').prop('checked', true);";
 ?>
-        $("input[name=<?php echo $k;?>][value='<?php echo addslashes($v);?>']").prop('checked', true);
+
 <?php
         }
         ?>
