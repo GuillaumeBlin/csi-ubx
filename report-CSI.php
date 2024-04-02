@@ -6,18 +6,15 @@
              *{
                 font-size: 1em!important;
              }
-             h3::before, .h3::before {
-                content: ''!important;
-                position: absolute!important;
-                top: 0!important;
-                left: 0!important;
-                width: 2px!important;
-                height: 28px!important;
-                border-radius: 1px!important;
-                background: rgb(var(--site-color))!important;
-                transform-origin: 0 100%!important;
-                transform: translateY(2px) rotate(30deg)!important;
-            }
+             h1{
+                font-size: 3em!important;
+             }
+             h3{
+                font-size: 2em!important;
+             }
+             h4{
+                font-size: 1.5em!important;
+             }
 
         }
     </style>

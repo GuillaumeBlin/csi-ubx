@@ -15,7 +15,7 @@
         <label>Mixte</label>
     </div>
     <div id="ModalitesEntretienDetails">
-        <label>ModalitesEntretienDetails</label>
+        <label>Détails des modalités</label>
         <textarea type="textarea" rows="5" class="form-control" name="ModalitesEntretienDetails"></textarea>
     </div>
 
