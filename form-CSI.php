@@ -263,10 +263,13 @@
     <?php if ($report_read_only == true) {
     
         foreach($report as $k => $v){
-            echo "$('input[name=".$k."]').val('".addslashes($v)."').change();";
-            echo "$(`input[name=".$k."] option[value='".addslashes($v)."']`).prop('selected', true);
+            echo "$('input[name=".$k."]').val('".addslashes($v)."');";
 ?>
-
+        $('input[name=<?php echo $k;?>] option').each(function() {
+            if($(this).val() == '<?php echo addslashes($v);?>') {
+                $(this).prop("selected", true);
+            }
+        });
 <?php
         }
         ?>
