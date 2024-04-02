@@ -40,7 +40,7 @@
                 text-transform:none!important;
              }
              h5{
-                margin-bottom: 1px;
+                margin-bottom: 0px;
              }
 
         }
