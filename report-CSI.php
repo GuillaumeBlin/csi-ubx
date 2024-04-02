@@ -1,5 +1,13 @@
 <link href="/application/files/cache/css/ub_tiers/main.css" rel="stylesheet" type="text/css" media="all">
 
+<style type="text/css">
+        @media print {
+            h1 { 
+               color: red; 
+             }
+        }
+    </style>
+
 <div class="std-page">
     <div class="wrapper">
         <main id="content-main" class="std-page-main std-content">
