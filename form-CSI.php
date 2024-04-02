@@ -262,7 +262,6 @@
 <script>
     <?php if ($report_read_only == true) {
     ?>
-        $("#csi :input").attr("disabled", true);
 
     <?php
         foreach($report as $k => $v){
@@ -271,6 +270,8 @@
 
 <?php
         }
+        $("#csi :input").attr("disabled", true);
+
     }
     ?>
     $("input[type=radio][name=InscriptionDerogatoire]").on("change", function() {
