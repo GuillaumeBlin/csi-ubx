@@ -269,7 +269,7 @@
             ?>
             if(t.length>0){t.height("");t.height(t.prop('scrollHeight') + "px");};
             <?php
-            echo "var j=$('input[type=radio][name=".$k."]'); j.val('".addslashes($v)."').change();";
+            echo "var j=$('input[type=radio][name=".$k."][value=\"".addslashes($v)."\"]'); j.val('".addslashes($v)."').change();";
             //echo "$('input[name=".$k."]').val('".addslashes($v)."').prop('checked', true);";
 ?>
             j.prop('checked',true);
