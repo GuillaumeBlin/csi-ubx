@@ -46,7 +46,7 @@
                 margin-bottom: 1px!important;
              }
              input[type="text"]{
-                height:auto!important;
+                height: 0px!important;
              }
 
         }
