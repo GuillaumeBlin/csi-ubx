@@ -17,7 +17,7 @@
     <div id="ModalitesEntretienDetails">
         <label>Détails des modalités</label>
         <textarea type="textarea" rows="5" class="form-control" wrap="wrap" name="ModalitesEntretienDetails"></textarea>
-        <div class="print_helper"></div>
+        
     </div>
 
     <h3>Informations générales</h3>
@@ -54,7 +54,7 @@
         Présentation bilan d’activités + planning et calendrier prévisionnel
     </p>
     <textarea type="textarea" rows="5" class="form-control" wrap="wrap" name="ResumeAvancement"></textarea>
-    <div class="print_helper"></div>
+    
 
     <h5>Par rapport aux objectifs initiaux définis au début de la thèse, le contenu est-il ?</h5>
     <span>
@@ -274,6 +274,8 @@
                 var x=t.prop('scrollHeight');
                 x=x+10;
                 t.height( x+ "px");};
+
+                
             <?php
             echo "var j=$('input[type=radio][name=".$k."][value=\"".addslashes($v)."\"]');";
             //echo "$('input[name=".$k."]').val('".addslashes($v)."').prop('checked', true);";
@@ -282,7 +284,13 @@
 <?php
         }
         ?>
-
+        window.onbeforeprint = function () {
+            $('.print-content').remove();
+            $('textarea').each(function () {
+                var text = $(this).val();
+                $(this).after('<p class="well print-content">' + text + '</p>');
+            });
+        }
 $("#csi :input").attr("disabled", true);
     <?php
 
