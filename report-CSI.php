@@ -8,7 +8,7 @@
                break-before: always; 
              }
              *{
-                font-size: 14px!important;
+                font-size: 80%x!important;
              }
         }
     </style>
