@@ -262,7 +262,8 @@
 <script>
     <?php if ($report_read_only == true) {
     ?>
-        $("input").prop('readonly', true);
+        $("#csi :input").attr("disabled", true);
+
     <?php
     }
     ?>
