@@ -20,6 +20,9 @@
                 page-break-before: always;
                 font-size: 1.5em!important;
              }
+             h3:first-of-type{
+                page-break-before: avoid;
+             }
             h3::before {
                 content: ''!important;
                 position: absolute!important;
