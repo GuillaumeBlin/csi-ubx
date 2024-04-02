@@ -2,7 +2,7 @@
 <link href="/application/files/cache/css/ub_tiers/main.css" rel="stylesheet" type="text/css" media="all">
 
 <style type="text/css">
-.print-content {
+.print-content {    
   display: none !important;
 }
         @media print {
@@ -17,6 +17,7 @@
                 font-size: 2em!important;
              }
              h3{
+                page-break-before: always;
                 font-size: 1.5em!important;
              }
             h3::before {
