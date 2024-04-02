@@ -31,7 +31,7 @@
     <h5>Spécialité</h5>
     <input type="text" readonly class="form-control" name="PhD_Specialite" id="PhD_Specialite" value="<?php echo $defense["these_specialite"]; ?>">
     <h5>Unité de recherche</h5>
-    <input type="text" readonly class="form-control" name="PhD_UMR" id="PhD_UMR" value="<?php echo $defense["these_laboratoire"]; ?>">
+    <textarea type="textarea" rows="5" disabled class="form-control" wrap="wrap" name="PhD_UMR" id="PhD_UMR"><?php echo $defense["these_laboratoire"]; ?></textarea>
     <h4>La thèse</h4>
     <h5>Nom direction de thèse</h5>
     <input type="text" readonly class="form-control" name="DT_Nom" id="DT_Nom" value="<?php echo $defense["these_directeur_these_nom"]; ?>">
