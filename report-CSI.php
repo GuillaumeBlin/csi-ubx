@@ -12,6 +12,18 @@
              h3{
                 font-size: 1.5em!important;
              }
+            h3::before {
+                content: ''!important;
+                position: absolute!important;
+                top: 0!important;
+                left: 0!important;
+                width: 2px!important;
+                height: 28px!important;
+                border-radius: 1px!important;
+                background: rgb(red)!important;
+                transform-origin: 0 100%!important;
+                transform: translateY(2px) rotate(30deg)!important;
+            }
              h4{
                 font-size: 1.3em!important;
                 text-transform:none!important;
