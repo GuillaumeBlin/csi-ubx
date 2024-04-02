@@ -4,7 +4,7 @@
 <style type="text/css">
         @media print {
              *{
-                font-size: 80%!important;
+                font-size: 14em!important;
              }
              h3::before, .h3::before {
                 content: ''!important;
