@@ -261,16 +261,17 @@
 
 <script>
     <?php if ($report_read_only == true) {
-    ?>
-
-    <?php
+    
         foreach($report as $k => $v){
             echo "$('input[name=".$k."]').val('".addslashes($v)."').change();";
 ?>
 
 <?php
         }
-        $("#csi :input").attr("disabled", true);
+        ?>
+
+$("#csi :input").attr("disabled", true);
+    <?php
 
     }
     ?>
