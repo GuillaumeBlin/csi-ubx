@@ -7,13 +7,13 @@
                 font-size: 1em!important;
              }
              h1{
-                font-size: 3em!important;
-             }
-             h3{
                 font-size: 2em!important;
              }
-             h4{
+             h3{
                 font-size: 1.5em!important;
+             }
+             h4{
+                font-size: 1.3em!important;
              }
 
         }
