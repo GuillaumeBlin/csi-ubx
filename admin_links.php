@@ -72,7 +72,7 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
                 table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
                     nbMails=nbMails+(this.data()[3].match(/<i/g) || []).length
                 });
-                if (confirm("Vous êtes sur le point d'envoyer "+nMails+"messages. Confirmez-vous cet envoi ?")) {
+                if (confirm("Vous êtes sur le point d'envoyer "+nbMails+"messages. Confirmez-vous cet envoi ?")) {
                 table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
                     var e = $.parseHTML(this.data()[3]);
                     $.each(e, function(i, el) {
