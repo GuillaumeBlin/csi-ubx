@@ -55,7 +55,11 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
 
 
         sleep(2000).then(() => {
-            const table = new DataTable('#mailing');
+            const table = new DataTable('#mailing', {
+                select: {
+                    style: 'multi+shift'
+                }
+            });
 
             // Array to track the ids of the details displayed rows
             const detailRows = [];
