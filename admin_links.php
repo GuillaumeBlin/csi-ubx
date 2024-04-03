@@ -56,6 +56,10 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
 
         sleep(2000).then(() => {
             const table = new DataTable('#mailing', {
+                aLengthMenu: [
+                    [25, 50, 100, 200, -1],
+                    [25, 50, 100, 200, "All"]
+                ],
                 select: {
                     style: 'multi+shift'
                 }
@@ -73,16 +77,15 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
                 });
             });
 
-            table.on('click', 'tbody tr', (e) => {
-                let classList = e.currentTarget.classList;
-
+            /*table.on('click', 'tbody tr', (e) => {
+                let classList = e.currentTarget.classList;                
                 if (classList.contains('selected')) {
                     classList.remove('selected');
                 } else {
                     table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
                     classList.add('selected');
                 }
-            });
+            });*/
 
             $('.fa-paper-plane').on('click', function(e) {
                 if (e.target.getAttribute('token')) {
