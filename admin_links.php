@@ -4,12 +4,13 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
 //  $actionRemovePhDReport = str_replace("/load_admin_PhD/","/admin_remove_phd_report/",$_SERVER['REQUEST_URI']);
 ?>
 
-<p><button id="mailing_button">Supprimer la ligne sélectionnée</button></p>
+<p><button id="mailing_phd_button"><i class='far fa-paper-plane'></i> Envoyer le lien aux doctorant.e.s sélectionné.e.s</button></p>
+<p><button id="mailing_dt_button"><i class='far fa-paper-plane'></i> Envoyer le lien aux directions sélectionné.e.s</button></p>
+<p><button id="mailing_csi_button"><i class='far fa-paper-plane'></i> Envoyer le lien aux csi sélectionnés</button></p>
 
 <table id="mailing" class="display">
     <thead>
-        <tr>
-            <th></th>
+        <tr>            
             <?php
             echo "<th>" . $translation["Matricule"] . "</th>";
             echo "<th>" . $translation["PhD_Nom"] . "</th>";
@@ -34,7 +35,6 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
             $csiMails = rtrim($csiMails, ',');
 
         ?>
-            <td> <input type="checkbox" id="entry<?php echo $student['ID']; ?>" name="entry<?php echo $student['ID']; ?>"></td>
             <td><?php echo $student["Matricule_etudiant"]; ?></td>
             <td><?php echo $student["nom"]; ?></td>
             <td><?php echo $student["prenom"]; ?></td>
@@ -67,6 +67,17 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
 
             // Array to track the ids of the details displayed rows
             const detailRows = [];
+            $("#mailing_phd_button").on("click", function() {
+                console.log(table.row('.selected').data());
+                var anId = table.row('.selected').data()[1];
+                /*$.post("<?php echo $actionRemovePhDReport; ?>", {
+                    id: anId
+                }, function(data) {
+                    console.log(data);
+                    table.row('.selected').remove().draw(false);
+                });*/
+            });
+
             $("#mailing_button").on("click", function() {
                 var anId = table.row('.selected').data()[1];
                 $.post("<?php echo $actionRemovePhDReport; ?>", {
@@ -77,15 +88,6 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
                 });
             });
 
-            /*table.on('click', 'tbody tr', (e) => {
-                let classList = e.currentTarget.classList;                
-                if (classList.contains('selected')) {
-                    classList.remove('selected');
-                } else {
-                    table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
-                    classList.add('selected');
-                }
-            });*/
 
             $('.fa-paper-plane').on('click', function(e) {
                 if (e.target.getAttribute('token')) {
