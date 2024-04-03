@@ -34,7 +34,7 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
             $csiMails = rtrim($csiMails, ',');
 
         ?>
-            <td class="dt-control" id="entry<?php echo $student['ID']; ?>"></td>
+            <td> <input type="checkbox" id="entry<?php echo $student['ID']; ?>" name="entry<?php echo $student['ID']; ?>"></td>
             <td><?php echo $student["Matricule_etudiant"]; ?></td>
             <td><?php echo $student["nom"]; ?></td>
             <td><?php echo $student["prenom"]; ?></td>
