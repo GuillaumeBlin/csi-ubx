@@ -72,12 +72,12 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
                     var e = $.parseHTML(this.data()[3]);
                     $.each(e, function(i, el) {
                         if (el.nodeName == "I") {
-                            var aType = el.attributes['atype'];
-                            var aToken = el.attributes['token'];
-                            var phdName = el.attributes['phdname'];
-                            var aName = el.attributes['aname'];
-                            var aMail = el.attributes['amail'];
-                            console.log("Sending mail to " + phdName);
+                            var aType = el.attributes['atype'].value();
+                            var aToken = el.attributes['token'].value();
+                            var phdName = el.attributes['phdname'].value();
+                            var aName = el.attributes['aname'].value();
+                            var aMail = el.attributes['amail'].value();
+                            console.log("Sending mail to " + aName);
                             $.post("<?php echo $actionMailing; ?>", {
                                 token: aToken,
                                 type: aType,
@@ -97,12 +97,12 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
                     var e = $.parseHTML(this.data()[4]);
                     $.each(e, function(i, el) {
                         if (el.nodeName == "I") {
-                            var aType = el.attributes['atype'];
-                            var aToken = el.attributes['token'];
-                            var phdName = el.attributes['phdname'];
-                            var aName = el.attributes['aname'];
-                            var aMail = el.attributes['amail'];
-                            console.log("Sending mail to " + phdName);
+                            var aType = el.attributes['atype'].value();
+                            var aToken = el.attributes['token'].value();
+                            var phdName = el.attributes['phdname'].value();
+                            var aName = el.attributes['aname'].value();
+                            var aMail = el.attributes['amail'].value();
+                            console.log("Sending mail to " + aName);
                             $.post("<?php echo $actionMailing; ?>", {
                                 token: aToken,
                                 type: aType,
@@ -122,12 +122,12 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
                     var e = $.parseHTML(this.data()[5]);
                     $.each(e, function(i, el) {
                         if (el.nodeName == "I") {
-                            var aType = el.attributes['atype'];
-                            var aToken = el.attributes['token'];
-                            var phdName = el.attributes['phdname'];
-                            var aName = el.attributes['aname'];
-                            var aMail = el.attributes['amail'];
-                            console.log("Sending mail to " + phdName);
+                            var aType = el.attributes['atype'].value();
+                            var aToken = el.attributes['token'].value();
+                            var phdName = el.attributes['phdname'].value();
+                            var aName = el.attributes['aname'].value();
+                            var aMail = el.attributes['amail'].value();
+                            console.log("Sending mail to " + aName);
                             $.post("<?php echo $actionMailing; ?>", {
                                 token: aToken,
                                 type: aType,
