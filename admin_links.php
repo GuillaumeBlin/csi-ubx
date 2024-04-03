@@ -74,7 +74,7 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
                         if (el.nodeName == "I") {
                             var aType = el.attributes['atype'];
                             var aToken = el.attributes['token'];
-                            var  = el.attributes['phdname'];
+                            var phdName = el.attributes['phdname'];
                             var aName = el.attributes['aname'];
                             var aMail = el.attributes['amail'];
                             console.log(phdName);
