@@ -1,7 +1,6 @@
 <?php
 include "lang.php";
 $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['REQUEST_URI']);
-//  $actionRemovePhDReport = str_replace("/load_admin_PhD/","/admin_remove_phd_report/",$_SERVER['REQUEST_URI']);
 ?>
 
 <p><button id="mailing_phd_button"><i class='far fa-paper-plane'></i> Envoyer le lien aux doctorant.e.s sélectionné.e.s</button></p>
@@ -68,6 +67,9 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
             // Array to track the ids of the details displayed rows
             const detailRows = [];
             $("#mailing_phd_button").on("click", function() {
+
+                var f=table.rows('.selected').data();
+                
                 table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
                     var e = $.parseHTML(this.data()[3]);
                     $.each(e, function(i, el) {
