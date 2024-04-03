@@ -70,12 +70,12 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
             $("#mailing_phd_button").on("click", function() {
                 var e=$.parseHTML(table.row('.selected').data()[3]);
                 $.each( e, function( i, el ) {
-                    if (el.getAttribute('token')) {
-                        var aType = el.getAttribute('atype');
-                        var aToken = el.getAttribute('token');
-                        var phdName = el.getAttribute('phdname');
-                        var aName = el.getAttribute('aname');
-                        var aMail = el.getAttribute('amail');
+                    if (el.attr('token')) {
+                        var aType = el.attr('atype');
+                        var aToken = el.attr('token');
+                        var phdName = el.attr('phdname');
+                        var aName = el.attr('aname');
+                        var aMail = el.attr('amail');
                         console.log(aToken);
                     }
                 });
