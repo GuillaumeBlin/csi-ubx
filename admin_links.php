@@ -68,10 +68,9 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
             const detailRows = [];
             $("#mailing_phd_button").on("click", function() {
 
-                var f=table.rows('.selected').data();
                 var nbMails=0;
-                f.each(function(){
-                    nbMails=nbMails+(this[3].match(/<i/g) || []).length
+                table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
+                    nbMails=nbMails+(this.data()[3].match(/<i/g) || []).length
                 });
                 if (confirm("Vous êtes sur le point d'envoyer "+nMails+"messages. Confirmez-vous cet envoi ?")) {
                 table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
