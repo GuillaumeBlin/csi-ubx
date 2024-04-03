@@ -68,7 +68,7 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
             // Array to track the ids of the details displayed rows
             const detailRows = [];
             $("#mailing_phd_button").on("click", function() {
-                var e=table.row('.selected').data()[4];
+                var e=$.parseHTML(table.row('.selected').data()[3]);
                 var aType = e.getAttribute('atype');
                     var aToken = e.getAttribute('token');
                     var phdName = e.getAttribute('phdname');
