@@ -69,7 +69,11 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
             $("#mailing_phd_button").on("click", function() {
 
                 var f=table.rows('.selected').data();
-                
+                var nbMails=0;
+                f.each(function(){
+                    nbMails=nbMails+(this[3].match(/<i/g) || []).length
+                });
+                if (confirm("Vous êtes sur le point d'envoyer "+nMails+"messages. Confirmez-vous cet envoi ?")) {
                 table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
                     var e = $.parseHTML(this.data()[3]);
                     $.each(e, function(i, el) {
@@ -92,6 +96,7 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
                         }
                     });
                 });
+                }
             });
 
             $("#mailing_dt_button").on("click", function() {
