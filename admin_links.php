@@ -69,12 +69,16 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
             const detailRows = [];
             $("#mailing_phd_button").on("click", function() {
                 var e=$.parseHTML(table.row('.selected').data()[3]);
-                var aType = e.getAttribute('atype');
-                    var aToken = e.getAttribute('token');
-                    var phdName = e.getAttribute('phdname');
-                    var aName = e.getAttribute('aname');
-                    var aMail = e.getAttribute('amail');
-                    console.log(aToken);
+                $.each( e, function( i, el ) {
+                    if (el.getAttribute('token')) {
+                        var aType = el.getAttribute('atype');
+                        var aToken = el.getAttribute('token');
+                        var phdName = el.getAttribute('phdname');
+                        var aName = el.getAttribute('aname');
+                        var aMail = el.getAttribute('amail');
+                        console.log(aToken);
+                    }
+                });
                 var anId = table.row('.selected').data()[1];
                 /*$.post("<?php echo $actionRemovePhDReport; ?>", {
                     id: anId
