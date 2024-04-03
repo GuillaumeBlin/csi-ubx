@@ -68,84 +68,96 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
             const detailRows = [];
             $("#mailing_phd_button").on("click", function() {
 
-                var nbMails=0;
+                var nbMails = 0;
                 table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
-                    nbMails=nbMails+(this.data()[3].match(/<i/g) || []).length
+                    nbMails = nbMails + (this.data()[3].match(/<i/g) || []).length
                 });
-                if (confirm("Vous êtes sur le point d'envoyer "+nbMails+"messages. Confirmez-vous cet envoi ?")) {
-                table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
-                    var e = $.parseHTML(this.data()[3]);
-                    $.each(e, function(i, el) {
-                        if (el.nodeName == "I") {
-                            var aType = el.attributes['atype'].value;
-                            var aToken = el.attributes['token'].value;
-                            var phdName = el.attributes['phdname'].value;
-                            var aName = el.attributes['aname'].value;
-                            var aMail = el.attributes['amail'].value;
-                            console.log("Sending mail to " + aName);
-                            $.post("<?php echo $actionMailing; ?>", {
-                                token: aToken,
-                                type: aType,
-                                student: phdName,
-                                name: aName,
-                                mail: aMail
-                            }, function(data) {
-                                console.log(data);
-                            });
-                        }
+                if (confirm("Vous êtes sur le point d'envoyer " + nbMails + " messages. Confirmez-vous cet envoi ?")) {
+                    table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
+                        var e = $.parseHTML(this.data()[3]);
+                        $.each(e, function(i, el) {
+                            if (el.nodeName == "I") {
+                                var aType = el.attributes['atype'].value;
+                                var aToken = el.attributes['token'].value;
+                                var phdName = el.attributes['phdname'].value;
+                                var aName = el.attributes['aname'].value;
+                                var aMail = el.attributes['amail'].value;
+                                console.log("Sending mail to " + aName);
+                                $.post("<?php echo $actionMailing; ?>", {
+                                    token: aToken,
+                                    type: aType,
+                                    student: phdName,
+                                    name: aName,
+                                    mail: aMail
+                                }, function(data) {
+                                    console.log(data);
+                                });
+                            }
+                        });
                     });
-                });
                 }
             });
 
             $("#mailing_dt_button").on("click", function() {
+                var nbMails = 0;
                 table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
-                    var e = $.parseHTML(this.data()[4]);
-                    $.each(e, function(i, el) {
-                        if (el.nodeName == "I") {
-                            var aType = el.attributes['atype'].value;
-                            var aToken = el.attributes['token'].value;
-                            var phdName = el.attributes['phdname'].value;
-                            var aName = el.attributes['aname'].value;
-                            var aMail = el.attributes['amail'].value;
-                            console.log("Sending mail to " + aName);
-                            $.post("<?php echo $actionMailing; ?>", {
-                                token: aToken,
-                                type: aType,
-                                student: phdName,
-                                name: aName,
-                                mail: aMail
-                            }, function(data) {
-                                console.log(data);
-                            });
-                        }
-                    });
+                    nbMails = nbMails + (this.data()[4].match(/<i/g) || []).length
                 });
+                if (confirm("Vous êtes sur le point d'envoyer " + nbMails + " messages. Confirmez-vous cet envoi ?")) {
+                    table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
+                        var e = $.parseHTML(this.data()[4]);
+                        $.each(e, function(i, el) {
+                            if (el.nodeName == "I") {
+                                var aType = el.attributes['atype'].value;
+                                var aToken = el.attributes['token'].value;
+                                var phdName = el.attributes['phdname'].value;
+                                var aName = el.attributes['aname'].value;
+                                var aMail = el.attributes['amail'].value;
+                                console.log("Sending mail to " + aName);
+                                $.post("<?php echo $actionMailing; ?>", {
+                                    token: aToken,
+                                    type: aType,
+                                    student: phdName,
+                                    name: aName,
+                                    mail: aMail
+                                }, function(data) {
+                                    console.log(data);
+                                });
+                            }
+                        });
+                    });
+                }
             });
 
             $("#mailing_csi_button").on("click", function() {
+                var nbMails = 0;
                 table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
-                    var e = $.parseHTML(this.data()[5]);
-                    $.each(e, function(i, el) {
-                        if (el.nodeName == "I") {
-                            var aType = el.attributes['atype'].value;
-                            var aToken = el.attributes['token'].value;
-                            var phdName = el.attributes['phdname'].value;
-                            var aName = el.attributes['aname'].value;
-                            var aMail = el.attributes['amail'].value;
-                            console.log("Sending mail to " + aName);
-                            $.post("<?php echo $actionMailing; ?>", {
-                                token: aToken,
-                                type: aType,
-                                student: phdName,
-                                name: aName,
-                                mail: aMail
-                            }, function(data) {
-                                console.log(data);
-                            });
-                        }
-                    });
+                    nbMails = nbMails + (this.data()[5].match(/<i/g) || []).length
                 });
+                if (confirm("Vous êtes sur le point d'envoyer " + nbMails + " messages. Confirmez-vous cet envoi ?")) {
+                    table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
+                        var e = $.parseHTML(this.data()[5]);
+                        $.each(e, function(i, el) {
+                            if (el.nodeName == "I") {
+                                var aType = el.attributes['atype'].value;
+                                var aToken = el.attributes['token'].value;
+                                var phdName = el.attributes['phdname'].value;
+                                var aName = el.attributes['aname'].value;
+                                var aMail = el.attributes['amail'].value;
+                                console.log("Sending mail to " + aName);
+                                $.post("<?php echo $actionMailing; ?>", {
+                                    token: aToken,
+                                    type: aType,
+                                    student: phdName,
+                                    name: aName,
+                                    mail: aMail
+                                }, function(data) {
+                                    console.log(data);
+                                });
+                            }
+                        });
+                    });
+                }
             });
 
 
