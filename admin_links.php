@@ -77,48 +77,73 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
                             var phdName = el.attributes['phdname'];
                             var aName = el.attributes['aname'];
                             var aMail = el.attributes['amail'];
-                            console.log(phdName);
+                            console.log("Sending mail to " + phdName);
+                            $.post("<?php echo $actionMailing; ?>", {
+                                token: aToken,
+                                type: aType,
+                                student: phdName,
+                                name: aName,
+                                mail: aMail
+                            }, function(data) {
+                                console.log(data);
+                            });
                         }
                     });
                 });
-                /*$.post("<?php echo $actionRemovePhDReport; ?>", {
-                    id: anId
-                }, function(data) {
-                    console.log(data);
-                    table.row('.selected').remove().draw(false);
-                });*/
             });
 
-            $("#mailing_button").on("click", function() {
-                var anId = table.row('.selected').data()[1];
-                $.post("<?php echo $actionRemovePhDReport; ?>", {
-                    id: anId
-                }, function(data) {
-                    console.log(data);
-                    table.row('.selected').remove().draw(false);
+            $("#mailing_dt_button").on("click", function() {
+                table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
+                    var e = $.parseHTML(this.data()[4]);
+                    $.each(e, function(i, el) {
+                        if (el.nodeName == "I") {
+                            var aType = el.attributes['atype'];
+                            var aToken = el.attributes['token'];
+                            var phdName = el.attributes['phdname'];
+                            var aName = el.attributes['aname'];
+                            var aMail = el.attributes['amail'];
+                            console.log("Sending mail to " + phdName);
+                            $.post("<?php echo $actionMailing; ?>", {
+                                token: aToken,
+                                type: aType,
+                                student: phdName,
+                                name: aName,
+                                mail: aMail
+                            }, function(data) {
+                                console.log(data);
+                            });
+                        }
+                    });
+                });
+            });
+
+            $("#mailing_csi_button").on("click", function() {
+                table.rows('.selected').every(function(rowIdx, tableLoop, rowLoop) {
+                    var e = $.parseHTML(this.data()[5]);
+                    $.each(e, function(i, el) {
+                        if (el.nodeName == "I") {
+                            var aType = el.attributes['atype'];
+                            var aToken = el.attributes['token'];
+                            var phdName = el.attributes['phdname'];
+                            var aName = el.attributes['aname'];
+                            var aMail = el.attributes['amail'];
+                            console.log("Sending mail to " + phdName);
+                            $.post("<?php echo $actionMailing; ?>", {
+                                token: aToken,
+                                type: aType,
+                                student: phdName,
+                                name: aName,
+                                mail: aMail
+                            }, function(data) {
+                                console.log(data);
+                            });
+                        }
+                    });
                 });
             });
 
 
-            $('.fa-paper-plane').on('click', function(e) {
-                if (e.target.getAttribute('token')) {
-                    var aType = e.target.getAttribute('atype');
-                    var aToken = e.target.getAttribute('token');
-                    var phdName = e.target.getAttribute('phdname');
-                    var aName = e.target.getAttribute('aname');
-                    var aMail = e.target.getAttribute('amail');
-                    console.log(aToken);
-                    $.post("<?php echo $actionMailing; ?>", {
-                        token: aToken,
-                        type: aType,
-                        student: phdName,
-                        name: aName,
-                        mail: aMail
-                    }, function(data) {
-                        console.log(data);
-                    });
-                }
-            });
+
         });
     });
 </script>
