@@ -10,7 +10,7 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
 
 <table id="mailing" class="display">
     <thead>
-        <tr>            
+        <tr>
             <?php
             echo "<th>" . $translation["Matricule"] . "</th>";
             echo "<th>" . $translation["PhD_Nom"] . "</th>";
@@ -68,18 +68,19 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
             // Array to track the ids of the details displayed rows
             const detailRows = [];
             $("#mailing_phd_button").on("click", function() {
-                var e=$.parseHTML(table.row('.selected').data()[3]);
-                $.each( e, function( i, el ) {
-                    if (el.nodeName=="I") {
-                        var aType = el.attributes['atype'];
-                        var aToken = el.attributes['token'];
-                        var phdName = el.attributes['phdname'];
-                        var aName = el.attributes['aname'];
-                        var aMail = el.attributes['amail'];
-                        console.log(aToken);
-                    }
+                table.row('.selected').each(function() {
+                    var e = $.parseHTML(this.data()[3]);
+                    $.each(e, function(i, el) {
+                        if (el.nodeName == "I") {
+                            var aType = el.attributes['atype'];
+                            var aToken = el.attributes['token'];
+                            var phdName = el.attributes['phdname'];
+                            var aName = el.attributes['aname'];
+                            var aMail = el.attributes['amail'];
+                            console.log(aToken);
+                        }
+                    });
                 });
-                var anId = table.row('.selected').data()[1];
                 /*$.post("<?php echo $actionRemovePhDReport; ?>", {
                     id: anId
                 }, function(data) {
