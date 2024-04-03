@@ -70,7 +70,7 @@ $actionMailing = str_replace("/load_admin_links/", "/admin_mailing/", $_SERVER['
             $("#mailing_phd_button").on("click", function() {
                 var e=$.parseHTML(table.row('.selected').data()[3]);
                 $.each( e, function( i, el ) {
-                    if (el.attributes['token']) {
+                    if (el.nodeName=="I") {
                         var aType = el.attributes['atype'];
                         var aToken = el.attributes['token'];
                         var phdName = el.attributes['phdname'];
