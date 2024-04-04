@@ -1,6 +1,6 @@
 <form id="csi" <?php if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_CSIReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <?php } ?>>
-<input type="hidden" name="ed" id="ed" value="<?php echo $defense["these_ED_code"]; ?>"/>    
-<h3>L’entretien</h3>
+    <input type="hidden" name="ed" id="ed" value="<?php echo $defense["these_ED_code"]; ?>" />
+    <h3>L’entretien</h3>
     <h4>Date de l’entretien </h4>
     <input type="date" class="form-control" name="Date_Entretrien">
     <h4>Modalités de l’entretien </h4>
@@ -19,7 +19,7 @@
     <div id="ModalitesEntretienDetails">
         <label>Détails des modalités</label>
         <textarea type="textarea" rows="5" class="form-control" wrap="wrap" name="ModalitesEntretienDetails"></textarea>
-        
+
     </div>
 
     <h3>Informations générales</h3>
@@ -56,7 +56,7 @@
         Présentation bilan d’activités + planning et calendrier prévisionnel
     </p>
     <textarea type="textarea" rows="5" class="form-control" wrap="wrap" name="ResumeAvancement"></textarea>
-    
+
 
     <h5>Par rapport aux objectifs initiaux définis au début de la thèse, le contenu est-il ?</h5>
     <span>
@@ -75,7 +75,7 @@
         <label>Précisions</label>
         <textarea type="textarea" rows="5" class="form-control" name="ComparaisonObjectifsInitiauxPrecisions"></textarea>
     </div>
-    
+
     <h5>Observations sur le plan méthodologique et expérimental</h5>
     <span>
         <input name="ObservationsMethodoExpe" value="Aucune difficulté particulière" type="radio">
@@ -92,7 +92,7 @@
     <div id="ObservationsMethodoExpePrecisions">
         <label>Précisions et recommandations</label>
         <textarea type="textarea" rows="5" class="form-control" name="ObservationsMethodoExpePrecisions"></textarea>
-    </div>    
+    </div>
 
     <h5>Le calendrier prévisionnel de réalisation est-il suivi ?</h5>
     <span>
@@ -265,35 +265,37 @@
 
 <script>
     <?php if ($report_read_only == true) {
-    
-        foreach($report as $k => $v){
-            echo "$('input[type=date][name=".$k."]').val('".addslashes($v)."');";
-            echo "$('input[type=text][name=".$k."]').val('".addslashes($v)."');";
-            echo "var t= $('textarea[name=".$k."]'); t.val('".addslashes($v)."');";
-            ?>
-            if(t.length>0){
-                t.height("");
-                var x=t.prop('scrollHeight');
-                x=x+10;
-                t.height( x+ "px");};
 
-                
+        foreach ($report as $k => $v) {
+            echo "$('input[type=date][name=" . $k . "]').val('" . addslashes($v) . "');";
+            echo "$('input[type=text][name=" . $k . "]').val('" . addslashes($v) . "');";
+            echo "var t= $('textarea[name=" . $k . "]'); t.val('" . addslashes($v) . "');";
+    ?>
+            if (t.length > 0) {
+                t.height("");
+                var x = t.prop('scrollHeight');
+                x = x + 10;
+                t.height(x + "px");
+            };
+
+
             <?php
-            echo "var j=$('input[type=radio][name=".$k."][value=\"".addslashes($v)."\"]');";
+            echo "var j=$('input[type=radio][name=" . $k . "][value=\"" . addslashes($v) . "\"]');";
             //echo "$('input[name=".$k."]').val('".addslashes($v)."').prop('checked', true);";
-?>
-            j.prop('checked',true);
-<?php
+            ?>
+            j.prop('checked', true);
+        <?php
         }
         ?>
-        window.onbeforeprint = function () {
+        window.onbeforeprint = function() {
             $('.print-content').remove();
-            $('textarea').each(function () {
+            $('textarea').each(function() {
                 var text = $(this).val();
                 $(this).after('<p class="well print-content">' + text + '</p>');
             });
         }
-$("#csi :input").attr("disabled", true);
+        $("#csi :input").attr("disabled", true);
+        $("#csi > button").hide();
     <?php
 
     }
@@ -318,7 +320,7 @@ $("#csi :input").attr("disabled", true);
         }
 
     });
-    
+
     $("input[type=radio][name=RespectCalendrierPrevisionnel]").on("change", function() {
         if (this.value == 'Non') {
             $("#RespectCalendrierPrevisionnel").show();
@@ -349,5 +351,4 @@ $("#csi :input").attr("disabled", true);
             $("input[name=ComparaisonObjectifsInitiauxPrecisions]").val('');
         }
     });
-    
 </script>
