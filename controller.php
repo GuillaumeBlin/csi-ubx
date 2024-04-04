@@ -457,7 +457,7 @@ class Controller extends BlockController
         $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'".$type."Report';");
         $report_headers = $statement->fetchAll(); //print_r($rows);
 
-        $statement = $db->executeQuery('SELECT * FROM `'.$type.'Report` WHERE bID='.$this->bID.';');
+        $statement = $db->executeQuery('SELECT * FROM `'.$type.'Report`;');// WHERE bID='.$this->bID.';');
         echo 'SELECT * FROM `'.$type.'Report` WHERE bID='.$this->bID.';';
         $report_data = $statement->fetchAll(); //print_r($rows);
         include("admin-".$type."-report.php");
