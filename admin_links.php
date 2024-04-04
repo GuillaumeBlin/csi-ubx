@@ -45,7 +45,7 @@ include "lang.php";
             });
 
             $('.csi-link').click(function() {
-                var textToCopy = $this.attributes['url'].value;
+                var textToCopy = this.attributes['url'].value;
                 var tempTextarea = $('<textarea>');
                 $('body').append(tempTextarea);
                 tempTextarea.val(textToCopy).select();
