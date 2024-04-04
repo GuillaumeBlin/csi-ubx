@@ -55,7 +55,7 @@ $actionShowPhDReport = str_replace("/load_admin_PhD/", "/show_PhDReport/", $_SER
             );
         }
 
-        sleep(2000).then(() => {
+        sleep(0).then(() => {
             const table = new DataTable('#report-phd', {
                 columnDefs: [{
                         targets: [0, 1, 4, 5, 6, 7, 44],

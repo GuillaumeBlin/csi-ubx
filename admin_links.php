@@ -37,7 +37,7 @@ $url="https://doctorat.u-bordeaux.fr/%21drafts/4211?code=";
         }
 
 
-        sleep(2000).then(() => {
+        sleep(0).then(() => {
             const table = new DataTable('#mailing', {
                 aLengthMenu: [
                     [25, 50, 100, 200, -1],
