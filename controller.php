@@ -231,61 +231,6 @@ class Controller extends BlockController
         }
     }
 
-    
-
-    public function action_admin_mailing($bID = false)
-    {
-        if ($this->bID != $bID) {
-            return false;
-        }
-        $token = $_REQUEST["token"];
-        $type = $_REQUEST["type"];
-        $mail = $_REQUEST["mail"];
-        $aname = $_REQUEST["name"];
-        $student = $_REQUEST["student"];
-        $mh = Loader::helper('mail');
-        $mh->setSubject('CSI form access information');
-        if ($type == "PhD") {
-            $body = t("
-Dear %s (%s),
-
-In order to fill your CSI form, please go to the following address:
-
-    https://doctorat.u-bordeaux.fr/!drafts/4211?code=%s
-
-Best
-", $aname, $mail, $token);
-        }
-        if ($type == "DT") {
-            $body = t("
-    Dear %s (%s),
-    
-    As the director of %s, in order to fill your CSI part of the form, please go to the following address:
-    
-        https://doctorat.u-bordeaux.fr/!drafts/4211?code=%s
-    
-    Best
-    ", $aname, $mail, $student, $token);
-        }
-        if ($type == "CSI") {
-            $body = t("
-    Dear %s (%s),
-    
-    As members of the CSI of %s, in order to fill your CSI part of the form, please go to the following address:
-    
-        https://doctorat.u-bordeaux.fr/!drafts/4211?code=%s
-    
-    Best
-    ", $aname, $mail, $student, $token);
-        }
-        $mh->setBody($body);
-        $mh->to('lemail2guillaume@gmail.com');
-        $mh->from('noreply@u-bordeaux.fr');
-        //$mh->sendMail();
-        print($body);
-        exit;
-    }
-
     public function getBlockTypeName()
     {
         return 'CSI UBx';
@@ -376,13 +321,13 @@ Best
 
             echo "<p>Voici les liens pour remplir les 3 parties du rapport de votre CSI. Il vous faut transmettre les liens correspondants aux différents personnes impliquées dans le CSI. Chaque lien permet de remplir une partie du rapport (Doctorant.e / Direction de thèse / CSI).</p>";
             echo "<ul>";
-            echo "<li>Lien pour remplir la partie qui vous est propre :  <a href='".$url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD")))."'>";
+            echo "<li>Lien pour remplir la partie qui vous est propre : <br/> <a href='".$url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD")))."'>";
             echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD")))."</a>";
             echo "</li>";
-            echo "<li>Lien à destination de votre direction de thèse (".$student["these_directeur_these_prenom"] . ' ' . $student["these_directeur_these_nom"]." - ".$student["these_directeur_these_mail"].") :  <a href='".$url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT")))."'>";
+            echo "<li>Lien à destination de votre direction de thèse (".$student["these_directeur_these_prenom"] . ' ' . $student["these_directeur_these_nom"]." - ".$student["these_directeur_these_mail"].") : <br/> <a href='".$url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT")))."'>";
             echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT")))."</a>";
             echo "</li>";
-            echo "<li>Lien à destination du référent de votre CSI (".$csiNames." - ".$csiMails.") : <a href='".$url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI")))."'>";
+            echo "<li>Lien à destination du référent de votre CSI (".$csiNames." - ".$csiMails.") : <br/><a href='".$url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI")))."'>";
             echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI")))."</a>";
             echo "</li>";
             echo "</ul>";
