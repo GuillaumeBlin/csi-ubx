@@ -79,6 +79,9 @@
 		<field name="PhD_CSI_Annee" type="text">
 			<default value="" />
 		</field>
+		<field name="CSI_Membre_Nombre" type="integer">
+			<default value="" />
+		</field>
 		<field name="CSI_Membre_1_Nom" type="text">
 			<default value="" />
 		</field>
