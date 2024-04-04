@@ -1,4 +1,4 @@
-<form id="csi" action="<?php echo str_replace("/load_user/", "/form_save_DTReport/", $_SERVER['REQUEST_URI']); ?>" method="POST">
+<form id="csi" <?php if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_DTReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <?php } ?>>
     <input type="hidden" name="ed" id="ed" value="<?php echo $defense["these_ED_code"]; ?>" />
     <h3>Informations générales</h3>
     <h4>La doctorante ou le doctorant</h4>
@@ -283,9 +283,11 @@
         <label>Date de l'établissement du rapport</label>
         <input type="date" class="form-control" name="DateRapport" id="DateRapport">
     </div>
-    <div>
-        <button type="submit" class="btn-default btn" style="default">Soumettre le rapport</button>
-    </div>
+    <?php if ($report_read_only == false) { ?>
+        <div>
+            <button type="submit" class="btn-default btn" style="default">Soumettre le rapport</button>
+        </div>
+    <?php } ?>
 </form>
 <script>
     <?php if ($report_read_only == true) {
@@ -319,7 +321,6 @@
             });
         }
         $("#csi :input").attr("disabled", true);
-        $("#csi > button").hide();
     <?php
 
     }
