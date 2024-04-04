@@ -348,6 +348,7 @@
             });
         }
         $("#csi :input").attr("disabled", true);
+        $("#csi > button").hide();
     <?php
 
     }
