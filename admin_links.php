@@ -21,9 +21,9 @@ include "lang.php";
             <td><?php echo $student["Matricule_etudiant"]; ?></td>
             <td><?php echo $student["nom"]; ?></td>
             <td><?php echo $student["prenom"]; ?></td>
-            <td><?php echo htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD"))); ?></td>
-            <td><?php echo htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT"))); ?></td>
-            <td><?php echo htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI"))); ?></td>
+            <td><i class="fas fa-link csi-link" url="<?php echo htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
+            <td><i class="fas fa-link csi-link" url="<?php echo htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
+            <td><i class="fas fa-link csi-link" url="<?php echo htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
             </tr>
         <?php  } ?>
     </tbody>
@@ -42,6 +42,15 @@ include "lang.php";
                     [25, 50, 100, 200, -1],
                     [25, 50, 100, 200, "All"]
                 ]
+            });
+
+            $('.csi-link').click(function() {
+                var textToCopy = $this.attributes['url'].value;
+                var tempTextarea = $('<textarea>');
+                $('body').append(tempTextarea);
+                tempTextarea.val(textToCopy).select();
+                document.execCommand('copy');
+                tempTextarea.remove();
             });
 
         });
