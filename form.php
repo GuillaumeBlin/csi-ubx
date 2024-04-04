@@ -31,6 +31,6 @@ if (empty($ed)) $ed = null;
 		<option value="False" <?php if (strcmp($admin, "False") === 0) { ?>selected<?php } ?>> Non</option>
 	</select>
 	<label class="control-label" for="sKey">Clé de cryptage (laisser comme tel si admin, recopier celui de l'admin si user)<sup class="fas fa-asterisk"></sup></label>
-	<input type="text" name="sKey" class="ccm-input-text" value="<?php echo $sKey; ?>" />
+	<input type="text" <?php if (strcmp($admin, "True") === 0) { ?>readonly<?php }?> name="sKey" class="ccm-input-text" value="<?php echo $sKey; ?>" />
 
 </div>
