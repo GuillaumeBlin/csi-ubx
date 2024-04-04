@@ -55,7 +55,7 @@ $actionShowDTReport = str_replace("/load_admin_DT/", "/show_DTReport/", $_SERVER
             );
         }
 
-        sleep(2000).then(() => {
+        sleep(0).then(() => {
             const table = new DataTable('#report-dt', {
                 columnDefs: [{
                         targets: [0, 1, 4, 5, 6, 10, 11, 38],
