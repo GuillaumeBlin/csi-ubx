@@ -318,7 +318,7 @@ class Controller extends BlockController
             }
             $csiNames = rtrim($csiNames, ',');
             $csiMails = rtrim($csiMails, ',');
-            $url="https://doctorat.u-bordeaux.fr/%21drafts/4211?code=";
+            $url="https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?code=";
 
             echo "<p>Voici les liens pour remplir les 3 parties du rapport de votre CSI. Il vous faut transmettre les liens correspondants aux différents personnes impliquées dans le CSI. Chaque lien permet de remplir une partie du rapport (Doctorant.e / Direction de thèse / CSI).</p>";
             echo "<ul>";

@@ -1,6 +1,6 @@
 <?php
 include "lang.php";
-$url="https://doctorat.u-bordeaux.fr/%21drafts/4211?code=";
+$url="https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?code=";
 ?>
 
 <table id="mailing" class="display">
