@@ -75,6 +75,7 @@ if ($admin == 'True') {
   if(isset($_GET['ine'])){
     $actionURL = str_replace('&amp;', '&', $this->action('display_links')) . "?ine=" . $_GET["ine"];
   }
+  if(isset($_GET['ine'])||isset($_GET['code'])){
 ?>
   <div id="csi-display-<?php echo $bID; ?>">
     <div class="d-flex align-items-center">
@@ -88,5 +89,8 @@ if ($admin == 'True') {
     });
   </script>
 <?php
+  }else{
+    echo "$('.std-page-main-inner > h1').text('Invalid page');";
+  }
 }
 ?>
