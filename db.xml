@@ -24,8 +24,8 @@
 			<autoincrement />
 			<key />
 		</field>
-		<field name="bID" type="integer">
-			<unsigned />
+		<field name="ed" type="text">
+			<default value="" />
 		</field>
 		<field name="Matricule" type="text">
 			<default value="" />
@@ -167,8 +167,8 @@
 			<autoincrement />
 			<key />
 		</field>
-		<field name="bID" type="integer">
-			<unsigned />
+		<field name="ed" type="text">
+			<default value="" />
 		</field>
 		<field name="Matricule" type="text">
 			<default value="" />
@@ -284,8 +284,8 @@
 			<autoincrement />
 			<key />
 		</field>
-		<field name="bID" type="integer">
-			<unsigned />
+		<field name="ed" type="text">
+			<default value="" />
 		</field>
 		<field name="Matricule" type="text">
 			<default value="" />

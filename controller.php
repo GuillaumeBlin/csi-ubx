@@ -425,11 +425,11 @@ class Controller extends BlockController
             $values = $values . '?,';
         }
         $values = $values . '?,?';
-        $fields = $fields . "`Matricule`,`bID`";
+        $fields = $fields . "`Matricule`,`ed`";
 
         $sql = 'INSERT INTO `'.$type.'Report` ( ' . $fields . ')VALUES (' . $values . ');';
         $report["Matricule"] = intval($mat);
-        $report["bID"] = $bID;
+        $report["ed"] = $this->ed;
         $statement = $db->executeQuery($sql, array_values($report));
         $userPage = preg_replace("%/form_save_".$type."Report/\d+%", "/", $_SERVER['REQUEST_URI']);
         $this->redirect($userPage);
@@ -458,7 +458,7 @@ class Controller extends BlockController
         $report_headers = $statement->fetchAll(); //print_r($rows);
 
         $statement = $db->executeQuery('SELECT * FROM `'.$type.'Report`;');// WHERE bID='.$this->bID.';');
-        echo 'SELECT * FROM `'.$type.'Report` WHERE bID='.$this->bID.';';
+        echo 'SELECT * FROM `'.$type.'Report` WHERE ed='.$this->ed.';';
         $report_data = $statement->fetchAll(); //print_r($rows);
         include("admin-".$type."-report.php");
         exit;
