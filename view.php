@@ -90,7 +90,7 @@ if ($admin == 'True') {
   </script>
 <?php
   }else{
-    echo "$('.std-page-main-inner > h1').text('Invalid page');";
+    echo "<script>$('.std-page-main-inner > h1').text('Invalid page');</script>";
   }
 }
 ?>
