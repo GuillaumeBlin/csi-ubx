@@ -89,14 +89,18 @@
     <h5>CSI pour réinscription en année</h5>
     <input type="number" readonly class="form-control" name="PhD_CSI_Annee" min="2" max="8" step="1" id="PhD_CSI_Annee" value="<?php echo intval(substr($defense["niveau_Etud"], 0, 1)) + 1; ?>">
     <h4>Composition du comité de suivi individuel</h4>
-    <input type="hidden" name="CSI_Membre_Nombre" value="<?php echo count($defense["csi"]);?>"/>
+    
     <?php 
     if ($report_read_only == true){
         $max=$report["CSI_Membre_Nombre"];
     }else{
         $max=count($defense["csi"]);
     }
+    ?>
+    <input type="hidden" name="CSI_Membre_Nombre" value="<?php echo $max;?>"/>
+    <?php
     for ($i = 0; $i < $max; $i = $i + 1) { ?>
+
         <h5>Membre n°<?php echo $i + 1; ?></h5>
         <h6>Nom</h6>
         <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_Nom" id="CSI_Membre_<?php echo $i + 1; ?>_Nom" readonly value="<?php echo $defense["csi"][$i]["nom"]; ?>">
