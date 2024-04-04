@@ -1,5 +1,6 @@
 <?php
 include "lang.php";
+$url="https://doctorat.u-bordeaux.fr/%21drafts/4211?code=";
 ?>
 
 <table id="mailing" class="display">
@@ -21,9 +22,9 @@ include "lang.php";
             <td><?php echo $student["Matricule_etudiant"]; ?></td>
             <td><?php echo $student["nom"]; ?></td>
             <td><?php echo $student["prenom"]; ?></td>
-            <td><i class="fas fa-link csi-link" url="<?php echo htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
-            <td><i class="fas fa-link csi-link" url="<?php echo htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
-            <td><i class="fas fa-link csi-link" url="<?php echo htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
+            <td><i class="fas fa-link csi-link" url="<?php echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
+            <td><i class="fas fa-link csi-link" url="<?php echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
+            <td><i class="fas fa-link csi-link" url="<?php echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
             </tr>
         <?php  } ?>
     </tbody>
@@ -51,6 +52,7 @@ include "lang.php";
                 tempTextarea.val(textToCopy).select();
                 document.execCommand('copy');
                 tempTextarea.remove();
+                alert("Le lien a bien été copié.");
             });
 
         });
