@@ -1,7 +1,7 @@
 <?php
 $translation = array();
 $translation['ID'] = 'ID';
-$translation['bID'] = 'bID';
+$translation['ed'] = 'ED';
 $translation['PhD_Link'] = 'Lien pour le.la doctorant.e';
 $translation['DT_Link'] = 'Lien pour la direction de thèse';
 $translation['CSI_Link'] = 'Lien pour les membres du CSI';
