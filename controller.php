@@ -458,6 +458,7 @@ class Controller extends BlockController
         $report_headers = $statement->fetchAll(); //print_r($rows);
 
         $statement = $db->executeQuery('SELECT * FROM `'.$type.'Report` WHERE bID='.$this->bID.';');
+        echo $statement;
         $report_data = $statement->fetchAll(); //print_r($rows);
         include("admin-".$type."-report.php");
         exit;
