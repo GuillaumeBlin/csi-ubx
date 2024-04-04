@@ -122,7 +122,7 @@ class Controller extends BlockController
     {
         $students = $this->retrieve_json();
         $students = $students["data"][0];
-        foreach ($students as &$value) {
+        foreach ($students as &$value) {            
             $value = $this->array_extract($value, [
                 "Matricule_etudiant",
                 "nom",

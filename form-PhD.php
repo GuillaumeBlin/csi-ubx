@@ -89,42 +89,42 @@
     <h5>CSI pour réinscription en année</h5>
     <input type="number" readonly class="form-control" name="PhD_CSI_Annee" min="2" max="8" step="1" id="PhD_CSI_Annee" value="<?php echo intval(substr($defense["niveau_Etud"], 0, 1)) + 1; ?>">
     <h4>Composition du comité de suivi individuel</h4>
-    <?php for($i=0;$i<count($defense["csi"]);$i=$i+1){ ?>
-    <h5>Membre n°<?php echo $i+1;?></h5>    
-    <h6>Nom</h6>
-    <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i+1;?>_Nom" id="CSI_Membre_<?php echo $i+1;?>_Nom" readonly value="<?php echo $defense["csi"][$i]["nom"]; ?>">
-    <h6>Prénom</h6>
-    <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i+1;?>_Prenom" id="CSI_Membre_<?php echo $i+1;?>_Prenom" readonly value="<?php echo $defense["csi"][$i]["prenom"]; ?>">
-    <h6>Unité de recherche/établissement</h6>
-    <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i+1;?>_UMR" id="CSI_Membre_<?php echo $i+1;?>_UMR">
-    <h6>Adresse mail</h6>
-    <input type="email" class="form-control" readonly name="CSI_Membre_<?php echo $i+1;?>_mail" id="CSI_Membre_<?php echo $i+1;?>_mail" readonly value="<?php echo $defense["csi"][$i]["mail"]; ?>">
-    <h6>Référent</h6>
-    <div>
-        <input name="CSI_Referent" readonly value="<?php echo $i+1;?>" type="radio" <?php if ($defense["csi"][$i]["referent"] == "oui") {
-                                                                                                        echo "checked";
-                                                                                                    } ?>>
-        <label>Référent</label>
-    </div>
-    <h6>Qualité</h6>
-    <div>
-        <input name="CSI_Membre_<?php echo $i+1;?>_qualite" readonly value="Spécialiste du domaine de la thèse" type="radio" <?php if ($defense["csi"][$i]["membre_specialiste"] == "oui") {
-                                                                                                        echo "checked";
-                                                                                                    } ?>>
-        <label>Spécialiste du domaine de la thèse</label>
-    </div>
-    <div>
-        <input name="CSI_Membre_<?php echo $i+1;?>_qualite" readonly value="Non spécialiste externe au domaine de la thèse" type="radio" <?php if ($defense["csi"][$i]["membre_non_specialiste"] == "oui") {
-                                                                                                                    echo "checked";
-                                                                                                                } ?>>
-        <label>Non spécialiste externe au domaine de la thèse</label>
-    </div>
-    <div>
-        <input name="CSI_Membre_<?php echo $i+1;?>_qualite" readonly value="Membre extérieur à l'établissement" type="radio" <?php if ($defense["csi"][$i]["membre_exterieur"] == "oui") {
-                                                                                                        echo "checked";
-                                                                                                    } ?>>
-        <label>Membre extérieur à l'établissement</label>
-    </div>
+    <?php for ($i = 0; $i < count($defense["csi"]); $i = $i + 1) { ?>
+        <h5>Membre n°<?php echo $i + 1; ?></h5>
+        <h6>Nom</h6>
+        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_Nom" id="CSI_Membre_<?php echo $i + 1; ?>_Nom" readonly value="<?php echo $defense["csi"][$i]["nom"]; ?>">
+        <h6>Prénom</h6>
+        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_Prenom" id="CSI_Membre_<?php echo $i + 1; ?>_Prenom" readonly value="<?php echo $defense["csi"][$i]["prenom"]; ?>">
+        <h6>Unité de recherche/établissement</h6>
+        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_UMR" id="CSI_Membre_<?php echo $i + 1; ?>_UMR">
+        <h6>Adresse mail</h6>
+        <input type="email" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_mail" id="CSI_Membre_<?php echo $i + 1; ?>_mail" readonly value="<?php echo $defense["csi"][$i]["mail"]; ?>">
+        <h6>Référent</h6>
+        <div>
+            <input name="CSI_Referent_<?php echo $i + 1; ?>" disabled value="<?php echo $i + 1; ?>" type="radio" <?php if ($defense["csi"][$i]["referent"] == "oui") {
+                                                                                            echo "checked";
+                                                                                        } ?>>
+            <label>Référent</label>
+        </div>
+        <h6>Qualité</h6>
+        <div>
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_qualite" disabled value="Spécialiste du domaine de la thèse" type="radio" <?php if ($defense["csi"][$i]["membre_specialiste"] == "oui") {
+                                                                                                                                        echo "checked";
+                                                                                                                                    } ?>>
+            <label>Spécialiste du domaine de la thèse</label>
+        </div>
+        <div>
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_qualite" disabled value="Non spécialiste externe au domaine de la thèse" type="radio" <?php if ($defense["csi"][$i]["membre_non_specialiste"] == "oui") {
+                                                                                                                                                    echo "checked";
+                                                                                                                                                } ?>>
+            <label>Non spécialiste externe au domaine de la thèse</label>
+        </div>
+        <div>
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_qualite" disabled value="Membre extérieur à l'établissement" type="radio" <?php if ($defense["csi"][$i]["membre_exterieur"] == "oui") {
+                                                                                                                                        echo "checked";
+                                                                                                                                    } ?>>
+            <label>Membre extérieur à l'établissement</label>
+        </div>
     <?php } ?>
     <h3>Bilan annuel avec la direction de thèse</h3>
     <h5>Fréquence des contacts avec la direction de thèse (en dehors des courriers électroniques)</h5>

@@ -91,6 +91,9 @@
 		<field name="CSI_Membre_1_mail" type="text">
 			<default value="" />
 		</field>
+		<field name="CSI_Referent_1" type="text">
+			<default value="" />
+		</field>
 		<field name="CSI_Membre_1_qualite" type="text">
 			<default value="" />
 		</field>
@@ -104,6 +107,9 @@
 			<default value="" />
 		</field>
 		<field name="CSI_Membre_2_mail" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Referent_2" type="text">
 			<default value="" />
 		</field>
 		<field name="CSI_Membre_2_qualite" type="text">
@@ -121,7 +127,46 @@
 		<field name="CSI_Membre_3_mail" type="text">
 			<default value="" />
 		</field>
+		<field name="CSI_Referent_3" type="text">
+			<default value="" />
+		</field>
 		<field name="CSI_Membre_3_qualite" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Membre_4_Nom" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Membre_4_Prenom" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Membre_4_UMR" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Membre_4_mail" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Referent_4" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Membre_4_qualite" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Membre_5_Nom" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Membre_5_Prenom" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Membre_5_UMR" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Membre_5_mail" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Referent_5" type="text">
+			<default value="" />
+		</field>
+		<field name="CSI_Membre_5_qualite" type="text">
 			<default value="" />
 		</field>
 		<field name="Freq_Contact_DT" type="text">
