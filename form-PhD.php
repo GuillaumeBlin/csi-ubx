@@ -1,5 +1,5 @@
 <form id="csi" action="<?php echo str_replace("/load_user/", "/form_save_PhDReport/", $_SERVER['REQUEST_URI']); ?>" method="POST">
-
+    <input type="hidden" name="ed" id="ed" value="<?php echo $defense["these_ED_code"]; ?>"/>
     <h3>Informations générales</h3>
     <h4>La doctorante ou le doctorant</h4>
     <h5>Nom</h5>

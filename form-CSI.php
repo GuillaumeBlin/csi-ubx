@@ -1,5 +1,6 @@
 <form id="csi" <?php if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_CSIReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <?php } ?>>
-    <h3>L’entretien</h3>
+<input type="hidden" name="ed" id="ed" value="<?php echo $defense["these_ED_code"]; ?>"/>    
+<h3>L’entretien</h3>
     <h4>Date de l’entretien </h4>
     <input type="date" class="form-control" name="Date_Entretrien">
     <h4>Modalités de l’entretien </h4>

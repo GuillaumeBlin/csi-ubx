@@ -193,6 +193,7 @@ class Controller extends BlockController
                         "civilite",
                         "nom",
                         "prenom",
+                        "these_ED_code",
                         "mail_principal",
                         "mail_secondaire",
                         "niveau_Etud",
@@ -429,7 +430,7 @@ class Controller extends BlockController
 
         $sql = 'INSERT INTO `'.$type.'Report` ( ' . $fields . ')VALUES (' . $values . ');';
         $report["Matricule"] = intval($mat);
-        $report["ed"] = $this->ed;
+        $report["ed"] = $report["ed"];
         $statement = $db->executeQuery($sql, array_values($report));
         $userPage = preg_replace("%/form_save_".$type."Report/\d+%", "/", $_SERVER['REQUEST_URI']);
         $this->redirect($userPage);
