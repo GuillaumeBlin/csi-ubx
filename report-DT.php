@@ -1,129 +1,66 @@
+<script type="text/javascript" src="/concrete/js/jquery.js"></script>
 <link href="/application/files/cache/css/ub_tiers/main.css" rel="stylesheet" type="text/css" media="all">
 
+<style type="text/css">
+.print-content {    
+  display: none !important;
+}
+        @media print {
+             *{
+                font-size: 1em!important;
+             }
+             .print-content {
+                display: block !important;
+            }
+            textarea {display: none !important;}
+             h1{
+                font-size: 2em!important;
+             }
+             h3{
+                page-break-before: always;
+                font-size: 1.5em!important;
+             }
+             h3:first-of-type{
+                page-break-before: avoid;
+             }
+            h3::before {
+                content: ''!important;
+                position: absolute!important;
+                top: 0!important;
+                left: 0!important;
+                width: 2px!important;
+                height: 28px!important;
+                border-radius: 1px!important;
+                background: blue!important;
+                transform-origin: 0 100%!important;
+                transform: translateY(2px) rotate(30deg)!important;
+            }
+             h4{
+                font-size: 1.3em!important;
+                text-transform:none!important;
+                
+             }
+             h5{
+                margin-top: 5px!important;
+                margin-bottom: 1px!important;
+             }
+             input[type="text"],input[type="date"],input[type="number"]{
+                height: 0px!important;
+             }
 
-<div id="report-dt">
-    <h1>Rapport annuel de la direction de thèse</h1>
-    <h3>Informations générales</h3>
-    <h4>La doctorante ou le doctorant</h4>
-    <h5>Nom</h5>
-    <?php echo $report["PhD_Nom"]; ?>
-    <h5>Prénom</h5>
-    <?php echo $report["PhD_Prenom"]; ?>
-    <h5>Email dans ADUM</h5>
-    <?php echo $report["PhD_Mail"]; ?>
-    <h5>Spécialité</h5>
-    <?php echo $report["PhD_Specialite"]; ?>
-    <h5>Unité de recherche</h5>
-    <?php echo $report["PhD_UMR"]; ?>
-    <h4>La thèse</h4>
-    <h5>Nom direction de thèse</h5>
-    <?php echo $report["DT_Nom"]; ?>
-    <h5>Prénom direction de thèse</h5>
-    <?php echo $report["DT_Prenom"]; ?>
-    <h5>Nom co-direction de thèse</h5>
-    <?php echo $report["CODT_Nom"]; ?>
-    <h5>Prénom co-direction de thèse</h5>
-    <?php echo $report["CODT_Prenom"]; ?>
-    <h5>Date de début de thèse</h5>
-    <?php echo $report["PhD_DateDebutThese"]; ?>
+        }
+    </style>
 
-    <h4>Année du CSI</h4>
-    <h5>CSI pour réinscription en année</h5>
-    <?php echo $report["PhD_CSI_Annee"]; ?>
-
-    <h3>Bilan annuel sur le déroulement de la thèse</h3>
-    <p>Donner votre avis personnel sur les points suivants&nbsp;</p>
-    <h5>Compétences techniques (maîtrise les outils)</h5>
-    <?php echo $report["CompetencesTechniques"]; ?>
-
-    <h5>Compétences scientifiques (maîtrise les fondamentaux de sa discipline) </h5>
-    <?php echo $report["CompetencesScientifiques"]; ?>
-
-    <h5>Autonomie (sait trouver seul l'information ou des solutions) </h5>
-    <?php echo $report["Autonomie"]; ?>
-    <h5>Sait mobiliser de manière efficace la bibliographie (recherche complète et synthèse)</h5>
-    <?php echo $report["Bibliographie"]; ?>
-
-    <h5>Capacité d'initiative (propose des solutions ou des réorientations)</h5>
-    <?php echo $report["Initiative"]; ?>
-
-    <h5>Capacité d'adaptation (prend rapidement en main les nouveaux outils) </h5>
-    <?php echo $report["Adaptation"]; ?>
-
-    <h5>Aptitude à rédiger des documents de synthèse </h5>
-    <?php echo $report["Redaction"]; ?>
-
-    <h5>Aptitude à présenter ses travaux de recherche </h5>
-    <?php echo $report["Presentation"]; ?>
-
-    <h5>Aptitude à structurer sa réflexion </h5>
-    <?php echo $report["Reflexion"]; ?>
-
-    <h5>Assiduité (ponctualité, présence) </h5>
-    <?php echo $report["Assiduite"]; ?>
-
-    <h5>Interaction avec l'encadrement (sollicite à bon escient) </h5>
-    <?php echo $report["Interaction"]; ?>
-
-    <h5>Intégration dans l'équipe/le laboratoire (interagit avec les chercheurs et les doctorants</h5>
-    <?php echo $report["Integration"]; ?>
-
-    <h3>Bilan annuel sur l'avancement de la thèse</h3>
-    <h5>Avancement</h5>
-    <?php echo $report["Progression"]; ?>
-
-    <h5>Argumentaire</h5>
-    <p><?php echo $report["ArgumentaireProgression"]; ?></p>
-
-    <!-- 2eme année-->
-    <h5>Echéancier</h5>
-    <?php if ($report["SoutenanceDansDelais"] != "") { ?>
-        <div>
-            <label>L'état d'avancement global des travaux vous permet-il d'envisager une soutenance dans les délais</label>
-            <span>
-                <?php echo $report["SoutenanceDansDelais"]; ?>
-            </span>
-        </div>
-    <?php } ?>
-    <!-- 3eme année-->
-
-    <?php if ($report["Echeancier"] != "") { ?>
-        <div>
-            <label>Echéancier de fin de thèse</label>
-            <p><?php echo $report["Echeancier"]; ?></p>
-        </div>
-        <div>
-            <label>Date prévue pour la soutenance de thèse</label>
-            <?php echo $report["DateSoutenance"]; ?>
-        </div>
-        <h5>Inscription dérogatoire</h5>
-        <div><label>Une inscription dérogatoire en 4ème année ou plus est-elle envisagée ?</label>
-            <span>
-                <?php echo $report["InscriptionDerogatoire"]; ?>
-            </span>
-        </div>
-        <div id="InscriptionDerogatoire"><label>Un financement est-il prévu jusqu'à la soutenance de thèse ?</label>
-            <span>
-                <?php echo $report["Financement"]; ?>
-            </span>
-
-            <div>
-                <label>Si oui, préciser </label>
-                <?php echo $report["FinancementDetails"]; ?>
-
+<div class="std-page">
+    <div class="wrapper">
+        <main id="content-main" class="std-page-main std-content">
+            <div class="std-page-main-inner">
+                <h1>Rapport annuel de la direction de thèse</h1>
+<?php 
+$report_read_only=true;
+include('form-DT.php');
+?>
             </div>
-        </div>
-    <?php } ?>
-
-    <h3>Avis sur la réinscription en thèse</h3>
-    <h5>Avis</h5>
-    <?php echo $report["Reinscription"]; ?>
-    <h5>Argumentaire</h5>
-
-    <p><?php echo $report["AvisReinscription"]; ?></p>
-
-    <h5>Date de l'établissement du rapport</h5>
-    <?php echo $report["DateRapport"]; ?>
-
-
+        </main>
+    </div>            
 </div>

@@ -1,5 +1,5 @@
 <form id="csi" action="<?php echo str_replace("/load_user/", "/form_save_PhDReport/", $_SERVER['REQUEST_URI']); ?>" method="POST">
-    <input type="hidden" name="ed" id="ed" value="<?php echo $defense["these_ED_code"]; ?>"/>
+    <input type="hidden" name="ed" id="ed" value="<?php echo $defense["these_ED_code"]; ?>" />
     <h3>Informations générales</h3>
     <h4>La doctorante ou le doctorant</h4>
     <h5>Nom</h5>
@@ -317,6 +317,41 @@
     </div>
 </form>
 <script>
+    <?php if ($report_read_only == true) {
+
+        foreach ($report as $k => $v) {
+            echo "$('input[type=date][name=" . $k . "]').val('" . addslashes($v) . "');";
+            echo "$('input[type=text][name=" . $k . "]').val('" . addslashes($v) . "');";
+            echo "var t= $('textarea[name=" . $k . "]'); t.val('" . addslashes($v) . "');";
+    ?>
+            if (t.length > 0) {
+                t.height("");
+                var x = t.prop('scrollHeight');
+                x = x + 10;
+                t.height(x + "px");
+            };
+
+
+            <?php
+            echo "var j=$('input[type=radio][name=" . $k . "][value=\"" . addslashes($v) . "\"]');";
+            //echo "$('input[name=".$k."]').val('".addslashes($v)."').prop('checked', true);";
+            ?>
+            j.prop('checked', true);
+        <?php
+        }
+        ?>
+        window.onbeforeprint = function() {
+            $('.print-content').remove();
+            $('textarea').each(function() {
+                var text = $(this).val();
+                $(this).after('<p class="well print-content">' + text + '</p>');
+            });
+        }
+        $("#csi :input").attr("disabled", true);
+    <?php
+
+    }
+    ?>
     $("input[type=radio][name=PhD_ExtraActivite]").on("change", function() {
         if (this.value == 'Oui') {
             $("#PhD_ExtraActivite_NbH_div").show();
