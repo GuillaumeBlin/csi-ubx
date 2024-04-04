@@ -66,7 +66,15 @@ if ($admin == 'True') {
   </script>
 <?php
 } else {
-  $actionURL = str_replace('&amp;', '&', $this->action('load_user')) . "?code=" . $_GET["code"];
+
+
+  if(isset($_GET['code'])){
+    $actionURL = str_replace('&amp;', '&', $this->action('load_user')) . "?code=" . $_GET["code"];
+  }
+
+  if(isset($_GET['ine'])){
+    $actionURL = str_replace('&amp;', '&', $this->action('display_links')) . "?ine=" . $_GET["ine"];
+  }
 ?>
   <div id="csi-display-<?php echo $bID; ?>">
     <div class="d-flex align-items-center">

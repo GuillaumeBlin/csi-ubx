@@ -281,7 +281,7 @@ Best
         $mh->setBody($body);
         $mh->to('lemail2guillaume@gmail.com');
         $mh->from('noreply@u-bordeaux.fr');
-        $mh->sendMail();
+        //$mh->sendMail();
         print($body);
         exit;
     }
@@ -330,6 +330,63 @@ Best
         } else {
             echo 'Invalid request';
         }
+        exit;
+    }
+
+    public function action_display_links($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }
+        $ine=$_REQUEST["ine"];
+        $students = $this->retrieve_json();
+        $students = $students["data"][0];
+        $student = "";
+        foreach ($students as $value) {
+            //if ($value["INE"] == $ine) {
+            if ($value["Matricule_etudiant"] == $ine) {
+                $student = $this->array_extract($value, [
+                    "Matricule_etudiant",
+                    "nom",
+                    "prenom",
+                    "these_codirecteur_these_nom",
+                    "these_codirecteur_these_prenom",
+                    "these_codirecteur_these_mail",
+                    "these_directeur_these_nom",
+                    "these_directeur_these_prenom",
+                    "these_directeur_these_mail",
+                    "csi"
+                ]);
+                break;
+            }
+        }
+        if (!$student) {
+            echo "Invalid request";
+        } else {
+            
+            $csiNames = '';
+            $csiMails = '';
+            foreach ($student["csi"] as $m) {
+                $csiNames = $csiNames . " " . $m["prenom"] . " " . $m["nom"] . ",";
+                $csiMails = $csiMails . " " . $m["mail"] . ",";
+            }
+            $csiNames = rtrim($csiNames, ',');
+            $csiMails = rtrim($csiMails, ',');
+            
+            echo "<p>Voici les liens pour remplir les 3 parties du rapport de votre CSI. Il vous faut transmettre les liens correspondants aux différents membres en cliquant sur les avions en papier.</p>";
+            echo "<ul>";
+            echo "<li>Lien pour remplir la partie qui vous est propre :  ";
+            echo htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD")));
+            echo "</li>";
+            echo "<li>Lien à destination de votre direction de thèse (".$student["these_directeur_these_prenom"] . ' ' . $student["these_directeur_these_nom"]." - ".$student["these_directeur_these_mail"].") :  ";
+            echo htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT")));
+            echo "</li>";
+            echo "<li>Lien à destination du référent de votre CSI (".$csiNames." - ".$csiMails.") :";
+            echo htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI")));
+            echo "</li>";
+            echo "</ul>";
+        }
+
         exit;
     }
 
