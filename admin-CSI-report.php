@@ -81,7 +81,7 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                             {
                                 text: '<i class="far fa-trash-alt"></i>',
                                 titleAttr: 'Supprimer les lignes sélectionnées',
-                                name: 'report-csi_button'
+                                className: 'report-csi_button'
                             },
                             {
                                 extend: 'spacer',
