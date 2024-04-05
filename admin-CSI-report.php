@@ -66,6 +66,11 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                         visible: false
                     }
                 ],
+                layout: {
+                    topStart: {
+                        buttons: ['csv', 'excel','selectNone','selectAll']
+                    }
+                },
                 select: {
                     style: 'multi+shift'
                 }
