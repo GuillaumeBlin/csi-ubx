@@ -74,7 +74,8 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                         alert('Button activated');
                     }
                 },
-                {extend: 'csv', filename='Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } }, {extend: 'excel', filename='Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } },'selectNone','selectAll']
+                {extend: 'csv', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } },
+                 {extend: 'excel', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } },'selectNone','selectAll']
                     }
                 },
                 select: {
