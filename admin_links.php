@@ -31,11 +31,7 @@ $url="https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?code=";
 </table>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
-        function csiLink(e){
+    function csiLink(e){
             var textToCopy = e.attributes['url'].value;
             var tempTextarea = $('<textarea>');
             $('body').append(tempTextarea);
@@ -44,6 +40,11 @@ $url="https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?code=";
             tempTextarea.remove();
             alert("Le lien a bien été copié.");
         }
+    $(document).ready(function() {
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        
 
         sleep(0).then(() => {
             const table = new DataTable('#mailing', {
