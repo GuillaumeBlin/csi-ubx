@@ -68,25 +68,50 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                 ],
                 layout: {
                     topStart: {
-                        buttons: [
-                            {extend:'selectAll',text:'Tout sélectionner',titleAttr: 'Sélectionner toutes les lignes'},
-                            {extend:'selectNone',text:'Ne rien sélectionner',titleAttr: 'Sélectionner aucune ligne'},
+                        buttons: [{
+                                extend: 'selectAll',
+                                text: 'Tout sélectionner',
+                                titleAttr: 'Sélectionner toutes les lignes'
+                            },
+                            {
+                                extend: 'selectNone',
+                                text: 'Ne rien sélectionner',
+                                titleAttr: 'Sélectionner aucune ligne'
+                            },
                             {
                                 text: '<i class="far fa-trash-alt"></i>',
                                 titleAttr: 'Supprimer les lignes sélectionnées',
-                                    action: function (e, dt, node, config) {
-                                        alert('Button activated');
-                                    }
-                                },
-                            
-                            
+                                name: 'report-csi_button'
+                            },
                             {
-                    extend: 'spacer',
-                    style: 'bar'
-                },
-                            {extend: 'csv', titleAttr: 'Export en CSV', text:'<i class="fas fa-file-csv"></i>', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } },
-                            {extend: 'excel', titleAttr: 'Export en Excel', text:'<i class="far fa-file-excel"></i>',filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } }
-                        
+                                extend: 'spacer',
+                                style: 'bar'
+                            },
+                            {
+                                extend: 'csv',
+                                titleAttr: 'Export en CSV',
+                                text: '<i class="fas fa-file-csv"></i>',
+                                filename: 'Rapports-CSI',
+                                exportOptions: {
+                                    modifier: {
+                                        page: 'all',
+                                        search: 'none'
+                                    }
+                                }
+                            },
+                            {
+                                extend: 'excel',
+                                titleAttr: 'Export en Excel',
+                                text: '<i class="far fa-file-excel"></i>',
+                                filename: 'Rapports-CSI',
+                                exportOptions: {
+                                    modifier: {
+                                        page: 'all',
+                                        search: 'none'
+                                    }
+                                }
+                            }
+
                         ]
                     }
                 },
@@ -97,7 +122,7 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
 
             // Array to track the ids of the details displayed rows
             const detailRows = [];
-            $("#report-csi_button").on("click", function() {
+            $(".report-csi_button").on("click", function() {
                 ids = table.rows({
                     selected: true
                 }).data();
