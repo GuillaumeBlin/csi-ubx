@@ -72,3 +72,5 @@ $translation["Financement"] = 'Financement';
 $translation["FinancementDetails"] = 'Détails sur le financement';
 $translation["Reinscription"] = 'Réinscription';
 $translation["AvisReinscription"] = 'Avis sur la réinscription';
+
+$translation["ResumeAvancement"]='Résumé de l\'avancement';
