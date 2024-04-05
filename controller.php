@@ -95,7 +95,8 @@ class Controller extends BlockController
     {
         include('form-DT.php');
         echo "<script>
-                $('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');";
+                $('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');
+                $('.std-page-main-inner > h1').after('<h2>A adresser obligatoirement aux membres du CSI avant l’entretien.</h2>');";
         echo "</script>";
         return;
     }
