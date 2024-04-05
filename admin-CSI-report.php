@@ -69,7 +69,7 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                 layout: {
                     topStart: {
                         buttons: [{
-                    text: '\u1F5D1',
+                    text: '<i class="fa-regular fa-trash-can"></i>',
                     action: function (e, dt, node, config) {
                         alert('Button activated');
                     }
