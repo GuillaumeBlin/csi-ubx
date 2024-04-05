@@ -4,8 +4,6 @@ $actionRemoveCSIReport = str_replace("/load_admin_CSI/", "/admin_remove_csi_repo
 $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SERVER['REQUEST_URI']);
 ?>
 
-<p><button id="report-csi_button">Supprimer les lignes sélectionnées</button></p>
-
 <table id="report-csi" class="display">
     <thead>
         <tr>
@@ -58,7 +56,7 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
         sleep(0).then(() => {
             const table = new DataTable('#report-csi', {
                 columnDefs: [{
-                        targets: [0, 1, 4, 5, 6, 10, 11, 38],
+                        targets: [0, 1, 4, 8, 9, 10, 11, 43],
                         visible: true
                     },
                     {
