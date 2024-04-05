@@ -224,7 +224,7 @@
         </span>
     </div>
     <div id="#DateSoutenance">
-        <label>Date prévue pour la soutenance de thèse</label>
+        <label>Si oui, date prévue pour la soutenance de thèse</label>
         <input type="date" class="form-control" name="DateSoutenance">
     </div>
 
