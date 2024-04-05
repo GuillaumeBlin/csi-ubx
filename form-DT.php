@@ -212,7 +212,7 @@
     <!-- 2eme année-->
 
 
-    <div <?php if (intval(substr($defense["niveau_Etud"], 0, 1)) == 2) {
+    <div <?php if (intval(substr($defense["niveau_Etud"], 0, 1)) > 2) {
                 echo 'style="display:none"';
             } ?>><label>L'état d'avancement global des travaux vous permet-il d'envisager une soutenance dans les délais</label>
         <span>
@@ -227,7 +227,7 @@
 
     <!-- 3eme année-->
 
-    <div <?php if (intval(substr($defense["niveau_Etud"], 0, 1)) >= 3) {
+    <div <?php if (intval(substr($defense["niveau_Etud"], 0, 1)) < 3) {
                 echo 'style="display:none"';
             } ?>>
         <div>
