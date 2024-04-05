@@ -33,7 +33,6 @@
 		<field name="PhD_Nom" type="text">
 			<default value="" />
 		</field>
-
 		<field name="PhD_Prenom" type="text">
 			<default value="" />
 		</field>
@@ -341,8 +340,6 @@
 		<field name="Date_Entretrien" type="text">
 			<default value="" />
 		</field>
-
-
 		<field name="ModalitesEntretien" type="text">
 			<default value="" />
 		</field>

@@ -4,8 +4,6 @@ $actionRemovePhDReport = str_replace("/load_admin_PhD/", "/admin_remove_phd_repo
 $actionShowPhDReport = str_replace("/load_admin_PhD/", "/show_PhDReport/", $_SERVER['REQUEST_URI']);
 ?>
 
-<p><button id="report-phd_button">Supprimer les lignes sélectionnées</button></p>
-
 <table id="report-phd" class="display">
     <thead>
         <tr>
@@ -66,6 +64,55 @@ $actionShowPhDReport = str_replace("/load_admin_PhD/", "/show_PhDReport/", $_SER
                         visible: false
                     }
                 ],
+                layout: {
+                    topStart: {
+                        buttons: [{
+                                extend: 'selectAll',
+                                text: 'Tout sélectionner',
+                                titleAttr: 'Sélectionner toutes les lignes'
+                            },
+                            {
+                                extend: 'selectNone',
+                                text: 'Ne rien sélectionner',
+                                titleAttr: 'Sélectionner aucune ligne'
+                            },
+                            {
+                                text: '<i class="far fa-trash-alt"></i>',
+                                titleAttr: 'Supprimer les lignes sélectionnées',
+                                className: 'report-phd_button'
+                            },
+                            {
+                                extend: 'spacer',
+                                style: 'bar'
+                            },
+                            {
+                                extend: 'csv',
+                                titleAttr: 'Export en CSV',
+                                text: '<i class="fas fa-file-csv"></i>',
+                                filename: 'Rapports-PhD',
+                                exportOptions: {
+                                    modifier: {
+                                        page: 'all',
+                                        search: 'none'
+                                    }
+                                }
+                            },
+                            {
+                                extend: 'excel',
+                                titleAttr: 'Export en Excel',
+                                text: '<i class="far fa-file-excel"></i>',
+                                filename: 'Rapports-PhD',
+                                exportOptions: {
+                                    modifier: {
+                                        page: 'all',
+                                        search: 'none'
+                                    }
+                                }
+                            }
+
+                        ]
+                    }
+                },
                 select: {
                     style: 'multi+shift'
                 }
@@ -73,7 +120,7 @@ $actionShowPhDReport = str_replace("/load_admin_PhD/", "/show_PhDReport/", $_SER
 
             // Array to track the ids of the details displayed rows
             const detailRows = [];
-            $("#report-phd_button").on("click", function() {
+            $(".report-phd_button").on("click", function() {
                 ids = table.rows({
                     selected: true
                 }).data();

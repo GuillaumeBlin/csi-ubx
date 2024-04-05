@@ -4,8 +4,6 @@ $actionRemoveDTReport = str_replace("/load_admin_DT/", "/admin_remove_dt_report/
 $actionShowDTReport = str_replace("/load_admin_DT/", "/show_DTReport/", $_SERVER['REQUEST_URI']);
 ?>
 
-<p><button id="report-dt_button">Supprimer les lignes sélectionnées</button></p>
-
 <table id="report-dt" class="display">
     <thead>
         <tr>
@@ -66,6 +64,55 @@ $actionShowDTReport = str_replace("/load_admin_DT/", "/show_DTReport/", $_SERVER
                         visible: false
                     }
                 ],
+                layout: {
+                    topStart: {
+                        buttons: [{
+                                extend: 'selectAll',
+                                text: 'Tout sélectionner',
+                                titleAttr: 'Sélectionner toutes les lignes'
+                            },
+                            {
+                                extend: 'selectNone',
+                                text: 'Ne rien sélectionner',
+                                titleAttr: 'Sélectionner aucune ligne'
+                            },
+                            {
+                                text: '<i class="far fa-trash-alt"></i>',
+                                titleAttr: 'Supprimer les lignes sélectionnées',
+                                className: 'report-dt_button'
+                            },
+                            {
+                                extend: 'spacer',
+                                style: 'bar'
+                            },
+                            {
+                                extend: 'csv',
+                                titleAttr: 'Export en CSV',
+                                text: '<i class="fas fa-file-csv"></i>',
+                                filename: 'Rapports-DT',
+                                exportOptions: {
+                                    modifier: {
+                                        page: 'all',
+                                        search: 'none'
+                                    }
+                                }
+                            },
+                            {
+                                extend: 'excel',
+                                titleAttr: 'Export en Excel',
+                                text: '<i class="far fa-file-excel"></i>',
+                                filename: 'Rapports-DT',
+                                exportOptions: {
+                                    modifier: {
+                                        page: 'all',
+                                        search: 'none'
+                                    }
+                                }
+                            }
+
+                        ]
+                    }
+                },
                 select: {
                     style: 'multi+shift'
                 }
@@ -73,7 +120,7 @@ $actionShowDTReport = str_replace("/load_admin_DT/", "/show_DTReport/", $_SERVER
 
             // Array to track the ids of the details displayed rows
             const detailRows = [];
-            $("#report-dt_button").on("click", function() {
+            $(".report-dt_button").on("click", function() {
                 ids = table.rows({
                     selected: true
                 }).data();
