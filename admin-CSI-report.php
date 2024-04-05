@@ -124,7 +124,7 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                 ids = table.rows({
                     selected: true
                 }).data();
-                if(confirm('Vous êtes sur le point de supprimer '+ids.lenght+' rapports. Etes-vous sûr.e de vouloir continuer ?')){
+                if(confirm('Vous êtes sur le point de supprimer '+ids.length+' rapports. Etes-vous sûr.e de vouloir continuer ?')){
 
                 $.each(ids, function(index, value) {
                     var anId = value[2];
