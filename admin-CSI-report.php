@@ -69,10 +69,11 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                 layout: {
                     topStart: {
                         buttons: [
-                            'selectAll',
-                            'selectNone',
+                            {extend:'selectAll',text:'Tout sélectionner',titleAttr: 'Sélectionner toutes les lignes'},
+                            {extend:'selectNone',text:'Ne rien sélectionner',titleAttr: 'Sélectionner aucune ligne'},
                             {
                                 text: '<i class="far fa-trash-alt"></i>',
+                                titleAttr: 'Supprimer les lignes sélectionnées',
                                     action: function (e, dt, node, config) {
                                         alert('Button activated');
                                     }
