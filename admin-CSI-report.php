@@ -68,20 +68,23 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                 ],
                 layout: {
                     topStart: {
-                        buttons: [{
+                        buttons: [
+                            'selectAll',
+                            'selectNone',
+                            {
                                 text: '<i class="far fa-trash-alt"></i>',
                                     action: function (e, dt, node, config) {
                                         alert('Button activated');
                                     }
                                 },
-                            'selectNone',
-                            'selectAll',
+                            
+                            
                             {
                     extend: 'spacer',
                     style: 'bar'
                 },
-                            {extend: 'csv', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } },
-                            {extend: 'excel', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } }
+                            {extend: 'csv', text:'<i class="far fa-file-csv"></i>', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } },
+                            {extend: 'excel', text:'<i class="far fa-file-excel"></i>',filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } }
                         
                         ]
                     }
