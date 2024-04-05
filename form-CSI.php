@@ -233,6 +233,10 @@
         <label>Favorable</label>
     </span>
     <span>
+        <input name="Reinscription" value="Favorable avec réserves" type="radio">
+        <label>Favorable avec réserves</label>
+    </span>
+    <span>
         <input name="Reinscription" value="Défavorable" type="radio">
         <label>Défavorable</label>
     </span>
