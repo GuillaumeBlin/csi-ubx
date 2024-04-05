@@ -110,7 +110,7 @@
 
     <!-- 3eme année-->
 
-    <div <?php if (intval(substr($defense["niveau_Etud"], 0, 1)) >= 3) {
+    <div <?php if (intval(substr($defense["niveau_Etud"], 0, 1)) < 3) {
                 echo 'style="display:none"';
             } ?>>
         <b>A remplir obligatoirement pour une réinscription en 3ème année ou plus</b>
