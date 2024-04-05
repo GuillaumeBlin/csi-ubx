@@ -83,8 +83,8 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                     extend: 'spacer',
                     style: 'bar'
                 },
-                            {extend: 'csv', text:'<i class="fas fa-file-csv"></i>', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } },
-                            {extend: 'excel', text:'<i class="far fa-file-excel"></i>',filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } }
+                            {extend: 'csv', titleAttr: 'Export en CSV', text:'<i class="fas fa-file-csv"></i>', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } },
+                            {extend: 'excel', titleAttr: 'Export en Excel', text:'<i class="far fa-file-excel"></i>',filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } }
                         
                         ]
                     }
