@@ -72,7 +72,7 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                             extend: 'collection',
                             text: 'Edition',
                             autoClose: true,
-                            collectionLayout:'dropdown',
+                            collectionLayout:'fixed',
                             buttons: [{
                                 text: '<i class="far fa-trash-alt"></i>',
                                     action: function (e, dt, node, config) {
@@ -86,7 +86,7 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                             extend: 'collection',
                             text: 'Export',
                             autoClose: true,
-                            collectionLayout:'dropdown',
+                            collectionLayout:'fixed',
                             buttons: [
                             {extend: 'csv', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } },
                             {extend: 'excel', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } }
