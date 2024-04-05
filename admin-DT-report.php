@@ -124,17 +124,19 @@ $actionShowDTReport = str_replace("/load_admin_DT/", "/show_DTReport/", $_SERVER
                 ids = table.rows({
                     selected: true
                 }).data();
-                $.each(ids, function(index, value) {
-                    var anId = value[2];
-                    $.post("<?php echo $actionRemoveDTReport; ?>", {
-                        id: anId
-                    }, function(data) {
-                        console.log(data);
+                if (confirm('Vous êtes sur le point de supprimer ' + ids.length + ' rapport(s). Etes-vous sûr(e) de vouloir continuer ?')) {
+                    $.each(ids, function(index, value) {
+                        var anId = value[2];
+                        $.post("<?php echo $actionRemoveDTReport; ?>", {
+                            id: anId
+                        }, function(data) {
+                            console.log(data);
+                        });
+                        table.rows({
+                            selected: true
+                        }).remove().draw(false);
                     });
-                    table.rows({
-                        selected: true
-                    }).remove().draw(false);
-                });
+                }
             });
 
             table.on('click', 'tbody td.dt-control', function() {

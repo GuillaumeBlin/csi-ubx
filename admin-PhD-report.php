@@ -56,7 +56,7 @@ $actionShowPhDReport = str_replace("/load_admin_PhD/", "/show_PhDReport/", $_SER
         sleep(0).then(() => {
             const table = new DataTable('#report-phd', {
                 columnDefs: [{
-                        targets: [0, 1, 2,4, 5, 6, 7, 63],
+                        targets: [0, 1, 2, 4, 5, 6, 7, 63],
                         visible: true
                     },
                     {
@@ -124,18 +124,19 @@ $actionShowPhDReport = str_replace("/load_admin_PhD/", "/show_PhDReport/", $_SER
                 ids = table.rows({
                     selected: true
                 }).data();
-                console.log(ids);
-                $.each(ids, function(index, value) {
-                    var anId = value[2];
-                    $.post("<?php echo $actionRemovePhDReport; ?>", {
-                        id: anId
-                    }, function(data) {
-                        console.log(data);
+                if (confirm('Vous êtes sur le point de supprimer ' + ids.length + ' rapport(s). Etes-vous sûr(e) de vouloir continuer ?')) {
+                    $.each(ids, function(index, value) {
+                        var anId = value[2];
+                        $.post("<?php echo $actionRemovePhDReport; ?>", {
+                            id: anId
+                        }, function(data) {
+                            console.log(data);
+                        });
+                        table.rows({
+                            selected: true
+                        }).remove().draw(false);
                     });
-                    table.rows({
-                        selected: true
-                    }).remove().draw(false);
-                });
+                }
             });
 
             table.on('click', 'tbody td.dt-control', function() {

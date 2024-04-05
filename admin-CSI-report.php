@@ -124,20 +124,20 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                 ids = table.rows({
                     selected: true
                 }).data();
-                if(confirm('Vous êtes sur le point de supprimer '+ids.length+' rapports. Etes-vous sûr.e de vouloir continuer ?')){
+                if (confirm('Vous êtes sur le point de supprimer ' + ids.length + ' rapport(s). Etes-vous sûr(e) de vouloir continuer ?')) {
 
-                $.each(ids, function(index, value) {
-                    var anId = value[2];
-                    $.post("<?php echo $actionRemoveCSIReport; ?>", {
-                        id: anId
-                    }, function(data) {
-                        console.log(data);
+                    $.each(ids, function(index, value) {
+                        var anId = value[2];
+                        $.post("<?php echo $actionRemoveCSIReport; ?>", {
+                            id: anId
+                        }, function(data) {
+                            console.log(data);
+                        });
+                        table.rows({
+                            selected: true
+                        }).remove().draw(false);
                     });
-                    table.rows({
-                        selected: true
-                    }).remove().draw(false);
-                });
-            }
+                }
             });
 
             table.on('click', 'tbody td.dt-control', function() {
