@@ -85,7 +85,8 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
                             text: 'Export',
                             buttons: [
                             {extend: 'csv', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } },
-                            {extend: 'excel', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } },
+                            {extend: 'excel', filename:'Rapports-CSI', exportOptions: { modifier: { page: 'all', search: 'none' } } }
+                            ]
                             }
                         ]
                     }
