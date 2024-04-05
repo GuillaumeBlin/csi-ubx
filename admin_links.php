@@ -22,9 +22,9 @@ $url="https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?code=";
             <td><?php echo $student["Matricule_etudiant"]; ?></td>
             <td><?php echo $student["nom"]; ?></td>
             <td><?php echo $student["prenom"]; ?></td>
-            <td><i class="fas fa-link csi-link" url="<?php echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
-            <td><i class="fas fa-link csi-link" url="<?php echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
-            <td><i class="fas fa-link csi-link" url="<?php echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
+            <td><i class="fas fa-link csi-link" onclick="csi-link(this);" url="<?php echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
+            <td><i class="fas fa-link csi-link" onclick="csi-link(this);" url="<?php echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
+            <td><i class="fas fa-link csi-link" onclick="csi-link(this);" url="<?php echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI"))); ?>" alt="Cliquer pour copier le lien"></i> </td>
             </tr>
         <?php  } ?>
     </tbody>
@@ -35,7 +35,15 @@ $url="https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?code=";
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
-
+        function csi-link(e){
+            var textToCopy = e.attributes['url'].value;
+            var tempTextarea = $('<textarea>');
+            $('body').append(tempTextarea);
+            tempTextarea.val(textToCopy).select();
+            document.execCommand('copy');
+            tempTextarea.remove();
+            alert("Le lien a bien été copié.");
+        }
 
         sleep(0).then(() => {
             const table = new DataTable('#mailing', {
@@ -45,7 +53,7 @@ $url="https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?code=";
                 ]
             });
 
-            $('.csi-link').click(function() {
+            /*$('.csi-link').click(function() {
                 var textToCopy = this.attributes['url'].value;
                 var tempTextarea = $('<textarea>');
                 $('body').append(tempTextarea);
@@ -53,7 +61,7 @@ $url="https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?code=";
                 document.execCommand('copy');
                 tempTextarea.remove();
                 alert("Le lien a bien été copié.");
-            });
+            });*/
 
         });
     });
