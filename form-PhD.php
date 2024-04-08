@@ -77,7 +77,7 @@
         <label>Oui</label>
     </span>
     <span>
-        <input name="PhD_ExtraActivite" value="Non" type="radio">
+        <input name="PhD_ExtraActivite" value="Non" type="radio" checked>
         <label>Non</label>
     </span>
     <div id="PhD_ExtraActivite_NbH_div">
