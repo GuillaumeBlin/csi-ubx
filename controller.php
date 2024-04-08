@@ -87,7 +87,7 @@ class Controller extends BlockController
         include('form-PhD.php');
         echo "<script>
                 $('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant ');
-                $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">Lecture réservée aux membres du CSI et à la direction de l'ED</div>');";                
+                $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">Lecture réservée aux membres du CSI et à la direction de l\'ED</div>');";                
         echo "</script>";
         return;
     }
@@ -97,7 +97,7 @@ class Controller extends BlockController
         include('form-DT.php');
         echo "<script>
                 $('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');
-                $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">A adresser obligatoirement aux membres du CSI avant l’entretien.</div>');";
+                $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
         echo "</script>";
         return;
     }
