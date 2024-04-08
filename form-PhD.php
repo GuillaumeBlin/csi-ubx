@@ -111,7 +111,7 @@
         <h6>Unité de recherche/établissement</h6>
         <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_UMR" id="CSI_Membre_<?php echo $i + 1; ?>_UMR">
         <h6>Adresse mail</h6>
-        <input type="email" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_mail" id="CSI_Membre_<?php echo $i + 1; ?>_mail" readonly value="<?php echo $defense["csi"][$i]["mail"]; ?>">
+        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_mail" id="CSI_Membre_<?php echo $i + 1; ?>_mail" readonly value="<?php echo $defense["csi"][$i]["mail"]; ?>">
         <h6>Référent</h6>
         <div>
             <input name="CSI_Referent_<?php echo $i + 1; ?>" disabled value="<?php echo $i + 1; ?>" type="radio" <?php if ($defense["csi"][$i]["referent"] == "oui") {
