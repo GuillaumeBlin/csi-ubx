@@ -17,7 +17,7 @@
     <input type="text" readonly class="form-control" name="DT_Nom" id="DT_Nom" value="<?php echo $defense["these_directeur_these_nom"]; ?>">
     <h5>Prénom direction de thèse</h5>
     <input type="text" readonly class="form-control" name="DT_Prenom" id="DT_Prenom" value="<?php echo $defense["these_directeur_these_prenom"]; ?>">
-    <?php if($defense["these_codirecteur_these_nom"]!=""){ ?>
+    <?php if(($defense["these_codirecteur_these_nom"]!="")||($report_read_only == false&&$report["CODT_Nom"]!="")){ ?>
         <h5>Nom co-direction de thèse</h5>
         <input type="text" readonly class="form-control" name="CODT_Nom" id="CODT_Nom" value="<?php echo $defense["these_codirecteur_these_nom"]; ?>">
         <h5>Prénom co-direction de thèse</h5>
@@ -64,7 +64,7 @@
                                                                         }; ?>>
         <label>Non</label>
     </span>
-    <?php if ($defense["these_cotutelle"] == "OUI") { ?>
+    <?php if(($defense["these_cotutelle"]=="OUI")||($report_read_only == false&&$report["PhD_Cotutelle"]!="")){ ?>
         <div>
             <label for="PhD_Cotutelle_Pays">Si oui, préciser le pays partenaire</label>
             <input type="text" class="form-control" readonly name="PhD_Cotutelle_Pays" id="PhD_Cotutelle_Pays" value="<?php echo $defense["these_cotutelle_pays"]; ?>">
@@ -81,13 +81,8 @@
         <input name="PhD_ExtraActivite" value="Non" type="radio" checked>
         <label>Non</label>
     </span>
-    <?php 
-    if ($report_read_only == false||$report["PhD_ExtraActivite"]=="Non"){
-        ?>
-    <div id="PhD_ExtraActivite_NbH_div" style="display:none">
-    <?php }else{?>
-    <div id="PhD_ExtraActivite_NbH_div">
-    <?php }?>
+    
+    <div id="PhD_ExtraActivite_NbH_div" <?php if ($report_read_only == false||$report["PhD_ExtraActivite"]=="Non"){ echo 'style="display:none"'; }?>>
         <label for="PhD_ExtraActivite_NbH">Si oui, nombre d’heures :</label>
         <input type="number" class="form-control" name="PhD_ExtraActivite_NbH" min="0" max="64" step="1" id="PhD_ExtraActivite_NbH">
     </div>
@@ -173,7 +168,7 @@
         <input name="Freq_Contact_DT" value="Moins d'une fois par mois" type="radio">
         <label>Moins d'une fois par mois</label>
     </span>
-    <?php if($defense["these_codirecteur_these_nom"]!=""){ ?>
+    <?php if(($defense["these_codirecteur_these_nom"]!="")||($report_read_only == false&&$report["CODT_Nom"]!="")){ ?>
     <h5>Fréquence des contacts avec la codirection de thèse</h5>
     <span>
         <input name="Freq_Contact_CODT" value="Tous les jours" type="radio">
