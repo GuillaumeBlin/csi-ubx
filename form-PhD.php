@@ -288,9 +288,9 @@
     <?php if ($report_read_only == true) {
 
         foreach ($report as $k => $v) {
-            echo "$('input[type=date][name=" . $k . "]').val('" . addslashes($v) . "');";
-            echo "$('input[type=text][name=" . $k . "]').val('" . addslashes($v) . "');";
-            echo "var t= $('textarea[name=" . $k . "]'); t.val('" . addslashes($v) . "');";
+            echo "$('input[type=date][name=" . $k . "]').val('" . addslashes(nl2br($v)) . "');";
+            echo "$('input[type=text][name=" . $k . "]').val('" . addslashes(nl2br($v)) . "');";
+            echo "var t= $('textarea[name=" . $k . "]'); t.val('" . addslashes(nl2br($v)) . "');";
     ?>
             if (t.length > 0) {
                 t.height("");
@@ -301,7 +301,7 @@
 
 
             <?php
-            echo "var j=$('input[type=radio][name=" . $k . "][value=\"" . addslashes($v) . "\"]');";
+            echo "var j=$('input[type=radio][name=" . $k . "][value=\"" . addslashes(nl2br($v)) . "\"]');";
             //echo "$('input[name=".$k."]').val('".addslashes($v)."').prop('checked', true);";
             ?>
             j.prop('checked', true);
