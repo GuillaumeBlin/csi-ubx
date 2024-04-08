@@ -45,8 +45,7 @@
     <div>
         <input name="TypeDeFinancement" value="Autre" type="radio">
         <label>Autre
-        </label>
-        <input type="text" id="TypeDeFinancementAutre" class="other-val">
+        </label>        
     </div>
     <h5>Thèse en cotutelle</h5>
     <span>
