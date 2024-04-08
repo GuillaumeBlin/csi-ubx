@@ -344,7 +344,7 @@
             $("#Financement").show();
         } else {
             $("#Financement").hide();
-            $(".FinancementDetails").text('');
+            $(".FinancementDetails").val('');
         }
 
     });
@@ -356,7 +356,7 @@
             $("#InscriptionDerogatoire").hide();
             $("#Financement").hide('');
             $(".Financement").val('Non');
-            $(".FinancementDetails").text('');
+            $(".FinancementDetails").val('');
         }
 
     });
