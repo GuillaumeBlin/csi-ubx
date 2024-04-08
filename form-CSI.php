@@ -134,6 +134,10 @@
 
         <h5>Productions scientifiques et participation à des colloques</h5>
         <textarea type="textarea" rows="5" class="form-control" name="ProductionScientifique"></textarea>
+        <div>
+            <label>Raisons d'un manque possible de publications</label>
+            <textarea type="textarea" rows="5" class="form-control" name="ProblemesProductionScientifique"></textarea>
+        </div>
 
         <h5>Expériences internationales avec mobilités < à 3 mois</h5>
                 <span>
