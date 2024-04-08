@@ -214,7 +214,7 @@
     <!-- 2eme année-->
 
 
-    <div <?php if ((intval(substr($defense["niveau_Etud"], 0, 1)) > 2)||(($report_read_only == true)&&($report["SoutenanceDansDelais"]!=""))) {
+    <div <?php if ((intval(substr($defense["niveau_Etud"], 0, 1)) > 2)||(($report_read_only == true)&&($report["SoutenanceDansDelais"]==""))) {
                 echo 'style="display:none"';
             } ?>><label>L'état d'avancement global des travaux vous permet-il d'envisager une soutenance dans les délais</label>
         <span>
@@ -229,7 +229,7 @@
 
     <!-- 3eme année-->
 
-    <div <?php if ((intval(substr($defense["niveau_Etud"], 0, 1)) < 3)||(($report_read_only == true)&&($report["Echeancier"]!=""))) {
+    <div <?php if ((intval(substr($defense["niveau_Etud"], 0, 1)) < 3)||(($report_read_only == true)&&($report["Echeancier"]==""))) {
                 echo 'style="display:none"';
             } ?>>
         <div>
