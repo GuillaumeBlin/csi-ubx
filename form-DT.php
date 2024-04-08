@@ -229,8 +229,8 @@
 
     <!-- 3eme année-->
 
-    <div <?php if ((intval(substr($defense["niveau_Etud"], 0, 1)) < 3)||(($report_read_only == true)&&($report["Echeancier"]==""))) {
-               // echo 'style="display:none"';
+    <div <?php if (($report_read_only != true)&&(intval(substr($defense["niveau_Etud"], 0, 1)) < 3)||(($report_read_only == true)&&($report["Echeancier"]==""))) {
+                echo 'style="display:none"';
             } ?>>
         <div>
             <label>Echéancier de fin de thèse</label>
