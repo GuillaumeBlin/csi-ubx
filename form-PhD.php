@@ -328,7 +328,7 @@
             $('.print-content').remove();
             $('textarea').each(function() {
                 var text = $(this).val();
-                $(this).after('<p class="well print-content">' + text + '</p>');
+                $(this).after('<pre class="well print-content">' + text + '</pre>');
             });
         }
         $("#csi :input").attr("disabled", true);
