@@ -344,7 +344,7 @@
             $("#Financement").show();
         } else {
             $("#Financement").hide();
-            $(".FinancementDetails").val('');
+            $("textarea[name=FinancementDetails]").val('');
         }
 
     });
@@ -355,8 +355,8 @@
         } else {
             $("#InscriptionDerogatoire").hide();
             $("#Financement").hide();
-            $(".Financement").val('Non');
-            $(".FinancementDetails").val('');
+            $("input[name=Financement]").val('Non');
+            $("textarea[name=FinancementDetails]").val('');
         }
 
     });
