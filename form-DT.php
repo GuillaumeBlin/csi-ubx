@@ -260,7 +260,7 @@
                 <label>Non</label>
             </span>
 
-            <div>
+            <div style="display:none">
                 <label>Si oui, préciser </label>
                 <textarea type="textarea" rows="5" class="form-control" name="FinancementDetails" id="FinancementDetails"></textarea>
             </div>
@@ -338,6 +338,8 @@
         }
 
     });
+
+    //Financement
     $("input[type=radio][name=InscriptionDerogatoire]").on("change", function() {
         if (this.value == 'Oui') {
             $("#InscriptionDerogatoire").show();
