@@ -115,7 +115,7 @@
     <div <?php if (intval(substr($defense["niveau_Etud"], 0, 1)) < 3) {
                 echo 'style="display:none"';
             } ?>>
-        <b>A remplir obligatoirement pour une réinscription en 3ème année ou plus</b>
+        <!--<b>A remplir obligatoirement pour une réinscription en 3ème année ou plus</b>-->
         <h5>La thèse pourra-t-elle a priori être soutenue au terme de l'année à venir?</h5>
         <span>
             <input name="SoutenanceAuTermeAnneeAVenir" value="Oui" type="radio">
@@ -229,7 +229,7 @@
             <label>Non</label>
         </span>
     </div>
-    <div id="#DateSoutenance">
+    <div id="#DateSoutenance" style="display:none">
         <label>Si oui, date prévue pour la soutenance de thèse</label>
         <input type="date" class="form-control" name="DateSoutenance">
     </div>
