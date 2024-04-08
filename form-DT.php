@@ -355,8 +355,8 @@
         } else {
             $("#InscriptionDerogatoire").hide();
             $("#Financement").hide();
-            //$("input[type=radio][name=Financement]").val('Non');
-            $("textarea[name=FinancementDetails]").val('');
+            $("input[type=radio][name=Financement][value='Non']").prop("checked",true);
+            //$("textarea[name=FinancementDetails]").val('');
         }
 
     });
