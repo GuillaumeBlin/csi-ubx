@@ -83,7 +83,7 @@
         <label>Non</label>
     </span>
     <?php 
-    if ($report_read_only == false||$report["PhD_ExtraActivite"]=="Oui"){
+    if ($report_read_only == false||$report["PhD_ExtraActivite"]=="Non"){
         ?>
     <div id="PhD_ExtraActivite_NbH_div" style="display:none">
     <?php }else{?>
