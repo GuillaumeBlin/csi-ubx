@@ -250,7 +250,7 @@
                 <label>Non</label>
             </span>
         </div>
-        <div id="InscriptionDerogatoire"><label>Un financement est-il prévu jusqu'à la soutenance de thèse ?</label>
+        <div id="InscriptionDerogatoire" style="display:none" ><label>Un financement est-il prévu jusqu'à la soutenance de thèse ?</label>
             <span>
                 <input name="Financement" value="Oui" type="radio">
                 <label>Oui</label>
@@ -355,7 +355,7 @@
         } else {
             $("#InscriptionDerogatoire").hide();
             $("#Financement").hide('');
-            $(".Financement").val('');
+            $(".Financement").val('Non');
             $(".FinancementDetails").val('');
         }
 
