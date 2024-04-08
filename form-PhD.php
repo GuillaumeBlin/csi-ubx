@@ -82,7 +82,13 @@
         <input name="PhD_ExtraActivite" value="Non" type="radio" checked>
         <label>Non</label>
     </span>
+    <?php 
+    if ($report_read_only == false||$report["PhD_ExtraActivite"]=="Oui"){
+        ?>
     <div id="PhD_ExtraActivite_NbH_div" style="display:none">
+    <?php }else{?>
+    <div id="PhD_ExtraActivite_NbH_div">
+    <?php }?>
         <label for="PhD_ExtraActivite_NbH">Si oui, nombre d’heures :</label>
         <input type="number" class="form-control" name="PhD_ExtraActivite_NbH" min="0" max="64" step="1" id="PhD_ExtraActivite_NbH">
     </div>
