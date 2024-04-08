@@ -17,10 +17,12 @@
     <input type="text" readonly class="form-control" name="DT_Nom" id="DT_Nom" value="<?php echo $defense["these_directeur_these_nom"]; ?>">
     <h5>Prénom direction de thèse</h5>
     <input type="text" readonly class="form-control" name="DT_Prenom" id="DT_Prenom" value="<?php echo $defense["these_directeur_these_prenom"]; ?>">
-    <h5>Nom co-direction de thèse</h5>
+    <?php if($defense["these_codirecteur_these_nom"]!=""){ ?>
+        <h5>Nom co-direction de thèse</h5>
     <input type="text" readonly class="form-control" name="CODT_Nom" id="CODT_Nom" value="<?php echo $defense["these_codirecteur_these_nom"]; ?>">
     <h5>Prénom co-direction de thèse</h5>
     <input type="text" readonly class="form-control" name="CODT_Prenom" id="CODT_Prenom" value="<?php echo $defense["these_codirecteur_these_prenom"]; ?>">
+    <?php } ?>
     <h5>Date de début de thèse</h5>
     <input type="date" class="form-control" name="PhD_DateDebutThese" readonly id="PhD_DateDebutThese" value="<?php echo date('Y-m-d', strtotime($defense["these_date_1inscription"])); ?>">
 
