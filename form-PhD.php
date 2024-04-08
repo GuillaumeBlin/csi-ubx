@@ -214,7 +214,7 @@
         <input name="Relation_Autre_EP" value="Non" type="radio">
         <label>Non</label>
     </span>
-    <div id="Relation_Autre_EP" style="display:none">
+    <div id="Relation_Autre_EP" <?php if ($report_read_only == false||$report["Relation_Autre_EP"]=="Non"){ echo 'style="display:none"'; }?>>
         <label for="Relation_Autre_EP_Details">Si oui, préciser lesquelles et si elles sont nationales ou internationales :</label>
         <textarea type="textarea" class="form-control" name="Relation_Autre_EP_Details" id="Relation_Autre_EP_Details"></textarea>
     </div>
