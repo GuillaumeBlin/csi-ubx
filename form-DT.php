@@ -354,7 +354,7 @@
             $("#InscriptionDerogatoire").show();
         } else {
             $("#InscriptionDerogatoire").hide();
-            $("#Financement").hide('');
+            $("#Financement").hide();
             $(".Financement").val('Non');
             $(".FinancementDetails").val('');
         }
