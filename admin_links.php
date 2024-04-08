@@ -8,6 +8,7 @@ $url="https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?code=";
         <tr>
             <?php
             echo "<th>" . $translation["Matricule"] . "</th>";
+            echo "<th>" . $translation["INE"] . "</th>";
             echo "<th>" . $translation["PhD_Nom"] . "</th>";
             echo "<th>" . $translation["PhD_Prenom"] . "</th>";
             echo "<th>" . $translation["PhD_Link"] . "</th>";
@@ -20,6 +21,7 @@ $url="https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?code=";
         <?php foreach ($mailing_data as $student) { ?>
             <tr>
             <td><?php echo $student["Matricule_etudiant"]; ?></td>
+            <td><?php echo $student["INE"]; ?></td>
             <td><?php echo $student["nom"]; ?></td>
             <td><?php echo $student["prenom"]; ?></td>
             <td><i class="fas fa-link csi-link" onclick="csiLink(this);" url="<?php echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD"))); ?>" alt="Cliquer pour copier le lien"></i> </td>

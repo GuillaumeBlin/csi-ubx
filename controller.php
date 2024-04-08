@@ -135,7 +135,8 @@ class Controller extends BlockController
                 "these_directeur_these_mail",
                 "these_directeur_these_nom",
                 "these_directeur_these_prenom",
-                "csi"
+                "csi",
+                "INE"
             ]);
         }
 
