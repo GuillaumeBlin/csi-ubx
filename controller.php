@@ -387,11 +387,10 @@ class Controller extends BlockController
         $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         $val = explode("-", $val);
         $mat = $val[1];
-        echo $mat;
         $db = \Database::connection();
         $statement = $db->executeQuery('SELECT * FROM `'.$type.'Report` WHERE Matricule="' . $mat . '";');
         $report_data = $statement->fetchAll();
-        $report = $report_data[0];
+        $defense = $report_data[0];
         include('report-'.$type.'.php');
         exit;
     }
