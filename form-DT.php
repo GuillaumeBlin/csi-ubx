@@ -334,7 +334,7 @@
             $("#Argumentaire").show();
         } else {
             $("#Argumentaire").hide();
-            $("#ArgumentaireProgression").text('');
+            $("#ArgumentaireProgression").val('');
         }
 
     });
