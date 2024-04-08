@@ -310,6 +310,7 @@
 
         foreach ($report as $k => $v) {
             echo "$('input[type=date][name=" . $k . "]').val('" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "');";
+            echo "$('input[type=number][name=" . $k . "]').val('" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "');";
             echo "$('input[type=text][name=" . $k . "]').val('" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "');";
             echo "var t= $('textarea[name=" . $k . "]'); t.val(br2nl('" . addslashes(preg_replace("/\n|\r/"," ",nl2br($v))) . "',true));";
     ?>
