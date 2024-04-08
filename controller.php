@@ -390,7 +390,7 @@ class Controller extends BlockController
         $db = \Database::connection();
         $statement = $db->executeQuery('SELECT * FROM `'.$type.'Report` WHERE Matricule="' . $mat . '";');
         $report_data = $statement->fetchAll();
-        $defense = $report_data[0];
+        $report = $report_data[0];
         include('report-'.$type.'.php');
         exit;
     }
