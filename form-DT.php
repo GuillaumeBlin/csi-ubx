@@ -206,7 +206,7 @@
         <input name="Progression" value="La thèse n'a clairement pas assez progressé" type="radio">
         <label>La thèse n'a clairement pas assez progressé</label>
     </div>
-    <div id="Argumentaire">
+    <div id="Argumentaire" style="display:none">
         <label>Argumentaire</label>
         <textarea type="textarea" rows="5" class="form-control" name="ArgumentaireProgression" id="ArgumentaireProgression"></textarea>
     </div>
