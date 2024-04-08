@@ -114,29 +114,34 @@
         <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_mail" id="CSI_Membre_<?php echo $i + 1; ?>_mail" readonly value="<?php echo $defense["csi"][$i]["mail"]; ?>">
         <h6>Référent</h6>
         <div>
-            <input name="CSI_Referent_<?php echo $i + 1; ?>" disabled value="<?php echo $i + 1; ?>" type="radio" <?php if ($defense["csi"][$i]["referent"] == "oui") {
+            <input disabled value="<?php echo $i + 1; ?>" type="radio" <?php if ($defense["csi"][$i]["referent"] == "oui") {
                                                                                             echo "checked";
                                                                                         } ?>>
+            <?php if ($defense["csi"][$i]["referent"] == "oui") {?>
+                <input name="CSI_Referent_<?php echo $i + 1; ?>" value="<?php echo $i + 1; ?>" type="hidden"/>                                                                   
+            <?php    } ?>
+                                                                   
             <label>Référent</label>
         </div>
         <h6>Qualité</h6>
         <div>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>_qualite" disabled value="Spécialiste du domaine de la thèse" type="radio" <?php if ($defense["csi"][$i]["membre_specialiste"] == "oui") {
+            <input disabled value="Spécialiste du domaine de la thèse" type="radio" <?php if ($defense["csi"][$i]["membre_specialiste"] == "oui") {
                                                                                                                                         echo "checked";
                                                                                                                                     } ?>>
             <label>Spécialiste du domaine de la thèse</label>
         </div>
         <div>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>_qualite" disabled value="Non spécialiste externe au domaine de la thèse" type="radio" <?php if ($defense["csi"][$i]["membre_non_specialiste"] == "oui") {
+            <input disabled value="Non spécialiste externe au domaine de la thèse" type="radio" <?php if ($defense["csi"][$i]["membre_non_specialiste"] == "oui") {
                                                                                                                                                     echo "checked";
                                                                                                                                                 } ?>>
             <label>Non spécialiste externe au domaine de la thèse</label>
         </div>
         <div>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>_qualite" disabled value="Membre extérieur à l'établissement" type="radio" <?php if ($defense["csi"][$i]["membre_exterieur"] == "oui") {
+            <input disabled value="Membre extérieur à l'établissement" type="radio" <?php if ($defense["csi"][$i]["membre_exterieur"] == "oui") {
                                                                                                                                         echo "checked";
                                                                                                                                     } ?>>
             <label>Membre extérieur à l'établissement</label>
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_qualite" value="<?php if ($defense["csi"][$i]["membre_specialiste"] == "oui") {echo "Spécialiste du domaine de la thèse";}; if ($defense["csi"][$i]["membre_non_specialiste"] == "oui") {echo "Non spécialiste externe au domaine de la thèse";}; if ($defense["csi"][$i]["membre_exterieur"] == "oui") {echo "Membre extérieur à l'établissement";};?>" type="hidden">
         </div>
     <?php } ?>
     <h3>Bilan annuel avec la direction de thèse</h3>
