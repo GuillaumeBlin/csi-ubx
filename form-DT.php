@@ -17,7 +17,7 @@
     <input type="text" readonly class="form-control" name="DT_Nom" id="DT_Nom" value="<?php echo $defense["these_directeur_these_nom"]; ?>">
     <h5>Prénom direction de thèse</h5>
     <input type="text" readonly class="form-control" name="DT_Prenom" id="DT_Prenom" value="<?php echo $defense["these_directeur_these_prenom"]; ?>">
-    <?php if($defense["these_codirecteur_these_nom"]!=""){ ?>
+    <?php if(($defense["these_codirecteur_these_nom"]!="")||($report_read_only == true&&$report["CODT_Nom"]!="")){ ?>
         <h5>Nom co-direction de thèse</h5>
     <input type="text" readonly class="form-control" name="CODT_Nom" id="CODT_Nom" value="<?php echo $defense["these_codirecteur_these_nom"]; ?>">
     <h5>Prénom co-direction de thèse</h5>
@@ -292,12 +292,27 @@
     <?php } ?>
 </form>
 <script>
+
+function br2nl (str, replaceMode) {   
+	
+    var replaceStr = (replaceMode) ? "\n" : '';
+    // Includes <br>, <BR>, <br />, </br>
+    return str.replace(/<\s*\/?br\s*[\/]?>/gi, replaceStr);
+  }
+
+  function nl2br (str, replaceMode, isXhtml) {
+
+var breakTag = (isXhtml) ? '<br />' : '<br>';
+var replaceStr = (replaceMode) ? '$1'+ breakTag : '$1'+ breakTag +'$2';
+return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, replaceStr);
+}
     <?php if ($report_read_only == true) {
 
         foreach ($report as $k => $v) {
-            echo "$('input[type=date][name=" . $k . "]').val('" . addslashes($v) . "');";
-            echo "$('input[type=text][name=" . $k . "]').val('" . addslashes($v) . "');";
-            echo "var t= $('textarea[name=" . $k . "]'); t.val('" . addslashes($v) . "');";
+            echo "$('input[type=date][name=" . $k . "]').val('" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "');";
+            echo "$('input[type=number][name=" . $k . "]').val('" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "');";
+            echo "$('input[type=text][name=" . $k . "]').val('" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "');";
+            echo "var t= $('textarea[name=" . $k . "]'); t.val(br2nl('" . addslashes(preg_replace("/\n|\r/"," ",nl2br($v))) . "',true));";
     ?>
             if (t.length > 0) {
                 t.height("");
@@ -308,7 +323,7 @@
 
 
             <?php
-            echo "var j=$('input[type=radio][name=" . $k . "][value=\"" . addslashes($v) . "\"]');";
+            echo "var j=$('input[type=radio][name=" . $k . "][value=\"" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "\"]');";
             //echo "$('input[name=".$k."]').val('".addslashes($v)."').prop('checked', true);";
             ?>
             j.prop('checked', true);
@@ -319,7 +334,7 @@
             $('.print-content').remove();
             $('textarea').each(function() {
                 var text = $(this).val();
-                $(this).after('<p class="well print-content">' + text + '</p>');
+                $(this).after('<p class="well print-content">' + nl2br(text) + '</p>');
             });
         }
         $("#csi :input").attr("disabled", true);
