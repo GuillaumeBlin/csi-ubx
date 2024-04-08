@@ -300,6 +300,13 @@
     return str.replace(/<\s*\/?br\s*[\/]?>/gi, replaceStr);
   }
 
+  function nl2br (str, replaceMode, isXhtml) {
+
+var breakTag = (isXhtml) ? '<br />' : '<br>';
+var replaceStr = (replaceMode) ? '$1'+ breakTag : '$1'+ breakTag +'$2';
+return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, replaceStr);
+}
+
     <?php if ($report_read_only == true) {
 
         foreach ($report as $k => $v) {
@@ -328,7 +335,7 @@
             $('.print-content').remove();
             $('textarea').each(function() {
                 var text = $(this).val();
-                $(this).after('<pre class="well print-content">' + text + '</pre>');
+                $(this).after('<p class="well print-content">' + nl2br(text) + '</p>');
             });
         }
         $("#csi :input").attr("disabled", true);
