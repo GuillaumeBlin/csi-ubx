@@ -260,7 +260,7 @@
                 <label>Non</label>
             </span>
 
-            <div id="FinancementDetails" style="display:none">
+            <div id="Financement" style="display:none">
                 <label>Si oui, préciser </label>
                 <textarea type="textarea" rows="5" class="form-control" name="FinancementDetails" ></textarea>
             </div>
@@ -341,9 +341,9 @@
     
     $("input[type=radio][name=Financement]").on("change", function() {
         if (this.value == 'Oui') {
-            $("#FinancementDetails").show();
+            $("#Financement").show();
         } else {
-            $("#FinancementDetails").hide();
+            $("#Financement").hide();
             $(".FinancementDetails").val('');
         }
 
@@ -354,7 +354,8 @@
             $("#InscriptionDerogatoire").show();
         } else {
             $("#InscriptionDerogatoire").hide();
-            $("#FinancementDetails").hide('');
+            $("#Financement").hide('');
+            $(".Financement").val('Non');
             $(".FinancementDetails").val('');
         }
 
