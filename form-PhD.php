@@ -207,7 +207,7 @@
         <input name="Relation_Autre_EP" value="Non" type="radio">
         <label>Non</label>
     </span>
-    <div>
+    <div id="Relation_Autre_EP">
         <label for="Relation_Autre_EP_Details">Si oui, préciser lesquelles et si elles sont nationales ou internationales :</label>
         <textarea type="textarea" class="form-control" name="Relation_Autre_EP_Details" id="Relation_Autre_EP_Details"></textarea>
     </div>
@@ -329,4 +329,14 @@
         }
 
     });
+    $("input[type=radio][name=Relation_Autre_EP]").on("change", function() {
+        if (this.value == 'Oui') {
+            $("#Relation_Autre_EP").show();
+        } else {
+            $("#Relation_Autre_EP").hide();
+            $("#Relation_Autre_EP_Details").val('');
+        }
+
+    });
+    
 </script>
