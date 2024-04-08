@@ -334,7 +334,7 @@
             $("#Argumentaire").show();
         } else {
             $("#Argumentaire").hide();
-            $("#ArgumentaireProgression").val('');
+            $("#ArgumentaireProgression").text('');
         }
 
     });
@@ -344,7 +344,7 @@
             $("#Financement").show();
         } else {
             $("#Financement").hide();
-            $(".FinancementDetails").val('');
+            $(".FinancementDetails").text('');
         }
 
     });
@@ -356,7 +356,7 @@
             $("#InscriptionDerogatoire").hide();
             $("#Financement").hide('');
             $(".Financement").val('Non');
-            $(".FinancementDetails").val('');
+            $(".FinancementDetails").text('');
         }
 
     });
