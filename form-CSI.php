@@ -73,7 +73,7 @@
         <input name="ComparaisonObjectifsInitiaux" value="Réorienté" type="radio">
         <label>Réorienté</label>
     </span>
-    <div id="ComparaisonObjectifsInitiauxPrecisions">
+    <div id="ComparaisonObjectifsInitiaux">
         <label>Précisions</label>
         <textarea type="textarea" rows="5" class="form-control" name="ComparaisonObjectifsInitiauxPrecisions"></textarea>
     </div>
@@ -91,7 +91,7 @@
         <input name="ObservationsMethodoExpe" value="Des difficultés majeures" type="radio">
         <label>Des difficultés majeures</label>
     </span>
-    <div id="ObservationsMethodoExpePrecisions">
+    <div id="ObservationsMethodoExpe">
         <label>Précisions et recommandations</label>
         <textarea type="textarea" rows="5" class="form-control" name="ObservationsMethodoExpePrecisions"></textarea>
     </div>
@@ -105,7 +105,7 @@
         <input name="RespectCalendrierPrevisionnel" value="Non" type="radio">
         <label>Non</label>
     </span>
-    <div id="RespectCalendrierPrevisionnelPrecisions">
+    <div id="RespectCalendrierPrevisionnel">
         <label>Raisons et ajustements recommandés</label>
         <textarea type="textarea" rows="5" class="form-control" name="RespectCalendrierPrevisionnelPrecisions"></textarea>
     </div>
@@ -129,7 +129,7 @@
             <input name="SoutenanceAuTermeAnneeAVenir" value="Non" type="radio">
             <label>Non</label>
         </span>
-        <div id="SoutenanceAuTermeAnneeAVenirPrecisions">
+        <div id="SoutenanceAuTermeAnneeAVenir">
             <label>Raisons</label>
             <textarea type="textarea" rows="5" class="form-control" name="SoutenanceAuTermeAnneeAVenirPrecisions"></textarea>
         </div>
@@ -229,7 +229,7 @@
             <label>Non</label>
         </span>
     </div>
-    <div id="#DateSoutenance" style="display:none">
+    <div id="DateSoutenance" style="display:none">
         <label>Si oui, date prévue pour la soutenance de thèse</label>
         <input type="date" class="form-control" name="DateSoutenance">
     </div>
@@ -309,6 +309,7 @@
 
     }
     ?>
+
     $("input[type=radio][name=InscriptionDerogatoire]").on("change", function() {
         if (this.value == 'Oui') {
             $("#DateSoutenance").show();
