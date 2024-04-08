@@ -206,7 +206,7 @@
         <input name="Progression" value="La thèse n'a clairement pas assez progressé" type="radio">
         <label>La thèse n'a clairement pas assez progressé</label>
     </div>
-    <div id="Argumentaire" style="display:none">
+    <div id="Argumentaire" <?php if ($report_read_only == false){ echo 'style="display:none"'; }?>>
         <label>Argumentaire</label>
         <textarea type="textarea" rows="5" class="form-control" name="ArgumentaireProgression" id="ArgumentaireProgression"></textarea>
     </div>
@@ -214,7 +214,7 @@
     <!-- 2eme année-->
 
 
-    <div <?php if (intval(substr($defense["niveau_Etud"], 0, 1)) > 2) {
+    <div <?php if ((intval(substr($defense["niveau_Etud"], 0, 1)) > 2)||(($report_read_only == true)&&($report["SoutenanceDansDelais"]!="")) {
                 echo 'style="display:none"';
             } ?>><label>L'état d'avancement global des travaux vous permet-il d'envisager une soutenance dans les délais</label>
         <span>
@@ -229,7 +229,7 @@
 
     <!-- 3eme année-->
 
-    <div <?php if (intval(substr($defense["niveau_Etud"], 0, 1)) < 3) {
+    <div <?php if ((intval(substr($defense["niveau_Etud"], 0, 1)) < 3)||(($report_read_only == true)&&($report["Echeancier"]!="")) {
                 echo 'style="display:none"';
             } ?>>
         <div>
@@ -250,7 +250,8 @@
                 <label>Non</label>
             </span>
         </div>
-        <div id="InscriptionDerogatoire" style="display:none" ><label>Un financement est-il prévu jusqu'à la soutenance de thèse ?</label>
+        <div id="InscriptionDerogatoire" <?php if ($report_read_only == false||$report["InscriptionDerogatoire"]=="Non"){ echo 'style="display:none"'; }?> >
+        <label>Un financement est-il prévu jusqu'à la soutenance de thèse ?</label>
             <span>
                 <input name="Financement" value="Oui" type="radio">
                 <label>Oui</label>
@@ -260,7 +261,7 @@
                 <label>Non</label>
             </span>
 
-            <div id="Financement" style="display:none">
+            <div id="Financement" <?php if ($report_read_only == false||$report["Financement"]=="Non"){ echo 'style="display:none"'; }?>>
                 <label>Si oui, préciser </label>
                 <textarea type="textarea" rows="5" class="form-control" name="FinancementDetails" ></textarea>
             </div>
