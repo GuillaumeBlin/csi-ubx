@@ -73,7 +73,7 @@
         <input name="ComparaisonObjectifsInitiaux" value="Réorienté" type="radio">
         <label>Réorienté</label>
     </span>
-    <div id="ComparaisonObjectifsInitiaux">
+    <div id="ComparaisonObjectifsInitiaux" style="display:none">
         <label>Précisions</label>
         <textarea type="textarea" rows="5" class="form-control" name="ComparaisonObjectifsInitiauxPrecisions"></textarea>
     </div>
@@ -91,7 +91,7 @@
         <input name="ObservationsMethodoExpe" value="Des difficultés majeures" type="radio">
         <label>Des difficultés majeures</label>
     </span>
-    <div id="ObservationsMethodoExpe">
+    <div id="ObservationsMethodoExpe" style="display:none">
         <label>Précisions et recommandations</label>
         <textarea type="textarea" rows="5" class="form-control" name="ObservationsMethodoExpePrecisions"></textarea>
     </div>
@@ -105,7 +105,7 @@
         <input name="RespectCalendrierPrevisionnel" value="Non" type="radio">
         <label>Non</label>
     </span>
-    <div id="RespectCalendrierPrevisionnel">
+    <div id="RespectCalendrierPrevisionnel" style="display:none">
         <label>Raisons et ajustements recommandés</label>
         <textarea type="textarea" rows="5" class="form-control" name="RespectCalendrierPrevisionnelPrecisions"></textarea>
     </div>
@@ -129,7 +129,7 @@
             <input name="SoutenanceAuTermeAnneeAVenir" value="Non" type="radio">
             <label>Non</label>
         </span>
-        <div id="SoutenanceAuTermeAnneeAVenir">
+        <div id="SoutenanceAuTermeAnneeAVenir" style="display:none">
             <label>Raisons</label>
             <textarea type="textarea" rows="5" class="form-control" name="SoutenanceAuTermeAnneeAVenirPrecisions"></textarea>
         </div>
