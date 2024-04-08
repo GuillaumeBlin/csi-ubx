@@ -331,6 +331,170 @@
 			<autoincrement />
 			<key />
 		</field>
+		<field name="ed" type="text">
+			<default value="" />
+		</field>
+		<field name="Matricule" type="text">
+			<default value="" />
+		</field>
+		<field name="Date_Entretrien" type="text">
+			<default value="" />
+		</field>
+		<field name="ModalitesEntretien" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ModalitesEntretienDetails" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PhD_Nom" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PhD_Prenom" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PhD_Mail" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PhD_Specialite" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PhD_UMR" type="text">
+			<default value="" />
+		</field>
+
+		<field name="DT_Nom" type="text">
+			<default value="" />
+		</field>
+
+		<field name="DT_Prenom" type="text">
+			<default value="" />
+		</field>
+
+		<field name="CODT_Nom" type="text">
+			<default value="" />
+		</field>
+
+		<field name="CODT_Prenom" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PhD_DateDebutThese" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PhD_CSI_Annee" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ResumeAvancement" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ComparaisonObjectifsInitiaux" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ComparaisonObjectifsInitiauxPrecisions" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ObservationsMethodoExpe" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ObservationsMethodoExpePrecisions" type="text">
+			<default value="" />
+		</field>
+
+		<field name="RespectCalendrierPrevisionnel" type="text">
+			<default value="" />
+		</field>
+
+		<field name="RespectCalendrierPrevisionnelPrecisions" type="text">
+			<default value="" />
+		</field>
+
+		<field name="SoutenanceAuTermeAnneeAVenir" type="text">
+			<default value="" />
+		</field>
+
+		<field name="SoutenanceAuTermeAnneeAVenirPrecisions" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ProductionScientifique" type="text">
+			<default value="" />
+		</field>
 		
+		<field name="ProblemesProductionScientifique" type="text">
+			<default value="" />
+		</field>
+
+
+		<field name="MobilitesInternationalesMoins3Mois" type="text">
+			<default value="" />
+		</field>
+
+		<field name="MobilitesInternationalesPlus3Mois" type="text">
+			<default value="" />
+		</field>
+
+		<field name="EthiqueRecherche" type="text">
+			<default value="" />
+		</field>
+
+		<field name="IntegriteScientifique" type="text">
+			<default value="" />
+		</field>
+
+		<field name="FormationEnseignement" type="text">
+			<default value="" />
+		</field>
+
+		<field name="FormationsObligatoiresPrecisions" type="text">
+			<default value="" />
+		</field>
+
+		<field name="FormationsDansLAnnee" type="text">
+			<default value="" />
+		</field>
+
+		<field name="AvisRecommandationsFormations" type="text">
+			<default value="" />
+		</field>
+
+		<field name="PerspectivesCarriere" type="text">
+			<default value="" />
+		</field>
+
+		<field name="InscriptionDerogatoire" type="text">
+			<default value="" />
+		</field>
+
+		<field name="DateSoutenance" type="text">
+			<default value="" />
+		</field>
+
+		<field name="Reinscription" type="text">
+			<default value="" />
+		</field>
+
+		<field name="AvisReinscription" type="text">
+			<default value="" />
+		</field>
+
+		<field name="RapportConfidentielAVenir" type="text">
+			<default value="" />
+		</field>
+
+		<field name="DateRapport" type="text">
+			<default value="" />
+		</field>
 	</table>
 </schema>
