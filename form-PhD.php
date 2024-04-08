@@ -64,7 +64,7 @@
                                                                         }; ?>>
         <label>Non</label>
     </span>
-    <?php if(($defense["these_cotutelle"]=="OUI")||($report_read_only == true&&$report["PhD_Cotutelle"]!="")){ ?>
+    <?php if(($defense["these_cotutelle"]=="OUI")||($report_read_only == true&&$report["PhD_Cotutelle"]!="Oui")){ ?>
         <div>
             <label for="PhD_Cotutelle_Pays">Si oui, préciser le pays partenaire</label>
             <input type="text" class="form-control" readonly name="PhD_Cotutelle_Pays" id="PhD_Cotutelle_Pays" value="<?php echo $defense["these_cotutelle_pays"]; ?>">
