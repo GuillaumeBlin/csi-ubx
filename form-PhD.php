@@ -285,12 +285,20 @@
     <?php } ?>
 </form>
 <script>
+
+    function br2nl (str, replaceMode) {   
+	
+    var replaceStr = (replaceMode) ? "\n" : '';
+    // Includes <br>, <BR>, <br />, </br>
+    return str.replace(/<\s*\/?br\s*[\/]?>/gi, replaceStr);
+  }
+
     <?php if ($report_read_only == true) {
 
         foreach ($report as $k => $v) {
             echo "$('input[type=date][name=" . $k . "]').val('" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "');";
             echo "$('input[type=text][name=" . $k . "]').val('" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "');";
-            echo "var t= $('textarea[name=" . $k . "]'); t.val('" . addslashes(preg_replace("/\n|\r/", '\n',$v)) . "');";
+            echo "var t= $('textarea[name=" . $k . "]'); t.val(br2nl('" . addslashes(nb2lr($v)) . "'));";
     ?>
             if (t.length > 0) {
                 t.height("");
