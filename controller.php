@@ -436,7 +436,7 @@ class Controller extends BlockController
         echo $report["CSI_Membre_1_qualite"];
         $statement = $db->executeQuery($sql, array_values($report));
         $userPage = preg_replace("%/form_save_".$type."Report/\d+%", "/", $_SERVER['REQUEST_URI']);
-        $this->redirect($userPage);
+       // $this->redirect($userPage);
         exit;
     }
 
