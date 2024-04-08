@@ -142,7 +142,7 @@
             <input disabled value="Membre extérieur à l'établissement" type="radio" <?php if ($defense["csi"][$i]["membre_exterieur"] == "oui") {
                                                                                                                                         echo "checked";
                                                                                                                                     } ?>>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>externe" value="<?php if ($defense["csi"][$i]["membre_exterieur"] == "oui") {echo "oui";}; ?>" type="hidden">
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_externe" value="<?php if ($defense["csi"][$i]["membre_exterieur"] == "oui") {echo "oui";}; ?>" type="hidden">
             <label>Membre extérieur à l'établissement</label>
         </div>
     <?php } ?>
