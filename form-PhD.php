@@ -82,7 +82,7 @@
         <label>Non</label>
     </span>
     
-    <div id="PhD_ExtraActivite_NbH_div" <?php if ($report["PhD_ExtraActivite"]=="Non"){ echo 'style="display:none"'; }?>>
+    <div id="PhD_ExtraActivite_NbH_div" <?php if (!array_key_exists("PhD_ExtraActivite",$report)||$report["PhD_ExtraActivite"]=="Non"){ echo 'style="display:none"'; }?>>
         <label for="PhD_ExtraActivite_NbH">Si oui, nombre d’heures :</label>
         <input type="number" class="form-control" name="PhD_ExtraActivite_NbH" min="0" max="64" step="1" id="PhD_ExtraActivite_NbH" value="<?php echo $report["PhD_ExtraActivite_NbH"];?>">
     </div>
