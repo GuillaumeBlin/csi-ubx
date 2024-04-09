@@ -84,7 +84,7 @@ class Controller extends BlockController
 
     private function display_phd_report_content($report)
     {
-        $langage=$this->langage;
+        $lang=$this->langage;
         include('form-PhD.php');
         if (strcmp($this->langage, "FR") == 0) {
         echo "<script>
