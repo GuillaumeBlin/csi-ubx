@@ -178,6 +178,10 @@ class Controller extends BlockController
 
         //check if a report already exist for $mat and $user
         $db = \Database::connection();
+
+        $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'" . $user . "Report';");
+        $report_headers = $statement->fetchAll(); //print_r($rows);
+
         //echo 'SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";';       
         $statement = $db->executeQuery('SELECT Matricule FROM `' . $user . 'Report` WHERE Matricule="' . $mat . '";');
         //echo $statement->rowCount(); 
@@ -286,6 +290,13 @@ class Controller extends BlockController
                     $report["CSI_Membre_" . ($i + 1) . "_externe"] = $student["csi"][$i]["membre_exterieur"];
                 }
                 
+                foreach ($report_headers as $row) {
+                    if(!array_key_exists($row["COLUMN_NAME"],$report)){
+                        $report[$row["COLUMN_NAME"]]='';
+                    }
+                }
+            
+
                 if ($user == "PhD") { //PhD
                     $this->display_phd_report_content($report);
                 }
