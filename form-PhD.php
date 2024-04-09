@@ -205,10 +205,10 @@
         <label>Oui</label>
     </span>
     <span>
-        <input name="Relation_Autre_EP" value="Non" type="radio" <?php if($report["Relation_Autre_EP"]=="Non"){echo "checked";}?>>
+        <input name="Relation_Autre_EP" value="Non" type="radio" <?php if(!array_key_exists("Relation_Autre_EP",$report)||$report["Relation_Autre_EP"]=="Non"){echo "checked";}?>>
         <label>Non</label>
     </span>
-    <div id="Relation_Autre_EP" <?php if ($report["Relation_Autre_EP"]=="Non"){ echo 'style="display:none"'; }?>>
+    <div id="Relation_Autre_EP" <?php if (!array_key_exists("Relation_Autre_EP",$report)||$report["Relation_Autre_EP"]=="Non"){ echo 'style="display:none"'; }?>>
         <label for="Relation_Autre_EP_Details">Si oui, préciser lesquelles et si elles sont nationales ou internationales :</label>
         <textarea type="textarea" class="form-control" name="Relation_Autre_EP_Details" id="Relation_Autre_EP_Details"><?php echo $report["Relation_Autre_EP_Details"]; ?></textarea>
     </div>
