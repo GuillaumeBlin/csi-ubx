@@ -242,13 +242,13 @@ class Controller extends BlockController
                 );
                     
                 for ($i = 0; $i < count($student["csi"]); $i = $i + 1) { 
-                    $report["CSI_Membre_{($i + 1)}_Nom"]=$student["csi"][$i]["nom"];
-                    $report["CSI_Membre_{($i + 1)}_Prenom"]= $student["csi"][$i]["prenom"];
-                    $report["CSI_Membre_{($i + 1)}_mail"] = $student["csi"][$i]["mail"];
-                    $report["CSI_Referent_{($i + 1)}"]=$student["csi"][$i]["referent"];
-                    $report["CSI_Membre_{($i + 1)}_specialiste"]=$student["csi"][$i]["membre_specialiste"];
-                    $report["CSI_Membre_{($i + 1)}_non_specialiste"]=$student["csi"][$i]["membre_non_specialiste"];
-                    $report["CSI_Membre_{($i + 1)}_externe"]=$student["csi"][$i]["membre_exterieur"];
+                    $report["CSI_Membre_".($i + 1)"._Nom"]=$student["csi"][$i]["nom"];
+                    $report["CSI_Membre_".($i + 1)"._Prenom"]= $student["csi"][$i]["prenom"];
+                    $report["CSI_Membre_".($i + 1)"._mail"] = $student["csi"][$i]["mail"];
+                    $report["CSI_Referent_".($i + 1)]=$student["csi"][$i]["referent"];
+                    $report["CSI_Membre_".($i + 1)"._specialiste"]=$student["csi"][$i]["membre_specialiste"];
+                    $report["CSI_Membre_".($i + 1)"._non_specialiste"]=$student["csi"][$i]["membre_non_specialiste"];
+                    $report["CSI_Membre_".($i + 1)"._externe"]=$student["csi"][$i]["membre_exterieur"];
                 }
 
                 if ($user == "PhD") { //PhD

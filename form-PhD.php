@@ -101,14 +101,14 @@
 
         <h5>Membre n°<?php echo $i + 1; ?></h5>
         <h6>Nom</h6>
-        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_Nom" id="CSI_Membre_<?php echo $i + 1; ?>_Nom" readonly value="<?php echo $report["CSI_Membre_{($i + 1)}_Nom"]; ?>">
+        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_Nom" id="CSI_Membre_<?php echo $i + 1; ?>_Nom" readonly value="<?php echo $report["CSI_Membre_".($i + 1)."_Nom"]; ?>">
         <h6>Prénom</h6>
-        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_Prenom" id="CSI_Membre_<?php echo $i + 1; ?>_Prenom" readonly value="<?php echo $report["CSI_Membre_{($i + 1)}_Prenom"]; ?>">
+        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_Prenom" id="CSI_Membre_<?php echo $i + 1; ?>_Prenom" readonly value="<?php echo $report["CSI_Membre_".($i + 1)."_Prenom"]; ?>">
         <h6>Adresse mail</h6>
-        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_mail" id="CSI_Membre_<?php echo $i + 1; ?>_mail" readonly value="<?php echo $report["CSI_Membre_{($i + 1)}_mail"]; ?>">
+        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_mail" id="CSI_Membre_<?php echo $i + 1; ?>_mail" readonly value="<?php echo $report["CSI_Membre_".($i + 1)."_mail"]; ?>">
         <h6>Référent</h6>
         <div>
-            <input name="CSI_Referent_<?php echo $i + 1; ?>" disabled value="<?php echo $i + 1; ?>" type="radio" <?php if ($report["CSI_Referent_{($i + 1)}"] == "oui") {
+            <input name="CSI_Referent_<?php echo $i + 1; ?>" disabled value="<?php echo $i + 1; ?>" type="radio" <?php if ($report["CSI_Referent_".($i + 1).""] == "oui") {
                                                                                             echo "checked";
                                                                                         } ?>>
             <?php if ($report["csi"][$i]["referent"] == "oui") {?>
@@ -119,24 +119,24 @@
         </div>
         <h6>Qualité</h6>
         <div>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>_specialiste" disabled value="oui" type="radio" <?php if ($report["CSI_Membre_{($i + 1)}_specialiste"] == "oui") {
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_specialiste" disabled value="oui" type="radio" <?php if ($report["CSI_Membre_".($i + 1)."_specialiste"] == "oui") {
                                                                                                                                         echo "checked";
                                                                                                                                     } ?>>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>_specialiste" value="<?php if ($report["CSI_Membre_{($i + 1)}_specialiste"] == "oui") {echo "oui";}; ?>" type="hidden">
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_specialiste" value="<?php if ($report["CSI_Membre_".($i + 1)."_specialiste"] == "oui") {echo "oui";}; ?>" type="hidden">
             <label>Spécialiste du domaine de la thèse</label>
         </div>
         <div>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>_non_specialiste" disabled value="oui" type="radio" <?php if ($report["CSI_Membre_{($i + 1)}_non_specialiste"] == "oui") {
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_non_specialiste" disabled value="oui" type="radio" <?php if ($report["CSI_Membre_".($i + 1)."_non_specialiste"] == "oui") {
                                                                                                                                                     echo "checked";
                                                                                                                                                 } ?>>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>_non_specialiste" value="<?php if ($report["CSI_Membre_{($i + 1)}_non_specialiste"] == "oui") {echo "oui";}; ?>" type="hidden">
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_non_specialiste" value="<?php if ($report["CSI_Membre_".($i + 1)."_non_specialiste"] == "oui") {echo "oui";}; ?>" type="hidden">
             <label>Non spécialiste externe au domaine de la thèse</label>
         </div>
         <div>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>_externe" disabled value="oui" type="radio" <?php if ($report["CSI_Membre_{($i + 1)}_externe"] == "oui") {
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_externe" disabled value="oui" type="radio" <?php if ($report["CSI_Membre_".($i + 1)."_externe"] == "oui") {
                                                                                                                                         echo "checked";
                                                                                                                                     } ?>>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>_externe" value="<?php if ($report["CSI_Membre_{($i + 1)}_externe"] == "oui") {echo "oui";}; ?>" type="hidden">
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_externe" value="<?php if ($report["CSI_Membre_".($i + 1)."_externe"] == "oui") {echo "oui";}; ?>" type="hidden">
             <label>Membre extérieur à l'établissement</label>
         </div>
     <?php } ?>
@@ -162,7 +162,7 @@
         <input name="Freq_Contact_DT" value="Moins d'une fois par mois" type="radio" <?php if($report["Freq_Contact_DT"]=="Moins d'une fois par mois"){echo "checked";}?>>
         <label>Moins d'une fois par mois</label>
     </span>
-    <?php if(report["CODT_Nom"]!=""){ ?>
+    <?php if($report["CODT_Nom"]!=""){ ?>
     <h5>Fréquence des contacts avec la codirection de thèse</h5>
     <span>
         <input name="Freq_Contact_CODT" value="Tous les jours" type="radio" <?php if($report["Freq_Contact_CODT"]=="Tous les jours"){echo "checked";}?>>
