@@ -134,7 +134,7 @@ class Controller extends BlockController
     /* SORTING functions */
     private function students_sorter(array $a, array $b)
     {
-        return [$a['these_ED_code'], $a['these_specialite'], $a['nom']] <=> [$b['these_ED_code'], $b['these_specialite'], $b['nom']];
+        return [$a['these_ED_code'],  $a['nom']] <=> [$b['these_ED_code'], $b['nom']];
     }
 
     /* LOADING functions */
