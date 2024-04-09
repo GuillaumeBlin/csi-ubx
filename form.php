@@ -11,6 +11,7 @@ function generateRandomString($length = 16)
 if (empty($sKey)) $sKey = generateRandomString(); //random_bytes(16);
 if (empty($admin)) $admin = 'False';
 if (empty($ed)) $ed = null;
+if (empty($langage)) $langage = 'FR';
 
 
 ?>
