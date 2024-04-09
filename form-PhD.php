@@ -1,4 +1,7 @@
-<?php if(!isset($report_read_only)){$report_read_only=false;}?>
+<?php 
+if(!isset($report_read_only)){$report_read_only=false;}
+if(!isset($lang)){$lang="FR";}
+?>
 <form id="csi" <?php if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_PhDReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <?php } ?>>
     <input type="hidden" name="ed" id="ed" value="<?php echo $report["ed"]; ?>" />
     <h3><?php if (strcmp($lang, "FR") == 0) {?>Informations générales<?php }else{?>General information
