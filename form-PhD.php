@@ -242,28 +242,28 @@
     </span>
     <h5>Trouvez-vous dans votre environnement de travail les réponses à vos questions scientifiques ?&nbsp;</h5>
     <span>
-        <input name="ReponsesAuxQuestions" value="Insuffisant" <?php if($report["ReponsesAuxQuestions"]=="Insuffisant"){echo "checked";}?>>
+        <input name="ReponsesAuxQuestions" value="Insuffisant" type="radio" <?php if($report["ReponsesAuxQuestions"]=="Insuffisant"){echo "checked";}?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="ReponsesAuxQuestions" value="A améliorer" <?php if($report["ReponsesAuxQuestions"]=="A améliorer"){echo "checked";}?>>
+        <input name="ReponsesAuxQuestions" value="A améliorer" type="radio" <?php if($report["ReponsesAuxQuestions"]=="A améliorer"){echo "checked";}?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="ReponsesAuxQuestions" value="Satisfaisant" <?php if($report["ReponsesAuxQuestions"]=="Satisfaisant"){echo "checked";}?>>
+        <input name="ReponsesAuxQuestions" value="Satisfaisant" type="radio" <?php if($report["ReponsesAuxQuestions"]=="Satisfaisant"){echo "checked";}?>>
         <label>Satisfaisant</label>
     </span>
     <h5>L'intérêt scientifique du sujet correspond-il à vos attentes ?&nbsp;</h5>
     <span>
-        <input name="InteretScientifique" value="Insuffisant" <?php if($report["InteretScientifique"]=="Insuffisant"){echo "checked";}?>>
+        <input name="InteretScientifique" value="Insuffisant" type="radio"  <?php if($report["InteretScientifique"]=="Insuffisant"){echo "checked";}?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="InteretScientifique" value="A améliorer" <?php if($report["InteretScientifique"]=="A améliorer"){echo "checked";}?>>
+        <input name="InteretScientifique" value="A améliorer" type="radio" <?php if($report["InteretScientifique"]=="A améliorer"){echo "checked";}?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="InteretScientifique" value="Satisfaisant" <?php if($report["InteretScientifique"]=="Satisfaisant"){echo "checked";}?>>
+        <input name="InteretScientifique" value="Satisfaisant" type="radio" <?php if($report["InteretScientifique"]=="Satisfaisant"){echo "checked";}?>>
         <label>Satisfaisant</label>
     </span>
     <h5>Avis général sur la thèse en précisant les éventuelles difficultés rencontrées</h5>
