@@ -82,7 +82,7 @@ class Controller extends BlockController
     /* DISPLAY functions */
 
 
-    private function display_phd_report_content($defense)
+    private function display_phd_report_content($report)
     {
         include('form-PhD.php');
         echo "<script>
