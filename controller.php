@@ -85,29 +85,49 @@ class Controller extends BlockController
     private function display_phd_report_content($report)
     {
         include('form-PhD.php');
+        if (strcmp($this->langage, "FR") == 0) {
         echo "<script>
                 $('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant ');
-                $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">Lecture réservée aux membres du CSI et à la direction de l\'ED</div>');";                
+                $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">Lecture réservée aux membres du CSI et à la direction de l\'ED. A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
         echo "</script>";
+        }else{
+            echo "<script>
+                $('.std-page-main-inner > h1').text('Annual report of the PhD student ');
+                $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">For CSI member and ED directors discretion only. To fullfilled and send to the CSI commitee before its meeting</div>');";
+        echo "</script>";
+        }
         return;
     }
 
     private function display_dt_report_content($report)
     {
         include('form-DT.php');
-        echo "<script>
+        if (strcmp($this->langage, "FR") == 0) {
+            echo "<script>
                 $('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');
                 $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
         echo "</script>";
+        }else{
+            echo "<script>
+                $('.std-page-main-inner > h1').text('Annual report ot the supervisor');
+                $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">To fullfilled and send to the CSI commitee before its meeting.</div>');";
+        echo "</script>";
+        }
         return;
     }
 
     private function display_csi_report_content($defense)
     {
         include('form-CSI.php');
-        echo "<script>
+        if (strcmp($this->langage, "FR") == 0) {
+            echo "<script>
                 $('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
         echo "</script>";
+        }else{
+            echo "<script>
+                $('.std-page-main-inner > h1').text('Annual report of the CSI');";
+        echo "</script>";
+        }
         return;
     }
 
@@ -124,7 +144,7 @@ class Controller extends BlockController
     {
         $students = $this->retrieve_json();
         $students = $students["data"][0];
-        foreach ($students as &$value) {            
+        foreach ($students as &$value) {
             $value = $this->array_extract($value, [
                 "Matricule_etudiant",
                 "nom",
@@ -162,17 +182,32 @@ class Controller extends BlockController
         $statement = $db->executeQuery('SELECT Matricule FROM `' . $user . 'Report` WHERE Matricule="' . $mat . '";');
         //echo $statement->rowCount(); 
         if ($statement->rowCount() > 0) {
-            echo "<b>Votre rapport a été enregistré.</b><br/>";
-            echo "Il est visible ici : <i class='far fa-file-alt'></i>";
-            echo "<script>";
-            if ($user == "PhD") { //PhD            
-                echo "$('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant');";
-            }
-            if ($user == "DT") {
-                echo "$('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');";
-            }
-            if ($user == "CSI") {
-                echo "$('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
+            if (strcmp($this->langage, "FR") == 0) {
+                echo "<b>Votre rapport a été enregistré.</b><br/>";
+                echo "Il est visible ici : <i class='far fa-file-alt'></i>";
+                echo "<script>";
+                if ($user == "PhD") { //PhD            
+                    echo "$('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant');";
+                }
+                if ($user == "DT") {
+                    echo "$('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');";
+                }
+                if ($user == "CSI") {
+                    echo "$('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
+                }
+            } else {
+                echo "<b>Your report has been succesfully recorded.</b><br/>";
+                echo "You can retrieve it here : <i class='far fa-file-alt'></i>";
+                echo "<script>";
+                if ($user == "PhD") { //PhD            
+                    echo "$('.std-page-main-inner > h1').text('Annual report of the PhD student');";
+                }
+                if ($user == "DT") {
+                    echo "$('.std-page-main-inner > h1').text('Annual report ot the supervisor');";
+                }
+                if ($user == "CSI") {
+                    echo "$('.std-page-main-inner > h1').text('Annual report of the CSI');";
+                }
             }
             echo "$('.fa-file-alt').on('click',function(e){";
             if ($user == "PhD") { //PhD            
@@ -222,7 +257,7 @@ class Controller extends BlockController
             if (!$student) {
                 echo "Aucun étudiant ou aucune étudiante correpsondant.";
             } else {
-                $report=array(
+                $report = array(
                     "these_ED_code" => $student["these_ED_code"],
                     "PhD_Nom" => $student["nom"],
                     "PhD_Prenom" => $student["prenom"],
@@ -240,15 +275,15 @@ class Controller extends BlockController
                     "niveau_Etud" => $student["niveau_Etud"],
                     "CSI_Membre_Nombre" => count($student["csi"])
                 );
-                    
-                for ($i = 0; $i < count($student["csi"]); $i = $i + 1) { 
-                    $report["CSI_Membre_".($i + 1)."_Nom"]=$student["csi"][$i]["nom"];
-                    $report["CSI_Membre_".($i + 1)."_Prenom"]= $student["csi"][$i]["prenom"];
-                    $report["CSI_Membre_".($i + 1)."_mail"] = $student["csi"][$i]["mail"];
-                    $report["CSI_Referent_".($i + 1)]=$student["csi"][$i]["referent"];
-                    $report["CSI_Membre_".($i + 1)."_specialiste"]=$student["csi"][$i]["membre_specialiste"];
-                    $report["CSI_Membre_".($i + 1)."_non_specialiste"]=$student["csi"][$i]["membre_non_specialiste"];
-                    $report["CSI_Membre_".($i + 1)."_externe"]=$student["csi"][$i]["membre_exterieur"];
+
+                for ($i = 0; $i < count($student["csi"]); $i = $i + 1) {
+                    $report["CSI_Membre_" . ($i + 1) . "_Nom"] = $student["csi"][$i]["nom"];
+                    $report["CSI_Membre_" . ($i + 1) . "_Prenom"] = $student["csi"][$i]["prenom"];
+                    $report["CSI_Membre_" . ($i + 1) . "_mail"] = $student["csi"][$i]["mail"];
+                    $report["CSI_Referent_" . ($i + 1)] = $student["csi"][$i]["referent"];
+                    $report["CSI_Membre_" . ($i + 1) . "_specialiste"] = $student["csi"][$i]["membre_specialiste"];
+                    $report["CSI_Membre_" . ($i + 1) . "_non_specialiste"] = $student["csi"][$i]["membre_non_specialiste"];
+                    $report["CSI_Membre_" . ($i + 1) . "_externe"] = $student["csi"][$i]["membre_exterieur"];
                 }
 
                 if ($user == "PhD") { //PhD
@@ -316,7 +351,7 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        $ine=$_REQUEST["ine"];
+        $ine = $_REQUEST["ine"];
         $students = $this->retrieve_json();
         $students = $students["data"][0];
         $student = "";
@@ -340,7 +375,7 @@ class Controller extends BlockController
         if (!$student) {
             echo "Invalid request";
         } else {
-            
+
             $csiNames = '';
             $csiMails = '';
             foreach ($student["csi"] as $m) {
@@ -349,20 +384,37 @@ class Controller extends BlockController
             }
             $csiNames = rtrim($csiNames, ',');
             $csiMails = rtrim($csiMails, ',');
-            $url="https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?code=";
+            if (strcmp($this->langage, "FR") == 0) {
+                $url = "https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?code=";
 
-            echo "<p>Voici les liens pour remplir les 3 parties du rapport de votre CSI. Il vous faut transmettre les liens correspondants aux différents personnes impliquées dans le CSI. Chaque lien permet de remplir une partie du rapport (Doctorant.e / Direction de thèse / CSI).</p>";
-            echo "<ul>";
-            echo "<li>Lien pour remplir la partie qui vous est propre : <br/> <a href='".$url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD")))."'>";
-            echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD")))."</a>";
-            echo "</li>";
-            echo "<li>Lien à destination de votre direction de thèse (".$student["these_directeur_these_prenom"] . ' ' . $student["these_directeur_these_nom"]." - ".$student["these_directeur_these_mail"].") : <br/> <a href='".$url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT")))."'>";
-            echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT")))."</a>";
-            echo "</li>";
-            echo "<li>Lien à destination du référent de votre CSI (".$csiNames." - ".$csiMails.") : <br/><a href='".$url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI")))."'>";
-            echo $url.htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI")))."</a>";
-            echo "</li>";
-            echo "</ul>";
+                echo "<p>Voici les liens pour remplir les 3 parties du rapport de votre CSI. Il vous faut transmettre les liens correspondants aux différents personnes impliquées dans le CSI. Chaque lien permet de remplir une partie du rapport (Doctorant.e / Direction de thèse / CSI).</p>";
+                echo "<ul>";
+                echo "<li>Lien pour remplir la partie qui vous est propre : <br/> <a href='" . $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD"))) . "'>";
+                echo $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD"))) . "</a>";
+                echo "</li>";
+                echo "<li>Lien à destination de votre direction de thèse (" . $student["these_directeur_these_prenom"] . ' ' . $student["these_directeur_these_nom"] . " - " . $student["these_directeur_these_mail"] . ") : <br/> <a href='" . $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT"))) . "'>";
+                echo $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT"))) . "</a>";
+                echo "</li>";
+                echo "<li>Lien à destination du référent de votre CSI (" . $csiNames . " - " . $csiMails . ") : <br/><a href='" . $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI"))) . "'>";
+                echo $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI"))) . "</a>";
+                echo "</li>";
+                echo "</ul>";
+            } else {
+                $url = "https://doctorat.u-bordeaux.fr/csi-report-filling-page?code=";
+
+                echo "<p>Here are links in order for each part of the CSI commitee (PhD student, Supervisor and CSI commitee) to fill out its content of the CSI report. You need to send the corresponding links to each member involved in your CSI. Each link allows to fill out a part of the report (PhD student / Supervisor / CSI).</p>";
+                echo "<ul>";
+                echo "<li>Link for filling out the PhD student part : <br/> <a href='" . $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD"))) . "'>";
+                echo $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD"))) . "</a>";
+                echo "</li>";
+                echo "<li>Link for filling out the Supervisor part (" . $student["these_directeur_these_prenom"] . ' ' . $student["these_directeur_these_nom"] . " - " . $student["these_directeur_these_mail"] . ") : <br/> <a href='" . $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT"))) . "'>";
+                echo $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT"))) . "</a>";
+                echo "</li>";
+                echo "<li>Link for filling out the CSI commitee part (" . $csiNames . " - " . $csiMails . ") : <br/><a href='" . $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI"))) . "'>";
+                echo $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI"))) . "</a>";
+                echo "</li>";
+                echo "</ul>";
+            }
         }
 
         exit;
@@ -379,31 +431,31 @@ class Controller extends BlockController
     }
 
 
-    private function action_admin_remove_from_report($bID = false,$type)
+    private function action_admin_remove_from_report($bID = false, $type)
     {
         if ($this->bID != $bID) {
             return false;
         }
         $id = $_REQUEST["id"];
         $db = \Database::connection();
-        $statement = $db->executeQuery('DELETE FROM `'.$type.'Report` WHERE `ID` = ?;', array(intval($id)));
+        $statement = $db->executeQuery('DELETE FROM `' . $type . 'Report` WHERE `ID` = ?;', array(intval($id)));
         echo $statement->rowCount() . " entrée a bien été supprimée de la table";
         exit;
     }
 
     public function action_admin_remove_phd_report($bID = false)
     {
-        $this->action_admin_remove_from_report($bID,'PhD');
+        $this->action_admin_remove_from_report($bID, 'PhD');
     }
 
     public function action_admin_remove_dt_report($bID = false)
     {
-        $this->action_admin_remove_from_report($bID,'DT');
+        $this->action_admin_remove_from_report($bID, 'DT');
     }
 
     public function action_admin_remove_csi_report($bID = false)
     {
-        $this->action_admin_remove_from_report($bID,'CSI');
+        $this->action_admin_remove_from_report($bID, 'CSI');
     }
 
 
@@ -416,29 +468,29 @@ class Controller extends BlockController
         $val = explode("-", $val);
         $mat = $val[1];
         $db = \Database::connection();
-        $statement = $db->executeQuery('SELECT * FROM `'.$type.'Report` WHERE Matricule="' . $mat . '";');
+        $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE Matricule="' . $mat . '";');
         $report_data = $statement->fetchAll();
         $report = $report_data[0];
-        include('report-'.$type.'.php');
+        include('report-' . $type . '.php');
         exit;
     }
 
     public function action_show_PhDReport($bID = false)
     {
-        $this->action_show_Report($bID,'PhD');        
+        $this->action_show_Report($bID, 'PhD');
     }
 
     public function action_show_DTReport($bID = false)
     {
-        $this->action_show_Report($bID,'DT');        
+        $this->action_show_Report($bID, 'DT');
     }
 
     public function action_show_CSIReport($bID = false)
     {
-        $this->action_show_Report($bID,'CSI');        
+        $this->action_show_Report($bID, 'CSI');
     }
 
-    private function action_form_save_Report($bID = false,$type)
+    private function action_form_save_Report($bID = false, $type)
     {
         if ($this->bID != $bID) {
             return false;
@@ -459,40 +511,40 @@ class Controller extends BlockController
         $values = $values . '?';
         $fields = $fields . "`Matricule`";
 
-        $sql = 'INSERT INTO `'.$type.'Report` ( ' . $fields . ')VALUES (' . $values . ');';
+        $sql = 'INSERT INTO `' . $type . 'Report` ( ' . $fields . ')VALUES (' . $values . ');';
         $report["Matricule"] = intval($mat);
         //echo $report["CSI_Membre_1_qualite"];
         $statement = $db->executeQuery($sql, array_values($report));
-        $userPage = preg_replace("%/form_save_".$type."Report/\d+%", "/", $_SERVER['REQUEST_URI']);
+        $userPage = preg_replace("%/form_save_" . $type . "Report/\d+%", "/", $_SERVER['REQUEST_URI']);
         $this->redirect($userPage);
         exit;
     }
 
     public function action_form_save_DTReport($bID = false)
     {
-        $this->action_form_save_Report($bID,'DT');
+        $this->action_form_save_Report($bID, 'DT');
     }
 
     public function action_form_save_PhDReport($bID = false)
     {
-        $this->action_form_save_Report($bID,'PhD');        
+        $this->action_form_save_Report($bID, 'PhD');
     }
 
     public function action_form_save_CSIReport($bID = false)
     {
-        $this->action_form_save_Report($bID,'CSI');        
+        $this->action_form_save_Report($bID, 'CSI');
     }
 
     private function admin_view($type)
     {
         $db = \Database::connection();
-        $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'".$type."Report';");
+        $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'" . $type . "Report';");
         $report_headers = $statement->fetchAll(); //print_r($rows);
 
-        $statement = $db->executeQuery('SELECT * FROM `'.$type.'Report` WHERE ed='.$this->ed.';');
+        $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE ed=' . $this->ed . ';');
         //echo 'SELECT * FROM `'.$type.'Report` WHERE ed='.$this->ed.';';
         $report_data = $statement->fetchAll(); //print_r($rows);
-        include("admin-".$type."-report.php");
+        include("admin-" . $type . "-report.php");
         exit;
     }
 
@@ -529,7 +581,7 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        $this->admin_view('CSI');        
+        $this->admin_view('CSI');
         exit;
     }
 

@@ -32,5 +32,9 @@ if (empty($ed)) $ed = null;
 	</select>
 	<label class="control-label" for="sKey">Clé de cryptage (laisser comme tel si admin, recopier celui de l'admin si user)<sup class="fas fa-asterisk"></sup></label>
 	<input type="text" <?php if (strcmp($admin, "True") === 0) { ?>readonly<?php }?> name="sKey" class="ccm-input-text" value="<?php echo $sKey; ?>" />
-
+	<br/><label class="control-label" for="langage">Langue d'affichage</label>
+	<select id="langage" name="langage" class="ccm-input-select">		
+		<option value="FR" <?php if (strcmp($langage, "FR") === 0) { ?>selected<?php } ?>> Français</option>
+		<option value="EN" <?php if (strcmp($langage, "EN") === 0) { ?>selected<?php } ?>> Anglais</option>
+	</select>
 </div>

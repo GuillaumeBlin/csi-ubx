@@ -17,6 +17,9 @@
 		<field name="ed" type="text">
 			<default value="" />
 		</field>
+		<field name="langage" type="text">
+			<default value="FR"/>
+		</field>
 	</table>
 	<table name="PhDReport">
 		<field name="ID" type="integer">
