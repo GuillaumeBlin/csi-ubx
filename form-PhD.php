@@ -1,7 +1,7 @@
 <?php if(!isset($report_read_only)){$report_read_only=false;}?>
 <form id="csi" <?php if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_PhDReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <?php } ?>>
     <input type="hidden" name="ed" id="ed" value="<?php echo $report["ed"]; ?>" />
-    <h3><?php if (strcmp($this->langage, "FR") == 0) {?>Informations générales<?php }else{?>General information
+    <h3><?php if (strcmp($langage, "FR") == 0) {?>Informations générales<?php }else{?>General information
 <?php }?></h3>
     <h4>La doctorante ou le doctorant</h4>
     <h5>Nom</h5>
