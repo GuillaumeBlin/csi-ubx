@@ -262,7 +262,7 @@ class Controller extends BlockController
                 echo "Aucun étudiant ou aucune étudiante correpsondant.";
             } else {
                 $report = array(
-                    "these_ED_code" => $student["these_ED_code"],
+                    "ed" => $student["these_ED_code"],
                     "PhD_Nom" => $student["nom"],
                     "PhD_Prenom" => $student["prenom"],
                     "PhD_Mail" => $student["mail_principal"],
