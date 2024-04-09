@@ -1,3 +1,4 @@
+<?php if(!isset($report_read_only)){$report_read_only=false;}?>
 <form id="csi" <?php if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_PhDReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <?php } ?>>
     <input type="hidden" name="ed" id="ed" value="<?php echo $report["these_ED_code"]; ?>" />
     <h3>Informations générales</h3>
@@ -189,7 +190,7 @@
 
     <h5>Productions scientifiques et participation à des colloques</h5>
         <textarea type="textarea" rows="5" class="form-control" name="ProductionScientifique"><?php echo $report["ProductionScientifique"]; ?></textarea>
-        
+
     <h3>Bilan annuel avec la direction de thèse</h3>
     <h5>Fréquence des contacts avec la direction de thèse (en dehors des courriers électroniques)</h5>
     <span>

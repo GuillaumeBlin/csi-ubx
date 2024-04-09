@@ -1,3 +1,4 @@
+<?php if(!isset($report_read_only)){$report_read_only=false;}?>
 <form id="csi" <?php if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_DTReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <?php } ?>>
     <input type="hidden" name="ed" id="ed" value="<?php echo $report["these_ED_code"]; ?>" />
     <h3>Informations générales</h3>
