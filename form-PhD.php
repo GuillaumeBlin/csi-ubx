@@ -146,7 +146,7 @@
             <input name="CSI_Referent_<?php echo $i + 1; ?>" disabled value="<?php echo $i + 1; ?>" type="radio" <?php if ($report["CSI_Referent_" . ($i + 1) . ""] == "oui") {
                                                                                                                         echo "checked";
                                                                                                                     } ?>>
-            <?php if ($report["csi"][$i]["referent"] == "oui") { ?>
+            <?php if ($report["CSI_Referent_" . ($i + 1) . ""] == "oui")  { ?>
                 <input name="CSI_Referent_<?php echo $i + 1; ?>" value="<?php echo $i + 1; ?>" type="hidden" />
             <?php    } ?>
 
