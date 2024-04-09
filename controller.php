@@ -92,7 +92,7 @@ class Controller extends BlockController
         return;
     }
 
-    private function display_dt_report_content($defense)
+    private function display_dt_report_content($report)
     {
         include('form-DT.php');
         echo "<script>
@@ -255,10 +255,10 @@ class Controller extends BlockController
                     $this->display_phd_report_content($report);
                 }
                 if ($user == "DT") {
-                    $this->display_dt_report_content($student);
+                    $this->display_dt_report_content($report);
                 }
                 if ($user == "CSI") {
-                    $this->display_csi_report_content($student);
+                    $this->display_csi_report_content($report);
                 }
             }
         }
@@ -322,7 +322,6 @@ class Controller extends BlockController
         $student = "";
         foreach ($students as $value) {
             if ($value["INE"] == $ine) {
-            //if ($value["Matricule_etudiant"] == $ine) {
                 $student = $this->array_extract($value, [
                     "Matricule_etudiant",
                     "nom",

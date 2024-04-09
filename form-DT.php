@@ -1,290 +1,386 @@
 <form id="csi" <?php if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_DTReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <?php } ?>>
-    <input type="hidden" name="ed" id="ed" value="<?php echo $defense["these_ED_code"]; ?>" />
+    <input type="hidden" name="ed" id="ed" value="<?php echo $report["these_ED_code"]; ?>" />
     <h3>Informations générales</h3>
     <h4>La doctorante ou le doctorant</h4>
     <h5>Nom</h5>
-    <input type="text" readonly class="form-control" name="PhD_Nom" id="PhD_Nom" value="<?php echo $defense["nom"]; ?>">
+    <input type="text" readonly class="form-control" name="PhD_Nom" id="PhD_Nom" value="<?php echo $report["PhD_Nom"]; ?>">
     <h5>Prénom</h5>
-    <input type="text" readonly class="form-control" name="PhD_Prenom" id="PhD_Prenom" value="<?php echo $defense["prenom"]; ?>">
+    <input type="text" readonly class="form-control" name="PhD_Prenom" id="PhD_Prenom" value="<?php echo $report["PhD_Prenom"]; ?>">
     <h5>Email dans ADUM</h5>
-    <input type="text" readonly class="form-control" name="PhD_Mail" id="PhD_Mail" value="<?php echo $defense["mail_principal"]; ?>">
+    <input type="text" readonly class="form-control" name="PhD_Mail" id="PhD_Mail" value="<?php echo $report["PhD_Mail"]; ?>">
     <h5>Spécialité</h5>
-    <input type="text" readonly class="form-control" name="PhD_Specialite" id="PhD_Specialite" value="<?php echo $defense["these_specialite"]; ?>">
+    <input type="text" readonly class="form-control" name="PhD_Specialite" id="PhD_Specialite" value="<?php echo $report["PhD_Specialite"]; ?>">
     <h5>Unité de recherche</h5>
-    <input type="text" readonly class="form-control" name="PhD_UMR" id="PhD_UMR" value="<?php echo $defense["these_laboratoire"]; ?>">
+    <input type="text" readonly class="form-control" name="PhD_UMR" id="PhD_UMR" value="<?php echo $report["PhD_UMR"]; ?>">
     <h4>La thèse</h4>
     <h5>Nom direction de thèse</h5>
-    <input type="text" readonly class="form-control" name="DT_Nom" id="DT_Nom" value="<?php echo $defense["these_directeur_these_nom"]; ?>">
+    <input type="text" readonly class="form-control" name="DT_Nom" id="DT_Nom" value="<?php echo $report["DT_Nom"]; ?>">
     <h5>Prénom direction de thèse</h5>
-    <input type="text" readonly class="form-control" name="DT_Prenom" id="DT_Prenom" value="<?php echo $defense["these_directeur_these_prenom"]; ?>">
-    <?php if(($defense["these_codirecteur_these_nom"]!="")||($report_read_only == true&&$report["CODT_Nom"]!="")){ ?>
+    <input type="text" readonly class="form-control" name="DT_Prenom" id="DT_Prenom" value="<?php echo $report["DT_Prenom"]; ?>">
+    <?php if($report["CODT_Nom"]!=""){ ?>
         <h5>Nom co-direction de thèse</h5>
-    <input type="text" readonly class="form-control" name="CODT_Nom" id="CODT_Nom" value="<?php echo $defense["these_codirecteur_these_nom"]; ?>">
+    <input type="text" readonly class="form-control" name="CODT_Nom" id="CODT_Nom" value="<?php echo $report["CODT_Nom"]; ?>">
     <h5>Prénom co-direction de thèse</h5>
-    <input type="text" readonly class="form-control" name="CODT_Prenom" id="CODT_Prenom" value="<?php echo $defense["these_codirecteur_these_prenom"]; ?>">
+    <input type="text" readonly class="form-control" name="CODT_Prenom" id="CODT_Prenom" value="<?php echo $report["CODT_Prenom"]; ?>">
     <?php } ?>
     <h5>Date de début de thèse</h5>
-    <input type="date" class="form-control" name="PhD_DateDebutThese" readonly id="PhD_DateDebutThese" value="<?php echo date('Y-m-d', strtotime($defense["these_date_1inscription"])); ?>">
+    <input type="date" class="form-control" name="PhD_DateDebutThese" readonly id="PhD_DateDebutThese" value="<?php echo $report["PhD_DateDebutThese"]; ?>">
 
     <h4>Année du CSI</h4>
     <h5>CSI pour réinscription en année</h5>
-    <input type="number" readonly class="form-control" name="PhD_CSI_Annee" min="2" max="8" step="1" id="PhD_CSI_Annee" value="<?php echo intval(substr($defense["niveau_Etud"], 0, 1)) + 1; ?>">
+    <input type="number" readonly class="form-control" name="PhD_CSI_Annee" min="2" max="8" step="1" id="PhD_CSI_Annee" value="<?php echo $report["PhD_CSI_Annee"]; ?>">
 
     <h3>Bilan annuel sur le déroulement de la thèse</h3>
     <p>Donner votre avis personnel sur les points suivants&nbsp;</p>
     <h5>Compétences techniques (maîtrise les outils)</h5>
     <span>
-        <input name="CompetencesTechniques" value="Insuffisant" type="radio">
+        <input name="CompetencesTechniques" value="Insuffisant" type="radio" <?php if ($report["CompetencesTechniques"] == "Insuffisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="CompetencesTechniques" value="A améliorer" type="radio">
+        <input name="CompetencesTechniques" value="A améliorer" type="radio" <?php if ($report["CompetencesTechniques"] == "A améliorer") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="CompetencesTechniques" value="Satisfaisant" type="radio">
+        <input name="CompetencesTechniques" value="Satisfaisant" type="radio" <?php if ($report["CompetencesTechniques"] == "Satisfaisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Satisfaisant</label>
     </span>
     <h5>Compétences scientifiques (maîtrise les fondamentaux de sa discipline) </h5>
     <span>
-        <input name="CompetencesScientifiques" value="Insuffisant" type="radio">
+        <input name="CompetencesScientifiques" value="Insuffisant" type="radio" <?php if ($report["CompetencesScientifiques"] == "Insuffisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="CompetencesScientifiques" value="A améliorer" type="radio">
+        <input name="CompetencesScientifiques" value="A améliorer" type="radio" <?php if ($report["CompetencesScientifiques"] == "A améliorer") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="CompetencesScientifiques" value="Satisfaisant" type="radio">
+        <input name="CompetencesScientifiques" value="Satisfaisant" type="radio" <?php if ($report["CompetencesScientifiques"] == "Satisfaisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Satisfaisant</label>
     </span>
     <h5>Autonomie (sait trouver seul l'information ou des solutions) </h5>
     <span>
-        <input name="Autonomie" value="Insuffisant" type="radio">
+        <input name="Autonomie" value="Insuffisant" type="radio" <?php if ($report["Autonomie"] == "Insuffisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="Autonomie" value="A améliorer" type="radio">
+        <input name="Autonomie" value="A améliorer" type="radio" <?php if ($report["Autonomie"] == "A améliorer") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="Autonomie" value="Satisfaisant" type="radio">
+        <input name="Autonomie" value="Satisfaisant" type="radio" <?php if ($report["Autonomie"] == "Satisfaisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Satisfaisant</label>
     </span>
     <h5>Sait mobiliser de manière efficace la bibliographie (recherche complète et synthèse)</h5>
     <span>
-        <input name="Bibliographie" value="Insuffisant" type="radio">
+        <input name="Bibliographie" value="Insuffisant" type="radio" <?php if ($report["Bibliographie"] == "Insuffisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="Bibliographie" value="A améliorer" type="radio">
+        <input name="Bibliographie" value="A améliorer" type="radio" <?php if ($report["Bibliographie"] == "A améliorer") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="Bibliographie" value="Satisfaisant" type="radio">
+        <input name="Bibliographie" value="Satisfaisant" type="radio" <?php if ($report["Bibliographie"] == "Satisfaisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Satisfaisant</label>
     </span>
     <h5>Capacité d'initiative (propose des solutions ou des réorientations)</h5>
     <span>
-        <input name="Initiative" value="Insuffisant" type="radio">
+        <input name="Initiative" value="Insuffisant" type="radio" <?php if ($report["Initiative"] == "Insuffisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="Initiative" value="A améliorer" type="radio">
+        <input name="Initiative" value="A améliorer" type="radio" <?php if ($report["Initiative"] == "A améliorer") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="Initiative" value="Satisfaisant" type="radio">
+        <input name="Initiative" value="Satisfaisant" type="radio" <?php if ($report["Initiative"] == "Satisfaisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Satisfaisant</label>
     </span>
     <h5>Capacité d'adaptation (prend rapidement en main les nouveaux outils) </h5>
     <span>
-        <input name="Adaptation" value="Insuffisant" type="radio">
+        <input name="Adaptation" value="Insuffisant" type="radio" <?php if ($report["Adaptation"] == "Insuffisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="Adaptation" value="A améliorer" type="radio">
+        <input name="Adaptation" value="A améliorer" type="radio" <?php if ($report["Adaptation"] == "A améliorer") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="Adaptation" value="Satisfaisant" type="radio">
+        <input name="Adaptation" value="Satisfaisant" type="radio" <?php if ($report["Adaptation"] == "Satisfaisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Satisfaisant</label>
     </span>
     <h5>Aptitude à rédiger des documents de synthèse </h5>
     <span>
-        <input name="Redaction" value="Insuffisant" type="radio">
+        <input name="Redaction" value="Insuffisant" type="radio" <?php if ($report["Redaction"] == "Insuffisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="Redaction" value="A améliorer" type="radio">
+        <input name="Redaction" value="A améliorer" type="radio" <?php if ($report["Redaction"] == "A améliorer") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="Redaction" value="Satisfaisant" type="radio">
+        <input name="Redaction" value="Satisfaisant" type="radio" <?php if ($report["Redaction"] == "Satisfaisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Satisfaisant</label>
     </span>
     <h5>Aptitude à présenter ses travaux de recherche </h5>
     <span>
-        <input name="Presentation" value="Insuffisant" type="radio">
+        <input name="Presentation" value="Insuffisant" type="radio" <?php if ($report["Presentation"] == "Insuffisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="Presentation" value="A améliorer" type="radio">
+        <input name="Presentation" value="A améliorer" type="radio" <?php if ($report["Presentation"] == "A améliorer") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="Presentation" value="Satisfaisant" type="radio">
+        <input name="Presentation" value="Satisfaisant" type="radio" <?php if ($report["Presentation"] == "Satisfaisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Satisfaisant</label>
     </span>
     <h5>Aptitude à structurer sa réflexion </h5>
     <span>
-        <input name="Reflexion" value="Insuffisant" type="radio">
+        <input name="Reflexion" value="Insuffisant" type="radio" <?php if ($report["Reflexion"] == "Insuffisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="Reflexion" value="A améliorer" type="radio">
+        <input name="Reflexion" value="A améliorer" type="radio" <?php if ($report["Reflexion"] == "A améliorer") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="Reflexion" value="Satisfaisant" type="radio">
+        <input name="Reflexion" value="Satisfaisant" type="radio" <?php if ($report["Reflexion"] == "Satisfaisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Satisfaisant</label>
     </span>
     <h5>Assiduité (ponctualité, présence) </h5>
     <span>
-        <input name="Assiduite" value="Insuffisant" type="radio">
+        <input name="Assiduite" value="Insuffisant" type="radio" <?php if ($report["Assiduite"] == "Insuffisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="Assiduite" value="A améliorer" type="radio">
+        <input name="Assiduite" value="A améliorer" type="radio" <?php if ($report["Assiduite"] == "A améliorer") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="Assiduite" value="Satisfaisant" type="radio">
+        <input name="Assiduite" value="Satisfaisant" type="radio" <?php if ($report["Assiduite"] == "Satisfaisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Satisfaisant</label>
     </span>
     <h5>Interaction avec l'encadrement (sollicite à bon escient) </h5>
     <span>
-        <input name="Interaction" value="Insuffisant" type="radio">
+        <input name="Interaction" value="Insuffisant" type="radio" <?php if ($report["Interaction"] == "Insuffisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="Interaction" value="A améliorer" type="radio">
+        <input name="Interaction" value="A améliorer" type="radio" <?php if ($report["Interaction"] == "A améliorer") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="Interaction" value="Satisfaisant" type="radio">
+        <input name="Interaction" value="Satisfaisant" type="radio" <?php if ($report["Interaction"] == "Satisfaisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Satisfaisant</label>
     </span>
     <h5>Intégration dans l'équipe/le laboratoire (interagit avec les chercheurs et les doctorants</h5>
     <span>
-        <input name="Integration" value="Insuffisant" type="radio">
+        <input name="Integration" value="Insuffisant" type="radio" <?php if ($report["Integration"] == "Insuffisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Insuffisant</label>
     </span>
     <span>
-        <input name="Integration" value="A améliorer" type="radio">
+        <input name="Integration" value="A améliorer" type="radio" <?php if ($report["Integration"] == "A améliorer") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>A améliorer</label>
     </span>
     <span>
-        <input name="Integration" value="Satisfaisant" type="radio">
+        <input name="Integration" value="Satisfaisant" type="radio" <?php if ($report["Integration"] == "Satisfaisant") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Satisfaisant</label>
     </span>
 
     <h3>Bilan annuel sur l'avancement de la thèse</h3>
     <div>
-        <input name="Progression" value="La thèse progresse à très bon rythme" type="radio">
+        <input name="Progression" value="La thèse progresse à très bon rythme" type="radio" <?php if ($report["Progression"] == "La thèse progresse à très bon rythme") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>La thèse progresse à très bon rythme</label>
     </div>
     <div>
-        <input name="Progression" value="La thèse progresse normalement" type="radio">
+        <input name="Progression" value="La thèse progresse normalement" type="radio" <?php if ($report["Progression"] == "La thèse progresse normalement") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>La thèse progresse normalement </label>
     </div>
     <div>
-        <input name="Progression" value="La thèse aurait dû progresser davantage sur l’année écoulée mais le retard pris est admissible" type="radio">
+        <input name="Progression" value="La thèse aurait dû progresser davantage sur l’année écoulée mais le retard pris est admissible" type="radio" <?php if ($report["Progression"] == "La thèse aurait dû progresser davantage sur l’année écoulée mais le retard pris est admissible") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>La thèse aurait dû progresser davantage sur l’année écoulée mais le retard pris est admissible</label>
     </div>
     <div>
-        <input name="Progression" value="La thèse n'a clairement pas assez progressé" type="radio">
+        <input name="Progression" value="La thèse n'a clairement pas assez progressé" type="radio" <?php if ($report["Progression"] == "La thèse n'a clairement pas assez progressé") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>La thèse n'a clairement pas assez progressé</label>
     </div>
-    <div id="Argumentaire" <?php if ($report_read_only == false){ echo 'style="display:none"'; }?>>
+    <div id="Argumentaire" <?php if (!array_key_exists("Progression", $report) ||($report["Progression"] == "La thèse progresse à très bon rythme")|| ($report["Progression"] == "La thèse progresse normalement")){ echo 'style="display:none"'; }?>>
         <label>Argumentaire</label>
-        <textarea type="textarea" rows="5" class="form-control" name="ArgumentaireProgression" id="ArgumentaireProgression"></textarea>
+        <textarea type="textarea" rows="5" class="form-control" name="ArgumentaireProgression" id="ArgumentaireProgression"><?php echo $report["ArgumentaireProgression"]; ?></textarea>
     </div>
 
     <!-- 2eme année-->
 
 
-    <div <?php if ((intval(substr($defense["niveau_Etud"], 0, 1)) > 2)||(($report_read_only == true)&&($report["SoutenanceDansDelais"]==""))) {
+    <div <?php if ($report["PhD_CSI_Annee"]>2) {
                 echo 'style="display:none"';
             } ?>><label>L'état d'avancement global des travaux vous permet-il d'envisager une soutenance dans les délais</label>
         <span>
-            <input name="SoutenanceDansDelais" value="Oui" type="radio">
+            <input name="SoutenanceDansDelais" value="Oui" type="radio" <?php if ($report["SoutenanceDansDelais"] == "Oui") {
+                                                                                echo "checked";
+                                                                            } ?>>
             <label>Oui</label>
         </span>
         <span>
-            <input name="SoutenanceDansDelais" value="Non" type="radio">
+            <input name="SoutenanceDansDelais" value="Non" type="radio" <?php if ($report["SoutenanceDansDelais"] == "Non") {
+                                                                                echo "checked";
+                                                                            } ?>>
             <label>Non</label>
         </span>
     </div>
 
     <!-- 3eme année-->
 
-    <div <?php if (($defense["niveau_Etud"])&&(intval(substr($defense["niveau_Etud"], 0, 1)) < 3)||(($report_read_only == true)&&($report["Echeancier"]==""))) {
+    <div <?php if ($report["PhD_CSI_Annee"]<3) {
                 echo 'style="display:none"';
             } ?>>
         <div>
             <label>Echéancier de fin de thèse</label>
-            <textarea type="textarea" rows="5" class="form-control" name="Echeancier"></textarea>
+            <textarea type="textarea" rows="5" class="form-control" name="Echeancier"><?php echo $report["Echeancier"]; ?></textarea>
         </div>
         <div>
             <label>Date prévue pour la soutenance de thèse</label>
-            <input type="date" class="form-control" name="DateSoutenance">
+            <input type="date" class="form-control" name="DateSoutenance" value="<?php echo $report["DateSoutenance"]; ?>">
         </div>
         <div><label>Une inscription dérogatoire en 4ème année ou plus est-elle envisagée ?</label>
             <span>
-                <input name="InscriptionDerogatoire" value="Oui" type="radio">
+                <input name="InscriptionDerogatoire" value="Oui" type="radio" <?php if ($report["InscriptionDerogatoire"] == "Oui") {
+                                                                                echo "checked";
+                                                                            } ?>>
                 <label>Oui</label>
             </span>
             <span>
-                <input name="InscriptionDerogatoire" value="Non" type="radio">
+                <input name="InscriptionDerogatoire" value="Non" type="radio" <?php if (!array_key_exists("InscriptionDerogatoire", $report) ||$report["InscriptionDerogatoire"] == "Non") {
+                                                                                echo "checked";
+                                                                            } ?>>
                 <label>Non</label>
             </span>
         </div>
-        <div id="InscriptionDerogatoire" <?php if ($report_read_only == false||$report["InscriptionDerogatoire"]=="Non"){ echo 'style="display:none"'; }?> >
+        <div id="InscriptionDerogatoire" <?php if (!array_key_exists("InscriptionDerogatoire", $report) ||$report["InscriptionDerogatoire"]=="Non"){ echo 'style="display:none"'; }?> >
         <label>Un financement est-il prévu jusqu'à la soutenance de thèse ?</label>
             <span>
-                <input name="Financement" value="Oui" type="radio">
+                <input name="Financement" value="Oui" type="radio" <?php if ($report["Financement"] == "Oui") {
+                                                                                echo "checked";
+                                                                            } ?>>
                 <label>Oui</label>
             </span>
             <span>
-                <input name="Financement" value="Non" type="radio">
+                <input name="Financement" value="Non" type="radio" <?php if ($report["Financement"] == "Non") {
+                                                                                echo "checked";
+                                                                            } ?>>
                 <label>Non</label>
             </span>
 
-            <div id="Financement" <?php if ($report_read_only == false||$report["Financement"]=="Non"){ echo 'style="display:none"'; }?>>
+            <div id="Financement" <?php if (!array_key_exists("Financement", $report) || $report["Financement"]=="Non"){ echo 'style="display:none"'; }?>>
                 <label>Si oui, préciser </label>
-                <textarea type="textarea" rows="5" class="form-control" name="FinancementDetails" ></textarea>
+                <textarea type="textarea" rows="5" class="form-control" name="FinancementDetails" ><?php echo $report["FinancementDetails"]; ?></textarea>
             </div>
         </div>
     </div>
 
     <h3>Avis sur la réinscription en thèse</h3>
     <span>
-        <input name="Reinscription" value="Favorable" type="radio">
+        <input name="Reinscription" value="Favorable" type="radio" <?php if ($report["Reinscription"] == "Favorable") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Favorable</label>
     </span>
     <span>
-        <input name="Reinscription" value="Défavorable" type="radio">
+        <input name="Reinscription" value="Défavorable" type="radio" <?php if ($report["Reinscription"] == "Défavorable") {
+                                                                                echo "checked";
+                                                                            } ?>>
         <label>Défavorable</label>
     </span>
     <div>
         <label>Avis circonstancié</label>
-        <textarea type="textarea" rows="5" class="form-control" name="AvisReinscription"></textarea>
+        <textarea type="textarea" rows="5" class="form-control" name="AvisReinscription"><?php echo $report["AvisReinscription"]; ?></textarea>
     </div>
 
     <div>
         <label>Date de l'établissement du rapport</label>
-        <input type="date" class="form-control" name="DateRapport" id="DateRapport">
+        <input type="date" class="form-control" name="DateRapport" id="DateRapport" value="<?php echo $report["DateRapport"]; ?>">
     </div>
     <?php if ($report_read_only == false) { ?>
         <div>
@@ -293,44 +389,23 @@
     <?php } ?>
 </form>
 <script>
+function nl2br(str, replaceMode, isXhtml) {
+        var breakTag = (isXhtml) ? '<br />' : '<br>';
+        var replaceStr = (replaceMode) ? '$1' + breakTag : '$1' + breakTag + '$2';
+        return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, replaceStr);
+    }
 
-function br2nl (str, replaceMode) {   
-	
-    var replaceStr = (replaceMode) ? "\n" : '';
-    // Includes <br>, <BR>, <br />, </br>
-    return str.replace(/<\s*\/?br\s*[\/]?>/gi, replaceStr);
-  }
-
-  function nl2br (str, replaceMode, isXhtml) {
-
-var breakTag = (isXhtml) ? '<br />' : '<br>';
-var replaceStr = (replaceMode) ? '$1'+ breakTag : '$1'+ breakTag +'$2';
-return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, replaceStr);
-}
     <?php if ($report_read_only == true) {
-
-        foreach ($report as $k => $v) {
-            echo "$('input[type=date][name=" . $k . "]').val('" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "');";
-            echo "$('input[type=number][name=" . $k . "]').val('" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "');";
-            echo "$('input[type=text][name=" . $k . "]').val('" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "');";
-            echo "var t= $('textarea[name=" . $k . "]'); t.val(br2nl('" . addslashes(preg_replace("/\n|\r/"," ",nl2br($v))) . "',true));";
     ?>
-            if (t.length > 0) {
-                t.height("");
-                var x = t.prop('scrollHeight');
+        $("textarea").each(function() {
+            if (this.length > 0) {
+                this.height("");
+                var x = this.prop('scrollHeight');
                 x = x + 10;
-                t.height(x + "px");
+                this.height(x + "px");
             };
+        });
 
-
-            <?php
-            echo "var j=$('input[type=radio][name=" . $k . "][value=\"" . addslashes(preg_replace("/\n|\r/", "\\n",$v)) . "\"]');";
-            //echo "$('input[name=".$k."]').val('".addslashes($v)."').prop('checked', true);";
-            ?>
-            j.prop('checked', true);
-        <?php
-        }
-        ?>
         window.onbeforeprint = function() {
             $('.print-content').remove();
             $('textarea').each(function() {
@@ -340,7 +415,6 @@ return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, replaceStr);
         }
         $("#csi :input").attr("disabled", true);
     <?php
-
     }
     ?>
 
