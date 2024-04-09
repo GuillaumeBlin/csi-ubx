@@ -222,8 +222,37 @@ class Controller extends BlockController
             if (!$student) {
                 echo "Aucun étudiant ou aucune étudiante correpsondant.";
             } else {
+                $report=array(
+                    "these_ED_code" => $student["these_ED_code"],
+                    "PhD_Nom" => $student["nom"],
+                    "PhD_Prenom" => $student["prenom"],
+                    "PhD_Mail" => $student["mail_principal"],
+                    "PhD_Specialite" => $student["these_specialite"],
+                    "PhD_UMR" => $student["these_laboratoire"],
+                    "DT_Nom" => $student["these_directeur_these_nom"],
+                    "DT_Prenom" => $student["these_directeur_these_prenom"],
+                    "CODT_Nom" => $student["these_codirecteur_these_nom"],
+                    "CODT_Prenom" => $student["these_codirecteur_these_prenom"],
+                    "PhD_DateDebutThese" => date('Y-m-d', strtotime($student["these_date_1inscription"])),
+                    "PhD_Cotutelle" => $student["these_cotutelle"],
+                    "PhD_Cotutelle_Pays" => $student["these_cotutelle_pays"],
+                    "PhD_CSI_Annee" => intval(substr($student["niveau_Etud"], 0, 1)) + 1,
+                    "niveau_Etud" => $student["niveau_Etud"],
+                    "CSI_Membre_Nombre" => count($student["csi"])
+                );
+                    
+                for ($i = 0; $i < count($student["csi"]); $i = $i + 1) { 
+                    $report["CSI_Membre_{($i + 1)}_Nom"]=$student["csi"][$i]["nom"];
+                    $report["CSI_Membre_{($i + 1)}_Prenom"]= $student["csi"][$i]["prenom"];
+                    $report["CSI_Membre_{($i + 1)}_mail"] = $student["csi"][$i]["mail"];
+                    $report["CSI_Referent_{($i + 1)}"]=$student["csi"][$i]["referent"];
+                    $report["CSI_Membre_{($i + 1)}_specialiste"]=$student["csi"][$i]["membre_specialiste"];
+                    $report["CSI_Membre_{($i + 1)}_non_specialiste"]=$student["csi"][$i]["membre_non_specialiste"];
+                    $report["CSI_Membre_{($i + 1)}_externe"]=$student["csi"][$i]["membre_exterieur"];
+                }
+
                 if ($user == "PhD") { //PhD
-                    $this->display_phd_report_content($student);
+                    $this->display_phd_report_content($report);
                 }
                 if ($user == "DT") {
                     $this->display_dt_report_content($student);
