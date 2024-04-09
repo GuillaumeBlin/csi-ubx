@@ -108,7 +108,7 @@
         <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_mail" id="CSI_Membre_<?php echo $i + 1; ?>_mail" readonly value="<?php echo $report["CSI_Membre_{($i + 1)}_mail"]; ?>">
         <h6>Référent</h6>
         <div>
-            <input name="CSI_Referent_<?php echo $i + 1; ?>" disabled value="<?php echo $i + 1; ?>" type="radio" <?php if $report["CSI_Referent_{($i + 1)}"] == "oui") {
+            <input name="CSI_Referent_<?php echo $i + 1; ?>" disabled value="<?php echo $i + 1; ?>" type="radio" <?php if ($report["CSI_Referent_{($i + 1)}"] == "oui") {
                                                                                             echo "checked";
                                                                                         } ?>>
             <?php if ($defense["csi"][$i]["referent"] == "oui") {?>
