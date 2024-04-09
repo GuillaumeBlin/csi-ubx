@@ -285,7 +285,7 @@ class Controller extends BlockController
                     $report["CSI_Membre_" . ($i + 1) . "_non_specialiste"] = $student["csi"][$i]["membre_non_specialiste"];
                     $report["CSI_Membre_" . ($i + 1) . "_externe"] = $student["csi"][$i]["membre_exterieur"];
                 }
-
+                $report_read_only=false;
                 if ($user == "PhD") { //PhD
                     $this->display_phd_report_content($report);
                 }
