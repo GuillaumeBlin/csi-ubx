@@ -79,7 +79,7 @@
                                                                             } ?>>
         <label>Réorienté</label>
     </span>
-    <div id="ComparaisonObjectifsInitiaux" <?php if (!array_key_exists("ComparaisonObjectifsInitiaux", $report) || $report["ComparaisonObjectifsInitiaux"]=="Globalement conforme"){ echo 'style="display:none"'; }?>>
+    <div id="ComparaisonObjectifsInitiaux" <?php if ($report["ComparaisonObjectifsInitiaux"]=="" || $report["ComparaisonObjectifsInitiaux"]=="Globalement conforme"){ echo 'style="display:none"'; }?>>
         <label>Précisions</label>
         <textarea type="textarea" rows="5" class="form-control" name="ComparaisonObjectifsInitiauxPrecisions"><?php echo $report["ComparaisonObjectifsInitiauxPrecisions"]; ?></textarea>
     </div>
@@ -103,7 +103,7 @@
                                                                             } ?>>
         <label>Des difficultés majeures</label>
     </span>
-    <div id="ObservationsMethodoExpe" <?php if (!array_key_exists("ObservationsMethodoExpe", $report) || $report["ObservationsMethodoExpe"]=="Aucune difficulté particulière"){ echo 'style="display:none"'; }?>>
+    <div id="ObservationsMethodoExpe" <?php if ($report["ObservationsMethodoExpe"]=="" || $report["ObservationsMethodoExpe"]=="Aucune difficulté particulière"){ echo 'style="display:none"'; }?>>
         <label>Précisions et recommandations</label>
         <textarea type="textarea" rows="5" class="form-control" name="ObservationsMethodoExpePrecisions"><?php echo $report["ObservationsMethodoExpePrecisions"]; ?></textarea>
     </div>
@@ -121,7 +121,7 @@
                                                                             } ?>>
         <label>Non</label>
     </span>
-    <div id="RespectCalendrierPrevisionnel" <?php if (!array_key_exists("RespectCalendrierPrevisionnel", $report) || $report["RespectCalendrierPrevisionnel"]=="Oui"){ echo 'style="display:none"'; }?>>
+    <div id="RespectCalendrierPrevisionnel" <?php if ($report["RespectCalendrierPrevisionnel"]=="" || $report["RespectCalendrierPrevisionnel"]=="Oui"){ echo 'style="display:none"'; }?>>
         <label>Raisons et ajustements recommandés</label>
         <textarea type="textarea" rows="5" class="form-control" name="RespectCalendrierPrevisionnelPrecisions"><?php echo $report["RespectCalendrierPrevisionnelPrecisions"]; ?></textarea>
     </div>
@@ -151,7 +151,7 @@
                                                                             } ?>>
             <label>Non</label>
         </span>
-        <div id="SoutenanceAuTermeAnneeAVenir" <?php if (!array_key_exists("SoutenanceAuTermeAnneeAVenir", $report) || $report["SoutenanceAuTermeAnneeAVenir"]=="Oui"){ echo 'style="display:none"'; }?>>
+        <div id="SoutenanceAuTermeAnneeAVenir" <?php if ($report["SoutenanceAuTermeAnneeAVenir"]=="" || $report["SoutenanceAuTermeAnneeAVenir"]=="Oui"){ echo 'style="display:none"'; }?>>
             <label>Raisons</label>
             <textarea type="textarea" rows="5" class="form-control" name="SoutenanceAuTermeAnneeAVenirPrecisions"><?php echo $report["SoutenanceAuTermeAnneeAVenirPrecisions"]; ?></textarea>
         </div>
@@ -216,7 +216,7 @@
             <label>Non</label>
         </span>
     </div>
-    <div id="DateSoutenance" <?php if (!array_key_exists("InscriptionDerogatoire", $report) || $report["InscriptionDerogatoire"]=="Non"){ echo 'style="display:none"'; }?>>
+    <div id="DateSoutenance" <?php if ($report["InscriptionDerogatoire"]=="" || $report["InscriptionDerogatoire"]=="Non"){ echo 'style="display:none"'; }?>>
         <label>Si oui, date prévue pour la soutenance de thèse</label>
         <input type="date" class="form-control" name="DateSoutenance" value="<?php echo $report["DateSoutenance"]; ?>">
     </div>

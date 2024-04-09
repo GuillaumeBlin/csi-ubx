@@ -287,7 +287,7 @@
                                                                             } ?>>
         <label>La thèse n'a clairement pas assez progressé</label>
     </div>
-    <div id="Argumentaire" <?php if (!array_key_exists("Progression", $report) ||($report["Progression"] == "La thèse progresse à très bon rythme")|| ($report["Progression"] == "La thèse progresse normalement")){ echo 'style="display:none"'; }?>>
+    <div id="Argumentaire" <?php if ($report["Progression"] == "" ||($report["Progression"] == "La thèse progresse à très bon rythme")|| ($report["Progression"] == "La thèse progresse normalement")){ echo 'style="display:none"'; }?>>
         <label>Argumentaire</label>
         <textarea type="textarea" rows="5" class="form-control" name="ArgumentaireProgression" id="ArgumentaireProgression"><?php echo $report["ArgumentaireProgression"]; ?></textarea>
     </div>
@@ -333,13 +333,13 @@
                 <label>Oui</label>
             </span>
             <span>
-                <input name="InscriptionDerogatoire" value="Non" type="radio" <?php if (!array_key_exists("InscriptionDerogatoire", $report) ||$report["InscriptionDerogatoire"] == "Non") {
+                <input name="InscriptionDerogatoire" value="Non" type="radio" <?php if ($report["InscriptionDerogatoire"] == "" ||$report["InscriptionDerogatoire"] == "Non") {
                                                                                 echo "checked";
                                                                             } ?>>
                 <label>Non</label>
             </span>
         </div>
-        <div id="InscriptionDerogatoire" <?php if (!array_key_exists("InscriptionDerogatoire", $report) ||$report["InscriptionDerogatoire"]=="Non"){ echo 'style="display:none"'; }?> >
+        <div id="InscriptionDerogatoire" <?php if ($report["InscriptionDerogatoire"]=="" ||$report["InscriptionDerogatoire"]=="Non"){ echo 'style="display:none"'; }?> >
         <label>Un financement est-il prévu jusqu'à la soutenance de thèse ?</label>
             <span>
                 <input name="Financement" value="Oui" type="radio" <?php if ($report["Financement"] == "Oui") {
@@ -354,7 +354,7 @@
                 <label>Non</label>
             </span>
 
-            <div id="Financement" <?php if (!array_key_exists("Financement", $report) || $report["Financement"]=="Non"){ echo 'style="display:none"'; }?>>
+            <div id="Financement" <?php if ($report["Financement"]=="" || $report["Financement"]=="Non"){ echo 'style="display:none"'; }?>>
                 <label>Si oui, préciser </label>
                 <textarea type="textarea" rows="5" class="form-control" name="FinancementDetails" ><?php echo $report["FinancementDetails"]; ?></textarea>
             </div>
