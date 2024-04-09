@@ -97,13 +97,13 @@
         <label>Oui</label>
     </span>
     <span>
-        <input name="PhD_ExtraActivite" value="Non" type="radio" <?php if (!array_key_exists("PhD_ExtraActivite", $report) || $report["PhD_ExtraActivite"] == "Non") {
+        <input name="PhD_ExtraActivite" value="Non" type="radio" <?php if ($report["PhD_ExtraActivite"] == "" || $report["PhD_ExtraActivite"] == "Non") {
                                                                         echo "checked";
                                                                     } ?>>
         <label>Non</label>
     </span>
 
-    <div id="PhD_ExtraActivite" <?php if (!array_key_exists("PhD_ExtraActivite", $report) || $report["PhD_ExtraActivite"] == "Non") {
+    <div id="PhD_ExtraActivite" <?php if ($report["PhD_ExtraActivite"] == "" || $report["PhD_ExtraActivite"] == "Non") {
                                             echo 'style="display:none"';
                                         } ?>>
         <label for="PhD_ExtraActivite_NbH">Si oui, nombre d’heures :</label>
@@ -284,12 +284,12 @@
         <label>Oui</label>
     </span>
     <span>
-        <input name="Relation_Autre_EP" value="Non" type="radio" <?php if (!array_key_exists("Relation_Autre_EP", $report) || $report["Relation_Autre_EP"] == "Non") {
+        <input name="Relation_Autre_EP" value="Non" type="radio" <?php if ($report["Relation_Autre_EP"] =="" || $report["Relation_Autre_EP"] == "Non") {
                                                                         echo "checked";
                                                                     } ?>>
         <label>Non</label>
     </span>
-    <div id="Relation_Autre_EP" <?php if (!array_key_exists("Relation_Autre_EP", $report) || $report["Relation_Autre_EP"] == "Non") {
+    <div id="Relation_Autre_EP" <?php if ($report["Relation_Autre_EP"] == "" || $report["Relation_Autre_EP"] == "Non") {
                                     echo 'style="display:none"';
                                 } ?>>
         <label for="Relation_Autre_EP_Details">Si oui, préciser lesquelles et si elles sont nationales ou internationales :</label>
