@@ -60,21 +60,39 @@
 		<field name="PhD_DateDebutThese" type="text">
 			<default value="" />
 		</field>
-		<field name="TypeDeFinancement" type="text">
-			<default value="" />
-		</field>
+
 		<field name="PhD_Cotutelle" type="text">
 			<default value="" />
 		</field>
 		<field name="PhD_Cotutelle_Pays" type="text">
 			<default value="" />
 		</field>
+		<field name="PeriodesMobilites" type="text">
+			<default value="" />
+		</field>
+		
+
+		<field name="DoctoratFinancement" type="text">
+			<default value="" />
+		</field>
+		<field name="CollaborationIndustrielle" type="text">
+			<default value="" />
+		</field>
+		<field name="CollaborationIndustrielleResponsable" type="text">
+			<default value="" />
+		</field>
+		
+		
 		<field name="PhD_ExtraActivite" type="text">
 			<default value="" />
 		</field>
 		<field name="PhD_ExtraActivite_NbH" type="text">
 			<default value="" />
 		</field>
+		<field name="ConsultationCompositionCSI" type="text">
+			<default value="" />
+		</field>
+		
 		<field name="PhD_CSI_Annee" type="text">
 			<default value="" />
 		</field>
@@ -201,6 +219,15 @@
 		<field name="CSI_Membre_5_externe" type="text">
 			<default value="" />
 		</field>
+
+		<field name="ResumeAvancement" type="text">
+			<default value="" />
+		</field>
+
+		<field name="ProductionScientifique" type="text">
+			<default value="" />
+		</field>
+
 		<field name="Freq_Contact_DT" type="text">
 			<default value="" />
 		</field>
@@ -216,6 +243,29 @@
 		<field name="Relation_Autre_EP_Details" type="text">
 			<default value="" />
 		</field>
+
+		<field name="EthiqueRecherche" type="text">
+			<default value="" />
+		</field>
+
+		<field name="IntegriteScientifique" type="text">
+			<default value="" />
+		</field>
+
+		<field name="FormationEnseignement" type="text">
+			<default value="" />
+		</field>
+
+		<field name="FormationsObligatoiresPrecisions" type="text">
+			<default value="" />
+		</field>
+
+		<field name="FormationsDansLAnnee" type="text">
+			<default value="" />
+		</field>
+
+
+
 		<field name="Autonomie" type="text">
 			<default value="" />
 		</field>
@@ -422,9 +472,7 @@
 			<default value="" />
 		</field>
 
-		<field name="ResumeAvancement" type="text">
-			<default value="" />
-		</field>
+		
 
 		<field name="ComparaisonObjectifsInitiaux" type="text">
 			<default value="" />
@@ -458,11 +506,9 @@
 			<default value="" />
 		</field>
 
-		<field name="ProductionScientifique" type="text">
-			<default value="" />
-		</field>
 		
-		<field name="ProblemesProductionScientifique" type="text">
+		
+		<field name="AvisRecommandationsProductionScientifique" type="text">
 			<default value="" />
 		</field>
 
@@ -475,25 +521,7 @@
 			<default value="" />
 		</field>
 
-		<field name="EthiqueRecherche" type="text">
-			<default value="" />
-		</field>
-
-		<field name="IntegriteScientifique" type="text">
-			<default value="" />
-		</field>
-
-		<field name="FormationEnseignement" type="text">
-			<default value="" />
-		</field>
-
-		<field name="FormationsObligatoiresPrecisions" type="text">
-			<default value="" />
-		</field>
-
-		<field name="FormationsDansLAnnee" type="text">
-			<default value="" />
-		</field>
+		
 
 		<field name="AvisRecommandationsFormations" type="text">
 			<default value="" />

@@ -59,13 +59,6 @@
     <input type="number" readonly class="form-control" name="PhD_CSI_Annee" min="2" max="8" step="1" id="PhD_CSI_Annee" value="<?php echo $report["PhD_CSI_Annee"]; ?>">
 
     <h3>Etat d'avancement de la thèse</h3>
-    <h5>Résumé</h5>
-    <p>Description projet thèse par la doctorante ou le doctorant<br />
-        Présentation bilan d’activités + planning et calendrier prévisionnel
-    </p>
-    <textarea type="textarea" rows="5" class="form-control" wrap="wrap" name="ResumeAvancement"><?php echo $report["ResumeAvancement"]; ?></textarea>
-
-
     <h5>Par rapport aux objectifs initiaux définis au début de la thèse, le contenu est-il ?</h5>
     <span>
         <input name="ComparaisonObjectifsInitiaux" value="Globalement conforme" type="radio" <?php if ($report["ComparaisonObjectifsInitiaux"] == "Globalement conforme") {
@@ -163,10 +156,9 @@
         </div>
 
         <h5>Productions scientifiques et participation à des colloques</h5>
-        <textarea type="textarea" rows="5" class="form-control" name="ProductionScientifique"><?php echo $report["ProductionScientifique"]; ?></textarea>
         <div>
-            <label>Raisons d'un manque possible de publications</label>
-            <textarea type="textarea" rows="5" class="form-control" name="ProblemesProductionScientifique"><?php echo $report["ProblemesProductionScientifique"]; ?></textarea>
+            <label>Avis et recommandations</label>
+            <textarea type="textarea" rows="5" class="form-control" name="AvisRecommandationsProductionScientifique"><?php echo $report["AvisRecommandationsProductionScientifique"]; ?></textarea>
         </div>
 
         <h5>Expériences internationales avec mobilités < à 3 mois</h5>
@@ -199,71 +191,7 @@
     </div>
 
     <h3>Développement des compétences</h3>
-    <h4>Formations obligatoires</h4>
-    <h5>Formation à l’éthique de la recherche</h5>
-    <span>
-        <input name="EthiqueRecherche" value="Oui" type="radio" <?php if ($report["EthiqueRecherche"] == "Oui") {
-                                                                                echo "checked";
-                                                                            } ?>>
-        <label>Oui</label>
-    </span>
-    <span>
-        <input name="EthiqueRecherche" value="Non" type="radio" <?php if ($report["EthiqueRecherche"] == "Non") {
-                                                                                echo "checked";
-                                                                            } ?>>
-        <label>Non</label>
-    </span>
-    <span>
-        <input name="EthiqueRecherche" value="En cours" type="radio" <?php if ($report["EthiqueRecherche"] == "En cours") {
-                                                                                echo "checked";
-                                                                            } ?>>
-        <label>En cours</label>
-    </span>
-    <h5>Formation à l’intégrité scientifique </h5>
-    <span>
-        <input name="IntegriteScientifique" value="Oui" type="radio" <?php if ($report["IntegriteScientifique"] == "Oui") {
-                                                                                echo "checked";
-                                                                            } ?>>
-        <label>Oui</label>
-    </span>
-    <span>
-        <input name="IntegriteScientifique" value="Non" type="radio" <?php if ($report["IntegriteScientifique"] == "Non") {
-                                                                                echo "checked";
-                                                                            } ?>>
-        <label>Non</label>
-    </span>
-    <span>
-        <input name="IntegriteScientifique" value="En cours" type="radio" <?php if ($report["IntegriteScientifique"] == "En cours") {
-                                                                                echo "checked";
-                                                                            } ?>>
-        <label>En cours</label>
-    </span>
-    <h5>Formation à l’enseignement si mission d’enseignement </h5>
-    <span>
-        <input name="FormationEnseignement" value="Oui" type="radio" <?php if ($report["FormationEnseignement"] == "Oui") {
-                                                                                echo "checked";
-                                                                            } ?>>
-        <label>Oui</label>
-    </span>
-    <span>
-        <input name="FormationEnseignement" value="Non" type="radio" <?php if ($report["FormationEnseignement"] == "Non") {
-                                                                                echo "checked";
-                                                                            } ?>>
-        <label>Non</label>
-    </span>
-    <span>
-        <input name="FormationEnseignement" value="En cours" type="radio" <?php if ($report["FormationEnseignement"] == "En cours") {
-                                                                                echo "checked";
-                                                                            } ?>>
-        <label>En cours</label>
-    </span>
-    <div id="FormationsObligatoiresPrecisions">
-        <label>Si une ou des formations n’ont pas été suivies, préciser les raisons et les recommandations</label>
-        <textarea type="textarea" rows="5" class="form-control" name="FormationsObligatoiresPrecisions"><?php echo $report["FormationsObligatoiresPrecisions"]; ?></textarea>
-    </div>
-
-    <h5>Formations suivies dans l'année</h5>
-    <textarea type="textarea" rows="5" class="form-control" name="FormationsDansLAnnee"><?php echo $report["FormationsDansLAnnee"]; ?></textarea>
+    
 
     <h5>Avis et recommandations du CSI sur les formations à suivre l’année suivante</h5>
     <textarea type="textarea" rows="5" class="form-control" name="AvisRecommandationsFormations"><?php echo $report["AvisRecommandationsFormations"]; ?></textarea>
