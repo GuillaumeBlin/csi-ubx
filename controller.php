@@ -116,7 +116,7 @@ class Controller extends BlockController
         return;
     }
 
-    private function display_csi_report_content($defense)
+    private function display_csi_report_content($report)
     {
         include('form-CSI.php');
         if (strcmp($this->langage, "FR") == 0) {
