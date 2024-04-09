@@ -400,7 +400,7 @@ class Controller extends BlockController
                 echo "</li>";
                 echo "</ul>";
             } else {
-                $url = "https://doctorat.u-bordeaux.fr/csi-report-filling-page?code=";
+                $url = "https://doctorat.u-bordeaux.fr/en/csi-report-filling-page?code=";
 
                 echo "<p>Here are links in order for each part of the CSI commitee (PhD student, Supervisor and CSI commitee) to fill out its content of the CSI report. You need to send the corresponding links to each member involved in your CSI. Each link allows to fill out a part of the report (PhD student / Supervisor / CSI).</p>";
                 echo "<ul>";
