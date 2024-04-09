@@ -234,7 +234,7 @@ class Controller extends BlockController
                     "CODT_Nom" => $student["these_codirecteur_these_nom"],
                     "CODT_Prenom" => $student["these_codirecteur_these_prenom"],
                     "PhD_DateDebutThese" => date('Y-m-d', strtotime($student["these_date_1inscription"])),
-                    "PhD_Cotutelle" => $student["these_cotutelle"],
+                    "PhD_Cotutelle" => ucfirst(strtolower($student["these_cotutelle"])),
                     "PhD_Cotutelle_Pays" => $student["these_cotutelle_pays"],
                     "PhD_CSI_Annee" => intval(substr($student["niveau_Etud"], 0, 1)) + 1,
                     "niveau_Etud" => $student["niveau_Etud"],

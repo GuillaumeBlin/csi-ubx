@@ -49,7 +49,7 @@
     </div>
     <h5>Thèse en cotutelle</h5>
     <span>
-        <input name="PhD_Cotutelle" value="Oui" type="radio" readonly <?php if ($report["PhD_Cotutelle"] == "OUI") {
+        <input name="PhD_Cotutelle" value="Oui" type="radio" readonly <?php if ($report["PhD_Cotutelle"] == "Oui") {
                                                                             echo "checked";
                                                                         } else {
                                                                             echo "disabled";
@@ -57,7 +57,7 @@
         <label>Oui</label>
     </span>
     <span>
-        <input name="PhD_Cotutelle" value="Non" type="radio" readonly <?php if ($report["PhD_Cotutelle"] == "NON") {
+        <input name="PhD_Cotutelle" value="Non" type="radio" readonly <?php if ($report["PhD_Cotutelle"] == "Non") {
                                                                             echo "checked";
                                                                         } else {
                                                                             echo "disabled";
@@ -111,7 +111,7 @@
             <input name="CSI_Referent_<?php echo $i + 1; ?>" disabled value="<?php echo $i + 1; ?>" type="radio" <?php if ($report["CSI_Referent_{($i + 1)}"] == "oui") {
                                                                                             echo "checked";
                                                                                         } ?>>
-            <?php if ($defense["csi"][$i]["referent"] == "oui") {?>
+            <?php if ($report["csi"][$i]["referent"] == "oui") {?>
                 <input name="CSI_Referent_<?php echo $i + 1; ?>" value="<?php echo $i + 1; ?>" type="hidden"/>                                                                   
             <?php    } ?>
                                                                    
