@@ -26,7 +26,7 @@ class Controller extends BlockController
     {
         $cipher = "AES-256-CBC";
         $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipher));
-        $encrypted = openssl_encrypt($data, $cipher, $this->sKey, 0, $iv, $tag);
+        $encrypted = openssl_encrypt($data, $cipher, $this->sKey, 0, $iv);
         $encrypted = base64_encode($iv . $encrypted);
         return $encrypted;
     }
@@ -38,7 +38,7 @@ class Controller extends BlockController
         $cipher = "AES-256-CBC";
         $iv = substr($encrypted, 0, openssl_cipher_iv_length($cipher));
         $encrypted = substr($encrypted, openssl_cipher_iv_length($cipher));
-        $decrypted = openssl_decrypt($encrypted, $cipher, $this->sKey, 0, $iv, $tag);
+        $decrypted = openssl_decrypt($encrypted, $cipher, $this->sKey, 0, $iv);
         return $decrypted;
     }
 
