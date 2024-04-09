@@ -483,6 +483,7 @@ class Controller extends BlockController
         $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE Matricule="' . $mat . '";');
         $report_data = $statement->fetchAll();
         $report = $report_data[0];
+        $lang=$this->langage;
         include('report-' . $type . '.php');
         exit;
     }
