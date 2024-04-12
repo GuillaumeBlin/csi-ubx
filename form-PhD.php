@@ -280,7 +280,7 @@ if(!isset($lang)){$lang="FR";}
         <input name="Integration_UMR" value="Satisfaisante" type="radio" <?php if ($report["Integration_UMR"] == "Satisfaisante") {
                                                                                 echo "checked";
                                                                             } ?>>
-        <label><?php if (strcmp($lang, "FR") == 0) {?>Satisfaisante<?php }else{?><?php }?>Satisfactory</label>
+        <label><?php if (strcmp($lang, "FR") == 0) {?>Satisfaisante<?php }else{?>Satisfactory<?php }?></label>
     </span>
     <span>
         <input name="Integration_UMR" value="Très satisfaisante" type="radio" <?php if ($report["Integration_UMR"] == "Très satisfaisante") {
