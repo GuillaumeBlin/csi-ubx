@@ -207,7 +207,7 @@ if(!isset($lang)){$lang="FR";}
         <input name="Freq_Contact_DT" value="Tous les jours" type="radio" <?php if ($report["Freq_Contact_DT"] == "Tous les jours") {
                                                                                 echo "checked";
                                                                             } ?>>
-        <label><?php if (strcmp($lang, "FR") == 0) {?>Tous les jours<?php }else{?><?php }?>Daily</label>
+        <label><?php if (strcmp($lang, "FR") == 0) {?>Tous les jours<?php }else{?>Daily<?php }?></label>
     </span>
     <span>
         <input name="Freq_Contact_DT" value="Plusieurs fois par semaine" type="radio" <?php if ($report["Freq_Contact_DT"] == "Plusieurs fois par semaine") {
