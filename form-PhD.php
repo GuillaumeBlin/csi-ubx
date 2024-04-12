@@ -87,8 +87,8 @@ if(!isset($lang)){$lang="FR";}
 
         <div id="CollaborationIndustrielle" <?php if ($report["CollaborationIndustrielle"] == "" || $report["CollaborationIndustrielle"] == "Non") {
                                             echo 'style="display:none"';
-                                        } ?>>>
-            <label for="CollaborationIndustrielleResponsable"><?php if (strcmp($lang, "FR") == 0) {?>Si oui, préciser le nom du responsable scientifique industriel<?php }else{?>Please specify the name of the industrial scientific manager<?php }?></label>
+                                        } ?>>
+            <label for="CollaborationIndustrielleResponsable"><?php if (strcmp($lang, "FR") == 0) {?> Si oui, préciser le nom du responsable scientifique industriel<?php }else{?>Please specify the name of the industrial scientific manager<?php }?></label>
             <input type="text" class="form-control" name="CollaborationIndustrielleResponsable" id="CollaborationIndustrielleResponsable" value="<?php echo $report["CollaborationIndustrielleResponsable"]; ?>">
         </div>
     
