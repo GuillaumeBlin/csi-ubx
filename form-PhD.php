@@ -85,15 +85,13 @@ if(!isset($lang)){$lang="FR";}
         <label><?php if (strcmp($lang, "FR") == 0) {?>Non<?php }else{?>No<?php }?></label>
     </span>
 
-    <?php if ($report["CollaborationIndustrielle"] == "Oui") { ?>
-        <div id="CollaborationIndustrielle">
+        <div id="CollaborationIndustrielle" <?php if ($report["CollaborationIndustrielle"] == "" || $report["CollaborationIndustrielle"] == "Non") {
+                                            echo 'style="display:none"';
+                                        } ?>>>
             <label for="CollaborationIndustrielleResponsable"><?php if (strcmp($lang, "FR") == 0) {?>Si oui, préciser le nom du responsable scientifique industriel<?php }else{?>Please specify the name of the industrial scientific manager<?php }?></label>
             <input type="text" class="form-control" name="CollaborationIndustrielleResponsable" id="CollaborationIndustrielleResponsable" value="<?php echo $report["CollaborationIndustrielleResponsable"]; ?>">
         </div>
-    <?php
-    }
-    ?>
-
+    
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Thèse avec activités complémentaires (enseignement, médiation, valorisation expertise)<?php }else{?>Thesis with complementary activities (teaching, mediation, expertise)<?php }?></h5>
     <span>
         <input name="PhD_ExtraActivite" value="Oui" type="radio" <?php if ($report["PhD_ExtraActivite"] == "Oui") {
