@@ -91,7 +91,7 @@ class Controller extends BlockController
             echo "$('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant ');            
             $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">Lecture réservée aux membres du CSI et à la direction de l\'ED. A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
             if (strcmp($report['ReadOnly'], '') != 0) {
-                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\">Votre rapport a été enregistré.".$report['ReadOnly']."</div>');";
+                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\">Votre rapport a été enregistré.</div>');";
             }
         } else {
             echo "$('.std-page-main-inner > h1').text('Annual report of the PhD student ');
@@ -104,33 +104,38 @@ class Controller extends BlockController
     private function display_dt_report_content($report)
     {
         include('form-DT.php');
+        echo "<script>";
         if (strcmp($this->langage, "FR") == 0) {
-            echo "<script>
-                $('.std-page-main-inner > h1').before('<div class=\"block-introduction\">Votre rapport a été enregistré.</div>');
+            echo "
                 $('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');
                 $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
-            echo "</script>";
+            if (strcmp($report['ReadOnly'], '') != 0) {
+                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\">Votre rapport a été enregistré.</div>');";
+            }
         } else {
-            echo "<script>
+            echo "
                 $('.std-page-main-inner > h1').text('Annual report ot the supervisor');
                 $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">To fullfilled and send to the CSI commitee before its meeting.</div>');";
-            echo "</script>";
         }
+        echo "</script>";
         return;
     }
 
     private function display_csi_report_content($report)
     {
         include('form-CSI.php');
+        echo "<script>";
         if (strcmp($this->langage, "FR") == 0) {
-            echo "<script>
+            echo "
                 $('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
-            echo "</script>";
+            if (strcmp($report['ReadOnly'], '') != 0) {
+                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\">Votre rapport a été enregistré.</div>');";
+            }
         } else {
-            echo "<script>
+            echo "
                 $('.std-page-main-inner > h1').text('Annual report of the CSI');";
-            echo "</script>";
         }
+        echo "</script>";
         return;
     }
 
@@ -534,7 +539,7 @@ class Controller extends BlockController
         }
         $values = $values . '?';
         $fields = $fields . "`Matricule`";
-        $statement = $db->executeQuery('DELETE FROM `' . $type . 'Report` WHERE `Matricule`='.intval($mat).';', array());
+        $statement = $db->executeQuery('DELETE FROM `' . $type . 'Report` WHERE `Matricule`=' . intval($mat) . ';', array());
 
         $sql = 'INSERT INTO `' . $type . 'Report` ( ' . $fields . ')VALUES (' . $values . ');';
         $report["Matricule"] = intval($mat);
