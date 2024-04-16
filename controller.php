@@ -84,9 +84,9 @@ class Controller extends BlockController
 
     private function display_phd_report_content($report)
     {
-        $lang=$this->langage;
+        $lang = $this->langage;
         include('form-PhD.php');
-        
+
         return;
     }
 
@@ -97,12 +97,12 @@ class Controller extends BlockController
             echo "<script>
                 $('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');
                 $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
-        echo "</script>";
-        }else{
+            echo "</script>";
+        } else {
             echo "<script>
                 $('.std-page-main-inner > h1').text('Annual report ot the supervisor');
                 $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">To fullfilled and send to the CSI commitee before its meeting.</div>');";
-        echo "</script>";
+            echo "</script>";
         }
         return;
     }
@@ -113,11 +113,11 @@ class Controller extends BlockController
         if (strcmp($this->langage, "FR") == 0) {
             echo "<script>
                 $('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
-        echo "</script>";
-        }else{
+            echo "</script>";
+        } else {
             echo "<script>
                 $('.std-page-main-inner > h1').text('Annual report of the CSI');";
-        echo "</script>";
+            echo "</script>";
         }
         return;
     }
@@ -174,9 +174,12 @@ class Controller extends BlockController
         $report_headers = $statement->fetchAll(); //print_r($rows);
 
         //echo 'SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";';       
-        $statement = $db->executeQuery('SELECT Matricule FROM `' . $user . 'Report` WHERE Matricule="' . $mat . '";');
+        $statement = $db->executeQuery('SELECT * FROM `' . $user . 'Report` WHERE Matricule="' . $mat . '";');
+
+        $report_data = $statement->fetchAll();
+
         //echo $statement->rowCount(); 
-        if ($statement->rowCount() > 0) {
+        if (($statement->rowCount() > 0) && (strcmp($report_data[0]['ReadOnly'],"Oui")!=0)) {
             if (strcmp($this->langage, "FR") == 0) {
                 echo "<b>Votre rapport a été enregistré.</b><br/>";
                 echo "Il est visible ici : <i class='far fa-file-alt'></i>";
@@ -216,87 +219,93 @@ class Controller extends BlockController
             }
             echo "  });</script>";
         } else {
-            $students = $this->retrieve_json();
-            $students = $students["data"][0];
-            $student = "";
-            foreach ($students as $value) {
-                if ($value["Matricule_etudiant"] == $mat) {
-                    $student = $this->array_extract($value, [
-                        "Matricule_etudiant",
-                        "civilite",
-                        "nom",
-                        "prenom",
-                        "these_ED_code",
-                        "mail_principal",
-                        "mail_secondaire",
-                        "niveau_Etud",
-                        "these_ED_code",
-                        "these_codirecteur_these_nom",
-                        "these_codirecteur_these_prenom",
-                        "these_codirecteur_these_mail",
-                        "these_directeur_these_nom",
-                        "these_directeur_these_prenom",
-                        "these_directeur_these_mail",
-                        "these_cotutelle",
-                        "these_cotutelle_etab",
-                        "these_cotutelle_pays",
-                        "these_date_1inscription",
-                        "these_laboratoire",
-                        "niveau_Etud",
-                        "csi",
-                        "these_specialite"
-                    ]);
-                    break;
-                }
-            }
-            if (!$student) {
-                echo "Aucun étudiant ou aucune étudiante correpsondant.";
+            if ($statement->rowCount() > 0) {
+                $report = $report_data[0];
+                $lang = $this->langage;
             } else {
-                $report = array(
-                    "ed" => $student["these_ED_code"],
-                    "PhD_Nom" => $student["nom"],
-                    "PhD_Prenom" => $student["prenom"],
-                    "PhD_Mail" => $student["mail_principal"],
-                    "PhD_Specialite" => $student["these_specialite"],
-                    "PhD_UMR" => $student["these_laboratoire"],
-                    "DT_Nom" => $student["these_directeur_these_nom"],
-                    "DT_Prenom" => $student["these_directeur_these_prenom"],
-                    "CODT_Nom" => $student["these_codirecteur_these_nom"],
-                    "CODT_Prenom" => $student["these_codirecteur_these_prenom"],
-                    "PhD_DateDebutThese" => date('Y-m-d', strtotime($student["these_date_1inscription"])),
-                    "PhD_Cotutelle" => ucfirst(strtolower($student["these_cotutelle"])),
-                    "PhD_Cotutelle_Pays" => $student["these_cotutelle_pays"],
-                    "PhD_CSI_Annee" => intval(substr($student["niveau_Etud"], 0, 1)) + 1,
-                    "niveau_Etud" => $student["niveau_Etud"],
-                    "CSI_Membre_Nombre" => count($student["csi"])
-                );
 
-                for ($i = 0; $i < count($student["csi"]); $i = $i + 1) {
-                    $report["CSI_Membre_" . ($i + 1) . "_Nom"] = $student["csi"][$i]["nom"];
-                    $report["CSI_Membre_" . ($i + 1) . "_Prenom"] = $student["csi"][$i]["prenom"];
-                    $report["CSI_Membre_" . ($i + 1) . "_mail"] = $student["csi"][$i]["mail"];
-                    $report["CSI_Referent_" . ($i + 1)] = $student["csi"][$i]["referent"];
-                    $report["CSI_Membre_" . ($i + 1) . "_specialiste"] = $student["csi"][$i]["membre_specialiste"];
-                    $report["CSI_Membre_" . ($i + 1) . "_non_specialiste"] = $student["csi"][$i]["membre_non_specialiste"];
-                    $report["CSI_Membre_" . ($i + 1) . "_externe"] = $student["csi"][$i]["membre_exterieur"];
-                }
-                
-                foreach ($report_headers as $row) {
-                    if(!array_key_exists($row["COLUMN_NAME"],$report)){
-                        $report[$row["COLUMN_NAME"]]='';
+                $students = $this->retrieve_json();
+                $students = $students["data"][0];
+                $student = "";
+                foreach ($students as $value) {
+                    if ($value["Matricule_etudiant"] == $mat) {
+                        $student = $this->array_extract($value, [
+                            "Matricule_etudiant",
+                            "civilite",
+                            "nom",
+                            "prenom",
+                            "these_ED_code",
+                            "mail_principal",
+                            "mail_secondaire",
+                            "niveau_Etud",
+                            "these_ED_code",
+                            "these_codirecteur_these_nom",
+                            "these_codirecteur_these_prenom",
+                            "these_codirecteur_these_mail",
+                            "these_directeur_these_nom",
+                            "these_directeur_these_prenom",
+                            "these_directeur_these_mail",
+                            "these_cotutelle",
+                            "these_cotutelle_etab",
+                            "these_cotutelle_pays",
+                            "these_date_1inscription",
+                            "these_laboratoire",
+                            "niveau_Etud",
+                            "csi",
+                            "these_specialite"
+                        ]);
+                        break;
                     }
                 }
-            
+                if (!$student) {
+                    echo "Aucun étudiant ou aucune étudiante correpsondant.";
+                } else {
 
-                if ($user == "PhD") { //PhD
-                    $this->display_phd_report_content($report);
+                    $report = array(
+                        "ed" => $student["these_ED_code"],
+                        "PhD_Nom" => $student["nom"],
+                        "PhD_Prenom" => $student["prenom"],
+                        "PhD_Mail" => $student["mail_principal"],
+                        "PhD_Specialite" => $student["these_specialite"],
+                        "PhD_UMR" => $student["these_laboratoire"],
+                        "DT_Nom" => $student["these_directeur_these_nom"],
+                        "DT_Prenom" => $student["these_directeur_these_prenom"],
+                        "CODT_Nom" => $student["these_codirecteur_these_nom"],
+                        "CODT_Prenom" => $student["these_codirecteur_these_prenom"],
+                        "PhD_DateDebutThese" => date('Y-m-d', strtotime($student["these_date_1inscription"])),
+                        "PhD_Cotutelle" => ucfirst(strtolower($student["these_cotutelle"])),
+                        "PhD_Cotutelle_Pays" => $student["these_cotutelle_pays"],
+                        "PhD_CSI_Annee" => intval(substr($student["niveau_Etud"], 0, 1)) + 1,
+                        "niveau_Etud" => $student["niveau_Etud"],
+                        "CSI_Membre_Nombre" => count($student["csi"])
+                    );
+
+                    for ($i = 0; $i < count($student["csi"]); $i = $i + 1) {
+                        $report["CSI_Membre_" . ($i + 1) . "_Nom"] = $student["csi"][$i]["nom"];
+                        $report["CSI_Membre_" . ($i + 1) . "_Prenom"] = $student["csi"][$i]["prenom"];
+                        $report["CSI_Membre_" . ($i + 1) . "_mail"] = $student["csi"][$i]["mail"];
+                        $report["CSI_Referent_" . ($i + 1)] = $student["csi"][$i]["referent"];
+                        $report["CSI_Membre_" . ($i + 1) . "_specialiste"] = $student["csi"][$i]["membre_specialiste"];
+                        $report["CSI_Membre_" . ($i + 1) . "_non_specialiste"] = $student["csi"][$i]["membre_non_specialiste"];
+                        $report["CSI_Membre_" . ($i + 1) . "_externe"] = $student["csi"][$i]["membre_exterieur"];
+                    }
+
+
+                    foreach ($report_headers as $row) {
+                        if (!array_key_exists($row["COLUMN_NAME"], $report)) {
+                            $report[$row["COLUMN_NAME"]] = '';
+                        }
+                    }
                 }
-                if ($user == "DT") {
-                    $this->display_dt_report_content($report);
-                }
-                if ($user == "CSI") {
-                    $this->display_csi_report_content($report);
-                }
+            }
+            if ($user == "PhD") { //PhD
+                $this->display_phd_report_content($report);
+            }
+            if ($user == "DT") {
+                $this->display_dt_report_content($report);
+            }
+            if ($user == "CSI") {
+                $this->display_csi_report_content($report);
             }
         }
     }
@@ -473,7 +482,7 @@ class Controller extends BlockController
         $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE Matricule="' . $mat . '";');
         $report_data = $statement->fetchAll();
         $report = $report_data[0];
-        $lang=$this->langage;
+        $lang = $this->langage;
         include('report-' . $type . '.php');
         exit;
     }
