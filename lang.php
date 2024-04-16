@@ -1,5 +1,6 @@
 <?php
 $translation = array();
+$translation['ReadOnly'] = 'Rapport définitif';
 $translation['ID'] = 'ID';
 $translation['ed'] = 'ED';
 $translation['PhD_Link'] = 'Lien pour le.la doctorant.e';
