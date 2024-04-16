@@ -56,7 +56,7 @@ $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SER
         sleep(0).then(() => {
             const table = new DataTable('#report-csi', {
                 columnDefs: [{
-                        targets: [0, 1, 4, 8, 9, 10, 11, 37],
+                        targets: [0, 1, 4, 8, 9, 10, 11, 37,38],
                         visible: true
                     },
                     {
