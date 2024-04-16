@@ -290,6 +290,9 @@
 		<field name="DateRapport" type="text">
 			<default value="" />
 		</field>
+		<field name="ReadOnly" type="text">
+			<default value="" />
+		</field>
 	</table>
 	<table name="DTReport">
 		<field name="ID" type="integer">
@@ -405,6 +408,9 @@
 			<default value="" />
 		</field>
 		<field name="DateRapport" type="text">
+			<default value="" />
+		</field>
+		<field name="ReadOnly" type="text">
 			<default value="" />
 		</field>
 	</table>
@@ -555,6 +561,9 @@
 		</field>
 
 		<field name="DateRapport" type="text">
+			<default value="" />
+		</field>
+		<field name="ReadOnly" type="text">
 			<default value="" />
 		</field>
 	</table>

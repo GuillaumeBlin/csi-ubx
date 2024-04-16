@@ -385,7 +385,8 @@
     </div>
     <?php if ($report_read_only == false) { ?>
         <div>
-            <button type="submit" class="btn-default btn" style="default">Soumettre le rapport</button>
+        <button type="submit" name="ReadOnly" value="Non" class="btn-default btn" style="default">Enregistrer le rapport uniquement</button>
+            <button type="submit" name="ReadOnly" value="Oui" class="btn-default btn" style="default">Soumettre le rapport définitif</button>
         </div>
     <?php } ?>
 </form>

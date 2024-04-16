@@ -479,7 +479,8 @@ if(!isset($lang)){$lang="FR";}
     <input type="date" class="form-control" name="DateRapport" id="DateRapport" value="<?php echo $report["DateRapport"]; ?>">
     <?php if ($report_read_only == false) { ?>
         <div>
-            <button type="submit" class="btn-default btn" style="default"><?php if (strcmp($lang, "FR") == 0) {?><?php }else{?><?php }?>Soumettre le rapport</button>
+        <button type="submit" name="ReadOnly" value="Non" class="btn-default btn" style="default"><?php if (strcmp($lang, "FR") == 0) {?>Enregistrer le rapport uniquement<?php }else{?>Only save the report <?php }?></button>
+            <button type="submit" name="ReadOnly" value="Oui" class="btn-default btn" style="default"><?php if (strcmp($lang, "FR") == 0) {?>Soumettre le rapport définitif<?php }else{?>Submit the final report<?php }?></button>
         </div>
     <?php } ?>
 </form>
