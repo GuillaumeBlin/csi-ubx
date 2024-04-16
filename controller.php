@@ -181,6 +181,7 @@ class Controller extends BlockController
         //echo $statement->rowCount(); 
         if (($statement->rowCount() > 0) && (strcmp($report_data[0]['ReadOnly'],"Oui")!=0)) {
             if (strcmp($this->langage, "FR") == 0) {
+                echo $report_data[0]['ReadOnly'];
                 echo "<b>Votre rapport a été enregistré.</b><br/>";
                 echo "Il est visible ici : <i class='far fa-file-alt'></i>";
                 echo "<script>";
