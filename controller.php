@@ -91,7 +91,7 @@ class Controller extends BlockController
             echo "$('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant ');            
             $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">Lecture réservée aux membres du CSI et à la direction de l\'ED. A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
             if (strcmp($report['ReadOnly'], '') != 0) {
-                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\">Votre rapport a été enregistré.</div>');";
+                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\">Votre rapport a été enregistré.".$report['ReadOnly']."</div>');";
             }
         } else {
             echo "$('.std-page-main-inner > h1').text('Annual report of the PhD student ');
