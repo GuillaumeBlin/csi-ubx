@@ -540,16 +540,4 @@ if(!isset($lang)){$lang="FR";}
         }
 
     });
-    <?php
-    if (strcmp($lang, "FR") == 0) {
-        echo "$('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant ');
-                $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">Lecture réservée aux membres du CSI et à la direction de l\'ED. A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
-        
-        }else{
-            echo "
-                $('.std-page-main-inner > h1').text('Annual report of the PhD student ');
-                $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">For CSI member and ED directors discretion only. To fullfilled and send to the CSI commitee before its meeting</div>');";
-
-        }
-        ?>
 </script>

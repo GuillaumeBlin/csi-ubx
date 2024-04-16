@@ -86,7 +86,18 @@ class Controller extends BlockController
     {
         $lang = $this->langage;
         include('form-PhD.php');
-
+        echo "<script>";
+        if (strcmp($this->langage, "FR") == 0) {
+            echo "$('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant ');            
+            $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">Lecture réservée aux membres du CSI et à la direction de l\'ED. A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
+            if (strcmp($report['ReadOnly'], 'Oui') != 0) {
+                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\">Votre rapport a été enregistré.</div>');";
+            }
+        } else {
+            echo "$('.std-page-main-inner > h1').text('Annual report of the PhD student ');
+            $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">For CSI member and ED directors discretion only. To fullfilled and send to the CSI commitee before its meeting</div>');";
+        }
+        echo "</script>";
         return;
     }
 
@@ -95,6 +106,7 @@ class Controller extends BlockController
         include('form-DT.php');
         if (strcmp($this->langage, "FR") == 0) {
             echo "<script>
+                $('.std-page-main-inner > h1').before('<div class=\"block-introduction\">Votre rapport a été enregistré.</div>');
                 $('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');
                 $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
             echo "</script>";
@@ -179,8 +191,8 @@ class Controller extends BlockController
         $report_data = $statement->fetchAll();
 
         //echo $statement->rowCount(); 
-        if (($statement->rowCount() > 0) && (strcmp($report_data[0]['ReadOnly'],"Oui")==0)) {
-            if (strcmp($this->langage, "FR") == 0) {                
+        if (($statement->rowCount() > 0) && (strcmp($report_data[0]['ReadOnly'], "Oui") == 0)) {
+            if (strcmp($this->langage, "FR") == 0) {
                 echo "<b>Votre rapport définitif a été enregistré.</b><br/>";
                 echo "Il est visible ici : <i class='far fa-file-alt'></i>";
                 echo "<script>";
