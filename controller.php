@@ -534,13 +534,14 @@ class Controller extends BlockController
         }
         $values = $values . '?';
         $fields = $fields . "`Matricule`";
+        $statement = $db->executeQuery('DELETE FROM `' . $type . 'Report` WHERE `Matricule`='.intval($mat).';', array());
 
         $sql = 'INSERT INTO `' . $type . 'Report` ( ' . $fields . ')VALUES (' . $values . ');';
         $report["Matricule"] = intval($mat);
-        echo $report["ReadOnly"];
+        //echo $report["ReadOnly"];
         $statement = $db->executeQuery($sql, array_values($report));
         $userPage = preg_replace("%/form_save_" . $type . "Report/\d+%", "/", $_SERVER['REQUEST_URI']);
-        //$this->redirect($userPage);
+        $this->redirect($userPage);
         exit;
     }
 
