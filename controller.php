@@ -91,7 +91,7 @@ class Controller extends BlockController
             echo "$('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant ');            
             $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">Lecture réservée aux membres du CSI et à la direction de l\'ED. A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
             if (strcmp($report['ReadOnly'], '') != 0) {
-                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\">Votre rapport a été enregistré.</div>');";
+                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\" style=\"color:red\">Votre rapport a été enregistré.</div>');";
             }
         } else {
             echo "$('.std-page-main-inner > h1').text('Annual report of the PhD student ');
@@ -110,7 +110,7 @@ class Controller extends BlockController
                 $('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');
                 $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
             if (strcmp($report['ReadOnly'], '') != 0) {
-                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\">Votre rapport a été enregistré.</div>');";
+                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\" style=\"color:red\">Votre rapport a été enregistré.</div>');";
             }
         } else {
             echo "
@@ -129,7 +129,7 @@ class Controller extends BlockController
             echo "
                 $('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
             if (strcmp($report['ReadOnly'], '') != 0) {
-                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\">Votre rapport a été enregistré.</div>');";
+                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\" style=\"color:red\">Votre rapport a été enregistré.</div>');";
             }
         } else {
             echo "
