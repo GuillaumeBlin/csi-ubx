@@ -19,7 +19,7 @@ if ($admin == 'True') {
   <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
 
   <h3>Mot de passe nécessaire aux directions de thèse pour utiliser leur lien</h3>
-Le mot de passe à transmettre aux directions de thèse est <pre id="admin-DT-pwd"></pre>
+Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-pwd"></code>
   <h3>Accès aux liens par la doctorante ou le doctorant</h3>
   <p>Les doctorantes et doctorants peuvent obtenir les liens de saisies, qu'elle ou il doit transmettre 
     aux différentes parties en accédant à l'url suivante et en remplacant <code>MONINE</code> par son INE</p>
