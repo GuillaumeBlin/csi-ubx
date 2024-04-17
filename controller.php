@@ -369,11 +369,7 @@ class Controller extends BlockController
             $mat = $val[1];
             $user = $val[2];
             if(strcmp($user,"DT")==0){
-             /*   if(!isset($_REQUEST["pwd"])||strcmp($_REQUEST["pwd"],$this->pwd)!=0){
-                    echo 'Invalid request';
-                    exit;
-                }*/
-                echo "<script>if(prompt(\"Please enter your credential\")!='".$this->pwd."'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
+                echo "<script>if(prompt(\"Veuillez fournir le mot de passe pour les directions de thèse communiqué par mail.\")!='".$this->pwd."'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
             }
             $this->display_report($mat, $user);
         } else {
