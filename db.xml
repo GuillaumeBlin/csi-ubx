@@ -20,6 +20,9 @@
 		<field name="langage" type="text">
 			<default value="FR"/>
 		</field>
+		<field name="pwd" type="text">
+			<default value="" />
+		</field>
 	</table>
 	<table name="PhDReport">
 		<field name="ID" type="integer">

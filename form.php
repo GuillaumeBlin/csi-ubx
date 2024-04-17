@@ -12,7 +12,7 @@ if (empty($sKey)) $sKey = generateRandomString(); //random_bytes(16);
 if (empty($admin)) $admin = 'False';
 if (empty($ed)) $ed = null;
 if (empty($langage)) $langage = 'FR';
-
+if (empty($pwd)) $pwd = null;
 
 ?>
 
@@ -38,4 +38,5 @@ if (empty($langage)) $langage = 'FR';
 		<option value="FR" <?php if (strcmp($langage, "FR") === 0) { ?>selected<?php } ?>> Français</option>
 		<option value="EN" <?php if (strcmp($langage, "EN") === 0) { ?>selected<?php } ?>> Anglais</option>
 	</select>
+	<input type="text" name="pwd" class="ccm-input-text" value="<?php echo $pwd; ?>" />
 </div>

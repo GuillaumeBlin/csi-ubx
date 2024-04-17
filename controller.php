@@ -184,6 +184,7 @@ class Controller extends BlockController
     private function display_report($mat, $user)
     {
 
+
         //check if a report already exist for $mat and $user
         $db = \Database::connection();
 
@@ -367,6 +368,12 @@ class Controller extends BlockController
             $val = explode("-", $val);
             $mat = $val[1];
             $user = $val[2];
+            if(strcmp($user,"DT")==0){
+                if(strcmp($_REQUEST["pwd"],$this->pwd)!=0){
+                    echo 'Invalid request';
+                    exit;
+                }
+            }
             $this->display_report($mat, $user);
         } else {
             echo 'Invalid request';
