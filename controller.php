@@ -582,7 +582,17 @@ class Controller extends BlockController
         exit;
     }
 
-
+    public function action_load_admin_DT_pwd($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }
+        $statement = $db->executeQuery("SELECT pwd FROM btCSIUbx WHERE pwd!='' LIMIT 1;");
+        $rows = $statement->fetchAll(); 
+        print_r($rows);
+        exit;
+    }
+    
     public function action_load_admin_links($bID = false)
     {
         if ($this->bID != $bID) {

@@ -6,6 +6,7 @@ if ($admin == 'True') {
   $actionURLPhD = str_replace('&amp;', '&', $this->action('load_admin_PhD'));
   $actionURLDT = str_replace('&amp;', '&', $this->action('load_admin_DT'));
   $actionURLCSI = str_replace('&amp;', '&', $this->action('load_admin_CSI'));
+  $actionURLDTPwd = str_replace('&amp;', '&', $this->action('load_admin_DT_pwd'));
 ?>
 
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
@@ -17,10 +18,13 @@ if ($admin == 'True') {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
 
-  <!--<h3>Mot de passe nécessaire aux directions de thèse pour utiliser leur lien</h3>-->
-  <?php
-  //echo $this->pwd;
-  ?>
+  <h3>Mot de passe nécessaire aux directions de thèse pour utiliser leur lien</h3>
+<div id="admin-DT-passwd" style="display:none">
+    <div class="d-flex align-items-center">
+      <strong>Loading...</strong>
+      <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+    </div>
+  </div>
   <h3>Accès aux liens par la doctorante ou le doctorant</h3>
   <p>Les doctorantes et doctorants peuvent obtenir les liens de saisies, qu'elle ou il doit transmettre 
     aux différentes parties en accédant à l'url suivante et en remplacant <code>MONINE</code> par son INE</p>
@@ -77,6 +81,9 @@ if ($admin == 'True') {
     });
     $.post("<?php echo $actionURLCSI; ?>", {}, function(data) {
       $("#admin-CSI-display-<?php echo $bID; ?>").html(data);
+    });
+    $.post("<?php echo $actionURLDTPwd; ?>", {}, function(data) {
+      $("#admin-DT-pwd").html(data);
     });
   </script>
 <?php
