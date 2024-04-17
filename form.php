@@ -38,6 +38,7 @@ if (empty($pwd)) $pwd = null;
 		<option value="FR" <?php if (strcmp($langage, "FR") === 0) { ?>selected<?php } ?>> Français</option>
 		<option value="EN" <?php if (strcmp($langage, "EN") === 0) { ?>selected<?php } ?>> Anglais</option>
 	</select>
-	<label class="control-label" for="pwd">Mot de passe pour les DTs</label>
-	<input type="text" name="pwd" class="ccm-input-text" value="<?php echo $pwd; ?>" />
+	
+	<label class="control-label" for="pwd" <?php if (strcmp($admin, "True") === 0) { ?>style="display:none"<?php }?>>Mot de passe pour les DTs</label>
+	<input type="<?php if (strcmp($admin, "True") === 0) { ?>hidden<?php }else{?>text<?php }?>"  name="pwd" class="ccm-input-text" value="<?php echo $pwd; ?>" />
 </div>
