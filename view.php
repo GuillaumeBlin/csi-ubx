@@ -19,7 +19,7 @@ if ($admin == 'True') {
   <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
 
   <h3>Mot de passe nécessaire aux directions de thèse pour utiliser leur lien</h3>
-<div id="admin-DT-passwd" style="display:none">
+<div id="admin-DT-pwd" style="display:none">
     <div class="d-flex align-items-center">
       <strong>Loading...</strong>
       <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
