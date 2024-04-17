@@ -369,7 +369,7 @@ class Controller extends BlockController
             $mat = $val[1];
             $user = $val[2];
             if(strcmp($user,"DT")==0){
-                if(strcmp($_REQUEST["pwd"],$this->pwd)!=0){
+                if(isset($_REQUEST["pwd"])&&strcmp($_REQUEST["pwd"],$this->pwd)!=0){
                     echo 'Invalid request';
                     exit;
                 }
