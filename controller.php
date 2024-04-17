@@ -373,7 +373,7 @@ class Controller extends BlockController
                     echo 'Invalid request';
                     exit;
                 }*/
-                echo "<script>if(prompt(\"Please enter your credential\")!='".$this->pwd."'){window.stop();}</script>";
+                echo "<script>if(prompt(\"Please enter your credential\")!='".$this->pwd."'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');}</script>";
             }
             $this->display_report($mat, $user);
         } else {
