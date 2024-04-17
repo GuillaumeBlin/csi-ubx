@@ -86,6 +86,9 @@ if ($admin == 'True') {
   if(isset($_GET['ine'])){
     $actionURL = str_replace('&amp;', '&', $this->action('display_links')) . "?ine=" . $_GET["ine"];
   }
+  if(isset($_GET['pwd'])){
+    $actionURL =$actionURL."&pwd=".$_GET["pwd"];
+  }
   if(isset($_GET['ine'])||isset($_GET['code'])){
 ?>
   <div id="csi-display-<?php echo $bID; ?>">
