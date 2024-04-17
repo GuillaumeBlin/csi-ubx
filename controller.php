@@ -587,6 +587,7 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
+        $db = \Database::connection();
         $statement = $db->executeQuery("SELECT pwd FROM btCSIUbx WHERE pwd!='' LIMIT 1;");
         $rows = $statement->fetchAll(); 
         print_r($rows);
