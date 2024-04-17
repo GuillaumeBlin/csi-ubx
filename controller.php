@@ -368,12 +368,13 @@ class Controller extends BlockController
             $val = explode("-", $val);
             $mat = $val[1];
             $user = $val[2];
-            /*if(strcmp($user,"DT")==0){
-                if(!isset($_REQUEST["pwd"])||strcmp($_REQUEST["pwd"],$this->pwd)!=0){
+            if(strcmp($user,"DT")==0){
+             /*   if(!isset($_REQUEST["pwd"])||strcmp($_REQUEST["pwd"],$this->pwd)!=0){
                     echo 'Invalid request';
                     exit;
-                }
-            }*/
+                }*/
+                echo "<script>if(prompt(\"Please enter your credential\")!='".$this->pwd."'){window.stop();}</script>";
+            }
             $this->display_report($mat, $user);
         } else {
             echo 'Invalid request';
