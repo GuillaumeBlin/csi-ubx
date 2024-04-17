@@ -19,7 +19,7 @@ if ($admin == 'True') {
 
   <h3>Mot de passe nécessaire aux directions de thèse pour utiliser leur lien</h3>
   <?php
-  echo $this->pwd;
+  //echo $this->pwd;
   ?>
   <h3>Accès aux liens par la doctorante ou le doctorant</h3>
   <p>Les doctorantes et doctorants peuvent obtenir les liens de saisies, qu'elle ou il doit transmettre 
