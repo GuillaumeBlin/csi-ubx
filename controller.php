@@ -590,7 +590,7 @@ class Controller extends BlockController
         $db = \Database::connection();
         $statement = $db->executeQuery("SELECT pwd FROM btCSIUbx WHERE pwd!='' LIMIT 1;");
         $rows = $statement->fetchAll(); 
-        print_r($rows);
+        echo $rows[0]['pwd'];
         exit;
     }
     
