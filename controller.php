@@ -371,6 +371,8 @@ class Controller extends BlockController
             if(strcmp($user,"DT")==0){
                 if(!isset($_REQUEST["pwd"])||strcmp($_REQUEST["pwd"],$this->pwd)!=0){
                     echo 'Invalid request';
+                    echo "-";echo $_REQUEST["pwd"];echo "-";
+                    echo $this->pwd;echo "-";
                     exit;
                 }
             }
