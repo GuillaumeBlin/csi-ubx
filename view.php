@@ -17,7 +17,7 @@ if ($admin == 'True') {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
 
-  <h3>Mot de passe nécessaire aux directions de thèse pour utiliser leur lien</h3>
+  <!--<h3>Mot de passe nécessaire aux directions de thèse pour utiliser leur lien</h3>-->
   <?php
   //echo $this->pwd;
   ?>
