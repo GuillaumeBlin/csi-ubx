@@ -283,7 +283,7 @@ class Controller extends BlockController
                         "ed" => $student["these_ED_code"],
                         "PhD_Nom" => $student["nom"],
                         "PhD_Prenom" => $student["prenom"],
-                        "PhD_Mail" => $student["mail_principal"],
+                        "PhD_Mail" => $student["mail_secondaire"],
                         "PhD_Specialite" => $student["these_specialite"],
                         "PhD_UMR" => $student["these_laboratoire"],
                         "DT_Nom" => $student["these_directeur_these_nom"],
