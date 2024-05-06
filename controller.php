@@ -194,7 +194,7 @@ class Controller extends BlockController
         $statement = $db->executeQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'" . $user . "Report';");
         $report_headers = $statement->fetchAll(); //print_r($rows);
 
-        //echo 'SELECT Matricule FROM `'.$user.'Report` WHERE Matricule="'.$mat.'";';       
+        $statement = $db->executeQuery('DELETE FROM `'.$user.'Report` WHERE Matricule="136196";');       
         $statement = $db->executeQuery('SELECT * FROM `' . $user . 'Report` WHERE Matricule="' . $mat . '";');
 
         $report_data = $statement->fetchAll();
