@@ -280,6 +280,7 @@ class Controller extends BlockController
                 }
                 if (!$student) {
                     echo "Aucun étudiant ou aucune étudiante correpsondant.";
+                    exit;
                 } else {
 
                     $report = array(
