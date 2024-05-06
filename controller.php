@@ -86,6 +86,9 @@ class Controller extends BlockController
     {
         $lang = $this->langage;
         include('form-PhD.php');
+        echo "<!--";
+        var_dump($report);
+        echo "-->";
         echo "<script>";
         if (strcmp($this->langage, "FR") == 0) {
             echo "$('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant ');            
@@ -365,7 +368,6 @@ class Controller extends BlockController
 
         $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         if ($val) {
-            var_dump($val);
             $val = explode("-", $val);
             $mat = $val[1];
             $user = $val[2];
