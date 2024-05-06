@@ -365,6 +365,7 @@ class Controller extends BlockController
 
         $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         if ($val) {
+            var_dump($val);
             $val = explode("-", $val);
             $mat = $val[1];
             $user = $val[2];
