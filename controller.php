@@ -299,10 +299,10 @@ class Controller extends BlockController
                         "PhD_Cotutelle_Pays" => $student["these_cotutelle_pays"],
                         "PhD_CSI_Annee" => intval(substr($student["niveau_Etud"], 0, 1)) + 1,
                         "niveau_Etud" => $student["niveau_Etud"],
-                        "CSI_Membre_Nombre" => count($student["csi"])
+                        "CSI_Membre_Nombre" => max(count($student["csi"]),5)
                     );
 
-                    for ($i = 0; $i < count($student["csi"]); $i = $i + 1) {
+                    for ($i = 0; $i < max(count($student["csi"]),5); $i = $i + 1) {
                         $report["CSI_Membre_" . ($i + 1) . "_Nom"] = $student["csi"][$i]["nom"];
                         $report["CSI_Membre_" . ($i + 1) . "_Prenom"] = $student["csi"][$i]["prenom"];
                         $report["CSI_Membre_" . ($i + 1) . "_mail"] = $student["csi"][$i]["mail"];
