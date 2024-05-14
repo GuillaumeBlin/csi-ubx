@@ -403,7 +403,8 @@ class Controller extends BlockController
                     "these_directeur_these_nom",
                     "these_directeur_these_prenom",
                     "these_directeur_these_mail",
-                    "csi"
+                    "csi",
+                    "passphrase"
                 ]);
                 break;
             }
@@ -411,6 +412,9 @@ class Controller extends BlockController
         if (!$student) {
             echo "Invalid request";
         } else {
+
+            echo "<script>if(prompt(\"Veuillez fournir le mot de passe personnel disponible sur votre profil ADUM (haut de la page sous l'intitulé "Pass CSI Bordeaux :") pour accéder à cette page.\")!='".$student["passphrase"]."'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
+            
 
             $csiNames = '';
             $csiMails = '';
