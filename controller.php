@@ -413,7 +413,7 @@ class Controller extends BlockController
             echo "Invalid request";
         } else {
 
-            echo "<script>if(prompt(\"Veuillez fournir le mot de passe personnel disponible sur votre profil ADUM (haut de la page sous l'intitulé "Pass CSI Bordeaux :") pour accéder à cette page.\")!='".$student["passphrase"]."'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
+            echo "<script>if(prompt(\"Veuillez fournir le mot de passe personnel disponible sur votre profil ADUM (haut de la page sous l'intitulé \"Pass CSI Bordeaux :\") pour accéder à cette page.\")!='".$student["passphrase"]."'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
             
 
             $csiNames = '';
