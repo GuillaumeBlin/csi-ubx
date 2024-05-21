@@ -510,15 +510,19 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
-        $val = explode("-", $val);
-        $mat = $val[1];
-        $db = \Database::connection();
-        $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE Matricule="' . $mat . '";');
-        $report_data = $statement->fetchAll();
-        $report = $report_data[0];
-        $lang = $this->langage;
-        include('report-' . $type . '.php');
+        if ($_REQUEST["code"]){
+            $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
+            $val = explode("-", $val);
+            $mat = $val[1];
+            $db = \Database::connection();
+            $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE Matricule="' . $mat . '";');
+            $report_data = $statement->fetchAll();
+            $report = $report_data[0];
+            $lang = $this->langage;
+            include('report-' . $type . '.php');
+        }else{
+            return false;
+        }
         exit;
     }
 
