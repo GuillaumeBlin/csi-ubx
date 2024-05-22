@@ -50,6 +50,9 @@ class Controller extends BlockController
         $encrypted = base64_decode($ciphertext);
         $cipher = "AES-256-CBC";
         $iv = substr($encrypted, 0, openssl_cipher_iv_length($cipher));
+        if(strlen($iv)<openssl_cipher_iv_length($cipher)){
+            return false;
+        }
         $encrypted = substr($encrypted, openssl_cipher_iv_length($cipher));
         $decrypted = openssl_decrypt($encrypted, $cipher, $this->sKey, 0, $iv);
         return $decrypted;
