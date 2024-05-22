@@ -46,6 +46,7 @@ class Controller extends BlockController
 
     private function dec($ciphertext)
     {
+
         $encrypted = base64_decode($ciphertext);
         $cipher = "AES-256-CBC";
         $iv = substr($encrypted, 0, openssl_cipher_iv_length($cipher));
@@ -521,14 +522,19 @@ class Controller extends BlockController
         }
         if ($_REQUEST["code"]) {
             $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
-            $val = explode("-", $val);
-            $mat = $val[1];
-            $db = \Database::connection();
-            $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE Matricule="' . $mat . '";');
-            $report_data = $statement->fetchAll();
-            $report = $report_data[0];
-            $lang = $this->langage;
-            include('report-' . $type . '.php');
+            if ($val) {
+
+                $val = explode("-", $val);
+                $mat = $val[1];
+                $db = \Database::connection();
+                $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE Matricule="' . $mat . '";');
+                $report_data = $statement->fetchAll();
+                $report = $report_data[0];
+                $lang = $this->langage;
+                include('report-' . $type . '.php');
+            } else {
+                echo 'Invalid request';
+            }
         } else {
             return false;
         }
@@ -556,28 +562,32 @@ class Controller extends BlockController
             return false;
         }
         $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
-        $val = explode("-", $val);
-        $mat = $val[1];
+        if ($val) {
+            $val = explode("-", $val);
+            $mat = $val[1];
 
-        $report = $_REQUEST;
-        array_shift($report);
-        $db = \Database::connection();
-        $fields = '';
-        $values = '';
-        foreach (array_keys($report) as $e) {
-            $fields = $fields . "`" . $e . "`,";
-            $values = $values . '?,';
+            $report = $_REQUEST;
+            array_shift($report);
+            $db = \Database::connection();
+            $fields = '';
+            $values = '';
+            foreach (array_keys($report) as $e) {
+                $fields = $fields . "`" . $e . "`,";
+                $values = $values . '?,';
+            }
+            $values = $values . '?';
+            $fields = $fields . "`Matricule`";
+            $statement = $db->executeQuery('DELETE FROM `' . $type . 'Report` WHERE `Matricule`=' . intval($mat) . ';', array());
+
+            $sql = 'INSERT INTO `' . $type . 'Report` ( ' . $fields . ')VALUES (' . $values . ');';
+            $report["Matricule"] = intval($mat);
+            //echo $report["ReadOnly"];
+            $statement = $db->executeQuery($sql, array_values($report));
+            $userPage = preg_replace("%/form_save_" . $type . "Report/\d+%", "/", $_SERVER['REQUEST_URI']);
+            $this->redirect($userPage);
+        } else {
+            echo 'Invalid request';
         }
-        $values = $values . '?';
-        $fields = $fields . "`Matricule`";
-        $statement = $db->executeQuery('DELETE FROM `' . $type . 'Report` WHERE `Matricule`=' . intval($mat) . ';', array());
-
-        $sql = 'INSERT INTO `' . $type . 'Report` ( ' . $fields . ')VALUES (' . $values . ');';
-        $report["Matricule"] = intval($mat);
-        //echo $report["ReadOnly"];
-        $statement = $db->executeQuery($sql, array_values($report));
-        $userPage = preg_replace("%/form_save_" . $type . "Report/\d+%", "/", $_SERVER['REQUEST_URI']);
-        $this->redirect($userPage);
         exit;
     }
 
