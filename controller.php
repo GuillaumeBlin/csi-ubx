@@ -595,6 +595,7 @@ class Controller extends BlockController
 
         $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE ed=' . $this->ed . ';');
         //echo 'SELECT * FROM `'.$type.'Report` WHERE ed='.$this->ed.';';
+        $statement = $db->executeQuery('DELETE FROM PhDReport WHERE `ID` = 1435;');
         $report_data = $statement->fetchAll(); //print_r($rows);
         include("admin-" . $type . "-report.php");
         exit;
