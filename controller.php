@@ -22,7 +22,7 @@ class Controller extends BlockController
     protected $btDefaultSet = 'basic';
     protected $jsonFile = "/../../files/datas_adum/ubx_inscrits.json";
 
-    private function old_enc($data)
+    private function enc($data)
     {
         $cipher = "AES-256-CBC";
         $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipher));
@@ -31,7 +31,7 @@ class Controller extends BlockController
         return $encrypted;
     }
 
-    private function enc($data)
+    private function arg_enc($data)
     {
         $cipher = "AES-256-CBC";
         $encrypted="+";
