@@ -4,7 +4,7 @@ if(!isset($lang)){$lang="FR";}
 ?>
 <!--
 <?php 
-var_dump($report);
+//var_dump($report);
 ?>
 -->
 <form id="csi" <?php if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_PhDReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <?php } ?>>
