@@ -34,8 +34,8 @@ class Controller extends BlockController
     private function enc($data)
     {
         $cipher = "AES-256-CBC";
-        $encrypted="+==";
-        while(!ctype_alnum(substr($encrypted, 0, -2))){
+        $encrypted = "+==";
+        while (!ctype_alnum(substr($encrypted, 0, -2))) {
             $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipher));
             $encrypted = openssl_encrypt($data, $cipher, $this->sKey, 0, $iv);
             $encrypted = base64_encode($iv . $encrypted);
@@ -99,7 +99,7 @@ class Controller extends BlockController
         $lang = $this->langage;
         include('form-PhD.php');
         echo "<!--";
-        var_dump($report);
+        //  var_dump($report);
         echo "-->";
         echo "<script>";
         if (strcmp($this->langage, "FR") == 0) {
@@ -256,82 +256,79 @@ class Controller extends BlockController
                 $report = $report_data[0];
                 $lang = $this->langage;
             } else {
-
-                $students = $this->retrieve_json();
-                $students = $students["data"][0];
-                $student = "";
-                foreach ($students as $value) {
-                    if ($value["Matricule_etudiant"] == $mat) {
-                        $student = $this->array_extract($value, [
-                            "Matricule_etudiant",
-                            "civilite",
-                            "nom",
-                            "prenom",
-                            "these_ED_code",
-                            "mail_principal",
-                            "mail_secondaire",
-                            "niveau_Etud",
-                            "these_ED_code",
-                            "these_codirecteur_these_nom",
-                            "these_codirecteur_these_prenom",
-                            "these_codirecteur_these_mail",
-                            "these_directeur_these_nom",
-                            "these_directeur_these_prenom",
-                            "these_directeur_these_mail",
-                            "these_cotutelle",
-                            "these_cotutelle_etab",
-                            "these_cotutelle_pays",
-                            "these_date_1inscription",
-                            "these_laboratoire",
-                            "niveau_Etud",
-                            "csi",
-                            "these_specialite"
-                        ]);
-                        break;
-                    }
+                $report = array();
+            }
+            $students = $this->retrieve_json();
+            $students = $students["data"][0];
+            $student = "";
+            foreach ($students as $value) {
+                if ($value["Matricule_etudiant"] == $mat) {
+                    $student = $this->array_extract($value, [
+                        "Matricule_etudiant",
+                        "civilite",
+                        "nom",
+                        "prenom",
+                        "these_ED_code",
+                        "mail_principal",
+                        "mail_secondaire",
+                        "niveau_Etud",
+                        "these_ED_code",
+                        "these_codirecteur_these_nom",
+                        "these_codirecteur_these_prenom",
+                        "these_codirecteur_these_mail",
+                        "these_directeur_these_nom",
+                        "these_directeur_these_prenom",
+                        "these_directeur_these_mail",
+                        "these_cotutelle",
+                        "these_cotutelle_etab",
+                        "these_cotutelle_pays",
+                        "these_date_1inscription",
+                        "these_laboratoire",
+                        "niveau_Etud",
+                        "csi",
+                        "these_specialite"
+                    ]);
+                    break;
                 }
-                if (!$student) {
-                    echo "Aucun étudiant ou aucune étudiante correpsondant.";
-                    exit;
-                } else {
-
-                    $report = array(
-                        "ed" => $student["these_ED_code"],
-                        "PhD_Nom" => $student["nom"],
-                        "PhD_Prenom" => $student["prenom"],
-                        "PhD_Mail" => $student["mail_secondaire"],
-                        "PhD_Specialite" => $student["these_specialite"],
-                        "PhD_UMR" => $student["these_laboratoire"],
-                        "DT_Nom" => $student["these_directeur_these_nom"],
-                        "DT_Prenom" => $student["these_directeur_these_prenom"],
-                        "CODT_Nom" => $student["these_codirecteur_these_nom"],
-                        "CODT_Prenom" => $student["these_codirecteur_these_prenom"],
-                        "PhD_DateDebutThese" => date('Y-m-d', strtotime($student["these_date_1inscription"])),
-                        "PhD_Cotutelle" => ucfirst(strtolower($student["these_cotutelle"])),
-                        "PhD_Cotutelle_Pays" => $student["these_cotutelle_pays"],
-                        "PhD_CSI_Annee" => intval(substr($student["niveau_Etud"], 0, 1)) + 1,
-                        "niveau_Etud" => $student["niveau_Etud"],
-                        "CSI_Membre_Nombre" => min(count($student["csi"]),5)
-                    );
-
-                    for ($i = 0; $i < min(count($student["csi"]),5); $i = $i + 1) {
-                        $report["CSI_Membre_" . ($i + 1) . "_Nom"] = $student["csi"][$i]["nom"];
-                        $report["CSI_Membre_" . ($i + 1) . "_Prenom"] = $student["csi"][$i]["prenom"];
-                        $report["CSI_Membre_" . ($i + 1) . "_mail"] = $student["csi"][$i]["mail"];
-                        $report["CSI_Referent_" . ($i + 1)] = $student["csi"][$i]["referent"];
-                        $report["CSI_Membre_" . ($i + 1) . "_specialiste"] = $student["csi"][$i]["membre_specialiste"];
-                        $report["CSI_Membre_" . ($i + 1) . "_non_specialiste"] = $student["csi"][$i]["membre_non_specialiste"];
-                        $report["CSI_Membre_" . ($i + 1) . "_externe"] = $student["csi"][$i]["membre_exterieur"];
-                    }
-
-
-                    foreach ($report_headers as $row) {
-                        if (!array_key_exists($row["COLUMN_NAME"], $report)) {
-                            $report[$row["COLUMN_NAME"]] = '';
-                        }
+            }
+            if (!$student) {
+                echo "Aucun étudiant ou aucune étudiante correpsondant.";
+                exit;
+            } else {
+                $report["ed"] = $student["these_ED_code"];
+                $report["PhD_Nom"] = $student["nom"];
+                $report["PhD_Prenom"] = $student["prenom"];
+                $report["PhD_Mail"] = $student["mail_secondaire"];
+                $report["PhD_Specialite"] = $student["these_specialite"];
+                $report["PhD_UMR"] = $student["these_laboratoire"];
+                $report["DT_Nom"] = $student["these_directeur_these_nom"];
+                $report["DT_Prenom"] = $student["these_directeur_these_prenom"];
+                $report["CODT_Nom"] = $student["these_codirecteur_these_nom"];
+                $report["CODT_Prenom"] = $student["these_codirecteur_these_prenom"];
+                $report["PhD_DateDebutThese"] = date('Y-m-d', strtotime($student["these_date_1inscription"]));
+                $report["PhD_Cotutelle"] = ucfirst(strtolower($student["these_cotutelle"]));
+                $report["PhD_Cotutelle_Pays"] = $student["these_cotutelle_pays"];
+                $report["PhD_CSI_Annee"] = intval(substr($student["niveau_Etud"], 0, 1)) + 1;
+                $report["niveau_Etud"] = $student["niveau_Etud"];
+                $report["CSI_Membre_Nombre"] = min(count($student["csi"]), 5);
+                for ($i = 0; $i < min(count($student["csi"]), 5); $i = $i + 1) {
+                    $report["CSI_Membre_" . ($i + 1) . "_Nom"] = $student["csi"][$i]["nom"];
+                    $report["CSI_Membre_" . ($i + 1) . "_Prenom"] = $student["csi"][$i]["prenom"];
+                    $report["CSI_Membre_" . ($i + 1) . "_mail"] = $student["csi"][$i]["mail"];
+                    $report["CSI_Referent_" . ($i + 1)] = $student["csi"][$i]["referent"];
+                    $report["CSI_Membre_" . ($i + 1) . "_specialiste"] = $student["csi"][$i]["membre_specialiste"];
+                    $report["CSI_Membre_" . ($i + 1) . "_non_specialiste"] = $student["csi"][$i]["membre_non_specialiste"];
+                    $report["CSI_Membre_" . ($i + 1) . "_externe"] = $student["csi"][$i]["membre_exterieur"];
+                }
+            }
+            if ($statement->rowCount() == 0) {
+                foreach ($report_headers as $row) {
+                    if (!array_key_exists($row["COLUMN_NAME"], $report)) {
+                        $report[$row["COLUMN_NAME"]] = '';
                     }
                 }
             }
+
             if ($user == "PhD") { //PhD
                 $this->display_phd_report_content($report);
             }
@@ -384,8 +381,8 @@ class Controller extends BlockController
             $val = explode("-", $val);
             $mat = $val[1];
             $user = $val[2];
-            if(strcmp($user,"DT")==0){
-                echo "<script>if(prompt(\"Veuillez fournir le mot de passe pour les directions de thèse communiqué par mail.\")!='".$this->pwd."'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
+            if (strcmp($user, "DT") == 0) {
+                echo "<script>if(prompt(\"Veuillez fournir le mot de passe pour les directions de thèse communiqué par mail.\")!='" . $this->pwd . "'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
             }
             $this->display_report($mat, $user);
         } else {
@@ -425,8 +422,8 @@ class Controller extends BlockController
             echo "Invalid request";
         } else {
 
-            echo "<script>if(prompt(\"Veuillez fournir le mot de passe personnel disponible sur votre profil ADUM (haut de la page sous l'intitulé 'Pass CSI Bordeaux :') pour accéder à cette page.\")!='".$student["passphrase"]."'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
-            
+            echo "<script>if(prompt(\"Veuillez fournir le mot de passe personnel disponible sur votre profil ADUM (haut de la page sous l'intitulé 'Pass CSI Bordeaux :') pour accéder à cette page.\")!='" . $student["passphrase"] . "'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
+
 
             $csiNames = '';
             $csiMails = '';
@@ -441,16 +438,16 @@ class Controller extends BlockController
 
                 echo "<p>Voici les liens pour remplir les 3 parties du rapport de votre CSI. Il vous faut transmettre les liens correspondants aux différents personnes impliquées dans le CSI. Chaque lien permet de remplir une partie du rapport (Doctorant.e / Direction de thèse / CSI).</p>";
                 echo "<ul>";
-                $lphd=$url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD")));
+                $lphd = $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD")));
                 echo "<li>Lien pour remplir la partie qui vous est propre : <br/> <a href='" . $lphd . "'>";
                 echo $lphd . "</a>";
                 echo "</li>";
-                $ldt=$url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT")));
+                $ldt = $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT")));
                 echo "<li>Lien à destination de votre direction de thèse (" . $student["these_directeur_these_prenom"] . ' ' . $student["these_directeur_these_nom"] . " - " . $student["these_directeur_these_mail"] . ") : <br/> <a href='" . $ldt . "'>";
                 echo $ldt . "</a>";
                 echo "</li>";
-                $lcsi=$url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI"))) ;
-                echo "<li>Lien à destination du référent de votre CSI (" . $csiNames . " - " . $csiMails . ") : <br/><a href='" . $lcsi. "'>";
+                $lcsi = $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI")));
+                echo "<li>Lien à destination du référent de votre CSI (" . $csiNames . " - " . $csiMails . ") : <br/><a href='" . $lcsi . "'>";
                 echo $lcsi . "</a>";
                 echo "</li>";
                 echo "</ul>";
@@ -459,15 +456,15 @@ class Controller extends BlockController
 
                 echo "<p>Here are links in order for each part of the CSI commitee (PhD student, Supervisor and CSI commitee) to fill out its content of the CSI report. You need to send the corresponding links to each member involved in your CSI. Each link allows to fill out a part of the report (PhD student / Supervisor / CSI).</p>";
                 echo "<ul>";
-                $lphd=$url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD")));
+                $lphd = $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-PhD")));
                 echo "<li>Link for filling out the PhD student part : <br/> <a href='" . $lphd . "'>";
                 echo $lphd . "</a>";
                 echo "</li>";
-                $ldt=$url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT")));
+                $ldt = $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-DT")));
                 echo "<li>Link for filling out the Supervisor part (" . $student["these_directeur_these_prenom"] . ' ' . $student["these_directeur_these_nom"] . " - " . $student["these_directeur_these_mail"] . ") : <br/> <a href='" . $ldt . "'>";
                 echo $ldt . "</a>";
                 echo "</li>";
-                $lcsi=$url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI"))) ;
+                $lcsi = $url . htmlspecialchars(urlencode($this->enc("csi-" . $student["Matricule_etudiant"] . "-CSI")));
                 echo "<li>Link for filling out the CSI commitee part (" . $csiNames . " - " . $csiMails . ") : <br/><a href='" . $lcsi . "'>";
                 echo $lcsi . "</a>";
                 echo "</li>";
@@ -522,7 +519,7 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        if ($_REQUEST["code"]){
+        if ($_REQUEST["code"]) {
             $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
             $val = explode("-", $val);
             $mat = $val[1];
@@ -532,7 +529,7 @@ class Controller extends BlockController
             $report = $report_data[0];
             $lang = $this->langage;
             include('report-' . $type . '.php');
-        }else{
+        } else {
             return false;
         }
         exit;
@@ -620,11 +617,11 @@ class Controller extends BlockController
         }
         $db = \Database::connection();
         $statement = $db->executeQuery("SELECT pwd FROM btCSIUbx WHERE pwd!='' LIMIT 1;");
-        $rows = $statement->fetchAll(); 
+        $rows = $statement->fetchAll();
         echo $rows[0]['pwd'];
         exit;
     }
-    
+
     public function action_load_admin_links($bID = false)
     {
         if ($this->bID != $bID) {
