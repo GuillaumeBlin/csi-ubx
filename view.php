@@ -1,6 +1,6 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
 
- echo $sKey;
+ $k=$sKey;
  function dec($ciphertext)
     {
 
@@ -11,7 +11,7 @@
             return false;
         }
         $encrypted = substr($encrypted, openssl_cipher_iv_length($cipher));
-        $decrypted = openssl_decrypt($encrypted, $cipher, "", 0, $iv);//$sKey
+        $decrypted = openssl_decrypt($encrypted, $cipher, $k, 0, $iv);
         return $decrypted;
     }
 
