@@ -1,7 +1,6 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
 
- $k=$sKey;
- function dec($ciphertext)
+ function dec($ciphertext,$k)
     {
 
         $encrypted = base64_decode($ciphertext);
@@ -128,7 +127,7 @@ Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-p
     ?>
     <?php 
     if(isset($_GET['code'])){
-      $val = dec($_GET["code"]);
+      $val = dec($_GET["code"],$sKey);
       if ($val) {
         $val = explode("-", $val);
         $mat = $val[1];
