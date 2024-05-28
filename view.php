@@ -128,7 +128,7 @@ Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-p
     ?>
     <?php 
     if(isset($_GET['code'])){
-      $val = $this->dec($_GET["code"]);
+      $val = dec($_GET["code"]);
       if ($val) {
         $val = explode("-", $val);
         $mat = $val[1];
