@@ -1,6 +1,20 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
 
 
+ function dec($ciphertext)
+    {
+
+        $encrypted = base64_decode($ciphertext);
+        $cipher = "AES-256-CBC";
+        $iv = substr($encrypted, 0, openssl_cipher_iv_length($cipher));
+        if(strlen($iv)<openssl_cipher_iv_length($cipher)){
+            return false;
+        }
+        $encrypted = substr($encrypted, openssl_cipher_iv_length($cipher));
+        $decrypted = openssl_decrypt($encrypted, $cipher, $sKey, 0, $iv);
+        return $decrypted;
+    }
+
 if ($admin == 'True') {
   $actionURLLinks = str_replace('&amp;', '&', $this->action('load_admin_links'));
   $actionURLPhD = str_replace('&amp;', '&', $this->action('load_admin_PhD'));
@@ -104,7 +118,30 @@ Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-p
     </div>
   </div>
   <script>
-    $.post("<?php echo $actionURL; ?>", {}, function(data) {
+    var cmp="";
+    <?php 
+    if(isset($_GET['ine'])){
+    ?>
+      cmp="&pp="+prompt("Veuillez fournir le mot de passe personnel disponible sur votre profil ADUM (haut de la page sous l'intitulé 'Pass CSI Bordeaux :') pour accéder à cette page.");
+    <?php 
+    }
+    ?>
+    <?php 
+    if(isset($_GET['code'])){
+      $val = $this->dec($_GET["code"]);
+      if ($val) {
+        $val = explode("-", $val);
+        $mat = $val[1];
+        $user = $val[2];
+        if (strcmp($user, "DT") == 0) {
+    ?>                
+           cmp="&pp="+prompt("Veuillez fournir le mot de passe pour les directions de thèse communiqué par mail.");
+    <?php
+        }        
+      }    
+    }
+    ?>
+    $.post("<?php echo $actionURL; ?>"+cmp, {}, function(data) {
       $("#csi-display-<?php echo $bID; ?>").html(data);
     });
   </script>

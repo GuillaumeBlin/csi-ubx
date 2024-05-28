@@ -386,7 +386,10 @@ class Controller extends BlockController
             $mat = $val[1];
             $user = $val[2];
             if (strcmp($user, "DT") == 0) {
-                echo "<script>if(prompt(\"Veuillez fournir le mot de passe pour les directions de thèse communiqué par mail.\")!='" . $this->pwd . "'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
+                if($_REQUEST["pp"]!=$this->pwd){
+                    echo 'Invalid request';
+                    exit;
+                }
             }
             $this->display_report($mat, $user);
         } else {
@@ -426,8 +429,12 @@ class Controller extends BlockController
             echo "Invalid request";
         } else {
 
-            echo "<script>if(prompt(\"Veuillez fournir le mot de passe personnel disponible sur votre profil ADUM (haut de la page sous l'intitulé 'Pass CSI Bordeaux :') pour accéder à cette page.\")!='" . $student["passphrase"] . "'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
-
+            //echo "<script>if(prompt(\"Veuillez fournir le mot de passe personnel disponible sur votre profil ADUM (haut de la page sous l'intitulé 'Pass CSI Bordeaux :') pour accéder à cette page.\")!='" . $student["passphrase"] . "'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
+            
+            if($_REQUEST["pp"]!=$student["passphrase"]){
+                echo 'Invalid request';
+                exit;
+            }
 
             $csiNames = '';
             $csiMails = '';
