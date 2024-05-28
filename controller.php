@@ -577,6 +577,7 @@ class Controller extends BlockController
             $mat = $val[1];
 
             $report = $_REQUEST;
+            unset($report["pp"]);
             array_shift($report);
             $db = \Database::connection();
             $fields = '';
