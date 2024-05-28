@@ -387,7 +387,6 @@ class Controller extends BlockController
             $user = $val[2];
             if (strcmp($user, "DT") == 0) {
                 if($_REQUEST["pp"]!=$this->pwd){
-                    $this->redirect($userPage);
                     echo 'Invalid request';
                     exit;
                 }
