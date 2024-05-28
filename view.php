@@ -117,7 +117,7 @@ Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-p
     </div>
   </div>
   <script>
-    var cmp="";
+    var cmp="&pp=";
     <?php 
     if(isset($_GET['ine'])){
     ?>
