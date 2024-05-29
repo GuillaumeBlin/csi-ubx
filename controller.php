@@ -386,7 +386,7 @@ class Controller extends BlockController
             $mat = $val[1];
             $user = $val[2];
             if (strcmp($user, "DT") == 0) {
-                if($_REQUEST["pp"]!=$this->pwd){
+                if($_REQUEST["pp"]+""!=$this->pwd){
                     echo 'Invalid request';
                     exit;
                 }
@@ -431,8 +431,9 @@ class Controller extends BlockController
 
             //echo "<script>if(prompt(\"Veuillez fournir le mot de passe personnel disponible sur votre profil ADUM (haut de la page sous l'intitulé 'Pass CSI Bordeaux :') pour accéder à cette page.\")!='" . $student["passphrase"] . "'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
             
-            if($_REQUEST["pp"]!=$student["passphrase"]){
+            if($_REQUEST["pp"]+""!=$student["passphrase"]){
                 echo 'Invalid request';
+                //Please check that you indeed came through the page https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi
                 exit;
             }
 
