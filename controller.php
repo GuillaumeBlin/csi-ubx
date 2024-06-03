@@ -10,6 +10,7 @@ use Concrete\Core\File\Filesystem;
 use Concrete\Core\Block\BlockType\BlockType;
 use Concrete\Core\Page\Page;
 use \Concrete\Core\Entity\Attribute\Value\Value\SelectValueOption;
+use Log;
 
 use Loader;
 
@@ -539,10 +540,14 @@ class Controller extends BlockController
                 $mat = $val[1];
                 $db = \Database::connection();
                 $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE Matricule="' . $mat . '";');
-                $report_data = $statement->fetchAll();
-                $report = $report_data[0];
-                $lang = $this->langage;
-                include('report-' . $type . '.php');
+                if ($statement->rowCount() > 0) {
+                    $report_data = $statement->fetchAll();
+                    $report = $report_data[0];
+                    $lang = $this->langage;
+                    include('report-' . $type . '.php');
+                }else{
+                    echo 'Invalid request';
+                }
             } else {
                 echo 'Invalid request';
             }
@@ -649,6 +654,7 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
+        Log::addNotice('Test GB.');
         $this->display_list();
         exit;
     }
