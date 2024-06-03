@@ -297,7 +297,8 @@ class Controller extends BlockController
                 }
             }
             if (!$student) {
-                echo "Aucun étudiant ou aucune étudiante correpsondant.";
+                echo "Invalid request";
+                Log::addNotice('Attempt to get report with invalid info : mat='.$mat.' ; type='.$user);
                 exit;
             } else {
                 $report["ed"] = $student["these_ED_code"];
@@ -389,12 +390,14 @@ class Controller extends BlockController
             if (strcmp($user, "DT") == 0) {
                 if((!array_key_exists("pp",$_REQUEST))||($_REQUEST["pp"]!=$this->pwd)){
                     echo 'Invalid request';
+                    Log::addNotice('Attempt to get DT report with invalid info : mat='.$mat.' ; type='.$user. ' ; pwd:'.$_REQUEST["pp"] );
                     exit;
                 }
             }
             $this->display_report($mat, $user);
         } else {
             echo 'Invalid request';
+            Log::addNotice('Attempt to get report with invalid code : '.$_REQUEST["code"] );
         }
         exit;
     }
@@ -428,12 +431,14 @@ class Controller extends BlockController
         }
         if (!$student) {
             echo "Invalid request";
+            Log::addNotice('Attempt to get PhD links with invalid INE : '.$ine );
         } else {
 
             //echo "<script>if(prompt(\"Veuillez fournir le mot de passe personnel disponible sur votre profil ADUM (haut de la page sous l'intitulé 'Pass CSI Bordeaux :') pour accéder à cette page.\")!='" . $student["passphrase"] . "'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
             
             if((!array_key_exists("pp",$_REQUEST))||($_REQUEST["pp"]!=$student["passphrase"])){
                 echo 'Invalid request';
+                Log::addNotice('Attempt to get PhD links with invalid pp : '.$_REQUEST["pp"]. ' for ine:'.$ine);
                 //Please check that you indeed came through the page https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi
                 exit;
             }
@@ -605,6 +610,7 @@ class Controller extends BlockController
             $this->redirect($userPage);
         } else {
             echo 'Invalid request';
+            Log::addNotice('Bad attempt to save '.$type.' report : '.$_REQUEST["code"]);
         }
         exit;
     }
