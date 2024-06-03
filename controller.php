@@ -654,7 +654,7 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        Log::addNotice('Test GB.');
+        
         $this->display_list();
         exit;
     }
