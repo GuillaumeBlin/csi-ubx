@@ -551,7 +551,7 @@ class Controller extends BlockController
                     $lang = $this->langage;
                     include('report-' . $type . '.php');
                 }else{
-                    Log::addNotice('Attempt to get invalid report with code '. $_REQUEST["code"]. ' ; mat='.$mat.' ; type='.$type);
+                    Log::addNotice('Attempt to get invalid report with code '. $_REQUEST["code"]. ' ; mat='.$mat.' ; type='.$type. " ; from IP:".$_SERVER['REMOTE_ADDR']);
                     echo 'Invalid request';
                 }
             } else {
