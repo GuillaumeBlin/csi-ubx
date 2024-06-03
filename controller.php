@@ -546,6 +546,7 @@ class Controller extends BlockController
                     $lang = $this->langage;
                     include('report-' . $type . '.php');
                 }else{
+                    Log::addNotice('Attempt to get invalid report with code '. $_REQUEST["code"]. ' ; mat='.$mat.' ; type='.$type);
                     echo 'Invalid request';
                 }
             } else {
@@ -653,8 +654,7 @@ class Controller extends BlockController
     {
         if ($this->bID != $bID) {
             return false;
-        }
-        
+        }        
         $this->display_list();
         exit;
     }
