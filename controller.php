@@ -298,7 +298,7 @@ class Controller extends BlockController
             }
             if (!$student) {
                 echo "Invalid request";
-                Log::addNotice('Attempt to get report with invalid info : mat='.$mat.' ; type='.$user);
+                Log::addNotice('Attempt to get report with invalid info : mat='.$mat.' ; type='.$user. " ; from IP:".$_SERVER['REMOTE_ADDR']);
                 exit;
             } else {
                 $report["ed"] = $student["these_ED_code"];
@@ -390,14 +390,14 @@ class Controller extends BlockController
             if (strcmp($user, "DT") == 0) {
                 if((!array_key_exists("pp",$_REQUEST))||($_REQUEST["pp"]!=$this->pwd)){
                     echo 'Invalid request';
-                    Log::addNotice('Attempt to get DT report with invalid info : mat='.$mat.' ; type='.$user. ' ; pwd:'.$_REQUEST["pp"] );
+                    Log::addNotice('Attempt to get DT report with invalid info : mat='.$mat.' ; type='.$user. ' ; pwd:'.$_REQUEST["pp"] . " ; from IP:".$_SERVER['REMOTE_ADDR']);
                     exit;
                 }
             }
             $this->display_report($mat, $user);
         } else {
             echo 'Invalid request';
-            Log::addNotice('Attempt to get report with invalid code : '.$_REQUEST["code"] );
+            Log::addNotice('Attempt to get report with invalid code : '.$_REQUEST["code"] . " ; from IP:".$_SERVER['REMOTE_ADDR']);
         }
         exit;
     }
@@ -431,7 +431,7 @@ class Controller extends BlockController
         }
         if (!$student) {
             echo "Invalid request";
-            Log::addNotice('Attempt to get PhD links with invalid INE : '.$ine );
+            Log::addNotice('Attempt to get PhD links with invalid INE : '.$ine . " ; from IP:".$_SERVER['REMOTE_ADDR']);
         } else {
 
             //echo "<script>if(prompt(\"Veuillez fournir le mot de passe personnel disponible sur votre profil ADUM (haut de la page sous l'intitulé 'Pass CSI Bordeaux :') pour accéder à cette page.\")!='" . $student["passphrase"] . "'){window.location.replace('https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi');\$('body').empty();}</script>";
@@ -610,7 +610,7 @@ class Controller extends BlockController
             $this->redirect($userPage);
         } else {
             echo 'Invalid request';
-            Log::addNotice('Bad attempt to save '.$type.' report : '.$_REQUEST["code"]);
+            Log::addNotice('Bad attempt to save '.$type.' report : '.$_REQUEST["code"]. " ; from IP:".$_SERVER['REMOTE_ADDR']);
         }
         exit;
     }
