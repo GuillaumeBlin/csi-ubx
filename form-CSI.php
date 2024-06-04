@@ -243,7 +243,7 @@
         <label>Avis circonstancié</label>
         <textarea type="textarea" rows="5" class="form-control" name="AvisReinscription"><?php echo $report["AvisReinscription"]; ?></textarea>
     </div>
-    <?php if ($report_read_only == true) { ?>
+    <?php if ($report_read_only == false) { ?>
     <h5>Le comité de suivi alerte la direction de l’école doctorale sur « toute forme de conflit, de discrimination ou de harcèlement moral ou sexuel ou d’agissement sexiste » par un rapport confidentiel </h5>
     <h6>Cette information ne sera pas présente sur le rapport définitif mais accessible par la direction de l'ED</h6>
     <span>
