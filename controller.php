@@ -438,7 +438,7 @@ class Controller extends BlockController
             
             if((!array_key_exists("pp",$_REQUEST))||($_REQUEST["pp"]!=$student["passphrase"])){
                 echo 'Invalid request';
-                Log::addNotice('Attempt to get PhD links with invalid pp : '.$_REQUEST["pp"]. ' for ine:'.$ine. " ; from IP:".$_SERVER['REMOTE_ADDR']););
+                Log::addNotice('Attempt to get PhD links with invalid pp : '.$_REQUEST["pp"]. ' for ine:'.$ine. " ; from IP:".$_SERVER['REMOTE_ADDR']);
                 //Please check that you indeed came through the page https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi
                 exit;
             }
