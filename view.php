@@ -103,6 +103,12 @@ Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-p
   }
 
   if(isset($_GET['ine'])){
+    $ine=$_GET['ine'];
+    if(strcmp($ine, "MONINE") === 0){
+      echo "<script>alert('Merci de remplacer MONINE par votre réel INE');";
+      echo "$('.std-page-main-inner > h1').text('Invalid page');</script>";
+      return;
+    }
     $actionURL = str_replace('&amp;', '&', $this->action('display_links')) . "?ine=" . $_GET["ine"];
   }
   /*if(isset($_GET['pwd'])){
