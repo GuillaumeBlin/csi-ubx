@@ -21,7 +21,7 @@ class Controller extends BlockController
     protected $btInterfaceWidth = "350";
     protected $btInterfaceHeight = "240";
     protected $btDefaultSet = 'basic';
-    protected $jsonFile = "/../../files/datas_adum/ubx_inscrits_2023.json";
+    protected $jsonFile = "/../../files/datas_adum/ubx_csi.json";
 
     private function oldenc($data)
     {
