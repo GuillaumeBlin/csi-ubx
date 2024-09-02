@@ -21,7 +21,7 @@ class Controller extends BlockController
     protected $btInterfaceWidth = "350";
     protected $btInterfaceHeight = "240";
     protected $btDefaultSet = 'basic';
-    protected $lastYear = (int)date("Y") - 1;
+    protected $lastYear = date('Y', strtotime('-1 year'));
     protected $jsonFile = "/../../files/datas_adum/ubx_inscrits_".$lastYear.".json";
 
     private function oldenc($data)
