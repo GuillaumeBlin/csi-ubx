@@ -35,7 +35,11 @@ if ($admin == 'True') {
   <p>Formulaire vide qui ne sera pas enregistré dans la base. A n'utiliser qu'en cas de gros problèmes : 
     une doctorante ou un doctorant qui n'aurait pas effectué sont CSI et qui ne serait pas encore inscrite ou 
     inscrit en année courante (cas rare normalement)</p>
-    <p>show_EmptyPhDReport
+    <ul>
+    <li>Doctorante ou doctorant : https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi/show_EmptyPhDReport</li>
+    <li>Direction de thèse : https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi/show_EmptyDTReport</li>
+    <li>CSI : https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi/show_EmptyCSIReport</li>
+</ul>
   <h3>Mot de passe nécessaire aux directions de thèse pour utiliser leur lien</h3>
 Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-pwd"></code>
   <h3>Accès aux liens par la doctorante ou le doctorant</h3>
