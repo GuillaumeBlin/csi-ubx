@@ -95,7 +95,7 @@ if(!isset($lang)){$lang="FR";}
     </span>
     <div>
             <label for="PhD_Cotutelle_Pays"><?php if (strcmp($lang, "FR") == 0) {?>Si oui, préciser le pays partenaire<?php }else{?>Cotutelle partner country<?php }?></label>
-            <input type="text" class="form-control" readonly name="PhD_Cotutelle_Pays" id="PhD_Cotutelle_Pays" value="">
+            <input type="text" class="form-control"  name="PhD_Cotutelle_Pays" id="PhD_Cotutelle_Pays" value="">
         </div>
         <h5><?php if (strcmp($lang, "FR") == 0) {?>Quelles sont les périodes de mobilités prévues durant votre co-tutelle ?<?php }else{?>What are the schedule of stays?<?php }?></h5>
         <input type="text" class="form-control" name="PeriodesMobilites" id="PeriodesMobilites" value="">
@@ -162,11 +162,11 @@ if(!isset($lang)){$lang="FR";}
 
         <h5><?php if (strcmp($lang, "FR") == 0) {?>Membre<?php }else{?>Member<?php }?> n°<?php echo $i + 1; ?></h5>
         <h6><?php if (strcmp($lang, "FR") == 0) {?>Nom<?php }else{?>Last name<?php }?></h6>
-        <input type="text" class="form-control"  name="CSI_Membre_<?php echo $i + 1; ?>_Nom" id="CSI_Membre_<?php echo $i + 1; ?>_Nom" readonly value="">
+        <input type="text" class="form-control"  name="CSI_Membre_<?php echo $i + 1; ?>_Nom" id="CSI_Membre_<?php echo $i + 1; ?>_Nom"  value="">
         <h6><?php if (strcmp($lang, "FR") == 0) {?>Prénom<?php }else{?>First name<?php }?></h6>
-        <input type="text" class="form-control"  name="CSI_Membre_<?php echo $i + 1; ?>_Prenom" id="CSI_Membre_<?php echo $i + 1; ?>_Prenom" readonly value="">
+        <input type="text" class="form-control"  name="CSI_Membre_<?php echo $i + 1; ?>_Prenom" id="CSI_Membre_<?php echo $i + 1; ?>_Prenom"  value="">
         <h6><?php if (strcmp($lang, "FR") == 0) {?>Adresse mail<?php }else{?>Mail address<?php }?></h6>
-        <input type="text" class="form-control"  name="CSI_Membre_<?php echo $i + 1; ?>_mail" id="CSI_Membre_<?php echo $i + 1; ?>_mail" readonly value="">
+        <input type="text" class="form-control"  name="CSI_Membre_<?php echo $i + 1; ?>_mail" id="CSI_Membre_<?php echo $i + 1; ?>_mail"  value="">
         <h6><?php if (strcmp($lang, "FR") == 0) {?>Référent<?php }else{?>Referent<?php }?></h6>
         <div>
             <input name="CSI_Referent_<?php echo $i + 1; ?>"  value="<?php echo $i + 1; ?>" type="radio" >            
