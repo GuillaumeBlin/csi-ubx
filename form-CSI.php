@@ -1,7 +1,7 @@
 <?php if(!isset($report_read_only)){$report_read_only=false;}?>
 
 <?php 
-var_dump($report);
+//var_dump($report);
 ?>
 
 
