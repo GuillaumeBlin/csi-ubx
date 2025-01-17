@@ -102,10 +102,6 @@ Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-p
 <?php
 } else {
 
-  if(isset($_GET['empty_phd'])){
-    $actionURL = str_replace('&amp;', '&', $this->action('show_EmptyPhDReport'));
-  }
-
   if(isset($_GET['code'])){
     $actionURL = str_replace('&amp;', '&', $this->action('load_user')) . "?code=" . $_GET["code"];
   }
@@ -122,7 +118,7 @@ Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-p
   /*if(isset($_GET['pwd'])){
     $actionURL =$actionURL."&pwd=".$_GET["pwd"];
   }*/
-  if(isset($_GET['ine'])||isset($_GET['code'])||isset($_GET['empty_phd'])){
+  if(isset($_GET['ine'])||isset($_GET['code'])){
 ?>
   <div id="csi-display-<?php echo $bID; ?>">
     <div class="d-flex align-items-center">
