@@ -1,6 +1,35 @@
 <?php 
 if(!isset($report_read_only)){$report_read_only=false;}
 if(!isset($lang)){$lang="FR";}
+if(isset($_GET["empty-report"])){
+    $report_read_only=true;
+    $report=array();
+    $report["ed"] = "";
+    $report["PhD_Nom"] = "";
+    $report["PhD_Prenom"] = "";
+    $report["PhD_Mail"] = "";
+    $report["PhD_Specialite"] = "";
+    $report["PhD_UMR"] = "";
+    $report["DT_Nom"] = "";
+    $report["DT_Prenom"] = "";
+    $report["CODT_Nom"] = "";
+    $report["CODT_Prenom"] = "";
+    $report["PhD_DateDebutThese"] = "";
+    $report["PhD_Cotutelle"] = "";
+    $report["PhD_Cotutelle_Pays"] = "";
+    $report["PhD_CSI_Annee"] = "";
+    $report["niveau_Etud"] = "";
+    $report["CSI_Membre_Nombre"] = 5;
+    for ($i = 0; $i < 5; $i = $i + 1) {
+        $report["CSI_Membre_" . ($i + 1) . "_Nom"] = "";
+        $report["CSI_Membre_" . ($i + 1) . "_Prenom"] = "";
+        $report["CSI_Membre_" . ($i + 1) . "_mail"] = "";
+        $report["CSI_Referent_" . ($i + 1)] = "";
+        $report["CSI_Membre_" . ($i + 1) . "_specialiste"] = "";
+        $report["CSI_Membre_" . ($i + 1) . "_non_specialiste"] = "";
+        $report["CSI_Membre_" . ($i + 1) . "_externe"] = "";
+    }
+}
 ?>
 <!--
 <?php 
