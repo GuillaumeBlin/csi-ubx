@@ -103,7 +103,7 @@ Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-p
 } else {
 
   if(isset($_GET['empty_phd'])){
-    $actionURL = str_replace('&amp;', '&', $this->action('empty-report-PhD'));
+    $actionURL = str_replace('&amp;', '&', $this->action('show_EmptyPhDReport'));
   }
 
   if(isset($_GET['code'])){
