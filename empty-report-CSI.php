@@ -82,31 +82,31 @@
     <h3>Informations générales</h3>
     <h4>La doctorante ou le doctorant</h4>
     <h5>Nom</h5>
-    <input type="text" readonly class="form-control" name="PhD_Nom" id="PhD_Nom" value="">
+    <input type="text"  class="form-control" name="PhD_Nom" id="PhD_Nom" value="">
     <h5>Prénom</h5>
-    <input type="text" readonly class="form-control" name="PhD_Prenom" id="PhD_Prenom" value="">
+    <input type="text"  class="form-control" name="PhD_Prenom" id="PhD_Prenom" value="">
     <h5>Email dans ADUM</h5>
-    <input type="text" readonly class="form-control" name="PhD_Mail" id="PhD_Mail" value="">
+    <input type="text"  class="form-control" name="PhD_Mail" id="PhD_Mail" value="">
     <h5>Spécialité</h5>
-    <input type="text" readonly class="form-control" name="PhD_Specialite" id="PhD_Specialite" value="">
+    <input type="text"  class="form-control" name="PhD_Specialite" id="PhD_Specialite" value="">
     <h5>Unité de recherche</h5>
     <textarea type="textarea" rows="1" disabled class="form-control" wrap="wrap" name="PhD_UMR" id="PhD_UMR"></textarea>
     <h4>La thèse</h4>
     <h5>Nom direction de thèse</h5>
-    <input type="text" readonly class="form-control" name="DT_Nom" id="DT_Nom" value="">
+    <input type="text"  class="form-control" name="DT_Nom" id="DT_Nom" value="">
     <h5>Prénom direction de thèse</h5>
-    <input type="text" readonly class="form-control" name="DT_Prenom" id="DT_Prenom" value="">
+    <input type="text"  class="form-control" name="DT_Prenom" id="DT_Prenom" value="">
     
         <h5>Nom co-direction de thèse</h5>
-    <input type="text" readonly class="form-control" name="CODT_Nom" id="CODT_Nom" value="">
+    <input type="text"  class="form-control" name="CODT_Nom" id="CODT_Nom" value="">
     <h5>Prénom co-direction de thèse</h5>
-    <input type="text" readonly class="form-control" name="CODT_Prenom" id="CODT_Prenom" value="">
+    <input type="text"  class="form-control" name="CODT_Prenom" id="CODT_Prenom" value="">
     <h5>Date de début de thèse</h5>
-    <input type="date" class="form-control" name="PhD_DateDebutThese" readonly id="PhD_DateDebutThese" value="">
+    <input type="date" class="form-control" name="PhD_DateDebutThese"  id="PhD_DateDebutThese" value="">
 
     <h4>Année du CSI</h4>
     <h5>CSI pour réinscription en année</h5>
-    <input type="number" readonly class="form-control" name="PhD_CSI_Annee" min="2" max="8" step="1" id="PhD_CSI_Annee" value="">
+    <input type="number"  class="form-control" name="PhD_CSI_Annee" min="2" max="8" step="1" id="PhD_CSI_Annee" value="">
 
     <h3>Etat d'avancement de la thèse</h3>
     <h5>Par rapport aux objectifs initiaux définis au début de la thèse, le contenu est-il ?</h5>
