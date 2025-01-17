@@ -1,4 +1,11 @@
 <?php if(!isset($report_read_only)){$report_read_only=false;}?>
+
+<?php 
+var_dump($report);
+?>
+
+
+
 <form id="csi" <?php if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_CSIReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <?php } ?>>
     <input type="hidden" name="ed" id="ed" value="<?php echo $report["ed"]; ?>" />
     <h3>L’entretien</h3>
@@ -25,7 +32,7 @@
     </div>
     <div id="ModalitesEntretienDetails">
         <label>Détails des modalités</label>
-        <textarea type="textarea" rows="5" class="form-control" wrap="wrap" name="ModalitesEntretienDetails"><?php echo $report["ModalitesEntretienDetails"]; ?></textarea>
+        <textarea type="textarea" rows="5" class="form-control" wrap="wrap" placeholder="Merci d'indiquer la liste des membres du CSI présents lors de l’entretien en précisant le membre qui rédige le rapport." name="ModalitesEntretienDetails"><?php echo $report["ModalitesEntretienDetails"]; ?></textarea>
 
     </div>
 
