@@ -369,7 +369,7 @@ function nl2br(str, replaceMode, isXhtml) {
                 $(this).after('<p class="well print-content">' + nl2br(text) + '</p>');
             });
         }
-        $("#csi :input").attr("disabled", true);
+        
        
 </script>
 
