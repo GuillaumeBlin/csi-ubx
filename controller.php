@@ -574,6 +574,7 @@ class Controller extends BlockController
     public function action_show_EmptyPhDReport($bID = false)
     {
         $this->action_show_Report($bID, 'PhD', true);
+        exit;
     }
 
     public function action_show_DTReport($bID = false)
