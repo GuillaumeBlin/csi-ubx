@@ -72,7 +72,7 @@ if(!isset($lang)){$lang="FR";}
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Spécialité<?php }else{?>Domain<?php }?></h5>
     <input type="text"  class="form-control" name="PhD_Specialite" id="PhD_Specialite" value="">
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Unité de recherche<?php }else{?>Research unit<?php }?></h5>
-    <input type="text"  class="form-control" name="PhD_UMR" id="PhD_UMR" value="<?php echo $report["PhD_UMR"]; ?>">
+    <input type="text"  class="form-control" name="PhD_UMR" id="PhD_UMR" value="">
     <h4><?php if (strcmp($lang, "FR") == 0) {?>La thèse<?php }else{?>The thesis<?php }?></h4>
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Nom direction de thèse<?php }else{?>Supervisor last name<?php }?></h5>
     <input type="text"  class="form-control" name="DT_Nom" id="DT_Nom" value="">
