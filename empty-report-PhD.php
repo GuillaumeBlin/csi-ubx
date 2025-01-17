@@ -57,7 +57,6 @@
             <div class="std-page-main-inner">
                 <h1>Rapport annuel de la doctorante ou du doctorant</h1>
 <?php 
-$report_read_only=true;
 $empty_report=true;
 include('form-PhD.php');
 ?>
