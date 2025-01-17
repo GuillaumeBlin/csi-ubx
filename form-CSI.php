@@ -47,7 +47,7 @@
     <h5>Spécialité</h5>
     <input type="text" readonly class="form-control" name="PhD_Specialite" id="PhD_Specialite" value="<?php echo $report["PhD_Specialite"]; ?>">
     <h5>Unité de recherche</h5>
-    <textarea type="textarea" rows="1" disabled class="form-control" wrap="wrap" name="PhD_UMR" id="PhD_UMR"><?php echo $report["PhD_UMR"]; ?></textarea>
+    <input type="text" readonly class="form-control" name="PhD_UMR" id="PhD_UMR" value="<?php echo $report["PhD_UMR"]; ?>">
     <h4>La thèse</h4>
     <h5>Nom direction de thèse</h5>
     <input type="text" readonly class="form-control" name="DT_Nom" id="DT_Nom" value="<?php echo $report["DT_Nom"]; ?>">
