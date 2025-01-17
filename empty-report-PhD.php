@@ -391,5 +391,32 @@ if(!isset($lang)){$lang="FR";}
 </form>
             </div>
         </main>
-    </div>            
+    </div>   
+    
+    <script>
+function nl2br(str, replaceMode, isXhtml) {
+        var breakTag = (isXhtml) ? '<br />' : '<br>';
+        var replaceStr = (replaceMode) ? '$1' + breakTag : '$1' + breakTag + '$2';
+        return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, replaceStr);
+    }
+
+        $("textarea").each(function() {
+            if (this.length > 0) {
+                this.height("");
+                var x = this.prop('scrollHeight');
+                x = x + 10;
+                this.height(x + "px");
+            };
+        });
+
+        window.onbeforeprint = function() {
+            $('.print-content').remove();
+            $('textarea').each(function() {
+                var text = $(this).val();
+                $(this).after('<p class="well print-content">' + nl2br(text) + '</p>');
+            });
+        }
+        $("#csi :input").attr("disabled", true);
+       
+</script>
 </div>
