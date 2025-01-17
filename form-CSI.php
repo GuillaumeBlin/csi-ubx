@@ -166,18 +166,18 @@
         <h5>Productions scientifiques et participation à des colloques</h5>
         <div>
             <label>Avis et recommandations</label>
-            <textarea type="textarea" rows="5" class="form-control" name="AvisRecommandationsProductionScientifique"><?php echo $report["AvisRecommandationsProductionScientifique"]; ?></textarea>
+            <textarea type="textarea" rows="5" class="form-control" required name="AvisRecommandationsProductionScientifique"><?php echo $report["AvisRecommandationsProductionScientifique"]; ?></textarea>
         </div>
 
         <h5>Expériences internationales avec mobilités < à 3 mois</h5>
                 <span>
-                    <input name="MobilitesInternationalesMoins3Mois" value="Oui" type="radio" <?php if ($report["MobilitesInternationalesMoins3Mois"] == "Oui") {
+                    <input name="MobilitesInternationalesMoins3Mois" required value="Oui" type="radio" <?php if ($report["MobilitesInternationalesMoins3Mois"] == "Oui") {
                                                                                 echo "checked";
                                                                             } ?>>
                     <label>Oui</label>
                 </span>
                 <span>
-                    <input name="MobilitesInternationalesMoins3Mois" value="Non" type="radio" <?php if ($report["MobilitesInternationalesMoins3Mois"] == "Non") {
+                    <input name="MobilitesInternationalesMoins3Mois" required value="Non" type="radio" <?php if ($report["MobilitesInternationalesMoins3Mois"] == "Non") {
                                                                                 echo "checked";
                                                                             } ?>>
                     <label>Non</label>
@@ -185,13 +185,13 @@
 
                 <h5>Expériences internationales avec mobilités > à 3 mois</h5>
                 <span>
-                    <input name="MobilitesInternationalesPlus3Mois" value="Oui" type="radio" <?php if ($report["MobilitesInternationalesPlus3Mois"] == "Oui") {
+                    <input name="MobilitesInternationalesPlus3Mois" required value="Oui" type="radio" <?php if ($report["MobilitesInternationalesPlus3Mois"] == "Oui") {
                                                                                 echo "checked";
                                                                             } ?>>
                     <label>Oui</label>
                 </span>
                 <span>
-                    <input name="MobilitesInternationalesPlus3Mois" value="Non" type="radio" <?php if ($report["MobilitesInternationalesPlus3Mois"] == "Non") {
+                    <input name="MobilitesInternationalesPlus3Mois" required value="Non" type="radio" <?php if ($report["MobilitesInternationalesPlus3Mois"] == "Non") {
                                                                                 echo "checked";
                                                                             } ?>>
                     <label>Non</label>
@@ -202,7 +202,7 @@
     
 
     <h5>Avis et recommandations du CSI sur les formations à suivre l’année suivante</h5>
-    <textarea type="textarea" rows="5" class="form-control" name="AvisRecommandationsFormations"><?php echo $report["AvisRecommandationsFormations"]; ?></textarea>
+    <textarea type="textarea" rows="5" required class="form-control" name="AvisRecommandationsFormations"><?php echo $report["AvisRecommandationsFormations"]; ?></textarea>
 
     <h3>Perspectives de poursuite de carrière</h3>
     <p>Indiquer les perspectives de poursuite de carrière post-thèse auxquelles doit faire écho le plan de formation durant la thèse. Indiquer les perspectives de candidature pour un post-doc en France ou à l’étranger, de candidature à la qualification aux fonctions de Maîtres de conférences, de chercheur CNRS, INRAE, INRAP, etc...</p>
@@ -211,13 +211,13 @@
     <h3>Avis du comité de suivi individuel sur la réinscription</h3>
     <div><label>Une inscription dérogatoire en 4ème année ou plus est-elle envisagée ?</label>
         <span>
-            <input name="InscriptionDerogatoire" value="Oui" type="radio" <?php if ($report["InscriptionDerogatoire"] == "Oui") {
+            <input name="InscriptionDerogatoire" required value="Oui" type="radio" <?php if ($report["InscriptionDerogatoire"] == "Oui") {
                                                                                 echo "checked";
                                                                             } ?>>
             <label>Oui</label>
         </span>
         <span>
-            <input name="InscriptionDerogatoire" value="Non" type="radio" <?php if ($report["InscriptionDerogatoire"] == "Non") {
+            <input name="InscriptionDerogatoire" required value="Non" type="radio" <?php if ($report["InscriptionDerogatoire"] == "Non") {
                                                                                 echo "checked";
                                                                             } ?>>
             <label>Non</label>
@@ -227,28 +227,28 @@
         <label>Si oui, date prévue pour la soutenance de thèse</label>
         <input type="date" class="form-control" name="DateSoutenance" value="<?php echo $report["DateSoutenance"]; ?>">
     </div>
-
+        
     <span>
-        <input name="Reinscription" value="Favorable" type="radio" <?php if ($report["Reinscription"] == "Favorable") {
+        <input name="Reinscription" value="Favorable" <?php if ($report["InscriptionDerogatoire"]=="Oui"){ echo 'required'; }?> type="radio" <?php if ($report["Reinscription"] == "Favorable") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Favorable</label>
     </span>
     <span>
-        <input name="Reinscription" value="Favorable avec réserves" type="radio" <?php if ($report["Reinscription"] == "Favorable avec réserves") {
+        <input name="Reinscription" value="Favorable avec réserves" <?php if ($report["InscriptionDerogatoire"]=="Oui"){ echo 'required'; }?> type="radio" <?php if ($report["Reinscription"] == "Favorable avec réserves") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Favorable avec réserves</label>
     </span>
     <span>
-        <input name="Reinscription" value="Défavorable" type="radio" <?php if ($report["Reinscription"] == "Défavorable") {
+        <input name="Reinscription" value="Défavorable" type="radio" <?php if ($report["InscriptionDerogatoire"]=="Oui"){ echo 'required'; }?> <?php if ($report["Reinscription"] == "Défavorable") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Défavorable</label>
     </span>
     <div>
         <label>Avis circonstancié</label>
-        <textarea type="textarea" rows="5" class="form-control" name="AvisReinscription"><?php echo $report["AvisReinscription"]; ?></textarea>
+        <textarea type="textarea" rows="5" required class="form-control" name="AvisReinscription"><?php echo $report["AvisReinscription"]; ?></textarea>
     </div>
     <?php if ($report_read_only == false) { ?>
     <h5>Le comité de suivi alerte la direction de l’école doctorale sur « toute forme de conflit, de discrimination ou de harcèlement moral ou sexuel ou d’agissement sexiste » par un rapport confidentiel </h5>
@@ -269,12 +269,12 @@
 
     <div>
         <label>Date de l'établissement du rapport</label>
-        <input type="date" class="form-control" name="DateRapport" id="DateRapport" value="<?php echo $report["DateRapport"]; ?>">
+        <input type="date" class="form-control" required name="DateRapport" id="DateRapport" value="<?php echo $report["DateRapport"]; ?>">
     </div>
     <?php if ($report_read_only == false) { ?>
         <div>
-        <button type="submit" name="ReadOnly" value="Non" class="btn-default btn" style="default">Enregistrer le rapport uniquement</button>
-            <button type="submit" name="ReadOnly" value="Oui" class="btn-default btn" style="default">Soumettre le rapport définitif</button>
+            <button type="submit" name="ReadOnly" value="Non" class="btn-default btn" style="default">Enregistrer le rapport uniquement</button>
+            <button type="submit" name="ReadOnly" value="Oui" class="btn-default btn" style="default">Enregistrer le rapport définitif</button>
         </div>
     <?php } ?>
 </form>

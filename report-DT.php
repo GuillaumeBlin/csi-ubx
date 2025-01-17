@@ -55,7 +55,7 @@
     <div class="wrapper">
         <main id="content-main" class="std-page-main std-content">
             <div class="std-page-main-inner">
-                <h1>Rapport annuel de la direction de thèse</h1>
+                <h1>Rapport annuel préparatoire de la direction de thèse</h1>
 <?php 
 $report_read_only=true;
 include('form-DT.php');
