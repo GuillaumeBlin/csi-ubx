@@ -222,7 +222,7 @@ if(!isset($lang)){$lang="FR";}
         <input name="Freq_Contact_DT" value="Moins d'une fois par mois" type="radio" >
         <label><?php if (strcmp($lang, "FR") == 0) {?>Moins d'une fois par mois<?php }else{?>Less than once a month<?php }?></label>
     </span>
-    <?php if ($report["CODT_Nom"] != "") { ?>
+    
         <h5><?php if (strcmp($lang, "FR") == 0) {?>Fréquence des contacts avec la codirection de thèse<?php }else{?>Frequency of contact with thesis supervisor<?php }?></h5>
         <span>
             <input name="Freq_Contact_CODT" value="Tous les jours" type="radio" >
@@ -244,11 +244,9 @@ if(!isset($lang)){$lang="FR";}
             <input name="Freq_Contact_CODT" value="Moins d'une fois par mois" type="radio" >
             <label><?php if (strcmp($lang, "FR") == 0) {?>Moins d'une fois par mois<?php }else{?>Less than once a month<?php }?></label>
         </span>
-    <?php } ?>
-    <h3><?php if (strcmp($lang, "FR") == 0) {?>Bilan annuel de la relation avec l'unité de recherche<?php }else{?>Annual assessment of relationship with research unit
-<?php }?></h3>
-    <h5><?php if (strcmp($lang, "FR") == 0) {?>Intégration dans l’unité de recherche<?php }else{?>Integration into the research unit
-<?php }?></h5>
+    
+    <h3><?php if (strcmp($lang, "FR") == 0) {?>Bilan annuel de la relation avec l'unité de recherche<?php }else{?>Annual assessment of relationship with research unit<?php }?></h3>
+    <h5><?php if (strcmp($lang, "FR") == 0) {?>Intégration dans l’unité de recherche<?php }else{?>Integration into the research unit<?php }?></h5>
     <span>
         <input name="Integration_UMR" value="Peu satisfaisante" type="radio" >
         <label><?php if (strcmp($lang, "FR") == 0) {?>Peu satisfaisante<?php }else{?>Unsatisfactory<?php }?></label>
@@ -261,8 +259,7 @@ if(!isset($lang)){$lang="FR";}
         <input name="Integration_UMR" value="Très satisfaisante" type="radio" >
         <label><?php if (strcmp($lang, "FR") == 0) {?>Très satisfaisante<?php }else{?>Very satisfactory<?php }?></label>
     </span>
-    <h5><?php if (strcmp($lang, "FR") == 0) {?>Relations avec d'autres équipes scientifiques ?<?php }else{?>Relations with other scientific teams?
-<?php }?></h5>
+    <h5><?php if (strcmp($lang, "FR") == 0) {?>Relations avec d'autres équipes scientifiques ?<?php }else{?>Relations with other scientific teams?<?php }?></h5>
     <span>
         <input name="Relation_Autre_EP" value="Oui" type="radio">
         <label><?php if (strcmp($lang, "FR") == 0) {?>Oui<?php }else{?>Yes<?php }?></label>
@@ -276,8 +273,7 @@ if(!isset($lang)){$lang="FR";}
         <textarea type="textarea" class="form-control" name="Relation_Autre_EP_Details" id="Relation_Autre_EP_Details"></textarea>
     </div>
 
-    <h3><?php if (strcmp($lang, "FR") == 0) {?>Bilan annuel des formations<?php }else{?>Annual training report
-<?php }?></h3>
+    <h3><?php if (strcmp($lang, "FR") == 0) {?>Bilan annuel des formations<?php }else{?>Annual training report<?php }?></h3>
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Formation à l’éthique de la recherche validée<?php }else{?>Research ethics training validated<?php }?></h5>
     <span>
         <input name="EthiqueRecherche" value="Oui" type="radio">
@@ -318,19 +314,15 @@ if(!isset($lang)){$lang="FR";}
         <label><?php if (strcmp($lang, "FR") == 0) {?>En cours<?php }else{?>In progress<?php }?></label>
     </span>
     <div id="FormationsObligatoiresPrecisions">
-        <label><?php if (strcmp($lang, "FR") == 0) {?>Si une ou des formations n’ont pas été suivies, préciser les raisons<?php }else{?>If one or more training courses have not been taken, please give reasons
-<?php }?></label>
+        <label><?php if (strcmp($lang, "FR") == 0) {?>Si une ou des formations n’ont pas été suivies, préciser les raisons<?php }else{?>If one or more training courses have not been taken, please give reasons<?php }?></label>
         <textarea type="textarea" rows="5" class="form-control" name="FormationsObligatoiresPrecisions"></textarea>
     </div>
 
-    <h5><?php if (strcmp($lang, "FR") == 0) {?>Formations suivies dans l'année<?php }else{?>Training courses taken during the year
-<?php }?></h5>
+    <h5><?php if (strcmp($lang, "FR") == 0) {?>Formations suivies dans l'année<?php }else{?>Training courses taken during the year<?php }?></h5>
     <textarea type="textarea" rows="5" class="form-control" name="FormationsDansLAnnee"></textarea>
 
-    <h3><?php if (strcmp($lang, "FR") == 0) {?>Avis général sur l'année écoulée<?php }else{?>General opinion of the past year
-<?php }?></h3>
-    <p><?php if (strcmp($lang, "FR") == 0) {?>Donner votre avis personnel sur les points suivants&nbsp;<?php }else{?>Please give your personal opinion on the following points
-<?php }?></p>
+    <h3><?php if (strcmp($lang, "FR") == 0) {?>Avis général sur l'année écoulée<?php }else{?>General opinion of the past year<?php }?></h3>
+    <p><?php if (strcmp($lang, "FR") == 0) {?>Donner votre avis personnel sur les points suivants&nbsp;<?php }else{?>Please give your personal opinion on the following points<?php }?></p>
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Avez-vous assez d'autonomie pour gérer votre travail ?&nbsp;<?php }else{?>Do you have enough autonomy to manage your work?<?php }?></h5>
     <span>
         <input name="Autonomie" value="Insuffisant" type="radio" >
@@ -344,8 +336,7 @@ if(!isset($lang)){$lang="FR";}
         <input name="Autonomie" value="Satisfaisant" type="radio" >
         <label><?php if (strcmp($lang, "FR") == 0) {?>Satisfaisant<?php }else{?>Satisfactory<?php }?></label>
     </span>
-    <h5><?php if (strcmp($lang, "FR") == 0) {?>Avez-vous les moyens nécessaires pour mener à bien votre travail ?&nbsp;<?php }else{?>Do you have the necessary means to carry out your work?
-<?php }?></h5>
+    <h5><?php if (strcmp($lang, "FR") == 0) {?>Avez-vous les moyens nécessaires pour mener à bien votre travail ?&nbsp;<?php }else{?>Do you have the necessary means to carry out your work?<?php }?></h5>
     <span>
         <input name="Moyens" value="Insuffisant" type="radio" >
         <label><?php if (strcmp($lang, "FR") == 0) {?>Insuffisant<?php }else{?>Insufficient<?php }?></label>
@@ -358,8 +349,7 @@ if(!isset($lang)){$lang="FR";}
         <input name="Moyens" value="Satisfaisant" type="radio" >
         <label><?php if (strcmp($lang, "FR") == 0) {?>Satisfaisant<?php }else{?>Satisfactory<?php }?></label>
     </span>
-    <h5><?php if (strcmp($lang, "FR") == 0) {?>Trouvez-vous dans votre environnement de travail les réponses à vos questions scientifiques ?&nbsp;<?php }else{?>Do you find answers to your scientific questions in your work environment?
-<?php }?></h5>
+    <h5><?php if (strcmp($lang, "FR") == 0) {?>Trouvez-vous dans votre environnement de travail les réponses à vos questions scientifiques ?&nbsp;<?php }else{?>Do you find answers to your scientific questions in your work environment?<?php }?></h5>
     <span>
         <input name="ReponsesAuxQuestions" value="Insuffisant" type="radio" >
         <label><?php if (strcmp($lang, "FR") == 0) {?>Insuffisant<?php }else{?>Insufficient<?php }?></label>
@@ -372,8 +362,7 @@ if(!isset($lang)){$lang="FR";}
         <input name="ReponsesAuxQuestions" value="Satisfaisant" type="radio" >
         <label><?php if (strcmp($lang, "FR") == 0) {?>Satisfaisant<?php }else{?>Satisfactory<?php }?></label>
     </span>
-    <h5><?php if (strcmp($lang, "FR") == 0) {?>L'intérêt scientifique du sujet correspond-il à vos attentes ?&nbsp;<?php }else{?>Does the scientific interest of the subject correspond to your expectations?
-<?php }?></h5>
+    <h5><?php if (strcmp($lang, "FR") == 0) {?>L'intérêt scientifique du sujet correspond-il à vos attentes ?&nbsp;<?php }else{?>Does the scientific interest of the subject correspond to your expectations?<?php }?></h5>
     <span>
         <input name="InteretScientifique" value="Insuffisant" type="radio" >
         <label><?php if (strcmp($lang, "FR") == 0) {?>Insuffisant<?php }else{?>Insufficient<?php }?></label>
@@ -386,8 +375,7 @@ if(!isset($lang)){$lang="FR";}
         <input name="InteretScientifique" value="Satisfaisant" type="radio" >
         <label><?php if (strcmp($lang, "FR") == 0) {?>Satisfaisant<?php }else{?>Satisfactory<?php }?></label>
     </span>
-    <h5><?php if (strcmp($lang, "FR") == 0) {?>Avis général sur la thèse en précisant les éventuelles difficultés rencontrées<?php }else{?>General opinion on the thesis, specifying any difficulties encountered
-<?php }?></h5>
+    <h5><?php if (strcmp($lang, "FR") == 0) {?>Avis général sur la thèse en précisant les éventuelles difficultés rencontrées<?php }else{?>General opinion on the thesis, specifying any difficulties encountered<?php }?></h5>
     <textarea type="textarea" rows="5" class="form-control" name="AvisGeneral" id="AvisGeneral"></textarea>
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Demande de rendez-vous confidentiel avec la direction de l’école doctorale pour un signalement sur « toute forme de conflit, de discrimination ou de harcèlement moral ou sexuel ou d’agissement sexiste »&nbsp;<?php }else{?>Request for a confidential meeting with the doctoral school management to report "any form of conflict, discrimination, moral or sexual harassment or sexist behaviour".<?php }?></h5>
     <span>
