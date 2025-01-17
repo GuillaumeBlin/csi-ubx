@@ -1,34 +1,6 @@
 <?php 
 if(!isset($report_read_only)){$report_read_only=false;}
 if(!isset($lang)){$lang="FR";}
-if($empty_report){
-    $report_read_only=true;
-    $report=array();
-    $report["ed"] = "";
-    $report["PhD_Prenom"] = "";
-    $report["PhD_Mail"] = "";
-    $report["PhD_Specialite"] = "";
-    $report["PhD_UMR"] = "";
-    $report["DT_Nom"] = "";
-    $report["DT_Prenom"] = "";
-    $report["CODT_Nom"] = "";
-    $report["CODT_Prenom"] = "";
-    $report["PhD_DateDebutThese"] = "";
-    $report["PhD_Cotutelle"] = "";
-    $report["PhD_Cotutelle_Pays"] = "";
-    $report["PhD_CSI_Annee"] = "";
-    $report["niveau_Etud"] = "";
-    $report["CSI_Membre_Nombre"] = 5;
-    for ($i = 0; $i < 5; $i = $i + 1) {
-        $report["CSI_Membre_" . ($i + 1) . "_Nom"] = "";
-        $report["CSI_Membre_" . ($i + 1) . "_Prenom"] = "";
-        $report["CSI_Membre_" . ($i + 1) . "_mail"] = "";
-        $report["CSI_Referent_" . ($i + 1)] = "";
-        $report["CSI_Membre_" . ($i + 1) . "_specialiste"] = "";
-        $report["CSI_Membre_" . ($i + 1) . "_non_specialiste"] = "";
-        $report["CSI_Membre_" . ($i + 1) . "_externe"] = "";
-    }
-}
 ?>
 <!--
 <?php 
@@ -41,31 +13,31 @@ if($empty_report){
 <?php }?></h3>
     <h4><?php if (strcmp($lang, "FR") == 0) {?>La doctorante ou le doctorant<?php }else{?>The PhD student<?php }?></h4>
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Nom<?php }else{?>Last name<?php }?></h5>
-    <input type="text" <?php if(!$empty_report){?>readonly<?php }?> class="form-control" name="PhD_Nom" id="PhD_Nom" value="<?php echo $report["PhD_Nom"]??""; ?>">
+    <input type="text" readonly class="form-control" name="PhD_Nom" id="PhD_Nom" value="<?php echo $report["PhD_Nom"]; ?>">
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Prénom<?php }else{?>First name<?php }?></h5>
-    <input type="text" <?php if(!$empty_report){?>readonly<?php }?> class="form-control" name="PhD_Prenom" id="PhD_Prenom" value="<?php echo $report["PhD_Prenom"]; ?>">
+    <input type="text" readonly class="form-control" name="PhD_Prenom" id="PhD_Prenom" value="<?php echo $report["PhD_Prenom"]; ?>">
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Email dans ADUM<?php }else{?>Email in ADUM<?php }?></h5>
-    <input type="text" <?php if(!$empty_report){?>readonly<?php }?> class="form-control" name="PhD_Mail" id="PhD_Mail" value="<?php echo $report["PhD_Mail"]; ?>">
+    <input type="text" readonly class="form-control" name="PhD_Mail" id="PhD_Mail" value="<?php echo $report["PhD_Mail"]; ?>">
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Spécialité<?php }else{?>Domain<?php }?></h5>
-    <input type="text" <?php if(!$empty_report){?>readonly<?php }?> class="form-control" name="PhD_Specialite" id="PhD_Specialite" value="<?php echo $report["PhD_Specialite"]; ?>">
+    <input type="text" readonly class="form-control" name="PhD_Specialite" id="PhD_Specialite" value="<?php echo $report["PhD_Specialite"]; ?>">
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Unité de recherche<?php }else{?>Research unit<?php }?></h5>
-    <input type="text" <?php if(!$empty_report){?>readonly<?php }?> class="form-control" name="PhD_UMR" id="PhD_UMR" value="<?php echo $report["PhD_UMR"]; ?>">
+    <input type="text" readonly class="form-control" name="PhD_UMR" id="PhD_UMR" value="<?php echo $report["PhD_UMR"]; ?>">
     <h4><?php if (strcmp($lang, "FR") == 0) {?>La thèse<?php }else{?>The thesis<?php }?></h4>
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Nom direction de thèse<?php }else{?>Supervisor last name<?php }?></h5>
-    <input type="text" <?php if(!$empty_report){?>readonly<?php }?> class="form-control" name="DT_Nom" id="DT_Nom" value="<?php echo $report["DT_Nom"]; ?>">
+    <input type="text" readonly class="form-control" name="DT_Nom" id="DT_Nom" value="<?php echo $report["DT_Nom"]; ?>">
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Prénom direction de thèse<?php }else{?>Supervisor first name<?php }?></h5>
-    <input type="text" <?php if(!$empty_report){?>readonly<?php }?> class="form-control" name="DT_Prenom" id="DT_Prenom" value="<?php echo $report["DT_Prenom"]; ?>">
+    <input type="text" readonly class="form-control" name="DT_Prenom" id="DT_Prenom" value="<?php echo $report["DT_Prenom"]; ?>">
     <?php if ($report["CODT_Nom"] != "") { ?>
         <h5><?php if (strcmp($lang, "FR") == 0) {?>Nom co-direction de thèse<?php }else{?>Co-supervisor last name<?php }?></h5>
-        <input type="text" <?php if(!$empty_report){?>readonly<?php }?> class="form-control" name="CODT_Nom" id="CODT_Nom" value="<?php echo $report["CODT_Nom"]; ?>">
+        <input type="text" readonly class="form-control" name="CODT_Nom" id="CODT_Nom" value="<?php echo $report["CODT_Nom"]; ?>">
         <h5><?php if (strcmp($lang, "FR") == 0) {?>Prénom co-direction de thèse<?php }else{?>Co-supervisor first name<?php }?></h5>
-        <input type="text" <?php if(!$empty_report){?>readonly<?php }?> class="form-control" name="CODT_Prenom" id="CODT_Prenom" value="<?php echo $report["CODT_Prenom"]; ?>">
+        <input type="text" readonly class="form-control" name="CODT_Prenom" id="CODT_Prenom" value="<?php echo $report["CODT_Prenom"]; ?>">
     <?php } ?>
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Date de début de thèse<?php }else{?>Starting date of the thesis<?php }?></h5>
-    <input type="date" class="form-control" name="PhD_DateDebutThese" <?php if(!$empty_report){?>readonly<?php }?> id="PhD_DateDebutThese" value="<?php echo $report["PhD_DateDebutThese"]; ?>">    
+    <input type="date" class="form-control" name="PhD_DateDebutThese" readonly id="PhD_DateDebutThese" value="<?php echo $report["PhD_DateDebutThese"]; ?>">    
     <h5><?php if (strcmp($lang, "FR") == 0) {?>Thèse en cotutelle<?php }else{?>Cotutelle<?php }?></h5>
     <span>
-        <input name="PhD_Cotutelle" value="Oui" type="radio" <?php if(!$empty_report){?>readonly<?php }?> <?php if ($report["PhD_Cotutelle"] == "Oui") {
+        <input name="PhD_Cotutelle" value="Oui" type="radio" readonly <?php if ($report["PhD_Cotutelle"] == "Oui") {
                                                                             echo "checked";
                                                                         } else {
                                                                             echo "disabled";
@@ -73,7 +45,7 @@ if($empty_report){
         <label><?php if (strcmp($lang, "FR") == 0) {?>Oui<?php }else{?>Yes<?php }?></label>
     </span>
     <span>
-        <input name="PhD_Cotutelle" value="Non" type="radio" <?php if(!$empty_report){?>readonly<?php }?> <?php if ($report["PhD_Cotutelle"] == "Non") {
+        <input name="PhD_Cotutelle" value="Non" type="radio" readonly <?php if ($report["PhD_Cotutelle"] == "Non") {
                                                                             echo "checked";
                                                                         } else {
                                                                             echo "disabled";
@@ -83,7 +55,7 @@ if($empty_report){
     <?php if ($report["PhD_Cotutelle"] == "Oui") { ?>
         <div>
             <label for="PhD_Cotutelle_Pays"><?php if (strcmp($lang, "FR") == 0) {?>Si oui, préciser le pays partenaire<?php }else{?>Cotutelle partner country<?php }?></label>
-            <input type="text" class="form-control" <?php if(!$empty_report){?>readonly<?php }?> name="PhD_Cotutelle_Pays" id="PhD_Cotutelle_Pays" value="<?php echo $report["PhD_Cotutelle_Pays"]; ?>">
+            <input type="text" class="form-control" readonly name="PhD_Cotutelle_Pays" id="PhD_Cotutelle_Pays" value="<?php echo $report["PhD_Cotutelle_Pays"]; ?>">
         </div>
         <h5><?php if (strcmp($lang, "FR") == 0) {?>Quelles sont les périodes de mobilités prévues durant votre co-tutelle ?<?php }else{?>What are the schedule of stays?<?php }?></h5>
         <input type="text" class="form-control" name="PeriodesMobilites" id="PeriodesMobilites" value="<?php echo $report["PeriodesMobilites"]; ?>">
@@ -161,7 +133,7 @@ if($empty_report){
     </span>
     <h4><?php if (strcmp($lang, "FR") == 0) {?>Année du CSI<?php }else{?>CSI year<?php }?></h4>
     <h5><?php if (strcmp($lang, "FR") == 0) {?>CSI pour réinscription en année<?php }else{?>CSI for re-registration in year<?php }?></h5>
-    <input type="number" <?php if(!$empty_report){?>readonly<?php }?> class="form-control" name="PhD_CSI_Annee" min="2" max="20" step="1" id="PhD_CSI_Annee" value="<?php echo $report["PhD_CSI_Annee"]; ?>">
+    <input type="number" readonly class="form-control" name="PhD_CSI_Annee" min="2" max="20" step="1" id="PhD_CSI_Annee" value="<?php echo $report["PhD_CSI_Annee"]; ?>">
     <h4><?php if (strcmp($lang, "FR") == 0) {?>Composition du comité de suivi individuel<?php }else{?>Composition of the individual monitoring committee<?php }?></h4>
 
     <?php
@@ -173,11 +145,11 @@ if($empty_report){
 
         <h5><?php if (strcmp($lang, "FR") == 0) {?>Membre<?php }else{?>Member<?php }?> n°<?php echo $i + 1; ?></h5>
         <h6><?php if (strcmp($lang, "FR") == 0) {?>Nom<?php }else{?>Last name<?php }?></h6>
-        <input type="text" class="form-control" <?php if(!$empty_report){?>readonly<?php }?> name="CSI_Membre_<?php echo $i + 1; ?>_Nom" id="CSI_Membre_<?php echo $i + 1; ?>_Nom" <?php if(!$empty_report){?>readonly<?php }?> value="<?php echo $report["CSI_Membre_" . ($i + 1) . "_Nom"]; ?>">
+        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_Nom" id="CSI_Membre_<?php echo $i + 1; ?>_Nom" readonly value="<?php echo $report["CSI_Membre_" . ($i + 1) . "_Nom"]; ?>">
         <h6><?php if (strcmp($lang, "FR") == 0) {?>Prénom<?php }else{?>First name<?php }?></h6>
-        <input type="text" class="form-control" <?php if(!$empty_report){?>readonly<?php }?> name="CSI_Membre_<?php echo $i + 1; ?>_Prenom" id="CSI_Membre_<?php echo $i + 1; ?>_Prenom" <?php if(!$empty_report){?>readonly<?php }?> value="<?php echo $report["CSI_Membre_" . ($i + 1) . "_Prenom"]; ?>">
+        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_Prenom" id="CSI_Membre_<?php echo $i + 1; ?>_Prenom" readonly value="<?php echo $report["CSI_Membre_" . ($i + 1) . "_Prenom"]; ?>">
         <h6><?php if (strcmp($lang, "FR") == 0) {?>Adresse mail<?php }else{?>Mail address<?php }?></h6>
-        <input type="text" class="form-control" <?php if(!$empty_report){?>readonly<?php }?> name="CSI_Membre_<?php echo $i + 1; ?>_mail" id="CSI_Membre_<?php echo $i + 1; ?>_mail" <?php if(!$empty_report){?>readonly<?php }?> value="<?php echo $report["CSI_Membre_" . ($i + 1) . "_mail"]; ?>">
+        <input type="text" class="form-control" readonly name="CSI_Membre_<?php echo $i + 1; ?>_mail" id="CSI_Membre_<?php echo $i + 1; ?>_mail" readonly value="<?php echo $report["CSI_Membre_" . ($i + 1) . "_mail"]; ?>">
         <h6><?php if (strcmp($lang, "FR") == 0) {?>Référent<?php }else{?>Referent<?php }?></h6>
         <div>
             <input name="CSI_Referent_<?php echo $i + 1; ?>" disabled value="<?php echo $i + 1; ?>" type="radio" <?php if ($report["CSI_Referent_" . ($i + 1) . ""] == "oui") {
