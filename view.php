@@ -31,6 +31,11 @@ if ($admin == 'True') {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
 
+  <h3>Formulaires vides</h3>
+  <p>Formulaire vide qui ne sera pas enregistré dans la base. A n'utiliser qu'en cas de gros problèmes : 
+    une doctorante ou un doctorant qui n'aurait pas effectué sont CSI et qui ne serait pas encore inscrite ou 
+    inscrit en année courante (cas rare normalement)</p>
+    <p>show_EmptyPhDReport
   <h3>Mot de passe nécessaire aux directions de thèse pour utiliser leur lien</h3>
 Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-pwd"></code>
   <h3>Accès aux liens par la doctorante ou le doctorant</h3>
@@ -97,6 +102,9 @@ Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-p
 <?php
 } else {
 
+  if(isset($_GET['empty_phd'])){
+    $actionURL = str_replace('&amp;', '&', $this->action('empty-report-PhD'));
+  }
 
   if(isset($_GET['code'])){
     $actionURL = str_replace('&amp;', '&', $this->action('load_user')) . "?code=" . $_GET["code"];
@@ -114,7 +122,7 @@ Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-p
   /*if(isset($_GET['pwd'])){
     $actionURL =$actionURL."&pwd=".$_GET["pwd"];
   }*/
-  if(isset($_GET['ine'])||isset($_GET['code'])){
+  if(isset($_GET['ine'])||isset($_GET['code'])||isset($_GET['empty_phd'])){
 ?>
   <div id="csi-display-<?php echo $bID; ?>">
     <div class="d-flex align-items-center">
