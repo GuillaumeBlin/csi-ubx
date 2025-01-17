@@ -169,21 +169,21 @@ if(!isset($lang)){$lang="FR";}
         <input type="text" class="form-control"  name="CSI_Membre_<?php echo $i + 1; ?>_mail" id="CSI_Membre_<?php echo $i + 1; ?>_mail"  value="">
         <h6><?php if (strcmp($lang, "FR") == 0) {?>Référent<?php }else{?>Referent<?php }?></h6>
         <div>
-            <input name="CSI_Referent_<?php echo $i + 1; ?>"  value="<?php echo $i + 1; ?>" type="radio" >            
+            <input name="CSI_Referent"  value="<?php echo $i + 1; ?>" type="radio" >            
             <label><?php if (strcmp($lang, "FR") == 0) {?>Référent<?php }else{?>Referent<?php }?></label>
         </div>
         <h6><?php if (strcmp($lang, "FR") == 0) {?>Qualité<?php }else{?>Quality<?php }?></h6>
         <div>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>_specialiste" value="oui" type="radio" >            
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_qualite" value="oui" type="radio" >            
             <label><?php if (strcmp($lang, "FR") == 0) {?>Spécialiste du domaine de la thèse<?php }else{?> Specialist in thesis field<?php }?></label>
         </div>
         <div>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>_non_specialiste" value="oui" type="radio" >
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_qualite" value="oui" type="radio" >
             <label><?php if (strcmp($lang, "FR") == 0) {?>Non spécialiste externe au domaine de la thèse<?php }else{?>Non-specialist from outside the thesis field
 <?php }?></label>
         </div>
         <div>
-            <input name="CSI_Membre_<?php echo $i + 1; ?>_externe"  value="oui" type="radio" >
+            <input name="CSI_Membre_<?php echo $i + 1; ?>_qualite"  value="oui" type="radio" >
             <label><?php if (strcmp($lang, "FR") == 0) {?>Membre extérieur à l'établissement<?php }else{?><?php }?>External member</label>
         </div>
     <?php } ?>
