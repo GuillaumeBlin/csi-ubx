@@ -1,7 +1,7 @@
 <?php 
 if(!isset($report_read_only)){$report_read_only=false;}
 if(!isset($lang)){$lang="FR";}
-if(isset($_GET["empty-report"])){
+if($empty_report){
     $report_read_only=true;
     $report=array();
     $report["ed"] = "";

@@ -532,10 +532,13 @@ class Controller extends BlockController
     }
 
 
-    private function action_show_Report($bID = false, $type)
+    private function action_show_Report($bID = false, $type, $empty=false)
     {
         if ($this->bID != $bID) {
             return false;
+        }
+        if($empty){
+            include('empty-report-' . $type . '.php');            
         }
         if ($_REQUEST["code"]) {
             $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
@@ -566,6 +569,11 @@ class Controller extends BlockController
     public function action_show_PhDReport($bID = false)
     {
         $this->action_show_Report($bID, 'PhD');
+    }
+
+    public function action_show_EmptyPhDReport($bID = false)
+    {
+        $this->action_show_Report($bID, 'PhD', true);
     }
 
     public function action_show_DTReport($bID = false)
