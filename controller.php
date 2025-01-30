@@ -439,7 +439,7 @@ class Controller extends BlockController
             $val = explode("-", $val);
             $mat = $val[1];
             $user = $val[2];
-            if((!array_key_exists("pp",$_REQUEST))||($this->check_pwd($mat,$_REQUEST["pp"], $user))){
+            if((!array_key_exists("pp",$_REQUEST))||($this->check_pwd($mat,$_REQUEST["pp"], $user)==false)){
                 echo 'Invalid request';
                 Log::addNotice('Attempt to get report with invalid info : mat='.$mat.' ; type='.$user. ' ; pwd:'.$_REQUEST["pp"] . " ; from IP:".$_SERVER['REMOTE_ADDR']);
                 exit;
