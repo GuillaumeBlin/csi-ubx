@@ -44,6 +44,10 @@ class Controller extends BlockController
         return $encrypted;
     }
 
+    private function generateRandomString($length = 16)
+    {
+        return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
+    }
 
     private function dec($ciphertext)
     {
@@ -149,7 +153,8 @@ class Controller extends BlockController
             echo "
                 $('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
             if (strcmp($report['ReadOnly'], '') != 0) {
-                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\" style=\"color:red\">Votre rapport a été enregistré.</div>');";
+                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\" style=\"color:red\">Votre rapport a été enregistré.<br/>Vous pouvez le récupérer en pdf an faisant un clic droit sur la page, en sélectionnant l\'option \"Imprimer\" dans le menu proposé. Vous verrez \" Enregistrer au format PDF \" apparaître dans la liste des destinations qu'il faudra sélectionner.</div>');";
+                echo "<script>alert('Le rapport a bien été enregistré. Il doit être maintenant enregistré en pdf, téléchargé puis transmis à l\'école doctorale en suivant la procédure indiquée par cette dernière.');</script>";
             }
         } else {
             echo "
@@ -378,17 +383,34 @@ class Controller extends BlockController
         // $this->requireAsset("datatables");
     }
 
+    private function retrieve_DT_pwd($mat){
+        $students = $this->retrieve_json();
+        $students = $students["data"][0];
+        $student = "";
+        foreach ($students as $value) {
+            if ($value["matricule"] == $mat) {
+                $student = $this->array_extract($value, [
+                    "these_directeur_passphrase"
+                ]);
+                break;
+            }
+        }
+        if (!$student) {
+            return generateRandomString();
+        }
+        return $student["these_directeur_passphrase"];
+    }
+
 
     private function user_view()
     {
-
         $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
         if ($val) {
             $val = explode("-", $val);
             $mat = $val[1];
             $user = $val[2];
-            if (strcmp($user, "DT") == 0) {
-                if((!array_key_exists("pp",$_REQUEST))||($_REQUEST["pp"]!=$this->pwd)){
+            if (strcmp($user, "DT") == 0) {             
+                if((!array_key_exists("pp",$_REQUEST))||($_REQUEST["pp"]!=$this->retrieve_DT_pwd($mat))){
                     echo 'Invalid request';
                     Log::addNotice('Attempt to get DT report with invalid info : mat='.$mat.' ; type='.$user. ' ; pwd:'.$_REQUEST["pp"] . " ; from IP:".$_SERVER['REMOTE_ADDR']);
                     exit;
@@ -489,7 +511,6 @@ class Controller extends BlockController
                 echo "</ul>";
             }
         }
-
         exit;
     }
 
@@ -499,7 +520,6 @@ class Controller extends BlockController
             return false;
         }
         $this->user_view();
-
         exit;
     }
 
