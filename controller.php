@@ -44,11 +44,6 @@ class Controller extends BlockController
         return $encrypted;
     }
 
-    private function generateRandomString($length = 16)
-    {
-        return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
-    }
-
     private function dec($ciphertext)
     {
 
@@ -383,22 +378,57 @@ class Controller extends BlockController
         // $this->requireAsset("datatables");
     }
 
-    private function retrieve_DT_pwd($mat){
+    
+    private function check_DT_pwd($mat,$pp){
         $students = $this->retrieve_json();
         $students = $students["data"][0];
-        $student = "";
         foreach ($students as $value) {
             if ($value["Matricule_etudiant"] == $mat) {
-                $student = $this->array_extract($value, [
-                    "these_directeur_passphrase"
-                ]);
-                break;
+                return strcmp($value["these_directeur_passphrase"],$pp)==0;
             }
         }
-        if (!$student) {
-            return generateRandomString();
+        return false;        
+    }
+
+    private function check_PhD_pwd($mat,$pp){
+        $students = $this->retrieve_json();
+        $students = $students["data"][0];
+        foreach ($students as $value) {
+            if ($value["Matricule_etudiant"] == $mat) {
+                return strcmp($value["passphrase"],$pp)==0;
+            }
         }
-        return $student["these_directeur_passphrase"];
+        return false;        
+    }
+
+    private function check_CSI_pwd($mat,$pp){
+        $students = $this->retrieve_json();
+        $students = $students["data"][0];
+        foreach ($students as $value) {
+            if ($value["Matricule_etudiant"] == $mat) {
+                foreach ($value["csi"] as $m) {
+                    //waiting for csi passphrase
+                    if(strcmp($m["matricule"],$pp)==0){//if(strcmp($m["passphrase"],$pp)==0){
+                        return true;
+                    }
+                }
+                return false;                
+            }
+        }
+        return false;        
+    }
+
+    private function check_pwd($mat,$pp,$user){
+        if (strcmp($user, "DT") == 0) { 
+            return $this->check_DT_pwd($mat,$pp);
+        }
+        if (strcmp($user, "PhD") == 0) { 
+            return $this->check_PhD_pwd($mat,$pp);
+        }
+        if (strcmp($user, "CSI") == 0) { 
+            return $this->check_CSI_pwd($mat,$pp);
+        }
+        return false;
     }
 
 
@@ -409,13 +439,12 @@ class Controller extends BlockController
             $val = explode("-", $val);
             $mat = $val[1];
             $user = $val[2];
-            if (strcmp($user, "DT") == 0) {             
-                if((!array_key_exists("pp",$_REQUEST))||($_REQUEST["pp"]!=$this->retrieve_DT_pwd($mat))){
-                    echo 'Invalid request';
-                    Log::addNotice('Attempt to get DT report with invalid info : mat='.$mat.' ; type='.$user. ' ; pwd:'.$_REQUEST["pp"] . " ; from IP:".$_SERVER['REMOTE_ADDR']);
-                    exit;
-                }
+            if((!array_key_exists("pp",$_REQUEST))||($this->check_pwd($mat,$_REQUEST["pp"], $user))){
+                echo 'Invalid request';
+                Log::addNotice('Attempt to get report with invalid info : mat='.$mat.' ; type='.$user. ' ; pwd:'.$_REQUEST["pp"] . " ; from IP:".$_SERVER['REMOTE_ADDR']);
+                exit;
             }
+            
             $this->display_report($mat, $user);
         } else {
             echo 'Invalid request';

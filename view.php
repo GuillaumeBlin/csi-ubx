@@ -146,11 +146,11 @@ Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-p
         $val = explode("-", $val);
         $mat = $val[1];
         $user = $val[2];
-        if ((strcmp($user, "DT") == 0)||(strcmp($user, "CSI") == 0)) {
+        //if ((strcmp($user, "DT") == 0)||(strcmp($user, "CSI") == 0)) {
     ?>                
            cmp="&pp="+prompt("Veuillez fournir le mot de passe personnel disponible sur votre profil ADUM (haut de la page sous l'intitulé 'Pass CSI Bordeaux :') pour accéder à cette page.");
     <?php
-        }        
+        //}        
       }    
     }
     ?>
