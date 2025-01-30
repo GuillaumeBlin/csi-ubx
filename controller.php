@@ -388,7 +388,7 @@ class Controller extends BlockController
         $students = $students["data"][0];
         $student = "";
         foreach ($students as $value) {
-            if ($value["matricule"] == $mat) {
+            if ($value["Matricule_etudiant"] == $mat) {
                 $student = $this->array_extract($value, [
                     "these_directeur_passphrase"
                 ]);
