@@ -591,7 +591,9 @@ class Controller extends BlockController
             exit;        
         }
         $code = isset($code) ? $code : $_REQUEST["code"];
-        
+        print($code);
+        print($this->dec(str_replace(" ", "+", $code)));
+        exit;
         if ($code) {
             $val = $this->dec(str_replace(" ", "+", $code)); //bug  à cause des + qui sont transformé en " "
             if ($val) {
@@ -632,9 +634,8 @@ class Controller extends BlockController
         $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll();         
         foreach ($report_data as $row) {            
-            $this->action_show_Report($bID, 'PhD', $code=htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));        
             print_r($row);
-            exit;
+            $this->action_show_Report($bID, 'PhD', $code=htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));        
         }
 
     }
