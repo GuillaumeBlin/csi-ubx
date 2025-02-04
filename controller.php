@@ -628,6 +628,8 @@ class Controller extends BlockController
         $db = \Database::connection();        
         $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll(); 
+        print_r($report_data);
+        exit;
         foreach ($report_data as $row) {
             $this->action_show_Report($bID, 'PhD', $code=htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));        
         }
