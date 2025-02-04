@@ -581,7 +581,7 @@ class Controller extends BlockController
     }
 
 
-    private function action_show_Report($bID = false, $type, $empty=false)
+    private function action_show_Report($bID = false, $type, $empty=false, $code=null)
     {
         if ($this->bID != $bID) {
             return false;
@@ -590,8 +590,9 @@ class Controller extends BlockController
             include('empty-report-' . $type . '.php');    
             exit;        
         }
-        if ($_REQUEST["code"]) {
-            $val = $this->dec(str_replace(" ", "+", $_REQUEST["code"])); //bug  à cause des + qui sont transformé en " "
+        $code = isset($code) ? $code : $_REQUEST["code"];
+        if ($code) {
+            $val = $this->dec(str_replace(" ", "+", $code)); //bug  à cause des + qui sont transformé en " "
             if ($val) {
 
                 $val = explode("-", $val);
@@ -604,7 +605,7 @@ class Controller extends BlockController
                     $lang = $this->langage;
                     include('report-' . $type . '.php');
                 }else{
-                    Log::addNotice('Attempt to get invalid report with code '. $_REQUEST["code"]. ' ; mat='.$mat.' ; type='.$type. " ; from IP:".$_SERVER['REMOTE_ADDR']);
+                    Log::addNotice('Attempt to get invalid report with code '. $code. ' ; mat='.$mat.' ; type='.$type. " ; from IP:".$_SERVER['REMOTE_ADDR']);
                     echo 'Invalid request';
                 }
             } else {
@@ -619,6 +620,18 @@ class Controller extends BlockController
     public function action_show_PhDReport($bID = false)
     {
         $this->action_show_Report($bID, 'PhD');
+    }
+
+    public function action_show_AllPhDReport($bID = false)
+    {
+        $type="PhD";
+        $db = \Database::connection();        
+        $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE ed=' . $this->ed . ';');
+        $report_data = $statement->fetchAll(); 
+        foreach ($report_data as $row) {
+            $this->action_show_Report($bID, 'PhD', $code=htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));        
+        }
+
     }
 
     public function action_show_EmptyPhDReport($bID = false)
@@ -739,6 +752,15 @@ class Controller extends BlockController
             return false;
         }
         $this->admin_view('PhD');
+        exit;
+    }
+
+    public function action_load_admin_AllPhD($bID = false)
+    {
+        if ($this->bID != $bID) {
+            return false;
+        }
+        $this->admin_view('AllPhD');
         exit;
     }
 
