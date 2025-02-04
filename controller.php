@@ -586,6 +586,7 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
+        print($empty);
         if($empty){
             include('empty-report-' . $type . '.php');    
             exit;        
