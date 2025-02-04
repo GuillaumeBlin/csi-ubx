@@ -40,9 +40,8 @@ if ($admin == 'True') {
     <li>Direction de thèse : https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi/show_EmptyDTReport</li>
     <li>CSI : https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi/show_EmptyCSIReport</li>
 </ul>
-  <h3>Mot de passe nécessaire aux directions de thèse pour utiliser leur lien</h3>
-Le mot de passe à transmettre aux directions de thèse est <code id="admin-DT-pwd"></code>
-  <h3>Accès aux liens par la doctorante ou le doctorant</h3>
+  <h3>Mots de passes nécessaires pour utiliser leur lien</h3>
+Tous les usagers (doctorant, doctorante, directeur, directrice et membre du CSI) ont une passphrase accessible sur leur profil adum (haut de la page sous l'intitulé 'Pass CSI Bordeaux :') </h3>
   <p>Les doctorantes et doctorants peuvent obtenir les liens de saisies, qu'elle ou il doit transmettre 
     aux différentes parties en accédant à l'url suivante et en remplacant <code>MONINE</code> par son INE</p>
     <p>https://doctorat.u-bordeaux.fr/page-de-saisie-des-rapports-de-csi?ine=MONINE</p>
