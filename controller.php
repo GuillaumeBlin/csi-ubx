@@ -615,7 +615,9 @@ class Controller extends BlockController
         } else {
             return false;
         }
-        exit;
+        if($_REQUEST["code"]){
+            exit;
+        }
     }
 
     public function action_show_PhDReport($bID = false)
