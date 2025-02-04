@@ -636,7 +636,7 @@ class Controller extends BlockController
         $report_data = $statement->fetchAll();         
         foreach ($report_data as $row) {            
             print_r($row);
-            $this->action_show_Report($bID, 'PhD', $code=htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));        
+            $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));        
         }
 
     }
