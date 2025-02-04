@@ -14,6 +14,7 @@
             }
             textarea {display: none !important;}
              h1{
+               page-break-before: always;
                 font-size: 2em!important;
              }
              h3{
