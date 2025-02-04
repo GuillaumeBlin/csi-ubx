@@ -408,7 +408,7 @@ class Controller extends BlockController
             if ($value["Matricule_etudiant"] == $mat) {
                 foreach ($value["csi"] as $m) {
                     //waiting for csi passphrase
-                    if(strcmp($m["matricule"],$pp)==0){//if(strcmp($m["passphrase"],$pp)==0){
+                    if(strcmp($m["passphrase"],$pp)==0){
                         return true;
                     }
                 }
