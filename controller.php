@@ -586,15 +586,11 @@ class Controller extends BlockController
         if ($this->bID != $bID) {
             return false;
         }
-        print($empty);
         if($empty){
             include('empty-report-' . $type . '.php');    
             exit;        
         }
         $code = isset($code) ? $code : $_REQUEST["code"];
-        print($code);
-        print($this->dec(str_replace(" ", "+", $code)));
-        exit;
         if ($code) {
             $val = $this->dec(str_replace(" ", "+", $code)); //bug  à cause des + qui sont transformé en " "
             if ($val) {
