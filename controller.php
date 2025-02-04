@@ -614,7 +614,7 @@ class Controller extends BlockController
         } else {
             return false;
         }
-        if($_REQUEST["code"]){
+        if(isset($_REQUEST["code"])){
             exit;
         }
     }
@@ -631,7 +631,6 @@ class Controller extends BlockController
         $statement = $db->executeQuery('SELECT * FROM `' . $type . 'Report` WHERE ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll();         
         foreach ($report_data as $row) {            
-            print_r($row);
             $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));        
         }
 
