@@ -660,7 +660,7 @@ class Controller extends BlockController
         
         $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll();         
-        echo '<script type="text/javascript" src="/concrete/js/jquery.js">document.addEventListener("DOMContentLoaded", (event) => { alert("chargement terminé");});</script>';
+        echo '<script type="text/javascript" src="/concrete/js/jquery.js">document.addEventListener("load", (event) => { alert("chargement terminé");});</script>';
         $userPage = preg_replace("%/show_All".$type."Report/%", "/show_A".$type."Report/", $_SERVER['REQUEST_URI']);
         $already=0;
         foreach ($report_data as $row) {            
