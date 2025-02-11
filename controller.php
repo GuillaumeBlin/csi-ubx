@@ -636,12 +636,13 @@ class Controller extends BlockController
             $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));
             flush();
             ob_flush();
-            sleep(1);
+            //sleep(1);
             $i--;
             if($i==0){
                 break;
             }
         }
+        exit;
 
     }
 
