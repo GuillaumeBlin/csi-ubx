@@ -651,7 +651,7 @@ class Controller extends BlockController
             //}
             $userPage = preg_replace("%/show_AllPhDReport/%", "/show_APhDReport/", $_SERVER['REQUEST_URI']);
             $url=$userPage."?Matricule=".$row["Matricule"];
-            echo '<div id="admin-PhD-display-'.$row["Matricule"].'" style="display:none">';
+            echo '<div id="admin-PhD-display-'.$row["Matricule"].'">';
             echo '<div class="d-flex align-items-center">';
             echo '<strong>Loading...</strong>';
             echo '</div>';
