@@ -624,7 +624,7 @@ class Controller extends BlockController
         $this->action_show_Report($bID, 'PhD');
     }
 
-    public function action_show_AllFirstYearPhDReport($bID = false)
+    public function action_show_AllPhDReport($bID = false)
     {
         header( 'Content-type: text/html; charset=utf-8' );
         $type="PhD";
