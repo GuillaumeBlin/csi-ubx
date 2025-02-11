@@ -624,12 +624,13 @@ class Controller extends BlockController
         $this->action_show_Report($bID, 'PhD');
     }
 
-    public function action_show_AllPhDReport($bID = false)
+    public function action_show_AllFirstYearPhDReport($bID = false)
     {
         header( 'Content-type: text/html; charset=utf-8' );
         $type="PhD";
         $db = \Database::connection();        
-        $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE PhD_CSI_Annee="2" AND ed=' . $this->ed . ';');
+        $filter = isset($_REQUEST["filter"]) ? $_REQUEST["filter"] : "1=1";
+        $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE '.$filter.' AND ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll();         
         //$i=30;
         foreach ($report_data as $row) {            
