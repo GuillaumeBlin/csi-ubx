@@ -2,7 +2,7 @@
 include "lang.php";
 $actionRemoveCSIReport = str_replace("/load_admin_CSI/", "/admin_remove_csi_report/", $_SERVER['REQUEST_URI']);
 $actionShowCSIReport = str_replace("/load_admin_CSI/", "/show_CSIReport/", $_SERVER['REQUEST_URI']);
-$actionURLAllCSI = str_replace("/load_admin_PhD/", "/show_AllCSIReport/", $_SERVER['REQUEST_URI']);
+$actionURLAllCSI = str_replace("/load_admin_CSI/", "/show_AllCSIReport/", $_SERVER['REQUEST_URI']);
 ?>
 
 <p>Pour récupérer tous les rapports en un seul pdf : <i class='far fa-file-alt' onclick='window.open("<?php echo $actionURLAllCSI;?>", "_blank");'></i>

@@ -2,7 +2,7 @@
 include "lang.php";
 $actionRemoveDTReport = str_replace("/load_admin_DT/", "/admin_remove_dt_report/", $_SERVER['REQUEST_URI']);
 $actionShowDTReport = str_replace("/load_admin_DT/", "/show_DTReport/", $_SERVER['REQUEST_URI']);
-$actionURLAllDT = str_replace("/load_admin_PhD/", "/show_AllDTReport/", $_SERVER['REQUEST_URI']);
+$actionURLAllDT = str_replace("/load_admin_DT/", "/show_AllDTReport/", $_SERVER['REQUEST_URI']);
 ?>
 
 <p>Pour récupérer tous les rapports en un seul pdf : <i class='far fa-file-alt' onclick='window.open("<?php echo $actionURLAllDT;?>", "_blank");'></i>
