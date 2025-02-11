@@ -490,14 +490,15 @@ if(!isset($lang)){$lang="FR";}
     <?php } ?>
 </form>
 <script>
+    <?php if ($report_read_only == true) {
+    ?>
     function nl2br(str, replaceMode, isXhtml) {
         var breakTag = (isXhtml) ? '<br />' : '<br>';
         var replaceStr = (replaceMode) ? '$1' + breakTag : '$1' + breakTag + '$2';
         return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, replaceStr);
     }
 
-    <?php if ($report_read_only == true) {
-    ?>
+
         $("textarea").each(function() {
             if (this.length > 0) {
                 this.height("");
@@ -516,7 +517,7 @@ if(!isset($lang)){$lang="FR";}
         }
         $("#csi :input").attr("disabled", true);
     <?php
-    }
+    }else{
     ?>
 
     $("input[type=radio][name=PhD_ExtraActivite]").on("change", function() {
@@ -545,4 +546,7 @@ if(!isset($lang)){$lang="FR";}
         }
 
     });
+<?php
+    }
+?>
 </script>
