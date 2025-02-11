@@ -581,7 +581,7 @@ class Controller extends BlockController
     }
 
 
-    private function action_show_Report($bID = false, $type, $empty=false, $code=null)
+    private function action_show_Report($bID = false, $type, $empty=false, $code=null, $already_imported=false)
     {
         if ($this->bID != $bID) {
             return false;
@@ -626,7 +626,7 @@ class Controller extends BlockController
 
     public function action_show_APhDReport($bID = false)
     {
-        $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $_REQUEST["Matricule"] . "-PhD"))));
+        $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $_REQUEST["Matricule"] . "-PhD"))),already_imported: true);
         exit;
     }
 
