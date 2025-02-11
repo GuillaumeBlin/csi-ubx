@@ -624,41 +624,54 @@ class Controller extends BlockController
         $this->action_show_Report($bID, 'PhD');
     }
 
-    public function action_show_APhDReport($bID = false)
+    public function action_show_AReport($bID = false, $type)
     {
-        $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $_REQUEST["Matricule"] . "-PhD"))),already_imported: $_REQUEST["Already"]);
+        $this->action_show_Report($bID, $type, code : htmlspecialchars(urlencode($this->enc("csi-" . $_REQUEST["Matricule"] . "-PhD"))),already_imported: $_REQUEST["Already"]);
         exit;
     }
 
-    public function action_show_AllPhDReport($bID = false)
+    public function action_show_APhDReport($bID = false){
+        $this->action_show_AReport($bID, 'PhD');
+    }
+
+    public function action_show_AllPhDReport($bID = false){
+        $this->action_show_AllReport($bID, 'PhD');
+    }
+
+    public function action_show_ADTReport($bID = false){
+        $this->action_show_AReport($bID, 'DT');
+    }
+
+    public function action_show_AllDTReport($bID = false){
+        $this->action_show_AllReport($bID, 'DT');
+    }
+
+    public function action_show_ACSIReport($bID = false){
+        $this->action_show_AReport($bID, 'CSI');
+    }
+
+    public function action_show_AllCSIReport($bID = false){
+        $this->action_show_AllReport($bID, 'CSI');
+    }
+
+    public function action_show_AllReport($bID = false, $type)
     {
-       //header( 'Content-type: text/html; charset=utf-8' );
-        $type="PhD";
         $db = \Database::connection();        
         
         $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll();         
-        //$i=30;
         echo '<script type="text/javascript" src="/concrete/js/jquery.js"></script>';
-        $userPage = preg_replace("%/show_AllPhDReport/%", "/show_APhDReport/", $_SERVER['REQUEST_URI']);
+        $userPage = preg_replace("%/show_All".$type."Report/%", "/show_A".$type."Report/", $_SERVER['REQUEST_URI']);
         $already=0;
         foreach ($report_data as $row) {            
-         //   $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));
-            //flush();
-            //ob_flush();
-            //sleep(1);
-            //$i--;
-            //if($i==0){
-            //    break;
-            //}
             $url=$userPage."?Matricule=".$row["Matricule"]."&Already=".$already;
-            echo '<div id="admin-PhD-display-'.$row["Matricule"].'">';
+            echo '<div id="'.$row["Matricule"].'">';
             echo '<div class="d-flex align-items-center">';
             echo '<strong>Loading...</strong>';
             echo '</div>';
             echo '</div>';
             echo '<script>';
-            echo '$.post("'.$url.'", {}, function(data) { $("#admin-PhD-display-'.$row["Matricule"].'").html(data);    });';
+            echo '$.post("'.$url.'", {}, function(data) { $("#'.$row["Matricule"].'").html(data);    });';
             echo '</script>';
             $already=1;
         }        
