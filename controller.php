@@ -629,7 +629,7 @@ class Controller extends BlockController
         header( 'Content-type: text/html; charset=utf-8' );
         $type="PhD";
         $db = \Database::connection();        
-        $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE ed=' . $this->ed . ';');
+        $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE PhD_CSI_Annee=1 AND ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll();         
         //$i=30;
         foreach ($report_data as $row) {            
