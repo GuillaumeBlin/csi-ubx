@@ -1,3 +1,4 @@
+<?php if ($already_imported==0){?>
 <script type="text/javascript" src="/concrete/js/jquery.js"></script>
 <link href="/application/files/cache/css/ub_tiers/main.css" rel="stylesheet" type="text/css" media="all">
 
@@ -50,7 +51,7 @@
 
         }
     </style>
-
+<?php }?>
 <div class="std-page">
     <div class="wrapper">
         <main id="content-main" class="std-page-main std-content">
