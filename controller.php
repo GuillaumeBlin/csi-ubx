@@ -639,9 +639,8 @@ class Controller extends BlockController
         $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll();         
         //$i=30;
-        ob_start();
         foreach ($report_data as $row) {            
-            $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));
+         //   $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));
             //flush();
             //ob_flush();
             //sleep(1);
@@ -649,8 +648,17 @@ class Controller extends BlockController
             //if($i==0){
             //    break;
             //}
-        }
-        ob_end_flush();
+            $userPage = preg_replace("%/show_AllPhDReport/%", "/show_APhDReport/", $_SERVER['REQUEST_URI']);
+            $url=$userPage."?Matricule=".$row["Matricule"];
+            echo '<div id="admin-PhD-display-'.$row["Matricule"].'" style="display:none">';
+            echo '<div class="d-flex align-items-center">';
+            echo '<strong>Loading...</strong>';
+            echo '</div>';
+            echo '</div>';
+            echo '<script>';
+            echo '$.post("'.$url.'", {}, function(data) { $("#admin-PhD-display-'.$row["Matricule"].'").html(data);    });';
+            echo '</script>';
+        }        
         exit;
 
     }
