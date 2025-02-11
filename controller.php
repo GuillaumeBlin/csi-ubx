@@ -633,6 +633,7 @@ class Controller extends BlockController
         $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE PhD_CSI_Annee="2" AND ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll();         
         //$i=30;
+        ob_start();
         foreach ($report_data as $row) {            
             $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));
             //flush();
@@ -643,6 +644,7 @@ class Controller extends BlockController
             //    break;
             //}
         }
+        ob_end_flush();
         exit;
 
     }
