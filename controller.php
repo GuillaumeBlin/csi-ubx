@@ -629,14 +629,14 @@ class Controller extends BlockController
         header( 'Content-type: text/html; charset=utf-8' );
         $type="PhD";
         $db = \Database::connection();        
-        $filter = isset($_REQUEST["filter"]) ? $_REQUEST["filter"] : "1=1";
-        $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE '.$filter.' AND ed=' . $this->ed . ';');
+        
+        $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE PhD_CSI_Annee="2" AND ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll();         
         //$i=30;
         foreach ($report_data as $row) {            
             $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));
-            flush();
-            ob_flush();
+            //flush();
+            //ob_flush();
             //sleep(1);
             //$i--;
             //if($i==0){
