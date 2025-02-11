@@ -624,13 +624,19 @@ class Controller extends BlockController
         $this->action_show_Report($bID, 'PhD');
     }
 
+    public function action_show_APhDReport($bID = false)
+    {
+        $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $_REQUEST["Matricule"] . "-PhD"))));
+        exit;
+    }
+
     public function action_show_AllPhDReport($bID = false)
     {
        //header( 'Content-type: text/html; charset=utf-8' );
         $type="PhD";
         $db = \Database::connection();        
         
-        $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE PhD_CSI_Annee="3" AND ed=' . $this->ed . ';');
+        $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll();         
         //$i=30;
         ob_start();
