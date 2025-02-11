@@ -626,12 +626,16 @@ class Controller extends BlockController
 
     public function action_show_AllPhDReport($bID = false)
     {
+        header( 'Content-type: text/html; charset=utf-8' );
         $type="PhD";
         $db = \Database::connection();        
         $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll();         
         foreach ($report_data as $row) {            
-            $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));        
+            $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));
+            flush();
+            ob_flush();
+            sleep(1);
         }
 
     }
