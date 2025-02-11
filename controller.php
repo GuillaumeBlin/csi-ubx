@@ -630,7 +630,7 @@ class Controller extends BlockController
         $type="PhD";
         $db = \Database::connection();        
         
-        $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE PhD_CSI_Annee="2" AND ed=' . $this->ed . ';');
+        $statement = $db->executeQuery('SELECT Matricule, ed FROM `' . $type . 'Report` WHERE PhD_CSI_Annee="3" AND ed=' . $this->ed . ';');
         $report_data = $statement->fetchAll();         
         //$i=30;
         ob_start();
