@@ -2,7 +2,10 @@
 include "lang.php";
 $actionRemovePhDReport = str_replace("/load_admin_PhD/", "/admin_remove_phd_report/", $_SERVER['REQUEST_URI']);
 $actionShowPhDReport = str_replace("/load_admin_PhD/", "/show_PhDReport/", $_SERVER['REQUEST_URI']);
+$actionURLAllPhD = str_replace("/load_admin_PhD/", "/show_AllPhDReport/", $_SERVER['REQUEST_URI']);
 ?>
+
+<p>Pour récupérer tous les rapports en un seul pdf : <i class='far fa-file-alt' onclick='window.open("<?php echo $actionURLAllPhD;?>", "_blank");'></i>
 
 <table id="report-phd" class="display">
     <thead>
