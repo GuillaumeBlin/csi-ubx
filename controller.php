@@ -581,7 +581,7 @@ class Controller extends BlockController
     }
 
 
-    private function action_show_Report($bID = false, $type, $empty=false, $code=null, $already_imported=false)
+    private function action_show_Report($bID = false, $type, $empty=false, $code=null, $already_imported=0)
     {
         if ($this->bID != $bID) {
             return false;
@@ -626,7 +626,7 @@ class Controller extends BlockController
 
     public function action_show_APhDReport($bID = false)
     {
-        $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $_REQUEST["Matricule"] . "-PhD"))),already_imported: $_REQUEST["First"]);
+        $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $_REQUEST["Matricule"] . "-PhD"))),already_imported: $_REQUEST["Already"]);
         exit;
     }
 
@@ -641,7 +641,7 @@ class Controller extends BlockController
         //$i=30;
         echo '<script type="text/javascript" src="/concrete/js/jquery.js"></script>';
         $userPage = preg_replace("%/show_AllPhDReport/%", "/show_APhDReport/", $_SERVER['REQUEST_URI']);
-        $first=true;
+        $already=0;
         foreach ($report_data as $row) {            
          //   $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));
             //flush();
@@ -651,7 +651,7 @@ class Controller extends BlockController
             //if($i==0){
             //    break;
             //}
-            $url=$userPage."?Matricule=".$row["Matricule"]."&First=".$first;
+            $url=$userPage."?Matricule=".$row["Matricule"]."&Already=".$already;
             echo '<div id="admin-PhD-display-'.$row["Matricule"].'">';
             echo '<div class="d-flex align-items-center">';
             echo '<strong>Loading...</strong>';
@@ -660,7 +660,7 @@ class Controller extends BlockController
             echo '<script>';
             echo '$.post("'.$url.'", {}, function(data) { $("#admin-PhD-display-'.$row["Matricule"].'").html(data);    });';
             echo '</script>';
-            $first=false;
+            $already=1;
         }        
         exit;
 
