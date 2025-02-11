@@ -626,7 +626,7 @@ class Controller extends BlockController
 
     public function action_show_AllPhDReport($bID = false)
     {
-        header( 'Content-type: text/html; charset=utf-8' );
+       //header( 'Content-type: text/html; charset=utf-8' );
         $type="PhD";
         $db = \Database::connection();        
         
