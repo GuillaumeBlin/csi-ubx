@@ -626,7 +626,7 @@ class Controller extends BlockController
 
     public function action_show_APhDReport($bID = false)
     {
-        $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $_REQUEST["Matricule"] . "-PhD"))),already_imported: true);
+        $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $_REQUEST["Matricule"] . "-PhD"))),already_imported: $_REQUEST["First"]);
         exit;
     }
 
@@ -640,6 +640,8 @@ class Controller extends BlockController
         $report_data = $statement->fetchAll();         
         //$i=30;
         echo '<script type="text/javascript" src="/concrete/js/jquery.js"></script>';
+        $userPage = preg_replace("%/show_AllPhDReport/%", "/show_APhDReport/", $_SERVER['REQUEST_URI']);
+        $first=true;
         foreach ($report_data as $row) {            
          //   $this->action_show_Report($bID, 'PhD', code : htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))));
             //flush();
@@ -649,8 +651,7 @@ class Controller extends BlockController
             //if($i==0){
             //    break;
             //}
-            $userPage = preg_replace("%/show_AllPhDReport/%", "/show_APhDReport/", $_SERVER['REQUEST_URI']);
-            $url=$userPage."?Matricule=".$row["Matricule"];
+            $url=$userPage."?Matricule=".$row["Matricule"]."&First=".$first;
             echo '<div id="admin-PhD-display-'.$row["Matricule"].'">';
             echo '<div class="d-flex align-items-center">';
             echo '<strong>Loading...</strong>';
@@ -659,6 +660,7 @@ class Controller extends BlockController
             echo '<script>';
             echo '$.post("'.$url.'", {}, function(data) { $("#admin-PhD-display-'.$row["Matricule"].'").html(data);    });';
             echo '</script>';
+            $first=false;
         }        
         exit;
 
