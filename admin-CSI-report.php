@@ -137,9 +137,10 @@ $actionURLAllCSI = str_replace("/load_admin_CSI/", "/show_AllCSIReport/", $_SERV
                         $.post("<?php echo $actionRemoveCSIReport; ?>", {
                             id: anId
                         }, function(data) {
+                            table.rows(indexes[index]).remove().draw(false);
                             console.log(data);
                         });
-                        table.rows(indexes[index]).remove().draw(false);
+                        
                     });
                 }
             });
