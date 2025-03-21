@@ -58,6 +58,10 @@ $actionURLAllCSI = str_replace("/load_admin_CSI/", "/show_AllCSIReport/", $_SERV
 
         sleep(0).then(() => {
             const table = new DataTable('#report-csi', {
+                lengthMenu: [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, 'All']
+                ],
                 columnDefs: [{
                         targets: [0, 1, 4, 8, 9, 10, 11, 37,38],
                         visible: true
