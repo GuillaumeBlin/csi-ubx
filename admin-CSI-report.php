@@ -128,6 +128,10 @@ $actionURLAllCSI = str_replace("/load_admin_CSI/", "/show_AllCSIReport/", $_SERV
                     selected: true
                 }).data();
                 console.log(ids);
+                console.log(table.rows({
+                    selected: true
+                }).ids());
+                //ids[0][2]
                 return;
                 if (ids.length>0 && confirm('Vous êtes sur le point de supprimer ' + ids.length + ' rapport(s). Etes-vous sûr(e) de vouloir continuer ?')) {
 
