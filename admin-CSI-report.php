@@ -127,12 +127,9 @@ $actionURLAllCSI = str_replace("/load_admin_CSI/", "/show_AllCSIReport/", $_SERV
                 ids = table.rows({
                     selected: true
                 }).data();
-                console.log(ids);
-                console.log(table.rows({
+                indexes=table.rows({
                     selected: true
-                }).indexes());
-                //ids[0][2]
-                return;
+                }).indexes();
                 if (ids.length>0 && confirm('Vous êtes sur le point de supprimer ' + ids.length + ' rapport(s). Etes-vous sûr(e) de vouloir continuer ?')) {
 
                     $.each(ids, function(index, value) {
@@ -142,9 +139,7 @@ $actionURLAllCSI = str_replace("/load_admin_CSI/", "/show_AllCSIReport/", $_SERV
                         }, function(data) {
                             console.log(data);
                         });
-                        table.rows({
-                            selected: true
-                        }).remove().draw(false);
+                        table.rows(indexes[index]).remove().draw(false);
                     });
                 }
             });
