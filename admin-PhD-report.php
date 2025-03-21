@@ -127,17 +127,19 @@ $actionURLAllPhD = str_replace("/load_admin_PhD/", "/show_AllPhDReport/", $_SERV
                 ids = table.rows({
                     selected: true
                 }).data();
+                indexes=table.rows({
+                    selected: true
+                }).indexes();
                 if (ids.length>0 && confirm('Vous êtes sur le point de supprimer ' + ids.length + ' rapport(s). Etes-vous sûr(e) de vouloir continuer ?')) {
                     $.each(ids, function(index, value) {
                         var anId = value[2];
                         $.post("<?php echo $actionRemovePhDReport; ?>", {
                             id: anId
                         }, function(data) {
+                            table.rows(indexes[index]).remove().draw(false);
                             console.log(data);
                         });
-                        table.rows({
-                            selected: true
-                        }).remove().draw(false);
+                        
                     });
                 }
             });
