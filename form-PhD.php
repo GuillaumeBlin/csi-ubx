@@ -527,7 +527,7 @@ if(!isset($lang)){$lang="FR";}
         } else {
             $("#PhD_ExtraActivite").hide();
             $("#PhD_ExtraActivite_NbH").val('');
-            $("#PhD_ExtraActivite_NbH").prop('required', 'false');
+            $("#PhD_ExtraActivite_NbH").removeAttr('required');
         }
     });
     $("input[type=radio][name=CollaborationIndustrielle]").on("change", function() {
@@ -537,7 +537,7 @@ if(!isset($lang)){$lang="FR";}
         } else {
             $("#CollaborationIndustrielle").hide();
             $("#CollaborationIndustrielleResponsable").val('');
-            $("#CollaborationIndustrielleResponsable").prop('required', 'false');
+            $("#CollaborationIndustrielleResponsable").removeAttr('required');
         }
     });
     
@@ -548,7 +548,7 @@ if(!isset($lang)){$lang="FR";}
         } else {
             $("#Relation_Autre_EP").hide();
             $("#Relation_Autre_EP_Details").val('');
-            $("#Relation_Autre_EP_Details").prop('required', 'false');
+            $("#Relation_Autre_EP_Details").removeAttr('required');
         }
 
     });

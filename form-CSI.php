@@ -7,25 +7,25 @@
 
 
 <form id="csi" <?php if ($report_read_only == false) { ?> action="<?php echo str_replace("/load_user/", "/form_save_CSIReport/", $_SERVER['REQUEST_URI']); ?>" method="POST" <?php } ?>>
-    <input type="hidden" name="ed" id="ed" value="<?php echo $report["ed"]; ?>" />
+    <input required type="hidden" name="ed" id="ed" value="<?php echo $report["ed"]; ?>" />
     <h3>L’entretien</h3>
     <h4>Date de l’entretien </h4>
-    <input type="date" class="form-control" name="Date_Entretrien" value="<?php echo $report["Date_Entretrien"]; ?>">
+    <input required type="date" class="form-control" name="Date_Entretrien" value="<?php echo $report["Date_Entretrien"]; ?>">
     <h4>Modalités de l’entretien </h4>
     <div>
-        <input name="ModalitesEntretien" value="Présentiel" type="radio" <?php if ($report["ModalitesEntretien"] == "Présentiel") {
+        <input required name="ModalitesEntretien" value="Présentiel" type="radio" <?php if ($report["ModalitesEntretien"] == "Présentiel") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Présentiel</label>
     </div>
     <div>
-        <input name="ModalitesEntretien" value="Visioconférence" type="radio" <?php if ($report["ModalitesEntretien"] == "Visioconférence") {
+        <input required name="ModalitesEntretien" value="Visioconférence" type="radio" <?php if ($report["ModalitesEntretien"] == "Visioconférence") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Visioconférence</label>
     </div>
     <div>
-        <input name="ModalitesEntretien" value="Mixte" type="radio" <?php if ($report["ModalitesEntretien"] == "Mixte") {
+        <input required name="ModalitesEntretien" value="Mixte" type="radio" <?php if ($report["ModalitesEntretien"] == "Mixte") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Mixte</label>
@@ -39,49 +39,49 @@
     <h3>Informations générales</h3>
     <h4>La doctorante ou le doctorant</h4>
     <h5>Nom</h5>
-    <input type="text" readonly class="form-control" name="PhD_Nom" id="PhD_Nom" value="<?php echo $report["PhD_Nom"]; ?>">
+    <input required type="text" readonly class="form-control" name="PhD_Nom" id="PhD_Nom" value="<?php echo $report["PhD_Nom"]; ?>">
     <h5>Prénom</h5>
-    <input type="text" readonly class="form-control" name="PhD_Prenom" id="PhD_Prenom" value="<?php echo $report["PhD_Prenom"]; ?>">
+    <input required type="text" readonly class="form-control" name="PhD_Prenom" id="PhD_Prenom" value="<?php echo $report["PhD_Prenom"]; ?>">
     <h5>Email dans ADUM</h5>
-    <input type="text" readonly class="form-control" name="PhD_Mail" id="PhD_Mail" value="<?php echo $report["PhD_Mail"]; ?>">
+    <input required type="text" readonly class="form-control" name="PhD_Mail" id="PhD_Mail" value="<?php echo $report["PhD_Mail"]; ?>">
     <h5>Spécialité</h5>
-    <input type="text" readonly class="form-control" name="PhD_Specialite" id="PhD_Specialite" value="<?php echo $report["PhD_Specialite"]; ?>">
+    <input required type="text" readonly class="form-control" name="PhD_Specialite" id="PhD_Specialite" value="<?php echo $report["PhD_Specialite"]; ?>">
     <h5>Unité de recherche</h5>
-    <input type="text" readonly class="form-control" name="PhD_UMR" id="PhD_UMR" value="<?php echo $report["PhD_UMR"]; ?>">
+    <input required type="text" readonly class="form-control" name="PhD_UMR" id="PhD_UMR" value="<?php echo $report["PhD_UMR"]; ?>">
     <h4>La thèse</h4>
     <h5>Nom direction de thèse</h5>
-    <input type="text" readonly class="form-control" name="DT_Nom" id="DT_Nom" value="<?php echo $report["DT_Nom"]; ?>">
+    <input required type="text" readonly class="form-control" name="DT_Nom" id="DT_Nom" value="<?php echo $report["DT_Nom"]; ?>">
     <h5>Prénom direction de thèse</h5>
-    <input type="text" readonly class="form-control" name="DT_Prenom" id="DT_Prenom" value="<?php echo $report["DT_Prenom"]; ?>">
+    <input required type="text" readonly class="form-control" name="DT_Prenom" id="DT_Prenom" value="<?php echo $report["DT_Prenom"]; ?>">
     <?php if($report["CODT_Nom"]!=""){ ?>
         <h5>Nom co-direction de thèse</h5>
-    <input type="text" readonly class="form-control" name="CODT_Nom" id="CODT_Nom" value="<?php echo $report["CODT_Nom"]; ?>">
+    <input required type="text" readonly class="form-control" name="CODT_Nom" id="CODT_Nom" value="<?php echo $report["CODT_Nom"]; ?>">
     <h5>Prénom co-direction de thèse</h5>
-    <input type="text" readonly class="form-control" name="CODT_Prenom" id="CODT_Prenom" value="<?php echo $report["CODT_Prenom"]; ?>">
+    <input required type="text" readonly class="form-control" name="CODT_Prenom" id="CODT_Prenom" value="<?php echo $report["CODT_Prenom"]; ?>">
     <?php } ?>
     <h5>Date de début de thèse</h5>
-    <input type="date" class="form-control" name="PhD_DateDebutThese" readonly id="PhD_DateDebutThese" value="<?php echo $report["PhD_DateDebutThese"]; ?>">
+    <input required type="date" class="form-control" name="PhD_DateDebutThese" readonly id="PhD_DateDebutThese" value="<?php echo $report["PhD_DateDebutThese"]; ?>">
 
     <h4>Année du CSI</h4>
     <h5>CSI pour réinscription en année</h5>
-    <input type="number" readonly class="form-control" name="PhD_CSI_Annee" min="2" max="8" step="1" id="PhD_CSI_Annee" value="<?php echo $report["PhD_CSI_Annee"]; ?>">
+    <input required type="number" readonly class="form-control" name="PhD_CSI_Annee" min="2" max="8" step="1" id="PhD_CSI_Annee" value="<?php echo $report["PhD_CSI_Annee"]; ?>">
 
     <h3>Etat d'avancement de la thèse</h3>
     <h5>Par rapport aux objectifs initiaux définis au début de la thèse, le contenu est-il ?</h5>
     <span>
-        <input name="ComparaisonObjectifsInitiaux" value="Globalement conforme" type="radio" <?php if ($report["ComparaisonObjectifsInitiaux"] == "Globalement conforme") {
+        <input required name="ComparaisonObjectifsInitiaux" value="Globalement conforme" type="radio" <?php if ($report["ComparaisonObjectifsInitiaux"] == "Globalement conforme") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Globalement conforme</label>
     </span>
     <span>
-        <input name="ComparaisonObjectifsInitiaux" value="Conforme avec quelques ajustements" type="radio" <?php if ($report["ComparaisonObjectifsInitiaux"] == "Conforme avec quelques ajustements") {
+        <input required name="ComparaisonObjectifsInitiaux" value="Conforme avec quelques ajustements" type="radio" <?php if ($report["ComparaisonObjectifsInitiaux"] == "Conforme avec quelques ajustements") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Conforme avec quelques ajustements</label>
     </span>
     <span>
-        <input name="ComparaisonObjectifsInitiaux" value="Réorienté" type="radio" <?php if ($report["ComparaisonObjectifsInitiaux"] == "Réorienté") {
+        <input required name="ComparaisonObjectifsInitiaux" value="Réorienté" type="radio" <?php if ($report["ComparaisonObjectifsInitiaux"] == "Réorienté") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Réorienté</label>
@@ -93,19 +93,19 @@
 
     <h5>Observations sur le plan méthodologique et expérimental</h5>
     <span>
-        <input name="ObservationsMethodoExpe" value="Aucune difficulté particulière" type="radio" <?php if ($report["ObservationsMethodoExpe"] == "Aucune difficulté particulière") {
+        <input required name="ObservationsMethodoExpe" value="Aucune difficulté particulière" type="radio" <?php if ($report["ObservationsMethodoExpe"] == "Aucune difficulté particulière") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Aucune difficulté particulière</label>
     </span>
     <span>
-        <input name="ObservationsMethodoExpe" value="Des difficultés mineures" type="radio" <?php if ($report["ObservationsMethodoExpe"] == "Des difficultés mineures") {
+        <input required name="ObservationsMethodoExpe" value="Des difficultés mineures" type="radio" <?php if ($report["ObservationsMethodoExpe"] == "Des difficultés mineures") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Des difficultés mineures</label>
     </span>
     <span>
-        <input name="ObservationsMethodoExpe" value="Des difficultés majeures" type="radio" <?php if ($report["ObservationsMethodoExpe"] == "Des difficultés majeures") {
+        <input required name="ObservationsMethodoExpe" value="Des difficultés majeures" type="radio" <?php if ($report["ObservationsMethodoExpe"] == "Des difficultés majeures") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Des difficultés majeures</label>
@@ -117,13 +117,13 @@
 
     <h5>Le calendrier prévisionnel de réalisation est-il suivi ?</h5>
     <span>
-        <input name="RespectCalendrierPrevisionnel" value="Oui" type="radio" <?php if ($report["RespectCalendrierPrevisionnel"] == "Oui") {
+        <input required name="RespectCalendrierPrevisionnel" value="Oui" type="radio" <?php if ($report["RespectCalendrierPrevisionnel"] == "Oui") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Oui</label>
     </span>
     <span>
-        <input name="RespectCalendrierPrevisionnel" value="Non" type="radio" <?php if ($report["RespectCalendrierPrevisionnel"] == "Non") {
+        <input required name="RespectCalendrierPrevisionnel" value="Non" type="radio" <?php if ($report["RespectCalendrierPrevisionnel"] == "Non") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Non</label>
@@ -211,13 +211,13 @@
     <h3>Avis du comité de suivi individuel sur la réinscription</h3>
     <div><label>Une inscription dérogatoire en 4ème année ou plus est-elle envisagée ?</label>
         <span>
-            <input name="InscriptionDerogatoire" required value="Oui" type="radio" <?php if ($report["InscriptionDerogatoire"] == "Oui") {
+            <input required name="InscriptionDerogatoire" required value="Oui" type="radio" <?php if ($report["InscriptionDerogatoire"] == "Oui") {
                                                                                 echo "checked";
                                                                             } ?>>
             <label>Oui</label>
         </span>
         <span>
-            <input name="InscriptionDerogatoire" required value="Non" type="radio" <?php if ($report["InscriptionDerogatoire"] == "Non") {
+            <input required name="InscriptionDerogatoire" required value="Non" type="radio" <?php if ($report["InscriptionDerogatoire"] == "Non") {
                                                                                 echo "checked";
                                                                             } ?>>
             <label>Non</label>
@@ -225,23 +225,23 @@
     </div>
     <div id="DateSoutenance" <?php if ($report["InscriptionDerogatoire"]=="" || $report["InscriptionDerogatoire"]=="Non"){ echo 'style="display:none"'; }?>>
         <label>Si oui, date prévue pour la soutenance de thèse</label>
-        <input type="date" class="form-control" name="DateSoutenance" value="<?php echo $report["DateSoutenance"]; ?>">
+        <input required type="date" class="form-control" name="DateSoutenance" value="<?php echo $report["DateSoutenance"]; ?>">
     </div>
         
     <span>
-        <input name="Reinscription" value="Favorable" <?php if ($report["InscriptionDerogatoire"]=="Oui"){ echo 'required'; }?> type="radio" <?php if ($report["Reinscription"] == "Favorable") {
+        <input required name="Reinscription" value="Favorable" <?php if ($report["InscriptionDerogatoire"]=="Oui"){ echo 'required'; }?> type="radio" <?php if ($report["Reinscription"] == "Favorable") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Favorable</label>
     </span>
     <span>
-        <input name="Reinscription" value="Favorable avec réserves" <?php if ($report["InscriptionDerogatoire"]=="Oui"){ echo 'required'; }?> type="radio" <?php if ($report["Reinscription"] == "Favorable avec réserves") {
+        <input required name="Reinscription" value="Favorable avec réserves" <?php if ($report["InscriptionDerogatoire"]=="Oui"){ echo 'required'; }?> type="radio" <?php if ($report["Reinscription"] == "Favorable avec réserves") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Favorable avec réserves</label>
     </span>
     <span>
-        <input name="Reinscription" value="Défavorable" type="radio" <?php if ($report["InscriptionDerogatoire"]=="Oui"){ echo 'required'; }?> <?php if ($report["Reinscription"] == "Défavorable") {
+        <input required name="Reinscription" value="Défavorable" type="radio" <?php if ($report["InscriptionDerogatoire"]=="Oui"){ echo 'required'; }?> <?php if ($report["Reinscription"] == "Défavorable") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Défavorable</label>
@@ -254,13 +254,13 @@
     <h5>Le comité de suivi alerte la direction de l’école doctorale sur « toute forme de conflit, de discrimination ou de harcèlement moral ou sexuel ou d’agissement sexiste » par un rapport confidentiel </h5>
     <h6>Cette information ne sera pas présente sur le rapport définitif mais accessible par la direction de l'ED</h6>
     <span>
-        <input name="RapportConfidentielAVenir" value="Oui" type="radio" <?php if ($report["RapportConfidentielAVenir"] == "Oui") {
+        <input required name="RapportConfidentielAVenir" value="Oui" type="radio" <?php if ($report["RapportConfidentielAVenir"] == "Oui") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Oui</label>
     </span>
     <span>
-        <input name="RapportConfidentielAVenir" value="Non" type="radio" <?php if ($report["RapportConfidentielAVenir"] == "Non") {
+        <input required name="RapportConfidentielAVenir" value="Non" type="radio" <?php if ($report["RapportConfidentielAVenir"] == "Non") {
                                                                                 echo "checked";
                                                                             } ?>>
         <label>Non</label>
@@ -269,11 +269,11 @@
 
     <div>
         <label>Date de l'établissement du rapport</label>
-        <input type="date" class="form-control" required name="DateRapport" id="DateRapport" value="<?php echo $report["DateRapport"]; ?>">
+        <input required type="date" class="form-control" required name="DateRapport" id="DateRapport" value="<?php echo $report["DateRapport"]; ?>">
     </div>
     <?php if ($report_read_only == false) { ?>
         <div>
-            <button type="submit" name="ReadOnly" value="Non" class="btn-default btn" style="default">Enregistrer le rapport uniquement</button>
+            <button type="submit" formnovalidate name="ReadOnly" value="Non" class="btn-default btn" style="default">Enregistrer le rapport uniquement</button>
             <button type="submit" name="ReadOnly" value="Oui" class="btn-default btn" style="default">Enregistrer le rapport définitif</button>
         </div>
     <?php } ?>
