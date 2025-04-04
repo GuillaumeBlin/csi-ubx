@@ -171,13 +171,13 @@
 
         <h5>Expériences internationales avec mobilités < à 3 mois</h5>
                 <span>
-                    <input name="MobilitesInternationalesMoins3Mois" required value="Oui" type="radio" <?php if ($report["MobilitesInternationalesMoins3Mois"] == "Oui") {
+                    <input name="MobilitesInternationalesMoins3Mois" <?php if ($report["PhD_CSI_Annee"]>2) {?>required<?php }?>  value="Oui" type="radio" <?php if ($report["MobilitesInternationalesMoins3Mois"] == "Oui") {
                                                                                 echo "checked";
                                                                             } ?>>
                     <label>Oui</label>
                 </span>
                 <span>
-                    <input name="MobilitesInternationalesMoins3Mois" required value="Non" type="radio" <?php if ($report["MobilitesInternationalesMoins3Mois"] == "Non") {
+                    <input name="MobilitesInternationalesMoins3Mois" <?php if ($report["PhD_CSI_Annee"]>2) {?>required<?php }?> value="Non" type="radio" <?php if ($report["MobilitesInternationalesMoins3Mois"] == "Non") {
                                                                                 echo "checked";
                                                                             } ?>>
                     <label>Non</label>
@@ -185,13 +185,13 @@
 
                 <h5>Expériences internationales avec mobilités > à 3 mois</h5>
                 <span>
-                    <input name="MobilitesInternationalesPlus3Mois" required value="Oui" type="radio" <?php if ($report["MobilitesInternationalesPlus3Mois"] == "Oui") {
+                    <input name="MobilitesInternationalesPlus3Mois" <?php if ($report["PhD_CSI_Annee"]>2) {?>required<?php }?> value="Oui" type="radio" <?php if ($report["MobilitesInternationalesPlus3Mois"] == "Oui") {
                                                                                 echo "checked";
                                                                             } ?>>
                     <label>Oui</label>
                 </span>
                 <span>
-                    <input name="MobilitesInternationalesPlus3Mois" required value="Non" type="radio" <?php if ($report["MobilitesInternationalesPlus3Mois"] == "Non") {
+                    <input name="MobilitesInternationalesPlus3Mois" <?php if ($report["PhD_CSI_Annee"]>2) {?>required<?php }?> value="Non" type="radio" <?php if ($report["MobilitesInternationalesPlus3Mois"] == "Non") {
                                                                                 echo "checked";
                                                                             } ?>>
                     <label>Non</label>
