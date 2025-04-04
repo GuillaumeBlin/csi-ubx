@@ -148,7 +148,7 @@ class Controller extends BlockController
             echo "
                 $('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
             if (strcmp($report['ReadOnly'], '') != 0) {
-                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\" style=\"color:red\">Votre rapport a été enregistré.<br/>Vous pouvez le récupérer en pdf an faisant un clic droit sur la page, en sélectionnant l\'option \"Imprimer\" dans le menu proposé. Vous verrez \" Enregistrer au format PDF \" apparaître dans la liste des destinations qu'il faudra sélectionner.</div>');";
+                echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\" style=\"color:red\">Votre rapport a été enregistré.<br/>Vous pouvez le récupérer en pdf an faisant un clic droit sur la page, en sélectionnant l\'option \"Imprimer\" dans le menu proposé. Vous verrez \" Enregistrer au format PDF \" apparaître dans la liste des destinations qu\'il faudra sélectionner.</div>');";
                 echo "<script>alert('Le rapport a bien été enregistré. Il doit être maintenant enregistré en pdf, téléchargé puis transmis à l\'école doctorale en suivant la procédure indiquée par cette dernière.');</script>";
             }
         } else {
