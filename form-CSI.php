@@ -166,7 +166,7 @@
         <h5>Productions scientifiques et participation à des colloques</h5>
         <div>
             <label>Avis et recommandations</label>
-            <textarea type="textarea" rows="5" class="form-control" required name="AvisRecommandationsProductionScientifique"><?php echo $report["AvisRecommandationsProductionScientifique"]; ?></textarea>
+            <textarea type="textarea" rows="5" class="form-control" <?php if ($report["PhD_CSI_Annee"]>2) {?>required<?php }?> name="AvisRecommandationsProductionScientifique"><?php echo $report["AvisRecommandationsProductionScientifique"]; ?></textarea>
         </div>
 
         <h5>Expériences internationales avec mobilités < à 3 mois</h5>
@@ -225,7 +225,7 @@
     </div>
     <div id="DateSoutenance" <?php if ($report["InscriptionDerogatoire"]=="" || $report["InscriptionDerogatoire"]=="Non"){ echo 'style="display:none"'; }?>>
         <label>Si oui, date prévue pour la soutenance de thèse</label>
-        <input required type="date" class="form-control" name="DateSoutenance" value="<?php echo $report["DateSoutenance"]; ?>">
+        <input <?php if ($report["InscriptionDerogatoire"]=="Oui" ){?>required<?php } ?> type="date" class="form-control" name="DateSoutenance" value="<?php echo $report["DateSoutenance"]; ?>">
     </div>
         
     <span>
