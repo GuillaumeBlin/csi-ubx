@@ -109,7 +109,7 @@ class Controller extends BlockController
         if (strcmp($this->langage, "FR") == 0) {
             echo "$('.std-page-main-inner > h1').text('Rapport annuel de la doctorante ou du doctorant ');            
             $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">Lecture réservée aux membres du CSI et à la direction de l\'ED. A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
-            if (strcmp($report['ReadOnly'], 'Oui') != 0) {
+            if (strcmp($report['ReadOnly'], 'Oui') == 0) {
                 echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\" style=\"color:red\">Votre rapport a été enregistré.</div>');";
             }
         } else {
@@ -128,7 +128,7 @@ class Controller extends BlockController
             echo "
                 $('.std-page-main-inner > h1').text('Rapport annuel de la direction de thèse');
                 $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
-            if (strcmp($report['ReadOnly'], 'Oui') != 0) {
+            if (strcmp($report['ReadOnly'], 'Oui') == 0) {
                 echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\" style=\"color:red\">Votre rapport a été enregistré.</div>');";
             }
         } else {
@@ -147,7 +147,7 @@ class Controller extends BlockController
         if (strcmp($this->langage, "FR") == 0) {
             echo "
                 $('.std-page-main-inner > h1').text('Rapport annuel du comité de suivi individuel de thèse');";
-            if (strcmp($report['ReadOnly'], 'Oui') != 0) {
+            if (strcmp($report['ReadOnly'], 'Oui') == 0) {
                 echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\" style=\"color:red\">Votre rapport a été enregistré.<br/>Vous pouvez le récupérer en pdf an faisant un clic droit sur la page, en sélectionnant l\'option \"Imprimer\" dans le menu proposé. Vous verrez \" Enregistrer au format PDF \" apparaître dans la liste des destinations qu\'il faudra sélectionner.</div>');";
                 echo "alert('Le rapport a bien été enregistré. Il doit être maintenant enregistré en pdf, téléchargé puis transmis à l\'école doctorale en suivant la procédure indiquée par cette dernière.');";
             }
