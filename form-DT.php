@@ -299,13 +299,13 @@
                 echo 'style="display:none"';
             } ?>><label>L'état d'avancement global des travaux vous permet-il d'envisager une soutenance dans les délais</label>
         <span>
-            <input required name="SoutenanceDansDelais" value="Oui" type="radio" <?php if ($report["SoutenanceDansDelais"] == "Oui") {
+            <input <?php if ($report["PhD_CSI_Annee"]<3) {?>required<?php }?>  name="SoutenanceDansDelais" value="Oui" type="radio" <?php if ($report["SoutenanceDansDelais"] == "Oui") {
                                                                                 echo "checked";
                                                                             } ?>>
             <label>Oui</label>
         </span>
         <span>
-            <input required name="SoutenanceDansDelais" value="Non" type="radio" <?php if ($report["SoutenanceDansDelais"] == "Non") {
+            <input <?php if ($report["PhD_CSI_Annee"]<3) {?>required<?php }?>  name="SoutenanceDansDelais" value="Non" type="radio" <?php if ($report["SoutenanceDansDelais"] == "Non") {
                                                                                 echo "checked";
                                                                             } ?>>
             <label>Non</label>
@@ -327,13 +327,13 @@
         </div>
         <div><label>Une inscription dérogatoire en 4ème année ou plus est-elle envisagée ?</label>
             <span>
-                <input required name="InscriptionDerogatoire" value="Oui" type="radio" <?php if ($report["InscriptionDerogatoire"] == "Oui") {
+                <input <?php if ($report["PhD_CSI_Annee"]>2) {?>required<?php }?>  name="InscriptionDerogatoire" value="Oui" type="radio" <?php if ($report["InscriptionDerogatoire"] == "Oui") {
                                                                                 echo "checked";
                                                                             } ?>>
                 <label>Oui</label>
             </span>
             <span>
-                <input required name="InscriptionDerogatoire" value="Non" type="radio" <?php if ($report["InscriptionDerogatoire"] == "" ||$report["InscriptionDerogatoire"] == "Non") {
+                <input <?php if ($report["PhD_CSI_Annee"]>2) {?>required<?php }?>  name="InscriptionDerogatoire" value="Non" type="radio" <?php if ($report["InscriptionDerogatoire"] == "" ||$report["InscriptionDerogatoire"] == "Non") {
                                                                                 echo "checked";
                                                                             } ?>>
                 <label>Non</label>
