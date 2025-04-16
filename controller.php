@@ -382,9 +382,12 @@ class Controller extends BlockController
     private function check_DT_pwd($mat,$pp){
         $students = $this->retrieve_json();
         $students = $students["data"][0];
+        if(strcmp("",$pp)==0){
+            return false;
+        }
         foreach ($students as $value) {
             if ($value["Matricule_etudiant"] == $mat) {
-                return strcmp($value["these_directeur_passphrase"],$pp)==0;
+                return strcmp($value["these_directeur_passphrase"],$pp)==0||strcmp($value["these_codirecteur_passphrase"],$pp)==0;
             }
         }
         return false;        
