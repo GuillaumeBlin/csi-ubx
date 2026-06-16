@@ -2,19 +2,19 @@
 
 <?php 
 //var_dump($report);
-    //if ($report_read_only == false) {      
+    if ($report_read_only == false) {      
         $actionShowPhDReport = str_replace("/load_user/", "/show_PhDReport/", $_SERVER['REQUEST_URI']);
         $actionShowDTReport = str_replace("/load_user/", "/show_DTReport/", $_SERVER['REQUEST_URI']);
 
 ?>
         <table>
             <tr>
-                <td>Phd report : <i class='far fa-file-alt' onclick='window.open("<?php echo $actionShowPhDReport;?>?code=<?php echo htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))); ?>", "_blank");'></i></td>
-                <td>DT report : <i class='far fa-file-alt' onclick='window.open("<?php echo $actionShowDTReport;?>?code=<?php echo htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-DT"))); ?>", "_blank");'></i></td>
+                <td>See Phd report : <i class='far fa-file-alt' onclick='window.open("<?php echo $actionShowPhDReport;?>?code=<?php echo htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-PhD"))); ?>", "_blank");'></i></td>
+                <td>See DT report : <i class='far fa-file-alt' onclick='window.open("<?php echo $actionShowDTReport;?>?code=<?php echo htmlspecialchars(urlencode($this->enc("csi-" . $row["Matricule"] . "-DT"))); ?>", "_blank");'></i></td>
             </tr>
         </table>
 <?php 
-    //}        
+    }        
 ?>
 
 
