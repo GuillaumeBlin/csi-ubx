@@ -609,7 +609,7 @@ class Controller extends BlockController
                     include('report-' . $type . '.php');
                 }else{
                     Log::addNotice('Attempt to get invalid report with code '. $code. ' ; mat='.$mat.' ; type='.$type. " ; from IP:".$_SERVER['REMOTE_ADDR']);
-                    echo 'Invalid request';
+                    echo 'Invalid credential or No report available yet ';
                 }
             } else {
                 echo 'Invalid request';
