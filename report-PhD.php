@@ -12,6 +12,9 @@
              }
              .print-content {
                 display: block !important;
+                overflow: visible;
+                white-space: pre;
+                white-space: pre-wrap;
             }
             textarea {display: none !important;}
              h1{
