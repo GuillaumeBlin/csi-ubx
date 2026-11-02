@@ -111,6 +111,7 @@ class Controller extends BlockController
             $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">Lecture réservée aux membres du CSI et à la direction de l\'ED. A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
             if (strcmp($report['ReadOnly'], 'Oui') == 0) {
                 echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\" style=\"color:red\">Votre rapport a été enregistré.</div>');";
+                echo "alert('Le rapport a bien été enregistré. Il doit être maintenant enregistré en pdf, téléchargé puis transmis aux membres du CSI.');";
             }
         } else {
             echo "$('.std-page-main-inner > h1').text('Annual report of the PhD student ');
@@ -130,6 +131,8 @@ class Controller extends BlockController
                 $('.std-page-main-inner > h1').after('<div class=\"block-introduction\">A adresser obligatoirement aux membres du CSI avant l\'entretien.</div>');";
             if (strcmp($report['ReadOnly'], 'Oui') == 0) {
                 echo "$('.std-page-main-inner > h1').before('<div class=\"block-introduction\" style=\"color:red\">Votre rapport a été enregistré.</div>');";
+                echo "alert('Le rapport a bien été enregistré. Il doit être maintenant enregistré en pdf, téléchargé puis transmis aux membres du CSI.');";
+
             }
         } else {
             echo "
